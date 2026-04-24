@@ -1,0 +1,2 @@
+"import React, { useState } from 'react';\nimport { motion, AnimatePresence } from 'framer-motion';\nimport { \n  Sparkles, \n  BarChart3, \n  Map, \n  ArrowRight, \n  Mail, \n  ShieldCheck, \n  Target, \n  Cpu,\n  Loader2,\n  X,\n  CheckCircle2\n} from 'l
+<truncated 13206 bytes>

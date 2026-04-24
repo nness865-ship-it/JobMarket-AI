@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getJobTrends } from '../../services/api';
 import { BarChart as BarC, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line, Legend } from 'recharts';
-import { Loader2, TrendingUp, BarChart3, PieChart as PieChartIcon } from 'lucide-react';
+import { Loader2, TrendingUp, BarChart3, PieChart as PieChartIcon, RotateCcw, AlertCircle } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { motion } from 'framer-motion';
 
@@ -10,6 +10,7 @@ const COLORS = ['#0ea5e9', '#8b5cf6', '#10b981', '#f59e0b', '#ef4444', '#ec4899'
 export function Trends() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState({ topSkills: [], roleDistribution: [], salaryTrend: [] });
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetchTrends();
@@ -17,40 +18,15 @@ export function Trends() {
 
   const fetchTrends = async () => {
     try {
+      setError(null);
       const response = await getJobTrends();
       setData(response.data);
       setLoading(false);
     } catch (err) {
-      // Mock data fallback
-      setTimeout(() => {
-        setData({
-          topSkills: [
-            { name: 'React', demand: 98 },
-            { name: 'Python', demand: 95 },
-            { name: 'Node.js', demand: 88 },
-            { name: 'TypeScript', demand: 85 },
-            { name: 'AWS', demand: 82 },
-            { name: 'Docker', demand: 75 },
-            { name: 'GraphQL', demand: 68 },
-            { name: 'PostgreSQL', demand: 65 },
-          ],
-          roleDistribution: [
-            { name: 'Frontend', value: 35 },
-            { name: 'Backend', value: 30 },
-            { name: 'Full Stack', value: 20 },
-            { name: 'DevOps', value: 10 },
-            { name: 'Data Eng', value: 5 },
-          ],
-          salaryTrend: [
-            { year: '2020', average: 95000 },
-            { year: '2021', average: 105000 },
-            { year: '2022', average: 115000 },
-            { year: '2023', average: 120000 },
-            { year: '2024', average: 128000 },
-          ]
-        });
-        setLoading(false);
-      }, 1000);
+      console.error(err);
+      setError("Failed to load trends. Make sure backend is running and jobs are seeded.");
+      setData({ topSkills: [], roleDistribution: [], salaryTrend: [] });
+      setLoading(false);
     }
   };
 
@@ -88,12 +64,45 @@ export function Trends() {
     grid: { stroke: '#1e293b' }
   };
 
+  const isEmpty =
+    !data?.topSkills?.length && !data?.roleDistribution?.length && !data?.salaryTrend?.length;
+
   return (
     <div className="w-full max-w-7xl mx-auto space-y-6">
       <div className="mb-6">
-        <h2 className="text-2xl font-bold tracking-tight text-white mb-1">Market Intelligence</h2>
-        <p className="text-saas-400 text-sm">Real-time insights from global job market data.</p>
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <h2 className="text-2xl font-bold tracking-tight text-white mb-1">Market Intelligence</h2>
+            <p className="text-saas-400 text-sm">Live analytics computed from your jobs database.</p>
+          </div>
+          <button
+            onClick={() => { setLoading(true); fetchTrends(); }}
+            className="inline-flex items-center gap-2 rounded-lg bg-saas-800 px-3 py-2 text-sm font-medium text-white hover:bg-saas-700 border border-saas-700"
+          >
+            <RotateCcw className="w-4 h-4" />
+            Refresh
+          </button>
+        </div>
       </div>
+
+      {error && (
+        <div className="flex items-center gap-2.5 rounded-lg px-4 py-3 text-sm font-medium border bg-amber-500/10 text-amber-400 border-amber-500/20">
+          <AlertCircle className="w-4 h-4 shrink-0" />
+          {error}
+        </div>
+      )}
+
+      {isEmpty && (
+        <div className="bg-saas-900 border border-saas-800 rounded-xl p-12 text-center flex flex-col items-center justify-center min-h-[320px]">
+          <div className="w-16 h-16 rounded-full bg-saas-800 flex items-center justify-center mb-4 text-saas-400">
+            <TrendingUp className="w-8 h-8" />
+          </div>
+          <h3 className="text-lg font-semibold text-white mb-2">No trends data yet</h3>
+          <p className="text-saas-400 max-w-md">
+            Seed your jobs database (backend endpoint <code className="text-saas-300">/seed-jobs</code>) and refresh this page.
+          </p>
+        </div>
+      )}
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Top Skills Bar Chart */}

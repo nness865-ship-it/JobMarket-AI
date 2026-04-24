@@ -2,19 +2,20 @@ import React, { useState } from 'react';
 import { Navbar } from './Navbar';
 import { Sidebar } from './Sidebar';
 
-export function Layout({ children, activeTab, setActiveTab }) {
+export function Layout({ children, activeTab, setActiveTab, email, profile }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-saas-950 font-sans text-saas-50">
-      <Navbar onMenuClick={() => setSidebarOpen(true)} />
+      <Navbar onMenuClick={() => setSidebarOpen(true)} email={email} profile={profile} />
       
       <div className="flex overflow-hidden">
         <Sidebar 
           open={sidebarOpen} 
           setOpen={setSidebarOpen} 
           activeTab={activeTab} 
-          setActiveTab={setActiveTab} 
+          setActiveTab={setActiveTab}
+          email={email}
         />
         
         <main className="flex-1 overflow-y-auto overflow-x-hidden md:pl-64 focus:outline-none bg-saas-950">

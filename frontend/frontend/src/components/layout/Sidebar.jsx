@@ -11,7 +11,20 @@ const MOCK_NAV = [
   { name: 'Trends', icon: TrendingUp, id: 'trends' },
 ];
 
-export function Sidebar({ open, setOpen, activeTab, setActiveTab }) {
+function getInitials(email) {
+  if (!email) return 'U';
+  const local = email.split('@')[0];
+  const parts = local.split(/[._-]/);
+  if (parts.length >= 2) {
+    return (parts[0][0] + parts[1][0]).toUpperCase();
+  }
+  return local.slice(0, 2).toUpperCase();
+}
+
+export function Sidebar({ open, setOpen, activeTab, setActiveTab, email }) {
+  const initials = getInitials(email);
+  const displayEmail = email || 'Not signed in';
+
   const NavLinks = ({ onClick }) => (
     <nav className="flex-1 space-y-1 px-3 py-4">
       {MOCK_NAV.map((item) => {
@@ -86,11 +99,13 @@ export function Sidebar({ open, setOpen, activeTab, setActiveTab }) {
           <NavLinks />
         </div>
         <div className="p-4 border-t border-saas-800 flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-primary to-accent flex items-center justify-center text-xs font-bold font-white">JD</div>
-            <div className="flex flex-col">
-              <span className="text-sm font-medium text-white">Jane Doe</span>
-              <span className="text-xs text-saas-400 truncate w-32">jane@example.com</span>
-            </div>
+          <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-primary to-accent flex items-center justify-center text-xs font-bold text-white shrink-0">
+            {initials}
+          </div>
+          <div className="flex flex-col min-w-0">
+            <span className="text-sm font-medium text-white truncate">{initials} Account</span>
+            <span className="text-xs text-saas-400 truncate w-36">{displayEmail}</span>
+          </div>
         </div>
       </div>
     </>

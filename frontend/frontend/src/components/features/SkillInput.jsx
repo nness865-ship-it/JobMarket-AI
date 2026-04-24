@@ -1,118 +1,150 @@
-import { useState } from "react";
-import axios from "axios";
+import { useEffect, useState } from "react";
+import { saveUserSkills } from "../../services/api";
+import { Plus, X, CheckCircle2, AlertCircle, Loader2, Tag } from "lucide-react";
+import { cn } from "../../lib/utils";
 
-export function SkillInput({ email, onEmailChange }) {
+export function SkillInput({ email, skills: externalSkills, onSkillsChange, onSkillsSaved }) {
   const [skillInput, setSkillInput] = useState("");
   const [skills, setSkills] = useState([]);
+  const [status, setStatus] = useState(null); // { type: 'success'|'error', message: string }
+  const [loading, setLoading] = useState(false);
+
+  // Keep local view in sync with parent state (resume upload etc.)
+  useEffect(() => {
+    if (Array.isArray(externalSkills)) {
+      setSkills(externalSkills);
+    }
+  }, [externalSkills]);
+
+  const showStatus = (type, message) => {
+    setStatus({ type, message });
+    setTimeout(() => setStatus(null), 4000);
+  };
 
   const addSkill = () => {
-    if (!skillInput.trim()) return;
-
-    setSkills([...skills, skillInput.trim()]);
+    const trimmed = skillInput.trim().toLowerCase();
+    if (!trimmed) return;
+    if (skills.includes(trimmed)) {
+      showStatus("error", `"${trimmed}" is already in your list.`);
+      return;
+    }
+    const next = [...skills, trimmed];
+    setSkills(next);
+    if (onSkillsChange) onSkillsChange(next);
     setSkillInput("");
   };
 
   const removeSkill = (indexToRemove) => {
-    setSkills(skills.filter((_, index) => index !== indexToRemove));
+    const next = skills.filter((_, index) => index !== indexToRemove);
+    setSkills(next);
+    if (onSkillsChange) onSkillsChange(next);
   };
 
   const saveSkills = async () => {
     const trimmedEmail = (email || "").trim();
 
     if (!trimmedEmail) {
-      alert("Please enter your email before saving skills");
+      showStatus("error", "Please enter your email address before saving.");
       return;
     }
 
     if (!skills.length) {
-      alert("Please add at least one skill");
+      showStatus("error", "Please add at least one skill before saving.");
       return;
     }
 
+    setLoading(true);
     try {
-      await axios.post("http://127.0.0.1:5000/save-user-skills", {
-        email: trimmedEmail,
-        skills,
-      });
-
-      alert("Skills saved successfully ✅");
+      const res = await saveUserSkills(trimmedEmail, skills);
+      const saved = res?.data?.skills || skills;
+      showStatus("success", `${skills.length} skill${skills.length > 1 ? "s" : ""} saved successfully!`);
+      if (onSkillsChange) onSkillsChange(saved);
+      if (onSkillsSaved) onSkillsSaved(saved);
     } catch (error) {
       console.error(error);
-      alert("Save failed ❌");
+      showStatus("error", "Failed to save skills. Please check your connection.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="mt-10 max-w-3xl mx-auto">
-      <div className="rounded-2xl border border-slate-800 bg-slate-900/60 shadow-lg shadow-slate-900/40 backdrop-blur p-8">
+    <div className="w-full max-w-2xl mx-auto">
+      <div className="rounded-2xl border border-saas-800 bg-saas-900/60 shadow-xl shadow-saas-950/40 backdrop-blur p-8">
+        
+        {/* Header */}
         <header className="mb-6">
-          <p className="text-xs font-semibold tracking-wide text-sky-400 uppercase">
-            Build your profile
+          <p className="text-xs font-semibold tracking-widest text-primary-light uppercase mb-1">
+            Manual Entry
           </p>
-          <h2 className="mt-2 text-2xl font-semibold text-slate-50">
-            Your Skill Profile
-          </h2>
-          <p className="mt-1 text-sm text-slate-400">
-            Add your primary skills and we will use them to personalize your recommendations.
+          <h2 className="text-xl font-bold text-white">Your Skill Profile</h2>
+          <p className="mt-1 text-sm text-saas-400">
+            Add your primary skills and we'll use them to personalize your recommendations.
           </p>
         </header>
 
-        <div className="space-y-5">
-          <div className="space-y-2">
-            <label className="block text-sm font-medium text-slate-200">
-              Email
-            </label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => onEmailChange && onEmailChange(e.target.value)}
-              placeholder="you@example.com"
-              className="w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/40"
-            />
+        {/* Status Banner */}
+        {status && (
+          <div className={cn(
+            "flex items-center gap-2.5 rounded-lg px-4 py-3 mb-5 text-sm font-medium border",
+            status.type === 'success'
+              ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
+              : "bg-red-500/10 text-red-400 border-red-500/20"
+          )}>
+            {status.type === 'success'
+              ? <CheckCircle2 className="w-4 h-4 shrink-0" />
+              : <AlertCircle className="w-4 h-4 shrink-0" />
+            }
+            {status.message}
           </div>
+        )}
 
-          <div className="space-y-2">
-            <label className="block text-sm font-medium text-slate-200">
-              Add skills
+        <div className="space-y-5">
+          {/* Skill Input */}
+          <div className="space-y-1.5">
+            <label className="block text-sm font-medium text-saas-200">
+              Add Skills
             </label>
-            <div className="flex gap-3">
+            <div className="flex gap-2">
               <input
                 type="text"
-                placeholder="Type a skill and press Enter"
+                placeholder="e.g. Python, React, SQL..."
                 value={skillInput}
                 onChange={(e) => setSkillInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && addSkill()}
-                className="flex-1 rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/40"
+                className="flex-1 rounded-lg border border-saas-700 bg-saas-800/50 px-3 py-2.5 text-sm text-saas-100 placeholder:text-saas-500 shadow-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 transition-colors"
               />
-
               <button
                 type="button"
                 onClick={addSkill}
-                className="inline-flex items-center justify-center rounded-lg bg-sky-500 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+                className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-white hover:bg-primary-light transition-colors"
               >
+                <Plus className="w-4 h-4" />
                 Add
               </button>
             </div>
           </div>
 
+          {/* Skill Tags */}
           {skills.length > 0 && (
             <div className="space-y-2">
-              <p className="text-xs font-medium uppercase tracking-wide text-slate-400">
-                Selected skills
+              <p className="text-xs font-semibold uppercase tracking-widest text-saas-500 flex items-center gap-1.5">
+                <Tag className="w-3 h-3" />
+                Selected Skills ({skills.length})
               </p>
               <div className="flex flex-wrap gap-2">
                 {skills.map((skill, index) => (
                   <span
                     key={index}
-                    className="inline-flex items-center gap-2 rounded-full bg-slate-800 px-3 py-1 text-xs font-medium text-slate-100"
+                    className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 border border-primary/20 px-3 py-1 text-xs font-medium text-primary-light"
                   >
                     {skill}
                     <button
                       type="button"
                       onClick={() => removeSkill(index)}
-                      className="text-slate-400 hover:text-slate-200"
+                      className="text-primary/60 hover:text-red-400 transition-colors"
                     >
-                      ×
+                      <X className="w-3 h-3" />
                     </button>
                   </span>
                 ))}
@@ -121,13 +153,25 @@ export function SkillInput({ email, onEmailChange }) {
           )}
         </div>
 
+        {/* Save Button */}
         <div className="mt-8 flex justify-end">
           <button
             type="button"
             onClick={saveSkills}
-            className="inline-flex items-center justify-center rounded-lg bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-emerald-500/30 hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-slate-900 disabled:cursor-not-allowed disabled:opacity-60"
+            disabled={loading || !skills.length}
+            className="inline-flex items-center justify-center gap-2 rounded-lg bg-emerald-500 px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
           >
-            Save skills
+            {loading ? (
+              <>
+                <Loader2 className="w-4 h-4 animate-spin" />
+                Saving...
+              </>
+            ) : (
+              <>
+                <CheckCircle2 className="w-4 h-4" />
+                Save & Get Recommendations
+              </>
+            )}
           </button>
         </div>
       </div>

@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { generateRoadmap } from '../../services/api';
-import { Map, CheckCircle2, Circle, ArrowRight, Loader2, BookOpen, ChevronRight, AlertCircle, RotateCcw } from 'lucide-react';
+import { Map, CheckCircle2, Circle, ArrowRight, Loader2, BookOpen, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '../../lib/utils';
 
 export function Roadmap({ role, email }) {
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const [roadmap, setRoadmap] = useState(null);
   const [expandedStep, setExpandedStep] = useState(0);
-  const [completedSteps, setCompletedSteps] = useState(new Set());
 
   useEffect(() => {
     if (role && email) {
@@ -21,29 +19,15 @@ export function Roadmap({ role, email }) {
 
   const handleGenerate = async (selectedRole, userEmail) => {
     setLoading(true);
-    setError(null);
     try {
       const response = await generateRoadmap(userEmail, selectedRole);
       setRoadmap(response.data?.roadmap);
     } catch (err) {
       console.error(err);
-      setError("Failed to generate roadmap. Please make sure the backend is running and you have a saved profile.");
+      alert("Failed to generate roadmap. Please try again.");
     }
     setLoading(false);
   };
-
-  const toggleComplete = (index) => {
-    setCompletedSteps(prev => {
-      const next = new Set(prev);
-      if (next.has(index)) next.delete(index);
-      else next.add(index);
-      return next;
-    });
-  };
-
-  const completedCount = completedSteps.size;
-  const totalSteps = roadmap?.steps?.length || 0;
-  const progressPct = totalSteps > 0 ? Math.round((completedCount / totalSteps) * 100) : 0;
 
   if (!role && !loading && !roadmap) {
     return (
@@ -69,24 +53,6 @@ export function Roadmap({ role, email }) {
     );
   }
 
-  if (error) {
-    return (
-      <div className="w-full max-w-3xl mx-auto bg-saas-900 border border-red-500/20 rounded-xl p-12 flex flex-col items-center justify-center min-h-[400px]">
-        <div className="w-14 h-14 rounded-full bg-red-500/10 flex items-center justify-center mb-4 text-red-400">
-          <AlertCircle className="w-7 h-7" />
-        </div>
-        <h3 className="text-lg font-semibold text-white mb-2">Could Not Generate Roadmap</h3>
-        <p className="text-saas-400 text-sm text-center max-w-sm mb-6">{error}</p>
-        <button
-          onClick={() => handleGenerate(role, email)}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-saas-800 hover:bg-saas-700 text-white text-sm font-medium transition-colors"
-        >
-          <RotateCcw className="w-4 h-4" /> Retry
-        </button>
-      </div>
-    );
-  }
-
   return (
     <div className="w-full max-w-3xl mx-auto">
       <div className="mb-8">
@@ -96,24 +62,6 @@ export function Roadmap({ role, email }) {
         </p>
       </div>
 
-      {/* Progress bar */}
-      {totalSteps > 0 && (
-        <div className="mb-8 bg-saas-900 border border-saas-800 rounded-xl p-5">
-          <div className="flex justify-between items-center mb-3">
-            <span className="text-sm font-semibold text-white">Overall Progress</span>
-            <span className="text-sm font-bold text-primary-light">{completedCount}/{totalSteps} steps</span>
-          </div>
-          <div className="w-full bg-saas-800 rounded-full h-2 overflow-hidden">
-            <motion.div
-              animate={{ width: `${progressPct}%` }}
-              transition={{ duration: 0.5 }}
-              className="h-full bg-gradient-to-r from-primary to-accent rounded-full"
-            />
-          </div>
-          <p className="text-xs text-saas-500 mt-2">{progressPct}% complete</p>
-        </div>
-      )}
-
       <div className="relative pl-4 md:pl-0">
         {/* Timeline Line */}
         <div className="absolute left-[23px] md:left-8 top-6 bottom-6 w-0.5 bg-saas-800" />
@@ -121,42 +69,30 @@ export function Roadmap({ role, email }) {
         <div className="space-y-6">
           {roadmap?.steps.map((step, index) => {
             const isExpanded = expandedStep === index;
-            const isCompleted = completedSteps.has(index);
-
+            
             return (
-              <motion.div
+              <motion.div 
                 key={step.id}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.08 }}
+                transition={{ delay: index * 0.1 }}
                 className="relative flex items-start gap-4 md:gap-6 group"
               >
                 {/* Timeline Node */}
                 <div className="relative z-10 flex flex-col items-center justify-start pt-1 md:pl-4">
-                  <button
-                    onClick={() => toggleComplete(index)}
-                    title={isCompleted ? "Mark as incomplete" : "Mark as complete"}
-                    className={cn(
-                      "w-10 h-10 rounded-full flex items-center justify-center border-4 border-saas-950 shadow-sm transition-all duration-200",
-                      isCompleted
-                        ? "bg-emerald-500/20 text-emerald-400 hover:bg-red-500/10 hover:text-red-400"
-                        : "bg-saas-900 text-saas-500 hover:border-saas-700 hover:text-primary-light"
-                    )}
-                  >
-                    {isCompleted
-                      ? <CheckCircle2 className="w-5 h-5" />
-                      : <Circle className="w-3 h-3 fill-current" />
-                    }
-                  </button>
+                  <div className={cn(
+                    "w-10 h-10 rounded-full flex items-center justify-center border-4 border-saas-950 bg-saas-900 shadow-sm transition-colors",
+                    step.completed ? "text-emerald-400 shadow-emerald-500/20" : "text-saas-400 group-hover:border-saas-800 group-hover:text-primary-light"
+                  )}>
+                    {step.completed ? <CheckCircle2 className="w-5 h-5" /> : <Circle className="w-3 h-3 fill-current" />}
+                  </div>
                 </div>
 
                 {/* Content Card */}
-                <div
+                <div 
                   className={cn(
                     "flex-1 bg-saas-900 border rounded-xl overflow-hidden transition-all duration-200",
-                    isCompleted ? "border-emerald-500/20 bg-emerald-500/5" :
-                    isExpanded ? "border-saas-600 shadow-lg shadow-black/20" :
-                    "border-saas-800 hover:border-saas-700 hover:bg-saas-800/20 cursor-pointer"
+                    isExpanded ? "border-saas-600 shadow-lg shadow-black/20" : "border-saas-800 hover:border-saas-700 hover:bg-saas-800/20 cursor-pointer"
                   )}
                   onClick={() => setExpandedStep(isExpanded ? -1 : index)}
                 >
@@ -167,22 +103,17 @@ export function Roadmap({ role, email }) {
                         <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-saas-800 text-saas-300">
                           {step.duration}
                         </span>
-                        {isCompleted && (
-                          <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                            ✓ Done
-                          </span>
-                        )}
                       </div>
                       <h3 className={cn(
                         "text-lg font-bold transition-colors",
-                        isExpanded ? "text-white" : isCompleted ? "text-emerald-300 line-through decoration-emerald-500/40" : "text-saas-100"
+                        isExpanded ? "text-white" : "text-saas-100"
                       )}>
                         {step.title}
                       </h3>
                     </div>
-
+                    
                     <button className={cn(
-                      "w-8 h-8 rounded-full flex items-center justify-center bg-saas-800 text-saas-400 transition-transform duration-200 shrink-0",
+                      "w-8 h-8 rounded-full flex items-center justify-center bg-saas-800 text-saas-400 transition-transform duration-200",
                       isExpanded ? "rotate-90 text-primary-light bg-primary/10" : ""
                     )}>
                       <ChevronRight className="w-4 h-4" />
@@ -201,7 +132,7 @@ export function Roadmap({ role, email }) {
                           <p className="text-saas-300 text-sm leading-relaxed">
                             {step.description}
                           </p>
-
+                          
                           <div>
                             <h4 className="text-xs font-semibold text-saas-400 uppercase tracking-wider mb-3 flex items-center gap-2">
                               <BookOpen className="w-3.5 h-3.5" />
@@ -217,20 +148,9 @@ export function Roadmap({ role, email }) {
                             </ul>
                           </div>
 
-                          <div className="pt-2 flex items-center justify-between">
+                          <div className="pt-2">
                             <button className="text-sm font-medium text-primary hover:text-primary-light transition-colors">
                               Find learning resources &rarr;
-                            </button>
-                            <button
-                              onClick={(e) => { e.stopPropagation(); toggleComplete(index); }}
-                              className={cn(
-                                "text-xs font-medium px-3 py-1.5 rounded-lg transition-colors",
-                                isCompleted
-                                  ? "bg-red-500/10 text-red-400 hover:bg-red-500/20"
-                                  : "bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20"
-                              )}
-                            >
-                              {isCompleted ? "Mark Incomplete" : "Mark Complete"}
                             </button>
                           </div>
                         </div>

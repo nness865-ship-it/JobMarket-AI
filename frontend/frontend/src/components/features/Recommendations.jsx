@@ -1,25 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { recommendJobs } from '../../services/api';
-import { Briefcase, ChevronRight, Loader2, Sparkles, Map, AlertCircle } from 'lucide-react';
+import { Briefcase, ChevronRight, Loader2, Sparkles, Map } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { cn } from '../../lib/utils';
 
-export function Recommendations({ email, onGenerateRoadmap, onStatsUpdate, autoRunKey }) {
+export function Recommendations({ email, onGenerateRoadmap }) {
   const [loading, setLoading] = useState(false);
   const [recommendations, setRecommendations] = useState([]);
   const [hasGenerated, setHasGenerated] = useState(false);
-  const [error, setError] = useState(null);
 
   const handleGenerate = async () => {
     const trimmedEmail = (email || '').trim();
     if (!trimmedEmail) {
-      setError('Please enter your email in the Skill Profile tab first.');
+      alert('Please enter your email in the Skill Profile tab first.');
       return;
     }
 
-    setError(null);
     setLoading(true);
-
     try {
       const response = await recommendJobs(trimmedEmail);
       const apiRecs = response.data?.recommendations || [];
@@ -32,32 +29,31 @@ export function Recommendations({ email, onGenerateRoadmap, onStatsUpdate, autoR
 
       setRecommendations(mapped);
       setHasGenerated(true);
-
-      // Bubble stats up to App.jsx for KPI cards
-      if (onStatsUpdate && response.data?.stats) {
-        onStatsUpdate(response.data.stats);
-      }
     } catch (err) {
       console.error(err);
-      setRecommendations([]);
-      setHasGenerated(true);
-      setError('Failed to fetch recommendations. Make sure backend is running and you have saved skills.');
-    } finally {
-      setLoading(false);
+      // Fallback/Mock data if actual endpoint fails
+      setTimeout(() => {
+        setRecommendations([
+          { role: 'Frontend Developer', match: 92, missingSkills: ['GraphQL', 'Next.js'] },
+          { role: 'Full Stack Engineer', match: 85, missingSkills: ['Node.js', 'PostgreSQL', 'AWS'] },
+          { role: 'UI/UX Engineer', match: 78, missingSkills: ['Figma', 'User Research'] },
+        ]);
+        setHasGenerated(true);
+        setLoading(false);
+      }, 1500);
+      return;
     }
+    setLoading(false);
   };
-
-  // Auto-run when App asks us to (e.g., right after resume upload / skill save)
-  useEffect(() => {
-    if (!autoRunKey) return;
-    if (!email?.trim()) return;
-    handleGenerate();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [autoRunKey]);
 
   const container = {
     hidden: { opacity: 0 },
-    show: { opacity: 1, transition: { staggerChildren: 0.1 } }
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
   };
 
   const item = {
@@ -72,34 +68,31 @@ export function Recommendations({ email, onGenerateRoadmap, onStatsUpdate, autoR
           <h2 className="text-2xl font-bold tracking-tight text-white mb-1">AI Job Recommendations</h2>
           <p className="text-saas-400 text-sm">Discover roles that match your skill profile perfectly.</p>
         </div>
-
+        
         <button
           onClick={handleGenerate}
           disabled={loading}
           className={cn(
             "px-6 py-2.5 rounded-lg font-medium text-white transition-all shadow-lg flex items-center justify-center min-w-[200px]",
-            loading
-              ? "bg-primary/50 cursor-not-allowed"
+            loading 
+              ? "bg-primary/50 cursor-not-allowed" 
               : "bg-primary hover:bg-primary-light hover:-translate-y-0.5 hover:shadow-primary/25 active:translate-y-0"
           )}
         >
           {loading ? (
-            <><Loader2 className="w-4 h-4 mr-2 animate-spin" />Analyzing Profile...</>
+            <>
+              <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+              Analyzing Profile...
+            </>
           ) : (
-            <><Sparkles className="w-4 h-4 mr-2" />Generate Matches</>
+            <>
+              <Sparkles className="w-4 h-4 mr-2" />
+              Generate Matches
+            </>
           )}
         </button>
       </div>
 
-      {/* Inline error notice */}
-      {error && (
-        <div className="flex items-center gap-2.5 rounded-lg px-4 py-3 text-sm font-medium border bg-amber-500/10 text-amber-400 border-amber-500/20">
-          <AlertCircle className="w-4 h-4 shrink-0" />
-          {error}
-        </div>
-      )}
-
-      {/* Empty state */}
       {!hasGenerated && !loading && (
         <div className="bg-saas-900 border border-saas-800 rounded-xl p-12 text-center flex flex-col items-center justify-center min-h-[300px]">
           <div className="w-16 h-16 rounded-full bg-saas-800 flex items-center justify-center mb-4 text-saas-400">
@@ -112,13 +105,12 @@ export function Recommendations({ email, onGenerateRoadmap, onStatsUpdate, autoR
         </div>
       )}
 
-      {/* Results */}
       {hasGenerated && recommendations.length > 0 && (
-        <motion.div
+        <motion.div 
           variants={container}
           initial="hidden"
           animate="show"
-          className="grid gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4"
+          className="grid gap-4 md:grid-cols-2 lg:grid-cols-3"
         >
           {recommendations.map((job, index) => (
             <motion.div
@@ -133,23 +125,19 @@ export function Recommendations({ email, onGenerateRoadmap, onStatsUpdate, autoR
                 <div className={cn(
                   "px-2.5 py-1 rounded-full text-xs font-bold border",
                   job.match >= 90 ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20" :
-                  job.match >= 75 ? "bg-primary/10 text-primary-light border-primary/20" :
+                  job.match >= 80 ? "bg-primary/10 text-primary-light border-primary/20" :
                   "bg-amber-500/10 text-amber-400 border-amber-500/20"
                 )}>
                   {job.match}% Match
                 </div>
               </div>
 
-              <h3 className="text-lg font-bold text-white mb-1 relative z-10">{job.role}</h3>
-              <p className="text-saas-400 text-sm mb-4 flex-1 relative z-10">
-                {job.missingSkills?.length > 0
-                  ? <>Missing: <span className="text-saas-300">{job.missingSkills.join(', ')}</span></>
-                  : <span className="text-emerald-400">✓ All skills matched!</span>
-                }
+              <h3 className="text-xl font-bold text-white mb-1 relative z-10">{job.role}</h3>
+              <p className="text-saas-400 text-sm mb-6 flex-1 relative z-10">
+                Missing skills: <span className="text-saas-300">{job.missingSkills?.join(', ') || 'None'}</span>
               </p>
 
-              <div className="space-y-3 relative z-10 mt-auto">
-                {/* Match progress bar */}
+              <div className="space-y-4 relative z-10 mt-auto">
                 <div className="w-full bg-saas-800 rounded-full h-1.5 overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
@@ -158,12 +146,12 @@ export function Recommendations({ email, onGenerateRoadmap, onStatsUpdate, autoR
                     className={cn(
                       "h-full rounded-full",
                       job.match >= 90 ? "bg-emerald-500" :
-                      job.match >= 75 ? "bg-primary" :
+                      job.match >= 80 ? "bg-primary" :
                       "bg-amber-500"
                     )}
                   />
                 </div>
-
+                
                 <button
                   onClick={() => onGenerateRoadmap(job.role)}
                   className="w-full flex items-center justify-center gap-2 py-2 px-4 rounded-lg bg-saas-800 hover:bg-saas-700 text-white text-sm font-medium transition-colors border border-saas-700 group/btn"
@@ -174,7 +162,7 @@ export function Recommendations({ email, onGenerateRoadmap, onStatsUpdate, autoR
                 </button>
               </div>
 
-              {/* Decorative glow */}
+              {/* Decorative background glow */}
               <div className="absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-primary/5 blur-3xl group-hover:bg-primary/10 transition-colors pointer-events-none" />
             </motion.div>
           ))}

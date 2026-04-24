@@ -7,8 +7,9 @@ import { Roadmap } from './components/features/Roadmap';
 import { Trends } from './components/features/Trends';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getUser, recommendJobs, saveUserSkills } from './services/api';
-import { Sparkles, BarChart3, Map, User, CheckCircle2, Circle } from 'lucide-react';
-import { useAuth } from './auth/useAuth';
+import { Landing } from './pages/Landing';
+import { useAuth } from './auth/useAuth.jsx';
+import { Loader2, Sparkles, BarChart3, Map, User, CheckCircle2, Circle } from 'lucide-react';
 
 function App() {
   const auth = useAuth();
@@ -23,14 +24,10 @@ function App() {
 
   // When authenticated, bind profile email automatically
   useEffect(() => {
-    if (auth.isAuthed && auth.user?.email && auth.user.email !== email) {
+    if (auth.isAuthed && auth.user?.email) {
       setEmail(auth.user.email);
     }
-    if (!auth.isAuthed && !email) {
-      // allow anonymous/manual mode
-      return;
-    }
-  }, [auth.isAuthed, auth.user, email]);
+  }, [auth.isAuthed, auth.user]);
 
   const handleGenerateRoadmap = (role) => {
     setTargetRole(role);
@@ -38,12 +35,13 @@ function App() {
   };
 
   const handleSkillsExtracted = async (extracted) => {
-    const merged = Array.from(
-      new Set([...(skills || []), ...(extracted || [])].map((s) => (s || '').trim().toLowerCase()).filter(Boolean))
+    // Replace skills entirely on resume upload as requested by user
+    const freshSkills = Array.from(
+      new Set((extracted || []).map((s) => (s || '').trim().toLowerCase()).filter(Boolean))
     );
-    setSkills(merged);
+    setSkills(freshSkills);
     if (email) {
-      try { await saveUserSkills(email, merged); } catch (e) { console.error(e); }
+      try { await saveUserSkills(email, freshSkills); } catch (e) { console.error(e); }
     }
     // Refresh dashboard stats + recommendations automatically
     if (email) {
@@ -191,166 +189,178 @@ function App() {
     },
   ];
 
+  if (auth.status === 'loading') {
+    return (
+      <div className="min-h-screen bg-saas-950 flex items-center justify-center">
+        <Loader2 className="w-10 h-10 text-primary animate-spin" />
+      </div>
+    );
+  }
+
+  if (!auth.isAuthed) {
+    return <Landing key="landing" />;
+  }
+
   return (
-    <Layout activeTab={activeTab} setActiveTab={setActiveTab} email={email} profile={profile}>
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={activeTab}
-          variants={tabVariants}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          className="w-full h-full"
-        >
+    <div key={auth.user?.email || 'dashboard'}>
+      <Layout activeTab={activeTab} setActiveTab={setActiveTab} email={email} profile={profile}>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab}
+            variants={tabVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="w-full h-full"
+          >
 
-          {/* ─── DASHBOARD ─── */}
-          {activeTab === 'dashboard' && (
-            <div className="space-y-8">
-              <div className="mb-2">
-                <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-2">
-                  Welcome to <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-accent-light">Elevate AI</span>
-                </h1>
-                <p className="text-saas-400 text-lg max-w-2xl">
-                  Your AI-powered career co-pilot. Build your profile, discover perfect roles, and generate learning paths to get there.
-                </p>
-              </div>
+            {/* ─── DASHBOARD ─── */}
+            {activeTab === 'dashboard' && (
+              <div className="space-y-8">
+                <div className="mb-2">
+                  <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-2">
+                    Welcome to <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-accent-light">Elevate AI</span>
+                  </h1>
+                  <p className="text-saas-400 text-lg max-w-2xl">
+                    Your AI-powered career co-pilot. Build your profile, discover perfect roles, and generate learning paths to get there.
+                  </p>
+                </div>
 
-              {/* KPI Cards */}
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                {kpiCards.map((card) => (
-                  <button
-                    key={card.label}
-                    onClick={() => setActiveTab(card.tab)}
-                    className={`group relative rounded-xl border border-saas-800 bg-gradient-to-br ${card.color} p-5 text-left hover:border-saas-600 transition-all duration-200 hover:-translate-y-0.5`}
-                  >
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="p-2 bg-saas-900/60 rounded-lg">{card.icon}</div>
+                {/* KPI Cards */}
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                  {kpiCards.map((card) => (
+                    <button
+                      key={card.label}
+                      onClick={() => setActiveTab(card.tab)}
+                      className={`group relative rounded-xl border border-saas-800 bg-gradient-to-br ${card.color} p-5 text-left hover:border-saas-600 transition-all duration-200 hover:-translate-y-0.5`}
+                    >
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="p-2 bg-saas-900/60 rounded-lg">{card.icon}</div>
+                      </div>
+                      <p className="text-2xl font-bold text-white mb-0.5 truncate">{card.value}</p>
+                      <p className="text-xs font-semibold text-saas-400 uppercase tracking-wide">{card.label}</p>
+                      <p className="text-xs text-saas-500 mt-1">{card.sub}</p>
+                    </button>
+                  ))}
+                </div>
+
+                {/* Quick Actions + Getting Started */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                  {/* Getting Started Checklist */}
+                  <div className="lg:col-span-1 bg-saas-900 border border-saas-800 rounded-2xl p-6">
+                    <h3 className="text-base font-bold text-white mb-4">Getting Started</h3>
+                    <ul className="space-y-3">
+                      {checklist.map((item, i) => (
+                        <li key={i} className="flex items-center gap-3 text-sm">
+                          {item.done
+                            ? <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                            : <Circle className="w-4 h-4 text-saas-600 shrink-0" />
+                          }
+                          <span className={item.done ? 'text-saas-300 line-through decoration-saas-600' : 'text-saas-200'}>
+                            {item.label}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Feature Cards */}
+                  <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="border border-saas-800 bg-saas-900/50 rounded-2xl p-6 relative overflow-hidden group hover:border-saas-600 transition-all">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <h3 className="text-base font-bold text-white mb-2 relative z-10">Resume Parsing</h3>
+                      <p className="text-saas-400 text-sm mb-4 relative z-10">Upload a PDF to instantly extract your skills using our spaCy NLP pipeline.</p>
+                      <button onClick={() => setActiveTab('skills')} className="relative z-10 text-primary-light text-sm font-medium hover:text-white transition-colors">
+                        Upload Resume →
+                      </button>
                     </div>
-                    <p className="text-2xl font-bold text-white mb-0.5 truncate">{card.value}</p>
-                    <p className="text-xs font-semibold text-saas-400 uppercase tracking-wide">{card.label}</p>
-                    <p className="text-xs text-saas-500 mt-1">{card.sub}</p>
-                  </button>
-                ))}
-              </div>
 
-              {/* Quick Actions + Getting Started */}
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                {/* Getting Started Checklist */}
-                <div className="lg:col-span-1 bg-saas-900 border border-saas-800 rounded-2xl p-6">
-                  <h3 className="text-base font-bold text-white mb-4">Getting Started</h3>
-                  <ul className="space-y-3">
-                    {checklist.map((item, i) => (
-                      <li key={i} className="flex items-center gap-3 text-sm">
-                        {item.done
-                          ? <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                          : <Circle className="w-4 h-4 text-saas-600 shrink-0" />
-                        }
-                        <span className={item.done ? 'text-saas-300 line-through decoration-saas-600' : 'text-saas-200'}>
-                          {item.label}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                    <div className="border border-saas-800 bg-saas-900/50 rounded-2xl p-6 relative overflow-hidden group hover:border-saas-600 transition-all">
+                      <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <h3 className="text-base font-bold text-white mb-2 relative z-10">Job Recommendations</h3>
+                      <p className="text-saas-400 text-sm mb-4 relative z-10">AI-computed match scores between your skill profile and live job roles.</p>
+                      <button onClick={() => setActiveTab('recommendations')} className="relative z-10 text-accent-light text-sm font-medium hover:text-white transition-colors">
+                        See Matches →
+                      </button>
+                    </div>
 
-                {/* Feature Cards */}
-                <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="border border-saas-800 bg-saas-900/50 rounded-2xl p-6 relative overflow-hidden group hover:border-saas-600 transition-all">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <h3 className="text-base font-bold text-white mb-2 relative z-10">Resume Parsing</h3>
-                    <p className="text-saas-400 text-sm mb-4 relative z-10">Upload a PDF to instantly extract your skills using our spaCy NLP pipeline.</p>
-                    <button onClick={() => setActiveTab('skills')} className="relative z-10 text-primary-light text-sm font-medium hover:text-white transition-colors">
-                      Upload Resume →
-                    </button>
-                  </div>
+                    <div className="border border-saas-800 bg-saas-900/50 rounded-2xl p-6 relative overflow-hidden group hover:border-saas-600 transition-all">
+                      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <h3 className="text-base font-bold text-white mb-2 relative z-10">Learning Roadmap</h3>
+                      <p className="text-saas-400 text-sm mb-4 relative z-10">Step-by-step skill gap roadmaps with progress tracking.</p>
+                      <button onClick={() => setActiveTab('roadmap')} className="relative z-10 text-emerald-400 text-sm font-medium hover:text-white transition-colors">
+                        View Roadmap →
+                      </button>
+                    </div>
 
-                  <div className="border border-saas-800 bg-saas-900/50 rounded-2xl p-6 relative overflow-hidden group hover:border-saas-600 transition-all">
-                    <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <h3 className="text-base font-bold text-white mb-2 relative z-10">Job Recommendations</h3>
-                    <p className="text-saas-400 text-sm mb-4 relative z-10">AI-computed match scores between your skill profile and live job roles.</p>
-                    <button onClick={() => setActiveTab('recommendations')} className="relative z-10 text-accent-light text-sm font-medium hover:text-white transition-colors">
-                      See Matches →
-                    </button>
-                  </div>
-
-                  <div className="border border-saas-800 bg-saas-900/50 rounded-2xl p-6 relative overflow-hidden group hover:border-saas-600 transition-all">
-                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <h3 className="text-base font-bold text-white mb-2 relative z-10">Learning Roadmap</h3>
-                    <p className="text-saas-400 text-sm mb-4 relative z-10">Step-by-step skill gap roadmaps with progress tracking.</p>
-                    <button onClick={() => setActiveTab('roadmap')} className="relative z-10 text-emerald-400 text-sm font-medium hover:text-white transition-colors">
-                      View Roadmap →
-                    </button>
-                  </div>
-
-                  <div className="border border-saas-800 bg-saas-900/50 rounded-2xl p-6 relative overflow-hidden group hover:border-saas-600 transition-all">
-                    <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <h3 className="text-base font-bold text-white mb-2 relative z-10">Market Intelligence</h3>
-                    <p className="text-saas-400 text-sm mb-4 relative z-10">Live charts of top skills, role distribution, and salary trends.</p>
-                    <button onClick={() => setActiveTab('trends')} className="relative z-10 text-amber-400 text-sm font-medium hover:text-white transition-colors">
-                      Explore Trends →
-                    </button>
+                    <div className="border border-saas-800 bg-saas-900/50 rounded-2xl p-6 relative overflow-hidden group hover:border-saas-600 transition-all">
+                      <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <h3 className="text-base font-bold text-white mb-2 relative z-10">Market Intelligence</h3>
+                      <p className="text-saas-400 text-sm mb-4 relative z-10">Live charts of top skills, role distribution, and salary trends.</p>
+                      <button onClick={() => setActiveTab('trends')} className="relative z-10 text-amber-400 text-sm font-medium hover:text-white transition-colors">
+                        Explore Trends →
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          )}
+            )}
 
-          {/* ─── SKILL PROFILE ─── */}
-          {activeTab === 'skills' && (
-            <div className="space-y-8 flex flex-col items-center justify-center min-h-[60vh]">
-              <div className="w-full text-center mb-4">
-                <h1 className="text-3xl font-bold tracking-tight text-white mb-2">Build Your Profile</h1>
-                <p className="text-saas-400">Tell us what you know, or let our AI parse it from your resume.</p>
+            {/* ─── SKILL PROFILE ─── */}
+            {activeTab === 'skills' && (
+              <div className="space-y-8 flex flex-col items-center justify-center min-h-[60vh]">
+                <div className="w-full text-center mb-4">
+                  <h1 className="text-3xl font-bold tracking-tight text-white mb-2">Build Your Profile</h1>
+                  <p className="text-saas-400">Tell us what you know, or let our AI parse it from your resume.</p>
+                </div>
+                <ResumeUpload
+                  email={email}
+                  onSkillsExtracted={handleSkillsExtracted}
+                />
+                <div className="w-full max-w-2xl flex items-center gap-4 my-2">
+                  <div className="h-px bg-saas-800 flex-1" />
+                  <span className="text-xs font-medium text-saas-500 uppercase">Or Add Manually</span>
+                  <div className="h-px bg-saas-800 flex-1" />
+                </div>
+                <SkillInput
+                  email={email}
+                  skills={skills}
+                  onSkillsChange={setSkills}
+                  onSkillsSaved={handleSkillsSaved}
+                />
               </div>
-              <ResumeUpload
-                email={email}
-                onSkillsExtracted={handleSkillsExtracted}
-              />
-              <div className="w-full max-w-2xl flex items-center gap-4 my-2">
-                <div className="h-px bg-saas-800 flex-1" />
-                <span className="text-xs font-medium text-saas-500 uppercase">Or Add Manually</span>
-                <div className="h-px bg-saas-800 flex-1" />
+            )}
+
+            {/* ─── RECOMMENDATIONS ─── */}
+            {activeTab === 'recommendations' && (
+              <div className="min-h-[60vh]">
+                <Recommendations
+                  email={email}
+                  onGenerateRoadmap={handleGenerateRoadmap}
+                  onStatsUpdate={setStats}
+                  autoRunKey={recsAutoRunKey}
+                />
               </div>
-              <SkillInput
-                email={email}
-                onEmailChange={setEmail}
-                skills={skills}
-                onSkillsChange={setSkills}
-                onSkillsSaved={handleSkillsSaved}
-                emailLocked={auth.isAuthed}
-              />
-            </div>
-          )}
+            )}
 
-          {/* ─── RECOMMENDATIONS ─── */}
-          {activeTab === 'recommendations' && (
-            <div className="min-h-[60vh]">
-              <Recommendations
-                email={email}
-                onGenerateRoadmap={handleGenerateRoadmap}
-                onStatsUpdate={setStats}
-                autoRunKey={recsAutoRunKey}
-              />
-            </div>
-          )}
+            {/* ─── ROADMAP ─── */}
+            {activeTab === 'roadmap' && (
+              <div className="min-h-[60vh]">
+                <Roadmap role={targetRole} email={email} />
+              </div>
+            )}
 
-          {/* ─── ROADMAP ─── */}
-          {activeTab === 'roadmap' && (
-            <div className="min-h-[60vh]">
-              <Roadmap role={targetRole} email={email} />
-            </div>
-          )}
+            {/* ─── TRENDS ─── */}
+            {activeTab === 'trends' && (
+              <div className="min-h-[60vh]">
+                <Trends />
+              </div>
+            )}
 
-          {/* ─── TRENDS ─── */}
-          {activeTab === 'trends' && (
-            <div className="min-h-[60vh]">
-              <Trends />
-            </div>
-          )}
-
-        </motion.div>
-      </AnimatePresence>
-    </Layout>
+          </motion.div>
+        </AnimatePresence>
+      </Layout>
+    </div>
   );
 }
 

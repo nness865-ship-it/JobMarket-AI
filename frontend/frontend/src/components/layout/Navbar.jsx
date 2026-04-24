@@ -2,7 +2,7 @@ import React from 'react';
 import { Menu, Bell, User, CheckCircle2, Loader2, AlertCircle, LogOut } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { GoogleLogin } from '@react-oauth/google';
-import { useAuth } from '../../auth/useAuth';
+import { useAuth } from '../../auth/useAuth.jsx';
 
 function formatUpdatedAt(updatedAt) {
   if (!updatedAt) return null;

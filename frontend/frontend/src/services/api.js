@@ -29,6 +29,9 @@ export const generateRoadmap = (email, targetRole) =>
 export const getJobTrends = () =>
   api.get('/job-trends');
 
+export const syncLiveJobs = () =>
+  api.post('/sync-live-jobs');
+
 export const uploadResume = (formData) =>
   api.post('/upload-resume', formData, {
     headers: {
@@ -38,6 +41,12 @@ export const uploadResume = (formData) =>
 
 export const authGoogle = (credential) =>
   api.post('/auth/google', { credential });
+
+export const sendOtp = (email) =>
+  api.post('/auth/send-otp', { email });
+
+export const verifyOtp = (email, code) =>
+  api.post('/auth/verify-otp', { email, code });
 
 export const me = () =>
   api.get('/me');

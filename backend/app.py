@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+import requests
 import spacy
 from spacy.matcher import PhraseMatcher
 import os
@@ -9,14 +10,22 @@ import pdfplumber
 from collections import Counter
 from datetime import datetime
 import jwt
-from google.oauth2 import id_token
 from google.auth.transport import requests as google_requests
+from google.oauth2 import id_token
+import random
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 
 load_dotenv()
 
 MONGO_URI = os.getenv("MONGO_URI")
 GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")
+SMTP_EMAIL = os.getenv("SMTP_EMAIL")
+SMTP_PASSWORD = os.getenv("SMTP_PASSWORD")
+SMTP_SERVER = os.getenv("SMTP_SERVER", "smtp.gmail.com")
+SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))
 JWT_SECRET = os.getenv("JWT_SECRET", "dev-secret-change-me")
 
 client = MongoClient(MONGO_URI)
@@ -24,6 +33,12 @@ db = client["jobpulse_db"]
 jobs_collection = db["jobs"]
 users_collection = db["users"]
 activity_logs = db["activity_logs"]
+otp_collection = db["otp_codes"]
+# Create TTL index for OTPs (expire after 5 mins)
+try:
+    otp_collection.create_index("created_at", expireAfterSeconds=600)
+except Exception:
+    pass
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
 
@@ -61,6 +76,9 @@ def _skill_vocabulary():
         "deep learning", "data visualization", "tableau", "spark",
         "hadoop", "figma", "next.js", "vue.js", "angular", "django",
         "fastapi", "ci/cd", "jenkins", "terraform", "ansible",
+        "kotlin", "swift", "android", "ios", "flutter", "react native",
+        "dart", "java", "objective-c", "xcode", "android studio",
+        "gradle", "coroutine", "jetpack compose", "uikit", "firebase"
     ]
     from_jobs = set()
     for job in jobs_collection.find({}, {"skills": 1, "_id": 0}):
@@ -471,6 +489,57 @@ def job_trends():
     })
 
 
+@app.route("/sync-live-jobs", methods=["POST"])
+def sync_live_jobs():
+    """Fetch jobs from Remotive API and sync with local DB."""
+    try:
+        url = "https://remotive.com/api/remote-jobs?limit=50"
+        response = requests.get(url, timeout=10)
+        response.raise_for_status()
+        data = response.json()
+        jobs_list = data.get("jobs", [])
+
+        synced_count = 0
+        for job_data in jobs_list:
+            role = (job_data.get("title") or "Unknown").lower()
+            description = job_data.get("description") or ""
+            # Extract skills from description
+            extracted_skills = _extract_skills_from_text(description)
+            # Merge with tags from Remotive
+            tags = [t.lower() for t in job_data.get("tags", [])]
+            final_skills = _normalize_skills(extracted_skills + tags)
+
+            # Use (title, company_name) as a unique identifier for upsert
+            company = job_data.get("company_name", "Unknown")
+            external_id = str(job_data.get("id"))
+
+            jobs_collection.update_one(
+                {"external_id": external_id},
+                {
+                    "$set": {
+                        "role": role,
+                        "company": company,
+                        "skills": final_skills,
+                        "source": "remotive",
+                        "url": job_data.get("url"),
+                        "updated_at": datetime.utcnow()
+                    }
+                },
+                upsert=True
+            )
+            synced_count += 1
+
+        return jsonify({
+            "message": f"Successfully synced {synced_count} live jobs",
+            "count": synced_count,
+            "last_sync": datetime.utcnow().isoformat()
+        })
+
+    except Exception as e:
+        print(f"Sync error: {e}")
+        return jsonify({"error": str(e)}), 500
+
+
 @app.route("/show-jobs")
 def show_jobs():
     jobs = list(jobs_collection.find({}, {"_id": 0}))
@@ -514,6 +583,18 @@ def seed_jobs():
             "skills": ["aws", "gcp", "azure", "docker", "kubernetes", "terraform", "linux", "python", "ci/cd"]
         },
         {
+            "role": "android developer",
+            "skills": ["android", "kotlin", "java", "android studio", "gradle", "coroutine", "jetpack compose", "firebase", "git"]
+        },
+        {
+            "role": "ios developer",
+            "skills": ["ios", "swift", "objective-c", "xcode", "uikit", "swiftui", "firebase", "git"]
+        },
+        {
+            "role": "mobile engineer",
+            "skills": ["flutter", "react native", "dart", "javascript", "typescript", "android", "ios", "git", "firebase"]
+        },
+        {
             "role": "ui/ux designer",
             "skills": ["figma", "html", "css", "javascript", "data visualization", "react"]
         },
@@ -527,6 +608,123 @@ def seed_jobs():
     jobs_collection.insert_many(sample_jobs)
 
     return jsonify({"message": f"{len(sample_jobs)} jobs seeded successfully", "roles": [j["role"] for j in sample_jobs]})
+
+
+def send_otp_email(receiver_email, otp):
+    """Send an OTP email using SMTP."""
+    if not SMTP_EMAIL or not SMTP_PASSWORD:
+        print(f"WARNING: SMTP credentials not set. OTP for {receiver_email} is {otp}")
+        return False
+
+    msg = MIMEMultipart()
+    msg['From'] = f"Elevate AI <{SMTP_EMAIL}>"
+    msg['To'] = receiver_email
+    msg['Subject'] = f"{otp} is your Elevate AI verification code"
+
+    body = f"""
+    <div style="font-family: sans-serif; max-width: 500px; margin: auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
+        <h2 style="color: #0ea5e9;">Elevate AI</h2>
+        <p>Hello,</p>
+        <p>Use the following code to sign in to your Elevate AI account. This code will expire in 5 minutes.</p>
+        <div style="background: #f0f9ff; padding: 20px; text-align: center; font-size: 32px; font-weight: bold; letter-spacing: 5px; color: #0369a1; border-radius: 8px; margin: 20px 0;">
+            {otp}
+        </div>
+        <p style="color: #64748b; font-size: 12px;">If you didn't request this code, you can safely ignore this email.</p>
+    </div>
+    """
+    msg.attach(MIMEText(body, 'html'))
+
+    try:
+        server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
+        server.starttls()
+        server.login(SMTP_EMAIL, SMTP_PASSWORD)
+        server.send_message(msg)
+        server.quit()
+        return True
+    except Exception as e:
+        print(f"FAILED TO SEND EMAIL: {e}")
+        return False
+
+
+@app.route("/auth/send-otp", methods=["POST"])
+def send_otp():
+    """Generate and 'send' (log) a 6-digit OTP for email login."""
+    data = request.json or {}
+    email = (data.get("email") or "").strip().lower()
+
+    if not email:
+        return jsonify({"error": "Email is required"}), 400
+
+    otp = str(random.randint(100000, 999999))
+    now = datetime.utcnow()
+
+    # Store OTP (overwrite any existing for this email)
+    otp_collection.update_one(
+        {"email": email},
+        {"$set": {"code": otp, "created_at": now}},
+        upsert=True
+    )
+
+    # Send actual email
+    sent = send_otp_email(email, otp)
+    
+    if not sent:
+        # Fallback to console for debugging if SMTP fails
+        print(f"\nFALLBACK OTP FOR {email}: {otp}\n")
+
+    return jsonify({"message": "OTP sent successfully. Check your email inbox."})
+
+
+@app.route("/auth/verify-otp", methods=["POST"])
+def verify_otp():
+    """Verify OTP and issue JWT."""
+    data = request.json or {}
+    email = (data.get("email") or "").strip().lower()
+    code = (data.get("code") or "").strip()
+
+    if not email or not code:
+        return jsonify({"error": "Email and code are required"}), 400
+
+    print(f"DEBUG: Verifying OTP for {email}. Provided code: {code}")
+    record = otp_collection.find_one({"email": email, "code": code})
+    
+    if not record:
+        actual = otp_collection.find_one({"email": email})
+        if actual:
+            print(f"DEBUG: Mismatch! DB has {actual['code']} for {email}")
+        else:
+            print(f"DEBUG: No OTP record found for {email} in DB")
+        return jsonify({"error": "Invalid or expired OTP"}), 401
+
+    # Upsert user
+    now = datetime.utcnow()
+    users_collection.update_one(
+        {"email": email},
+        {
+            "$set": {"email": email, "updated_at": now},
+            "$setOnInsert": {"created_at": now, "skills": [], "roadmap": None, "name": email.split("@")[0]}
+        },
+        upsert=True
+    )
+
+    user = users_collection.find_one({"email": email})
+
+    # Generate Token
+    token = jwt.encode(
+        {
+            "email": email,
+            "name": user.get("name"),
+            "iat": int(now.timestamp()),
+        },
+        JWT_SECRET,
+        algorithm="HS256",
+    )
+
+    # OTP matches! Clear it now that we've issued the token.
+    otp_collection.delete_one({"_id": record["_id"]})
+    print(f"DEBUG: Successfully verified OTP for {email}")
+
+    return jsonify({"token": token})
 
 
 @app.route("/auth/google", methods=["POST"])
@@ -543,13 +741,17 @@ def auth_google():
     if not GOOGLE_CLIENT_ID:
         return jsonify({"error": "Server misconfigured: GOOGLE_CLIENT_ID not set"}), 500
 
+    print(f"DEBUG: Attempting Google Auth. Client ID in use: {GOOGLE_CLIENT_ID}")
+
     try:
         info = id_token.verify_oauth2_token(
             credential,
             google_requests.Request(),
             GOOGLE_CLIENT_ID,
         )
-    except Exception:
+        print(f"DEBUG: Google Auth Success for {info.get('email')}")
+    except Exception as e:
+        print(f"DEBUG: Google Auth Failed: {str(e)}")
         return jsonify({"error": "Invalid Google token"}), 401
 
     email = info.get("email")

@@ -3,7 +3,7 @@ import { saveUserSkills } from "../../services/api";
 import { Plus, X, CheckCircle2, AlertCircle, Loader2, Tag } from "lucide-react";
 import { cn } from "../../lib/utils";
 
-export function SkillInput({ email, onEmailChange, skills: externalSkills, onSkillsChange, onSkillsSaved, emailLocked = false }) {
+export function SkillInput({ email, skills: externalSkills, onSkillsChange, onSkillsSaved }) {
   const [skillInput, setSkillInput] = useState("");
   const [skills, setSkills] = useState([]);
   const [status, setStatus] = useState(null); // { type: 'success'|'error', message: string }
@@ -100,21 +100,6 @@ export function SkillInput({ email, onEmailChange, skills: externalSkills, onSki
         )}
 
         <div className="space-y-5">
-          {/* Email */}
-          <div className="space-y-1.5">
-            <label className="block text-sm font-medium text-saas-200">
-              Email Address
-            </label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => onEmailChange && onEmailChange(e.target.value)}
-              placeholder="you@example.com"
-              disabled={emailLocked}
-              className="w-full rounded-lg border border-saas-700 bg-saas-800/50 px-3 py-2.5 text-sm text-saas-100 placeholder:text-saas-500 shadow-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 transition-colors"
-            />
-          </div>
-
           {/* Skill Input */}
           <div className="space-y-1.5">
             <label className="block text-sm font-medium text-saas-200">

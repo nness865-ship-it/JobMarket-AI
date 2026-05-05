@@ -1,5 +1,11 @@
 # Elevate Job Market AI
 
+### 👥 Authors & Creators
+*   **Adnan Junaid**
+*   **Seeya Sandesh Vhora**
+
+---
+
 ## 1. What is Elevate Job Market AI?
 
 Elevate Job Market AI is a cutting-edge, AI-powered career intelligence platform designed to revolutionize how professionals navigate and excel in today's dynamic job market. Built with advanced artificial intelligence and machine learning technologies, Elevate serves as your personal career co-pilot, providing data-driven insights, personalized guidance, and strategic roadmaps to accelerate your professional growth.

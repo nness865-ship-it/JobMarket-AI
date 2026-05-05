@@ -1,0 +1,20 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+.env
+backend/.env
+
+# Node
+node_modules/
+dist/
+build/
+.DS_Store
+
+# AI/Gemini
+.gemini/
+brain/
+artifacts/
+scratch/
+.system_generated/
+knowledge/

@@ -56,8 +56,9 @@ export function ResumeUpload({ email, onSkillsExtracted }) {
         onSkillsExtracted(extracted);
       }
     } catch (error) {
-      console.error(error);
-      alert("Upload failed ❌");
+      console.error("Upload Error:", error);
+      const errorMessage = error.response?.data?.error || error.message || "Unknown upload error";
+      alert(`Upload failed: ${errorMessage} ❌`);
     } finally {
       setLoading(false);
     }

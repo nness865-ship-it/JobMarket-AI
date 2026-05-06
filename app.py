@@ -309,17 +309,12 @@ def _skill_vocabulary():
         "coaching", "sports management", "event management", "facility management"
     ]
     from_jobs = set()
-    for job in get_db()["jobs"].find({}, {"skills": 1, "_id": 0}):
-        for s in job.get("skills", []):
-            from_jobs.add((s or "").lower())
     try:
-        skills_catalog = db["skills_catalog"]
-        for doc in skills_catalog.find({}, {"name": 1, "aliases": 1, "_id": 0}):
-            name = (doc.get("name") or "").lower()
-            if name:
-                from_jobs.add(name)
-            for alias in doc.get("aliases", []):
-                from_jobs.add((alias or "").lower())
+        db = get_db()
+        if db is not None:
+            for job in db["jobs"].find({}, {"skills": 1, "_id": 0}):
+                if "skills" in job:
+                    from_jobs.update(s.lower().strip() for s in job["skills"] if s)
     except Exception:
         pass
     return _normalize_skills(static + list(from_jobs))

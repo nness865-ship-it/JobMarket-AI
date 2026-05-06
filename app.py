@@ -319,6 +319,7 @@ def _skill_vocabulary():
             pass
     return _normalize_skills(static + list(from_jobs))
 def _extract_skills_from_text(text: str):
+    import re
     if not text:
         return []
     vocab = _skill_vocabulary()
@@ -335,7 +336,6 @@ def _extract_skills_from_text(text: str):
         for word in words:
             if word in vocab:
                 hits.add(word)
-    import re
     text_lower = text.lower()
     tech_patterns = [
         r'\b\w+\.js\b', r'\b\w+js\b', r'\b\w+stack\b',

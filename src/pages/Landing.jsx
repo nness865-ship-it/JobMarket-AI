@@ -279,7 +279,7 @@ export function Landing() {
               />
               <div className="rounded-[2rem] overflow-hidden border border-blue-500/10 aspect-square relative">
                 <img 
-                  src="https:
+                  src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1000"
                   alt="AI Intelligence Visual" 
                   className="w-full h-full object-cover opacity-80"
                 />

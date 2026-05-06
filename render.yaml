@@ -18,7 +18,7 @@ services:
         generateValue: true
 
   # Frontend Static Site
-  - type: static_site
+  - type: web
     name: jobmarket-ai-web
     env: static
     buildCommand: npm install && npm run build

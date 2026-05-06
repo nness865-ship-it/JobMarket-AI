@@ -309,7 +309,7 @@ def _skill_vocabulary():
         "coaching", "sports management", "event management", "facility management"
     ]
     from_jobs = set()
-    for job in jobs_collection.find({}, {"skills": 1, "_id": 0}):
+    for job in get_db()["jobs"].find({}, {"skills": 1, "_id": 0}):
         for s in job.get("skills", []):
             from_jobs.add((s or "").lower())
     try:
@@ -489,7 +489,7 @@ def get_user():
     email = _current_email() or request.args.get("email", "").strip()
     if not email:
         return jsonify({"error": "Email query parameter is required"}), 400
-    user = users_collection.find_one({"email": email}, {"_id": 0})
+    user = get_db()["users"].find_one({"email": email}, {"_id": 0})
     if not user:
         return jsonify({"error": "User not found"}), 404
     return jsonify({
@@ -522,7 +522,7 @@ def update_user_profile():
         current_salary = int(current_salary) if current_salary else 0
     except (ValueError, TypeError):
         return jsonify({"error": "current_salary must be a valid number"}), 400
-    users_collection.update_one(
+    get_db()["users"].update_one(
         {"email": email},
         {
             "$set": {
@@ -537,7 +537,7 @@ def update_user_profile():
         upsert=True,
     )
     try:
-        activity_logs.insert_one({
+        get_db()["activity_logs"].insert_one({
             "type": "profile_update",
             "email": email,
             "current_job_role": current_job_role,
@@ -563,12 +563,12 @@ def recommend_jobs():
     email = _current_email() or data.get("email")
     user = None
     if email:
-        user = users_collection.find_one({"email": email}, {"_id": 0})
+        user = get_db()["users"].find_one({"email": email}, {"_id": 0})
     user_skills = _normalize_skills(data.get("skills", []) or (user.get("skills", []) if user else []))
     user_category = (user.get("category", "general") if user else "general")
     if not user_skills:
         return jsonify({"error": "No skills provided. Please add skills first."}), 400
-    all_jobs = list(jobs_collection.find({}, {"_id": 0}))
+    all_jobs = list(get_db()["jobs"].find({}, {"_id": 0}))
     if not all_jobs:
         return jsonify({"error": "No jobs in database. Please seed jobs first via /seed-jobs"}), 404
     recommendations = []
@@ -707,9 +707,9 @@ def generate_roadmap():
         return jsonify({"error": "Email and target_role are required"}), 400
     user = None
     if email:
-        user = users_collection.find_one({"email": email}, {"_id": 0})
+        user = get_db()["users"].find_one({"email": email}, {"_id": 0})
     user_skills = _normalize_skills(data.get("skills", []) or (user.get("skills", []) if user else []))
-    job = jobs_collection.find_one(
+    job = get_db()["jobs"].find_one(
         {"role": {"$regex": f"^{target_role}$", "$options": "i"}},
         {"_id": 0}
     )
@@ -830,7 +830,7 @@ def generate_roadmap():
         "missing_skills": missing_skills,
         "personalized_message": f"Based on your resume, you already have {len(user_skills)} core skills. We've mapped out the remaining {len(missing_skills)} milestones to help you reach the {target_role} level."
     }
-    users_collection.update_one(
+    get_db()["users"].update_one(
         {"email": email},
         {
             "$set": {
@@ -848,7 +848,7 @@ def skill_gap():
     target_role = (data.get("target_role", "")).strip().lower()
     if not target_role:
         return jsonify({"error": "target_role is required"}), 400
-    job = jobs_collection.find_one(
+    job = get_db()["jobs"].find_one(
         {"role": {"$regex": f"^{target_role}$", "$options": "i"}},
         {"_id": 0}
     )
@@ -888,14 +888,14 @@ def save_skill_progress():
             "$pull": {f"progress.{role}": step_id},
             "$unset": {f"tracker_data.{role}-{step_id}": ""}
         }
-    users_collection.update_one({"email": email}, update_query, upsert=True)
+    get_db()["users"].update_one({"email": email}, update_query, upsert=True)
     return jsonify({"message": "Progress saved"})
 @app.route("/get-skill-tracker", methods=["GET"])
 def get_skill_tracker():
     email = _current_email() or request.args.get("email")
     if not email:
         return jsonify({"error": "Email required"}), 400
-    user = users_collection.find_one({"email": email})
+    user = get_db()["users"].find_one({"email": email})
     if not user:
         return jsonify({"progress": {}, "tracker_data": {}})
     return jsonify({
@@ -920,7 +920,7 @@ def sync_live_jobs():
             final_skills = _normalize_skills(extracted_skills + tags)
             company = job_data.get("company_name", "Unknown")
             external_id = str(job_data.get("id"))
-            jobs_collection.update_one(
+            get_db()["jobs"].update_one(
                 {"external_id": external_id},
                 {
                     "$set": {
@@ -945,7 +945,7 @@ def sync_live_jobs():
         return jsonify({"error": str(e)}), 500
 @app.route("/show-jobs")
 def show_jobs():
-    jobs = list(jobs_collection.find({}, {"_id": 0}))
+    jobs = list(get_db()["jobs"].find({}, {"_id": 0}))
     return jsonify({"jobs": jobs, "count": len(jobs)})
 @app.route("/seed-jobs")
 def seed_jobs():
@@ -1239,8 +1239,8 @@ def seed_jobs():
             "skills": ["market research", "consumer behavior", "statistical analysis", "survey design", "data visualization", "report writing", "presentation skills"]
         }
     ]
-    jobs_collection.delete_many({})
-    jobs_collection.insert_many(sample_jobs)
+    get_db()["jobs"].delete_many({})
+    get_db()["jobs"].insert_many(sample_jobs)
     return jsonify({"message": f"{len(sample_jobs)} diverse jobs seeded successfully across all fields", "roles": [j["role"] for j in sample_jobs]})
 def send_otp_email(receiver_email, otp):
     if not SMTP_EMAIL or not SMTP_PASSWORD:
@@ -1270,7 +1270,7 @@ def send_otp():
         return jsonify({"error": "Email is required"}), 400
     otp = str(random.randint(100000, 999999))
     now = datetime.utcnow()
-    otp_collection.update_one(
+    get_db()["otp_codes"].update_one(
         {"email": email},
         {"$set": {"code": otp, "created_at": now}},
         upsert=True
@@ -1287,16 +1287,16 @@ def verify_otp():
     if not email or not code:
         return jsonify({"error": "Email and code are required"}), 400
     print(f"DEBUG: Verifying OTP for {email}. Provided code: {code}")
-    record = otp_collection.find_one({"email": email, "code": code})
+    record = get_db()["otp_codes"].find_one({"email": email, "code": code})
     if not record:
-        actual = otp_collection.find_one({"email": email})
+        actual = get_db()["otp_codes"].find_one({"email": email})
         if actual:
             print(f"DEBUG: Mismatch! DB has {actual['code']} for {email}")
         else:
             print(f"DEBUG: No OTP record found for {email} in DB")
         return jsonify({"error": "Invalid or expired OTP"}), 401
     now = datetime.utcnow()
-    users_collection.update_one(
+    get_db()["users"].update_one(
         {"email": email},
         {
             "$set": {"email": email, "updated_at": now},
@@ -1304,7 +1304,7 @@ def verify_otp():
         },
         upsert=True
     )
-    user = users_collection.find_one({"email": email})
+    user = get_db()["users"].find_one({"email": email})
     token = jwt.encode(
         {
             "email": email,
@@ -1315,7 +1315,7 @@ def verify_otp():
         JWT_SECRET,
         algorithm="HS256",
     )
-    otp_collection.delete_one({"_id": record["_id"]})
+    get_db()["otp_codes"].delete_one({"_id": record["_id"]})
     print(f"DEBUG: Successfully verified OTP for {email}")
     return jsonify({"token": token})
 @app.route("/auth/demo", methods=["POST"])
@@ -1330,7 +1330,7 @@ def auth_demo():
     category = _detect_skill_category(demo_skills)
     category_display = _get_category_display_name(category)
     now = datetime.utcnow()
-    users_collection.update_one(
+    get_db()["users"].update_one(
         {"email": demo_email},
         {
             "$set": {
@@ -1361,66 +1361,12 @@ def auth_demo():
         algorithm="HS256",
     )
     return jsonify({"token": token})
-@app.route("/auth/google", methods=["POST"])
-def auth_google():
-    data = request.json or {}
-    credential = data.get("credential")
-    if not credential:
-        return jsonify({"error": "Missing credential"}), 400
-    if not GOOGLE_CLIENT_ID:
-        return jsonify({"error": "Server misconfigured: GOOGLE_CLIENT_ID not set"}), 500
-    print(f"DEBUG: Attempting Google Auth. Client ID in use: {GOOGLE_CLIENT_ID}")
-    try:
-        info = id_token.verify_oauth2_token(
-            credential,
-            google_requests.Request(),
-            GOOGLE_CLIENT_ID,
-        )
-        print(f"DEBUG: Google Auth Success for {info.get('email')}")
-    except Exception as e:
-        print(f"DEBUG: Google Auth Failed: {str(e)}")
-        return jsonify({"error": f"Google verification failed: {str(e)}"}), 401
-    email = info.get("email")
-    name = info.get("name")
-    picture = info.get("picture")
-    if not email:
-        return jsonify({"error": "Google token missing email"}), 401
-    now = datetime.utcnow()
-    users_collection.update_one(
-        {"email": email},
-        {
-            "$set": {
-                "email": email,
-                "name": name,
-                "picture": picture,
-                "updated_at": now,
-            },
-            "$setOnInsert": {
-                "created_at": now,
-                "skills": [],
-                "roadmap": None,
-            },
-        },
-        upsert=True,
-    )
-    token = jwt.encode(
-        {
-            "email": email,
-            "name": name,
-            "picture": picture,
-            "iat": int(now.timestamp()),
-            "exp": int((now + timedelta(hours=24)).timestamp()),
-        },
-        JWT_SECRET,
-        algorithm="HS256",
-    )
-    return jsonify({"token": token})
 @app.route("/me", methods=["GET"])
 def me():
     email, err = _require_auth_email()
     if err:
         return err
-    user = users_collection.find_one({"email": email}, {"_id": 0})
+    user = get_db()["users"].find_one({"email": email}, {"_id": 0})
     if not user:
         return jsonify({"error": "User not found"}), 404
     return jsonify({
@@ -1447,7 +1393,7 @@ def get_promotion_pathway():
     current_salary = data.get("current_salary", 0)
     if not current_job_role or not job_domain or not position_level:
         if email:
-            user = users_collection.find_one({"email": email}, {"_id": 0})
+            user = get_db()["users"].find_one({"email": email}, {"_id": 0})
             if user:
                 current_job_role = current_job_role or user.get("current_job_role", "")
                 job_domain = job_domain or user.get("job_domain", "")
@@ -1512,7 +1458,7 @@ def get_high_paying_jobs():
     current_salary = data.get("current_salary", 0)
     if not job_domain:
         if email:
-            user = users_collection.find_one({"email": email}, {"_id": 0})
+            user = get_db()["users"].find_one({"email": email}, {"_id": 0})
             if user:
                 current_job_role = current_job_role or user.get("current_job_role", "")
                 job_domain = job_domain or user.get("job_domain", "")
@@ -1523,7 +1469,7 @@ def get_high_paying_jobs():
         return jsonify({"error": "Skills are required to find matching jobs."}), 400
     if not job_domain:
         job_domain = _get_category_display_name(_detect_skill_category(skills))
-    all_jobs = list(jobs_collection.find({}, {"_id": 0}))
+    all_jobs = list(get_db()["jobs"].find({}, {"_id": 0}))
     if not all_jobs:
         return jsonify({"error": "No jobs available."}), 404
     domain_filtered_jobs = []
@@ -1616,7 +1562,7 @@ def get_high_paying_jobs():
 @app.route("/job-trends", methods=["GET"])
 def get_job_trends():
     try:
-        all_jobs = list(jobs_collection.find({}, {"_id": 0}))
+        all_jobs = list(get_db()["jobs"].find({}, {"_id": 0}))
     except Exception:
         all_jobs = []
     total_jobs = len(all_jobs) or 1

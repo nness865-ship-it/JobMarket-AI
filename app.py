@@ -1321,46 +1321,27 @@ def verify_otp():
     return jsonify({"token": token})
 @app.route("/auth/demo", methods=["POST"])
 def auth_demo():
+    print("DEBUG: Starting Demo Auth Request")
     demo_email = f"demo.user.{random.randint(1000, 9999)}@elevateai.demo"
     demo_name = "Demo User"
-    demo_skills = [
-        "biochemical engineering", "fermentation", "chromatography", "process design", 
-        "matlab", "analytical chemistry", "project management", "research methodology",
-        "data analysis", "statistical analysis", "bioreactor design", "downstream processing"
-    ]
-    category = _detect_skill_category(demo_skills)
-    category_display = _get_category_display_name(category)
+    demo_skills = ["react", "python", "data science", "cloud", "aws", "docker"]
     now = datetime.utcnow()
-    get_db()["users"].update_one(
-        {"email": demo_email},
-        {
-            "$set": {
-                "email": demo_email,
-                "name": demo_name,
-                "skills": demo_skills,
-                "category": category,
-                "category_display": category_display,
-                "updated_at": now,
-                "is_demo": True,
-            },
-            "$setOnInsert": {
-                "created_at": now,
-                "roadmap": None,
-            },
-        },
-        upsert=True,
-    )
+    db = get_db()
+    if db is not None:
+        try:
+            db["users"].update_one(
+                {"email": demo_email},
+                {"$set": {"email": demo_email, "name": demo_name, "skills": demo_skills, "updated_at": now, "is_demo": True}},
+                upsert=True
+            )
+            print(f"DEBUG: Demo User {demo_email} saved to DB")
+        except Exception as e:
+            print(f"DEBUG: DB Save skipped for demo: {e}")
     token = jwt.encode(
-        {
-            "email": demo_email,
-            "name": demo_name,
-            "is_demo": True,
-            "iat": int(now.timestamp()),
-            "exp": int((now + timedelta(days=7)).timestamp()),
-        },
-        JWT_SECRET,
-        algorithm="HS256",
+        {"email": demo_email, "name": demo_name, "is_demo": True, "iat": int(now.timestamp()), "exp": int((now + timedelta(days=7)).timestamp())},
+        JWT_SECRET, algorithm="HS256"
     )
+    print("DEBUG: Demo Auth Token generated")
     return jsonify({"token": token})
 @app.route("/me", methods=["GET"])
 def me():

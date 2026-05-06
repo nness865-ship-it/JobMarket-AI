@@ -1,5 +1,6 @@
 # Python
 venv/
+.venv/
 __pycache__/
 *.pyc
 .env
@@ -18,4 +19,3 @@ artifacts/
 scratch/
 .system_generated/
 knowledge/
-.vercel

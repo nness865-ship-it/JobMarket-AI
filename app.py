@@ -231,7 +231,7 @@ def _skill_vocabulary():
         "elk stack", "elasticsearch", "logstash", "kibana", "rabbitmq", "kafka",
         "sqlite", "realm", "apollo", "redux", "mobx", "context api", "tailwind",
         "bootstrap", "sass", "less", "webpack", "vite", "babel", "npm", "yarn",
-        "pnpm", "ruby", "rails", "php", "laravel", "symfony", "c++", "c
+        "pnpm", "ruby", "rails", "php", "laravel", "symfony", "c++", "c",
         "asp.net", "go", "golang", "rust", "scala", "clojure", "elixir", "erlang",
         "haskell", "perl", "r language", "solidity", "web3", "blockchain",
         "smart contracts", "cybersecurity", "penetration testing", "ethical hacking",

@@ -38,17 +38,19 @@ def _call_gemini(prompt):
     except Exception as e:
         print(f"Gemini Request Failed: {e}")
         return None
-try:
-    client = MongoClient(MONGO_URI, serverSelectionTimeoutMS=3000, connectTimeoutMS=3000)
-    db = client["jobpulse_db"]
-    jobs_collection = db["jobs"]
-    users_collection = db["users"]
-    activity_logs = db["activity_logs"]
-    otp_collection = db["otp_codes"]
-    otp_collection.create_index("created_at", expireAfterSeconds=600)
-except Exception as e:
-    print(f"DB Init Error: {e}")
-    db = jobs_collection = users_collection = activity_logs = otp_collection = None
+def get_db():
+    try:
+        client = MongoClient(MONGO_URI, serverSelectionTimeoutMS=5000)
+        return client["jobpulse_db"]
+    except Exception as e:
+        print(f"DB Connection Error: {e}")
+        return None
+@app.errorhandler(Exception)
+def handle_exception(e):
+    import traceback
+    print(f"!!! PRODUCTION ERROR: {str(e)}")
+    print(traceback.format_exc())
+    return jsonify({"error": "Internal Server Error", "details": str(e)}), 500
 try:
     import spacy
     nlp = spacy.load("en_core_web_sm")
@@ -431,17 +433,16 @@ def upload_resume():
     extracted = _extract_skills_from_text(text)
     category = _detect_skill_category(extracted)
     category_display = _get_category_display_name(category)
-    if users_collection is not None:
+    db = get_db()
+    if db is not None:
         try:
-            users_collection.update_one(
+            db["users"].update_one(
                 {"email": email},
                 {"$set": {"email": email, "skills": extracted, "category": category, "category_display": category_display, "updated_at": datetime.utcnow()}},
                 upsert=True
             )
         except Exception as e:
-            print(f"DB Error: {e}")
-    else:
-        print("Warning: Database unavailable. Skipping persistence.")
+            print(f"DB Update Error: {e}")
     return jsonify({"message": "Success", "skills": extracted, "category": category_display})
 @app.route("/save-user-skills", methods=["POST"])
 def save_user_skills():

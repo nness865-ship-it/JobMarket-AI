@@ -1536,74 +1536,62 @@ def get_high_paying_jobs():
     })
 @app.route("/job-trends", methods=["GET"])
 def get_job_trends():
+    email = _current_email()
+    user_field = "Technology"
+    user_role = "General"
+    if email:
+        user = get_db()["users"].find_one({"email": email}, {"category_display": 1, "current_job_role": 1})
+        if user:
+            user_field = user.get("category_display", "Technology")
+            user_role = user.get("current_job_role", "Professional")
     try:
         all_jobs = list(get_db()["jobs"].find({}, {"_id": 0}))
     except Exception:
         all_jobs = []
     total_jobs = len(all_jobs) or 1
     skill_freq = {}
-    category_counts = {}
     for job in all_jobs:
-        skills = job.get("skills", [])
-        for s in skills:
+        for s in job.get("skills", []):
             s_norm = (s or "").lower().strip()
-            if s_norm:
-                skill_freq[s_norm] = skill_freq.get(s_norm, 0) + 1
-        cat = _detect_skill_category(skills)
-        category_counts[cat] = category_counts.get(cat, 0) + 1
-    top_skills = sorted(skill_freq.items(), key=lambda x: x[1], reverse=True)[:15]
+            if s_norm: skill_freq[s_norm] = skill_freq.get(s_norm, 0) + 1
+    top_skills = sorted(skill_freq.items(), key=lambda x: x[1], reverse=True)[:10]
     top_skills_data = [{"name": s.title(), "demand": min(100, int((count/total_jobs)*150))} for s, count in top_skills]
-    role_distribution = []
-    for cat, count in category_counts.items():
-        role_distribution.append({
-            "name": _get_category_display_name(cat),
-            "value": count,
-            "growth": random.randint(12, 42)
-        })
-    salary_trend = [
-        {"year": "2023", "average": 82000, "entry": 60000, "senior": 125000},
-        {"year": "2024", "average": 89500, "entry": 67000, "senior": 138000},
-        {"year": "2025", "average": 97000, "entry": 75000, "senior": 152000},
-        {"year": "2026", "average": 105000, "entry": 84000, "senior": 168000},
-        {"year": "2027", "average": 114000, "entry": 92000, "senior": 185000}
-    ]
-    market_pulse_score = min(98.5, 75.0 + (total_jobs / 2))
+    # AI-Generated Insights
+    ai_prompt = f"Provide a brief market trend analysis for {user_role} in {user_field}. Return JSON with: 'salary_trend' (list of 5 years with average/entry/senior values), 'growth_rate' (percentage), 'market_status' (string)."
+    ai_res = _call_gemini(ai_prompt)
+    try:
+        import json
+        insights = json.loads(re.search(r'\{.*\}', ai_res, re.DOTALL).group())
+    except:
+        insights = {
+            "salary_trend": [
+                {"year": "2023", "average": 85000, "entry": 62000, "senior": 130000},
+                {"year": "2024", "average": 92000, "entry": 68000, "senior": 145000},
+                {"year": "2025", "average": 100000, "entry": 78000, "senior": 160000},
+                {"year": "2026", "average": 108000, "entry": 85000, "senior": 175000},
+                {"year": "2027", "average": 118000, "entry": 95000, "senior": 190000}
+            ],
+            "growth_rate": 22,
+            "market_status": "High Activity"
+        }
     return jsonify({
         "topSkills": top_skills_data,
-        "roleDistribution": role_distribution,
-        "salaryTrend": salary_trend,
+        "roleDistribution": [
+            {"name": user_field, "value": 45, "growth": insights.get("growth_rate", 22)},
+            {"name": "Related Fields", "value": 30, "growth": 15},
+            {"name": "Emerging Roles", "value": 25, "growth": 35}
+        ],
+        "salaryTrend": insights.get("salary_trend"),
         "marketPulse": {
-            "index": round(market_pulse_score, 1),
-            "status": "High Activity" if market_pulse_score > 85 else "Stable",
+            "index": 88.5,
+            "status": insights.get("market_status"),
             "totalAnalyzed": total_jobs,
-            "live_sync": True
+            "field": user_field
         },
         "hotspots": [
             {"city": "Remote (Live)", "jobs": total_jobs, "avgSalary": 115000},
-            {"city": "San Francisco", "jobs": random.randint(1500, 2000), "avgSalary": 165000},
-            {"city": "New York", "jobs": random.randint(1200, 1800), "avgSalary": 145000},
-            {"city": "London", "jobs": random.randint(900, 1400), "avgSalary": 95000},
-            {"city": "Bangalore", "jobs": random.randint(1100, 1600), "avgSalary": 48000}
-        ],
-        "predictions": [
-            {
-                "field": "Infrastructure",
-                "outlook": "High",
-                "impact": "Cloud-native transformation is driving 30% YoY growth in DevOps and Site Reliability roles.",
-                "topSkill": "Terraform"
-            },
-            {
-                "field": "Full Stack",
-                "outlook": "Stable",
-                "impact": "Consolidation of frameworks; Next.js and Go are becoming the enterprise standard for speed.",
-                "topSkill": "Next.js"
-            },
-            {
-                "field": "AI Strategy",
-                "outlook": "Explosive",
-                "impact": "60% of new tech roles now require some form of LLM or prompt engineering expertise.",
-                "topSkill": "OpenAI API"
-            }
+            {"city": "San Francisco", "jobs": 1500, "avgSalary": 165000},
+            {"city": "New York", "jobs": 1200, "avgSalary": 145000}
         ]
     })
 if __name__ == "__main__":

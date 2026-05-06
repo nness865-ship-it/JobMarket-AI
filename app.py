@@ -58,8 +58,13 @@ def _call_gemini(prompt):
         print(f"Gemini Request Failed: {e}")
         return None
 
-client = MongoClient(MONGO_URI)
-db = client["jobpulse_db"]
+# Initialize MongoDB with timeout to prevent hanging
+try:
+    client = MongoClient(MONGO_URI, serverSelectionTimeoutMS=3000, connectTimeoutMS=3000)
+    db = client["jobpulse_db"]
+except Exception as e:
+    print(f"CRITICAL: Failed to initialize MongoDB client: {e}")
+    db = None
 jobs_collection = db["jobs"]
 users_collection = db["users"]
 activity_logs = db["activity_logs"]

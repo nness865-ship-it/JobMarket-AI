@@ -211,5 +211,19 @@ The interface is fully responsive across all device types and screen sizes, with
 **Micro-Interactions and Animations**
 Framer Motion powers smooth, purposeful animations that enhance user experience without compromising performance. Every interaction provides appropriate feedback, creating an engaging and polished user experience.
 
-**Performance Optimization**
-The frontend is optimized for performance with code splitting, lazy loading, efficient state management, and optimized asset delivery, ensuring fast load times and smooth interactions across all devices.
+## 🚀 Deployment
+
+The project is optimized for deployment on **Vercel**.
+
+### Full-Stack Configuration
+The repository includes a `vercel.json` that manages:
+*   **Frontend**: React/Vite build.
+*   **Backend**: Flask Serverless Functions.
+
+### Steps to Deploy
+1. Install Vercel CLI: `npm i -g vercel`
+2. Run `vercel` in the root directory.
+3. Configure environment variables in the Vercel Dashboard (`MONGO_URI`, `GOOGLE_API_KEY`, etc.).
+
+---
+*Created with ❤️ by Adnan Junaid & Seeya Sandesh Vhora*

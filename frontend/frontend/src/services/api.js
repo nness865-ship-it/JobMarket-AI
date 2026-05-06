@@ -2,7 +2,7 @@ import axios from 'axios';
 import { getAuthToken } from '../auth/token';
 
 const api = axios.create({
-  baseURL: 'http://127.0.0.1:5000',
+  baseURL: import.meta.env.VITE_API_URL || 'http://127.0.0.1:5000',
 });
 
 // Add auth token to requests

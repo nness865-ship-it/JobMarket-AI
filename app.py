@@ -449,8 +449,9 @@ def upload_resume():
     return jsonify({"message": "Success", "skills": extracted, "category": category_display})
 @app.route("/auth/google", methods=["POST"])
 def auth_google():
-    token = request.get_json().get("token")
-    if not token: return jsonify({"error": "Token required"}), 400
+    data = request.get_json() or {}
+    token = data.get("credential") or data.get("token")
+    if not token: return jsonify({"error": "Token/Credential required"}), 400
     try:
         idinfo = id_token.verify_oauth2_token(token, google_requests.Request(), GOOGLE_CLIENT_ID)
         email = idinfo["email"]

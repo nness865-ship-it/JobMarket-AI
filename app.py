@@ -420,52 +420,29 @@ def test_db():
 def upload_resume():
     file = request.files.get("file")
     email = _current_email() or request.form.get("email")
-    if not file:
-        return jsonify({"error": "File is required"}), 400
-    if not email:
-        email = f"guest.{datetime.utcnow().timestamp()}@elevateai.guest"
+    if not file: return jsonify({"error": "File is required"}), 400
+    if not email: email = f"guest.{datetime.utcnow().timestamp()}@elevateai.guest"
     text = ""
     try:
         with pdfplumber.open(file) as pdf:
-            for page in pdf.pages:
+            for page in pdf.pages[:10]:
                 text += page.extract_text() or ""
     except Exception as e:
         return jsonify({"error": f"Failed to read PDF: {str(e)}"}), 500
     if not text.strip():
-        return jsonify({"error": "No text could be extracted from this PDF. It might be a scanned image. Please upload a PDF with selectable text."}), 400
+        return jsonify({"error": "No text detected. Please use a text-based PDF."}), 400
     extracted = _extract_skills_from_text(text)
     category = _detect_skill_category(extracted)
     category_display = _get_category_display_name(category)
-    users_collection.update_one(
-        {"email": email},
-        {
-            "$set": {
-                "email": email,
-                "skills": extracted,
-                "category": category,
-                "category_display": category_display,
-                "updated_at": datetime.utcnow(),
-            }
-        },
-        upsert=True,
-    )
     try:
-        activity_logs.insert_one({
-            "type": "resume_upload",
-            "email": email,
-            "raw_text_chars": len(text),
-            "extracted_skills": extracted,
-            "detected_category": category,
-            "created_at": datetime.utcnow(),
-        })
-    except Exception:
-        pass
-    return jsonify({
-        "message": "Resume processed successfully",
-        "skills": extracted,
-        "category": category_display,
-        "field_detected": f"We detected you're in {category_display} field"
-    })
+        users_collection.update_one(
+            {"email": email},
+            {"$set": {"email": email, "skills": extracted, "category": category, "category_display": category_display, "updated_at": datetime.utcnow()}},
+            upsert=True
+        )
+    except Exception as e:
+        print(f"DB Error: {e}")
+    return jsonify({"message": "Success", "skills": extracted, "category": category_display})
 @app.route("/save-user-skills", methods=["POST"])
 def save_user_skills():
     data = request.json

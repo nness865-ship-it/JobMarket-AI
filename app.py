@@ -309,14 +309,14 @@ def _skill_vocabulary():
         "coaching", "sports management", "event management", "facility management"
     ]
     from_jobs = set()
-    try:
-        db = get_db()
-        if db is not None:
+    db = get_db()
+    if db is not None:
+        try:
             for job in db["jobs"].find({}, {"skills": 1, "_id": 0}):
-                if "skills" in job:
-                    from_jobs.update(s.lower().strip() for s in job["skills"] if s)
-    except Exception:
-        pass
+                if "skills" in job and isinstance(job["skills"], list):
+                    from_jobs.update(str(s).lower().strip() for s in job["skills"] if s)
+        except Exception:
+            pass
     return _normalize_skills(static + list(from_jobs))
 def _extract_skills_from_text(text: str):
     if not text:

@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Briefcase, MapPin, TrendingUp, DollarSign, Save, AlertCircle, CheckCircle2 } from 'lucide-react';
 import { updateUserProfile, me } from '../../services/api';
-
 const POSITION_LEVELS = ['Entry', 'Mid-Level', 'Senior', 'Lead', 'Manager', 'Director', 'Executive'];
-
 const JOB_DOMAINS = [
   'Computer Science & Technology',
   'Engineering',
@@ -22,7 +20,6 @@ const JOB_DOMAINS = [
   'Legal',
   'Other'
 ];
-
 export function ProfileEditor({ email, onProfileUpdate }) {
   const [formData, setFormData] = useState({
     current_job_role: '',
@@ -30,20 +27,14 @@ export function ProfileEditor({ email, onProfileUpdate }) {
     position_level: '',
     current_salary: ''
   });
-
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [isEditing, setIsEditing] = useState(false);
-
-  // Load existing profile data
   useEffect(() => {
     const loadProfile = async () => {
       if (!email) return;
-      
-      // Check if this is a guest user
       if (email.includes('@elevateai.guest')) {
-        // Load from localStorage for guest users
         const savedProfile = localStorage.getItem('guest_profile_data');
         if (savedProfile) {
           try {
@@ -62,8 +53,6 @@ export function ProfileEditor({ email, onProfileUpdate }) {
         }
         return;
       }
-      
-      // Load from API for authenticated users
       try {
         const response = await me();
         const user = response.data?.user;
@@ -82,7 +71,6 @@ export function ProfileEditor({ email, onProfileUpdate }) {
     };
     loadProfile();
   }, [email]);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     const newFormData = {
@@ -91,8 +79,6 @@ export function ProfileEditor({ email, onProfileUpdate }) {
     };
     setFormData(newFormData);
     setError('');
-    
-    // Auto-save for guest users
     if (email && email.includes('@elevateai.guest')) {
       const profileData = {
         current_job_role: newFormData.current_job_role,
@@ -104,7 +90,6 @@ export function ProfileEditor({ email, onProfileUpdate }) {
       localStorage.setItem('guest_profile_data', JSON.stringify(profileData));
     }
   };
-
   const validateForm = () => {
     if (!formData.current_job_role.trim()) {
       setError('Current job role is required');
@@ -124,16 +109,12 @@ export function ProfileEditor({ email, onProfileUpdate }) {
     }
     return true;
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
     if (!validateForm()) return;
-
     setLoading(true);
     setError('');
     setSuccess('');
-
     try {
       const payload = {
         email,
@@ -142,10 +123,7 @@ export function ProfileEditor({ email, onProfileUpdate }) {
         position_level: formData.position_level,
         current_salary: formData.current_salary ? parseInt(formData.current_salary) : 0
       };
-
-      // Handle guest users
       if (email.includes('@elevateai.guest')) {
-        // Save to localStorage for guest users
         const profileData = {
           current_job_role: payload.current_job_role,
           job_domain: payload.job_domain,
@@ -154,29 +132,21 @@ export function ProfileEditor({ email, onProfileUpdate }) {
           lastUpdated: new Date().toISOString()
         };
         localStorage.setItem('guest_profile_data', JSON.stringify(profileData));
-        
         setSuccess('Profile saved locally! 🎉');
         setIsEditing(false);
-        
         if (onProfileUpdate) {
           onProfileUpdate(profileData);
         }
-        
         console.log('💾 Saved profile data for guest user');
         setTimeout(() => setSuccess(''), 3000);
         return;
       }
-
-      // Handle authenticated users - save to backend
       const response = await updateUserProfile(payload);
-      
       setSuccess('Profile updated successfully! 🎉');
       setIsEditing(false);
-      
       if (onProfileUpdate) {
         onProfileUpdate(response.data?.profile);
       }
-
       setTimeout(() => setSuccess(''), 3000);
     } catch (err) {
       setError(err.response?.data?.error || 'Failed to update profile');
@@ -184,9 +154,7 @@ export function ProfileEditor({ email, onProfileUpdate }) {
       setLoading(false);
     }
   };
-
   const isProfileComplete = formData.current_job_role && formData.job_domain && formData.position_level;
-
   return (
     <div className="bg-slate-900 border border-slate-700 rounded-lg p-6 space-y-6">
       <div className="flex items-center justify-between">
@@ -210,24 +178,21 @@ export function ProfileEditor({ email, onProfileUpdate }) {
           </button>
         )}
       </div>
-
       {error && (
         <div className="flex items-center gap-3 p-4 bg-red-900/20 border border-red-700/50 rounded-lg">
           <AlertCircle className="w-5 h-5 text-red-400 flex-shrink-0" />
           <p className="text-red-200 text-sm">{error}</p>
         </div>
       )}
-
       {success && (
         <div className="flex items-center gap-3 p-4 bg-green-900/20 border border-green-700/50 rounded-lg">
           <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0" />
           <p className="text-green-200 text-sm">{success}</p>
         </div>
       )}
-
       {isEditing || !isProfileComplete ? (
         <form onSubmit={handleSubmit} className="space-y-5">
-          {/* Current Job Role */}
+          {}
           <div>
             <label className="block text-sm font-medium text-slate-200 mb-2">
               <Briefcase className="w-4 h-4 inline mr-2" />
@@ -243,8 +208,7 @@ export function ProfileEditor({ email, onProfileUpdate }) {
             />
             <p className="text-xs text-slate-400 mt-1">Your current job title or role</p>
           </div>
-
-          {/* Job Domain */}
+          {}
           <div>
             <label className="block text-sm font-medium text-slate-200 mb-2">
               <MapPin className="w-4 h-4 inline mr-2" />
@@ -263,8 +227,7 @@ export function ProfileEditor({ email, onProfileUpdate }) {
             </select>
             <p className="text-xs text-slate-400 mt-1">The industry or field you work in</p>
           </div>
-
-          {/* Position Level */}
+          {}
           <div>
             <label className="block text-sm font-medium text-slate-200 mb-2">
               <TrendingUp className="w-4 h-4 inline mr-2" />
@@ -283,8 +246,7 @@ export function ProfileEditor({ email, onProfileUpdate }) {
             </select>
             <p className="text-xs text-slate-400 mt-1">Your current career level</p>
           </div>
-
-          {/* Current Salary */}
+          {}
           <div>
             <label className="block text-sm font-medium text-slate-200 mb-2">
               <DollarSign className="w-4 h-4 inline mr-2" />
@@ -300,8 +262,7 @@ export function ProfileEditor({ email, onProfileUpdate }) {
             />
             <p className="text-xs text-slate-400 mt-1">Used to calculate salary progression and growth potential</p>
           </div>
-
-          {/* Action Buttons */}
+          {}
           <div className="flex gap-3 pt-4">
             <button
               type="submit"
@@ -344,7 +305,6 @@ export function ProfileEditor({ email, onProfileUpdate }) {
           </div>
         </div>
       )}
-
       <div className="p-4 bg-blue-900/20 border border-blue-700/50 rounded-lg">
         <p className="text-sm text-blue-200">
           <strong>💡 Tip:</strong> Your profile information helps us generate domain-specific career pathways, salary progression estimates, and relevant job recommendations tailored to your industry.

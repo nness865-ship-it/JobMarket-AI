@@ -2,19 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Target, ChevronRight, Briefcase, Award, TrendingUp, AlertCircle, Loader2, Code, ShieldCheck, Map, DollarSign, BrainCircuit } from 'lucide-react';
 import { getPromotionPathway, getHighPayingJobs, me } from '../../services/api';
 import { motion, AnimatePresence } from 'framer-motion';
-
 export function CareerPathways({ email, userSkills, onGenerateRoadmap, onNavigateRecommendations }) {
   const [currentRole, setCurrentRole] = useState(() => {
     return localStorage.getItem('user_current_role') || (userSkills.length > 0 ? 'Professional' : 'Software Engineer');
   });
-  const [activeTab, setActiveTab] = useState('promotion'); // Only 'promotion' now
-  
+  const [activeTab, setActiveTab] = useState('promotion'); 
   const [promotionData, setPromotionData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [profileData, setProfileData] = useState({});
-
-  // Load user profile data
   useEffect(() => {
     const loadProfile = async () => {
       try {
@@ -34,18 +30,14 @@ export function CareerPathways({ email, userSkills, onGenerateRoadmap, onNavigat
     };
     loadProfile();
   }, []);
-
   const fetchPromotionData = async () => {
     setLoading(true);
     setError('');
-    
-    // Check if profile is complete
     if (!profileData.current_job_role || !profileData.job_domain || !profileData.position_level) {
       setError('Please complete your professional profile first to get personalized career pathways.');
       setLoading(false);
       return;
     }
-    
     try {
       const res = await getPromotionPathway(email, userSkills, currentRole, profileData);
       setPromotionData(res.data);
@@ -60,14 +52,11 @@ export function CareerPathways({ email, userSkills, onGenerateRoadmap, onNavigat
       setLoading(false);
     }
   };
-
   useEffect(() => {
-    // Only fetch promotion data if we have profile data loaded
     if (Object.keys(profileData).length > 0 && !promotionData) {
       fetchPromotionData();
     }
   }, [profileData]);
-
   const handleRoleSubmit = (e) => {
     e.preventDefault();
     if (currentRole) {
@@ -75,11 +64,9 @@ export function CareerPathways({ email, userSkills, onGenerateRoadmap, onNavigat
     }
     fetchPromotionData();
   };
-
   return (
     <div className="flex flex-col w-full max-w-6xl mx-auto px-4 py-8 space-y-8">
-      
-      {/* Header & Role Input */}
+      {}
       <div className="bg-slate-900/50 border border-white/5 rounded-3xl p-6 backdrop-blur-xl flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div>
           <h2 className="text-3xl font-black text-white flex items-center gap-3">
@@ -92,7 +79,6 @@ export function CareerPathways({ email, userSkills, onGenerateRoadmap, onNavigat
               : 'Strategize your promotion or discover higher-paying roles.'}
           </p>
         </div>
-        
         <form onSubmit={handleRoleSubmit} className="flex w-full md:w-auto items-center gap-3 bg-slate-950 p-2 rounded-2xl border border-white/10">
           <Briefcase className="text-slate-500 w-5 h-5 ml-2" />
           <input 
@@ -108,8 +94,7 @@ export function CareerPathways({ email, userSkills, onGenerateRoadmap, onNavigat
           </button>
         </form>
       </div>
-
-      {/* Main Content Area */}
+      {}
       <div className="relative min-h-[400px]">
         {error && (
           <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-2xl text-red-400 flex items-center gap-3">
@@ -124,7 +109,6 @@ export function CareerPathways({ email, userSkills, onGenerateRoadmap, onNavigat
             </div>
           </div>
         )}
-
         {loading ? (
           <div className="absolute inset-0 flex flex-col items-center justify-center">
             <Loader2 className="w-12 h-12 text-primary animate-spin" />
@@ -137,7 +121,7 @@ export function CareerPathways({ email, userSkills, onGenerateRoadmap, onNavigat
               animate={{ opacity: 1, y: 0 }}
               className="space-y-8"
             >
-                {/* Visual Progression */}
+                {}
                 <div className="flex items-center justify-center p-8 bg-slate-900/30 rounded-3xl border border-white/5 gap-4 md:gap-8">
                   <div className="text-center">
                     <div className="w-16 h-16 rounded-2xl bg-slate-800 flex items-center justify-center text-slate-400 mx-auto mb-3">
@@ -154,8 +138,7 @@ export function CareerPathways({ email, userSkills, onGenerateRoadmap, onNavigat
                     <span className="text-xl font-black text-white">{promotionData.next_role}</span>
                   </div>
                 </div>
-
-                {/* Salary Progression */}
+                {}
                 {promotionData.salary_progression && (
                   <div className="grid md:grid-cols-3 gap-4">
                     <div className="bg-slate-900/40 p-6 rounded-2xl border border-white/5 text-center">
@@ -172,11 +155,9 @@ export function CareerPathways({ email, userSkills, onGenerateRoadmap, onNavigat
                     </div>
                   </div>
                 )}
-
-                {/* Grid for Skills & Strategy */}
+                {}
                 <div className="grid md:grid-cols-2 gap-6">
-                  
-                  {/* Skill Gaps */}
+                  {}
                   <div className="bg-slate-900/40 p-8 rounded-3xl border border-white/5">
                     <h3 className="text-xl font-black text-white mb-6 flex items-center gap-2">
                       <BrainCircuit className="w-6 h-6 text-emerald-400" />
@@ -197,8 +178,7 @@ export function CareerPathways({ email, userSkills, onGenerateRoadmap, onNavigat
                       ))}
                     </div>
                   </div>
-
-                  {/* Strategy */}
+                  {}
                   <div className="bg-slate-900/40 p-8 rounded-3xl border border-white/5 flex flex-col justify-between">
                     <div>
                       <h3 className="text-xl font-black text-white mb-6 flex items-center gap-2">
@@ -221,17 +201,15 @@ export function CareerPathways({ email, userSkills, onGenerateRoadmap, onNavigat
                       </div>
                     </div>
                   </div>
-
                 </div>
-
-                {/* 5 Main Projects for Promotion */}
+                {}
                 <div className="bg-slate-900/40 p-8 rounded-3xl border border-white/5">
                   <h3 className="text-xl font-black text-white mb-6 flex items-center gap-2">
                     <Code className="w-6 h-6 text-blue-400" />
                     5 Main Projects to Get Promoted
                   </h3>
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {/* Project 1: Leadership Initiative */}
+                    {}
                     <div className="bg-slate-950 p-6 rounded-2xl border border-white/5 hover:border-blue-500/30 transition-colors group">
                       <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                         <Award className="w-6 h-6 text-white" />
@@ -240,7 +218,6 @@ export function CareerPathways({ email, userSkills, onGenerateRoadmap, onNavigat
                       <p className="text-slate-400 text-sm mb-4 leading-relaxed">
                         Spearhead a project involving multiple departments. Demonstrate leadership, communication, and project management skills.
                       </p>
-                      
                       <div className="mb-4">
                         <span className="text-[10px] font-bold text-slate-600 uppercase tracking-widest block mb-2">Skills Gained</span>
                         <div className="flex flex-wrap gap-2">
@@ -249,14 +226,12 @@ export function CareerPathways({ email, userSkills, onGenerateRoadmap, onNavigat
                           ))}
                         </div>
                       </div>
-
                       <div className="pt-4 border-t border-white/5">
                         <strong className="text-[10px] font-bold text-blue-400 uppercase tracking-widest block mb-1">Promotion Impact</strong>
                         <p className="text-sm text-slate-300">Shows readiness for management roles and ability to drive results across teams</p>
                       </div>
                     </div>
-
-                    {/* Project 2: Process Optimization */}
+                    {}
                     <div className="bg-slate-950 p-6 rounded-2xl border border-white/5 hover:border-emerald-500/30 transition-colors group">
                       <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                         <TrendingUp className="w-6 h-6 text-white" />
@@ -265,7 +240,6 @@ export function CareerPathways({ email, userSkills, onGenerateRoadmap, onNavigat
                       <p className="text-slate-400 text-sm mb-4 leading-relaxed">
                         Identify inefficiencies and implement solutions that save time/money. Document measurable improvements.
                       </p>
-                      
                       <div className="mb-4">
                         <span className="text-[10px] font-bold text-slate-600 uppercase tracking-widest block mb-2">Skills Gained</span>
                         <div className="flex flex-wrap gap-2">
@@ -274,14 +248,12 @@ export function CareerPathways({ email, userSkills, onGenerateRoadmap, onNavigat
                           ))}
                         </div>
                       </div>
-
                       <div className="pt-4 border-t border-white/5">
                         <strong className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest block mb-1">Promotion Impact</strong>
                         <p className="text-sm text-slate-300">Demonstrates business acumen and ability to drive operational excellence</p>
                       </div>
                     </div>
-
-                    {/* Project 3: Innovation/Technology */}
+                    {}
                     <div className="bg-slate-950 p-6 rounded-2xl border border-white/5 hover:border-purple-500/30 transition-colors group">
                       <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                         <BrainCircuit className="w-6 h-6 text-white" />
@@ -290,7 +262,6 @@ export function CareerPathways({ email, userSkills, onGenerateRoadmap, onNavigat
                       <p className="text-slate-400 text-sm mb-4 leading-relaxed">
                         Introduce new technology, methodology, or product feature that creates competitive advantage.
                       </p>
-                      
                       <div className="mb-4">
                         <span className="text-[10px] font-bold text-slate-600 uppercase tracking-widest block mb-2">Skills Gained</span>
                         <div className="flex flex-wrap gap-2">
@@ -299,14 +270,12 @@ export function CareerPathways({ email, userSkills, onGenerateRoadmap, onNavigat
                           ))}
                         </div>
                       </div>
-
                       <div className="pt-4 border-t border-white/5">
                         <strong className="text-[10px] font-bold text-purple-400 uppercase tracking-widest block mb-1">Promotion Impact</strong>
                         <p className="text-sm text-slate-300">Positions you as a forward-thinking leader who drives company growth</p>
                       </div>
                     </div>
-
-                    {/* Project 4: Mentorship Program */}
+                    {}
                     <div className="bg-slate-950 p-6 rounded-2xl border border-white/5 hover:border-orange-500/30 transition-colors group">
                       <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                         <Target className="w-6 h-6 text-white" />
@@ -315,7 +284,6 @@ export function CareerPathways({ email, userSkills, onGenerateRoadmap, onNavigat
                       <p className="text-slate-400 text-sm mb-4 leading-relaxed">
                         Create and lead a program to develop junior talent. Show investment in team growth and knowledge transfer.
                       </p>
-                      
                       <div className="mb-4">
                         <span className="text-[10px] font-bold text-slate-600 uppercase tracking-widest block mb-2">Skills Gained</span>
                         <div className="flex flex-wrap gap-2">
@@ -324,14 +292,12 @@ export function CareerPathways({ email, userSkills, onGenerateRoadmap, onNavigat
                           ))}
                         </div>
                       </div>
-
                       <div className="pt-4 border-t border-white/5">
                         <strong className="text-[10px] font-bold text-orange-400 uppercase tracking-widest block mb-1">Promotion Impact</strong>
                         <p className="text-sm text-slate-300">Demonstrates leadership potential and commitment to organizational growth</p>
                       </div>
                     </div>
-
-                    {/* Project 5: Revenue/Cost Impact */}
+                    {}
                     <div className="bg-slate-950 p-6 rounded-2xl border border-white/5 hover:border-green-500/30 transition-colors group">
                       <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                         <DollarSign className="w-6 h-6 text-white" />
@@ -340,7 +306,6 @@ export function CareerPathways({ email, userSkills, onGenerateRoadmap, onNavigat
                       <p className="text-slate-400 text-sm mb-4 leading-relaxed">
                         Lead a project that directly increases revenue, reduces costs, or improves customer satisfaction with quantifiable results.
                       </p>
-                      
                       <div className="mb-4">
                         <span className="text-[10px] font-bold text-slate-600 uppercase tracking-widest block mb-2">Skills Gained</span>
                         <div className="flex flex-wrap gap-2">
@@ -349,15 +314,13 @@ export function CareerPathways({ email, userSkills, onGenerateRoadmap, onNavigat
                           ))}
                         </div>
                       </div>
-
                       <div className="pt-4 border-t border-white/5">
                         <strong className="text-[10px] font-bold text-green-400 uppercase tracking-widest block mb-1">Promotion Impact</strong>
                         <p className="text-sm text-slate-300">Proves direct contribution to company success with concrete metrics</p>
                       </div>
                     </div>
                   </div>
-
-                  {/* Action Tips */}
+                  {}
                   <div className="mt-8 p-6 bg-gradient-to-r from-blue-900/20 to-purple-900/20 rounded-2xl border border-blue-500/20">
                     <h4 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
                       <ShieldCheck className="w-5 h-5 text-blue-400" />
@@ -383,8 +346,7 @@ export function CareerPathways({ email, userSkills, onGenerateRoadmap, onNavigat
                     </div>
                   </div>
                 </div>
-
-                {/* API Projects Section (if available) */}
+                {}
                 {promotionData.projects && promotionData.projects.length > 0 && (
                   <div className="bg-slate-900/40 p-8 rounded-3xl border border-white/5">
                     <h3 className="text-xl font-black text-white mb-6 flex items-center gap-2">
@@ -396,7 +358,6 @@ export function CareerPathways({ email, userSkills, onGenerateRoadmap, onNavigat
                         <div key={idx} className="bg-slate-950 p-6 rounded-2xl border border-white/5 hover:border-accent-light/30 transition-colors">
                           <h4 className="text-lg font-bold text-white mb-2">{proj.project}</h4>
                           <p className="text-slate-400 text-sm mb-4 leading-relaxed">{proj.objective}</p>
-                          
                           <div className="mb-4">
                             <span className="text-[10px] font-bold text-slate-600 uppercase tracking-widest block mb-2">Skills Gained</span>
                             <div className="flex flex-wrap gap-2">
@@ -405,7 +366,6 @@ export function CareerPathways({ email, userSkills, onGenerateRoadmap, onNavigat
                               ))}
                             </div>
                           </div>
-
                           <div className="pt-4 border-t border-white/5">
                             <strong className="text-[10px] font-bold text-accent-light uppercase tracking-widest block mb-1">Promotion Impact</strong>
                             <p className="text-sm text-slate-300">{proj.promotion_impact}</p>
@@ -415,8 +375,7 @@ export function CareerPathways({ email, userSkills, onGenerateRoadmap, onNavigat
                     </div>
                   </div>
                 )}
-
-                {/* Direct Link to Roadmap */}
+                {}
                 <div className="flex justify-center pt-6">
                   <button 
                     onClick={() => onGenerateRoadmap(promotionData.next_role)}

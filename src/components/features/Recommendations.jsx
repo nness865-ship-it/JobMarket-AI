@@ -3,7 +3,6 @@ import { recommendJobs } from '../../services/api';
 import { Briefcase, ChevronRight, Loader2, Sparkles, Map } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { cn } from '../../lib/utils';
-
 export function Recommendations({ email, skills, onGenerateRoadmap }) {
   const [loading, setLoading] = useState(false);
   const [recommendations, setRecommendations] = useState([]);
@@ -12,7 +11,6 @@ export function Recommendations({ email, skills, onGenerateRoadmap }) {
   const [stats, setStats] = useState(null);
   const [hasGenerated, setHasGenerated] = useState(false);
   const [lastProcessedSkills, setLastProcessedSkills] = useState('');
-
   React.useEffect(() => {
     const skillsKey = JSON.stringify(skills);
     if (skills?.length > 0 && !loading && !hasGenerated && skillsKey !== lastProcessedSkills) {
@@ -20,14 +18,12 @@ export function Recommendations({ email, skills, onGenerateRoadmap }) {
       setLastProcessedSkills(skillsKey);
     }
   }, [skills, hasGenerated, loading, lastProcessedSkills]);
-
   const handleGenerate = async () => {
     setLoading(true);
     try {
       const response = await recommendJobs(email, skills);
       const data = response.data || {};
       const apiRecs = data.recommendations || [];
-
       const mapped = apiRecs.map((job) => ({
         role: job.role,
         match: job.match ?? job.match_score_percent ?? 0,
@@ -40,7 +36,6 @@ export function Recommendations({ email, skills, onGenerateRoadmap }) {
         totalSkillsRequired: job.total_skills_required ?? 0,
         skillsYouHave: job.skills_you_have ?? 0,
       }));
-
       setRecommendations(mapped);
       setSkillSuggestions(data.skillSuggestions || []);
       setUserCategory(data.category || 'General');
@@ -52,7 +47,6 @@ export function Recommendations({ email, skills, onGenerateRoadmap }) {
     }
     setLoading(false);
   };
-
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -62,12 +56,10 @@ export function Recommendations({ email, skills, onGenerateRoadmap }) {
       }
     }
   };
-
   const item = {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0, transition: { type: 'spring', bounce: 0.4 } }
   };
-
   return (
     <div className="w-full max-w-5xl mx-auto space-y-6">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -81,7 +73,6 @@ export function Recommendations({ email, skills, onGenerateRoadmap }) {
             </div>
           )}
         </div>
-        
         <button
           onClick={handleGenerate}
           disabled={loading}
@@ -105,7 +96,6 @@ export function Recommendations({ email, skills, onGenerateRoadmap }) {
           )}
         </button>
       </div>
-
       {stats && (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
           <div className="bg-saas-900 border border-saas-800 rounded-lg p-4 text-center">
@@ -126,7 +116,6 @@ export function Recommendations({ email, skills, onGenerateRoadmap }) {
           </div>
         </div>
       )}
-
       {!hasGenerated && !loading && (
         <div className="bg-saas-900 border border-saas-800 rounded-xl p-12 text-center flex flex-col items-center justify-center min-h-[300px]">
           <div className="w-16 h-16 rounded-full bg-saas-800 flex items-center justify-center mb-4 text-saas-400">
@@ -138,10 +127,9 @@ export function Recommendations({ email, skills, onGenerateRoadmap }) {
           </p>
         </div>
       )}
-
       {hasGenerated && recommendations.length > 0 && (
         <>
-          {/* Skill Suggestions Section */}
+          {}
           {skillSuggestions.length > 0 && (
             <div className="mb-8">
               <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
@@ -179,8 +167,7 @@ export function Recommendations({ email, skills, onGenerateRoadmap }) {
               </div>
             </div>
           )}
-
-          {/* Job Recommendations */}
+          {}
           <motion.div 
             variants={container}
             initial="hidden"
@@ -213,7 +200,6 @@ export function Recommendations({ email, skills, onGenerateRoadmap }) {
                     {job.match}% Match
                   </div>
                 </div>
-
                 <h3 className="text-xl font-bold text-white mb-1 relative z-10">{job.role}</h3>
                 <div className="mb-2 relative z-10">
                   <span className="text-xs text-saas-500 uppercase tracking-wide">{job.jobCategory}</span>
@@ -221,8 +207,7 @@ export function Recommendations({ email, skills, onGenerateRoadmap }) {
                     <span className="ml-2 text-xs text-yellow-400 font-medium">• Field Match</span>
                   )}
                 </div>
-                
-                {/* Skills Progress */}
+                {}
                 <div className="mb-3 relative z-10">
                   <div className="flex justify-between text-xs text-saas-400 mb-1">
                     <span>Skills Match</span>
@@ -237,7 +222,6 @@ export function Recommendations({ email, skills, onGenerateRoadmap }) {
                     />
                   </div>
                 </div>
-
                 <div className="grid grid-cols-1 gap-4 mb-6 flex-1 relative z-10">
                   <div>
                     <div className="flex items-center gap-2 mb-2">
@@ -256,7 +240,6 @@ export function Recommendations({ email, skills, onGenerateRoadmap }) {
                       )}
                     </div>
                   </div>
-
                   <div>
                     <div className="flex items-center gap-2 mb-2">
                       <Briefcase className="w-3 h-3 text-amber-400" />
@@ -275,7 +258,6 @@ export function Recommendations({ email, skills, onGenerateRoadmap }) {
                     </div>
                   </div>
                 </div>
-
                 <div className="space-y-4 relative z-10 mt-auto">
                   <button
                     onClick={() => onGenerateRoadmap(job.role)}
@@ -286,8 +268,7 @@ export function Recommendations({ email, skills, onGenerateRoadmap }) {
                     <ChevronRight className="w-4 h-4 text-saas-500 group-hover/btn:text-primary-light ml-auto" />
                   </button>
                 </div>
-
-                {/* Decorative background glow */}
+                {}
                 <div className="absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-primary/5 blur-3xl group-hover:bg-primary/10 transition-colors pointer-events-none" />
               </motion.div>
             ))}

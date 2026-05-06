@@ -1,6 +1,4 @@
 import "./chunk-G3PMV62Z.js";
-
-// node_modules/jwt-decode/build/esm/index.js
 var InvalidTokenError = class extends Error {
 };
 InvalidTokenError.prototype.name = "InvalidTokenError";
@@ -59,4 +57,3 @@ export {
   InvalidTokenError,
   jwtDecode
 };
-//# sourceMappingURL=jwt-decode.js.map

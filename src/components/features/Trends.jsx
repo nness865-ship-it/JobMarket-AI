@@ -33,18 +33,14 @@ import {
 } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
-
 const COLORS = ['#0ea5e9', '#8b5cf6', '#10b981', '#f59e0b', '#ef4444', '#ec4899', '#6366f1', '#14b8a6', '#f97316', '#84cc16'];
-
 export function Trends() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
   const [activeCategory, setActiveCategory] = useState('All');
-
   useEffect(() => {
     fetchTrends();
   }, []);
-
   const fetchTrends = async () => {
     try {
       const response = await getJobTrends();
@@ -55,7 +51,6 @@ export function Trends() {
       setLoading(false);
     }
   };
-
   if (loading || !data) {
     return (
       <div className="w-full h-[600px] flex flex-col items-center justify-center">
@@ -67,7 +62,6 @@ export function Trends() {
       </div>
     );
   }
-
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
@@ -88,10 +82,9 @@ export function Trends() {
     }
     return null;
   };
-
   return (
     <div className="w-full max-w-7xl mx-auto space-y-10 pb-20">
-      {/* Header & Pulse */}
+      {}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
         <div>
           <div className="flex items-center gap-2 mb-4">
@@ -103,8 +96,7 @@ export function Trends() {
           <p className="text-slate-400 text-lg max-w-xl">Dynamic shift analysis and predictive career modeling.</p>
         </div>
       </div>
-
-      {/* Ticker */}
+      {}
       <div className="relative h-12 overflow-hidden bg-white/5 border-y border-white/5 flex items-center">
         <div className="whitespace-nowrap animate-marquee flex items-center gap-12">
             {[...(data?.topSkills || []), ...(data?.topSkills || [])].map((s, i) => (
@@ -116,8 +108,7 @@ export function Trends() {
             ))}
         </div>
       </div>
-
-      {/* User's Domain Job Demand (Personalized) */}
+      {}
       <motion.div 
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -137,7 +128,6 @@ export function Trends() {
               <div className="px-3 py-1 rounded-lg bg-emerald-500/10 text-[10px] font-bold text-emerald-400">Your Field</div>
           </div>
         </div>
-        
         <div className="h-[300px] w-full">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={data?.salaryTrend || []}>
@@ -151,8 +141,7 @@ export function Trends() {
             </LineChart>
           </ResponsiveContainer>
         </div>
-        
-        {/* Domain Insights */}
+        {}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-6 pt-6 border-t border-emerald-500/20">
           {[
             { name: 'Your Role', color: '#10b981', growth: '+85%', trend: 'Strong' },
@@ -172,9 +161,8 @@ export function Trends() {
           ))}
         </div>
       </motion.div>
-
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Salary Growth (Main Card) */}
+        {}
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -191,7 +179,6 @@ export function Trends() {
                 <div className="px-3 py-1 rounded-lg bg-white/5 text-[10px] font-bold text-slate-400">Job Openings</div>
             </div>
           </div>
-          
           <div className="h-[350px] w-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarC data={data?.salaryTrend || []}>
@@ -204,8 +191,7 @@ export function Trends() {
               </BarC>
             </ResponsiveContainer>
           </div>
-          
-          {/* Legend */}
+          {}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-6 pt-6 border-t border-white/5">
             {(data?.roleDistribution || []).map((item, i) => (
               <div key={i} className="flex items-center gap-3">
@@ -218,8 +204,7 @@ export function Trends() {
             ))}
           </div>
         </motion.div>
-
-        {/* Category Intelligence */}
+        {}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -231,7 +216,6 @@ export function Trends() {
             </div>
             <h3 className="text-2xl font-black text-white">Domains</h3>
           </div>
-          
           <div className="h-[250px] w-full">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
@@ -251,7 +235,6 @@ export function Trends() {
               </PieChart>
             </ResponsiveContainer>
           </div>
-          
           <div className="mt-6 grid grid-cols-2 gap-4">
             {(data?.roleDistribution || []).map((r, i) => (
               <div key={i} className="flex flex-col">
@@ -262,7 +245,6 @@ export function Trends() {
           </div>
         </motion.div>
       </div>
-      
       <style>{`
         @keyframes marquee {
           0% { transform: translateX(0); }

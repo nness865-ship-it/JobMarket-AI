@@ -1,13 +1,10 @@
 import { useState, useEffect } from "react";
 import { uploadResume } from "../../services/api";
 import { CheckCircle2, Sparkles } from "lucide-react";
-
 export function ResumeUpload({ email, onSkillsExtracted }) {
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
-
-  // Load saved resume data for guests
   useEffect(() => {
     if (!email || email.includes('@elevateai.guest')) {
       const savedResumeData = localStorage.getItem('guest_resume_data');
@@ -26,31 +23,23 @@ export function ResumeUpload({ email, onSkillsExtracted }) {
       }
     }
   }, [email]);
-
   const handleUpload = async () => {
     const trimmedEmail = (email || "").trim();
-
     if (!file) {
       alert("Please select a PDF resume.");
       return;
     }
-
     const formData = new FormData();
     formData.append("file", file);
     formData.append("email", trimmedEmail);
-
     try {
       setLoading(true);
       const response = await uploadResume(formData);
       const data = response.data || {};
-
       console.log("Resume extraction result:", data);
       setResult(data);
-
       const extracted =
         data.skills || data.extracted_skills || data.extractedSkills || [];
-
-      // Save resume data for guest users
       if (!email || email.includes('@elevateai.guest')) {
         const resumeData = {
           fileName: file.name,
@@ -63,7 +52,6 @@ export function ResumeUpload({ email, onSkillsExtracted }) {
         localStorage.setItem('guest_resume_data', JSON.stringify(resumeData));
         console.log('💾 Saved resume data for guest user');
       }
-
       if (onSkillsExtracted && Array.isArray(extracted)) {
         onSkillsExtracted(extracted);
       }
@@ -74,7 +62,6 @@ export function ResumeUpload({ email, onSkillsExtracted }) {
       setLoading(false);
     }
   };
-
   return (
     <div className="mt-8 max-w-3xl mx-auto">
       <div className="rounded-2xl border border-slate-800 bg-slate-900/60 shadow-lg shadow-slate-900/40 backdrop-blur p-8">
@@ -89,7 +76,6 @@ export function ResumeUpload({ email, onSkillsExtracted }) {
             Upload your latest resume in PDF format and our AI will automatically extract your experience and skills.
           </p>
         </header>
-
         {result && (
           <div className="mb-6 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20">
             <div className="flex items-center gap-2 mb-2">
@@ -106,7 +92,6 @@ export function ResumeUpload({ email, onSkillsExtracted }) {
             )}
           </div>
         )}
-
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
           <label className="flex-1">
             <span className="mb-1 block text-xs font-medium text-slate-200">
@@ -122,7 +107,6 @@ export function ResumeUpload({ email, onSkillsExtracted }) {
                          hover:file:bg-sky-400"
             />
           </label>
-
           <button
             type="button"
             onClick={handleUpload}

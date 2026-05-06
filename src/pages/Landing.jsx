@@ -23,7 +23,6 @@ import {
 } from 'lucide-react';
 import { GoogleLogin } from '@react-oauth/google';
 import { useAuth } from '../auth/useAuth.jsx';
-
 export function Landing() {
   const auth = useAuth();
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -34,8 +33,6 @@ export function Landing() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  // Mouse tracking for parallax effect
   useEffect(() => {
     const handleMouseMove = (e) => {
       setMousePosition({
@@ -43,11 +40,9 @@ export function Landing() {
         y: (e.clientY / window.innerHeight) * 100,
       });
     };
-
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
-
   const handleGoogleSuccess = async (credentialResponse) => {
     setLoading(true);
     setError('');
@@ -55,7 +50,6 @@ export function Landing() {
     setLoading(false);
     if (!res.ok) setError(res.error);
   };
-
   const handleDemoLogin = async () => {
     setLoading(true);
     setError('');
@@ -68,10 +62,8 @@ export function Landing() {
       setTimeout(() => setShowLoginModal(false), 500);
     }
   };
-
   const openLoginModal = () => {
     setShowLoginModal(true);
-    // Reset form state
     setEmail('');
     setOtp('');
     setStep('email');
@@ -79,7 +71,6 @@ export function Landing() {
     setSuccess('');
     setLoading(false);
   };
-
   const features = [
     {
       icon: <Sparkles className="w-6 h-6" />,
@@ -110,12 +101,11 @@ export function Landing() {
       bg: "bg-amber-400/10"
     }
   ];
-
   return (
     <div className="min-h-screen bg-black text-slate-50 selection:bg-blue-500/30 overflow-x-hidden font-sans relative">
-      {/* Animated Space Background */}
+      {}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-        {/* Galaxy Background */}
+        {}
         <div 
           className="absolute inset-0 opacity-60"
           style={{
@@ -128,8 +118,7 @@ export function Landing() {
             transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px)`
           }}
         />
-        
-        {/* Floating Stars */}
+        {}
         {[...Array(50)].map((_, i) => (
           <motion.div
             key={i}
@@ -149,8 +138,7 @@ export function Landing() {
             }}
           />
         ))}
-        
-        {/* Orbiting Elements */}
+        {}
         <motion.div
           className="absolute top-1/4 left-1/4 w-32 h-32 border border-blue-500/20 rounded-full"
           animate={{ rotate: 360 }}
@@ -161,15 +149,13 @@ export function Landing() {
           animate={{ rotate: -360 }}
           transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
         />
-        
-        {/* Nebula Effects */}
+        {}
         <div className="absolute top-0 left-0 w-full h-full">
           <div className="absolute top-1/3 left-1/2 w-96 h-96 bg-gradient-radial from-blue-500/10 to-transparent rounded-full blur-3xl animate-pulse" />
           <div className="absolute bottom-1/3 right-1/2 w-80 h-80 bg-gradient-radial from-purple-500/10 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
         </div>
       </div>
-
-      {/* Glass Navbar */}
+      {}
       <nav className="fixed top-0 inset-x-0 z-50 border-b border-blue-500/20 bg-black/50 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -185,7 +171,6 @@ export function Landing() {
               Elevate <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">AI</span>
             </span>
           </div>
-          
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
             <a href="#features" className="hover:text-blue-400 transition-colors relative group">
               Features
@@ -200,7 +185,6 @@ export function Landing() {
               <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300" />
             </a>
           </div>
-
           <div className="flex items-center gap-4">
             <button 
               onClick={openLoginModal}
@@ -222,8 +206,7 @@ export function Landing() {
           </div>
         </div>
       </nav>
-
-      {/* Hero Section */}
+      {}
       <main className="relative z-10 pt-44 pb-32">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -235,7 +218,6 @@ export function Landing() {
               <Zap className="w-3 h-3" />
               <span>v2.0 Career Intelligence Engine</span>
             </div>
-            
             <h1 className="text-6xl md:text-8xl font-black leading-[0.9] tracking-tighter mb-8">
               <span className="text-white">FILL THE </span>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 animate-pulse">
@@ -246,11 +228,9 @@ export function Landing() {
               <br />
               <span className="text-slate-400">YOUR SKILLS</span>
             </h1>
-            
             <p className="text-slate-300 text-xl max-w-xl mb-12 leading-relaxed font-medium">
               Transform your career with data-driven insights. Our advanced AI platform analyzes your skills, experience, and market trends to create personalized career pathways and strategic growth opportunities.
             </p>
-            
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <button 
                 onClick={openLoginModal}
@@ -272,18 +252,16 @@ export function Landing() {
                 Continue as Guest
               </button>
             </div>
-            
             <div className="mt-12 flex items-center gap-6 opacity-60 hover:opacity-100 transition-opacity">
               <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Trusted by builders at</span>
               <div className="flex gap-4">
-                {/* Cosmic Partner Logos */}
+                {}
                 <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30" />
                 <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border border-purple-500/30" />
                 <div className="w-8 h-8 rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30" />
               </div>
             </div>
           </motion.div>
-
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -292,23 +270,21 @@ export function Landing() {
           >
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-cyan-500/20 rounded-3xl blur-[100px] -z-10 animate-pulse" />
             <div className="bg-slate-900/30 border border-blue-500/20 rounded-[2.5rem] p-4 backdrop-blur-3xl shadow-2xl relative overflow-hidden">
-              {/* Animated border */}
+              {}
               <motion.div
                 className="absolute inset-0 rounded-[2.5rem] border-2 border-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 bg-clip-border"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
                 style={{ mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', maskComposite: 'exclude' }}
               />
-              
               <div className="rounded-[2rem] overflow-hidden border border-blue-500/10 aspect-square relative">
                 <img 
-                  src="https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&q=80&w=1000" 
+                  src="https:
                   alt="AI Intelligence Visual" 
                   className="w-full h-full object-cover opacity-80"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
-                
-                {/* Floating Career Metrics */}
+                {}
                 <motion.div 
                   className="absolute top-8 left-8 right-8 p-6 rounded-2xl bg-black/40 border border-blue-500/30 backdrop-blur-2xl"
                   animate={{ y: [0, -10, 0] }}
@@ -332,8 +308,7 @@ export function Landing() {
                     />
                   </div>
                 </motion.div>
-                
-                {/* Orbiting Elements */}
+                {}
                 <motion.div
                   className="absolute bottom-8 right-8 w-16 h-16 border-2 border-cyan-500/50 rounded-full flex items-center justify-center"
                   animate={{ rotate: 360 }}
@@ -346,8 +321,7 @@ export function Landing() {
           </motion.div>
         </div>
       </main>
-
-      {/* Cosmic Feature Grid */}
+      {}
       <section id="features" className="py-32 px-6 max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <motion.div
@@ -366,7 +340,6 @@ export function Landing() {
             Harness the power of advanced AI algorithms and quantum career modeling to navigate your professional universe with unprecedented precision.
           </p>
         </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((f, i) => (
             <motion.div
@@ -377,7 +350,7 @@ export function Landing() {
               transition={{ delay: i * 0.1 }}
               className="group p-8 rounded-[2rem] border border-blue-500/10 bg-slate-900/20 hover:bg-slate-900/40 hover:border-blue-500/30 transition-all backdrop-blur-sm relative overflow-hidden"
             >
-              {/* Animated background */}
+              {}
               <motion.div
                 className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity"
                 animate={{ 
@@ -389,7 +362,6 @@ export function Landing() {
                 }}
                 transition={{ duration: 3, repeat: Infinity }}
               />
-              
               <div className={`w-14 h-14 rounded-2xl ${f.bg} flex items-center justify-center ${f.color} mb-8 group-hover:scale-110 transition-transform shadow-xl relative z-10 border border-current/20`}>
                 {f.icon}
               </div>
@@ -397,16 +369,14 @@ export function Landing() {
               <p className="text-slate-400 leading-relaxed text-sm font-medium relative z-10">
                 {f.description}
               </p>
-              
-              {/* Floating particles */}
+              {}
               <div className="absolute top-4 right-4 w-2 h-2 bg-blue-400/30 rounded-full animate-ping" />
               <div className="absolute bottom-6 left-6 w-1 h-1 bg-purple-400/40 rounded-full animate-pulse" />
             </motion.div>
           ))}
         </div>
       </section>
-
-      {/* Cosmic Login Modal */}
+      {}
       <AnimatePresence>
         {showLoginModal && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
@@ -423,16 +393,14 @@ export function Landing() {
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               className="relative w-full max-w-md bg-slate-900/90 border border-blue-500/30 rounded-[2.5rem] p-10 shadow-2xl backdrop-blur-xl overflow-hidden"
             >
-              {/* Animated background */}
+              {}
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-cyan-500/10 animate-pulse" />
-              
               <button 
                 onClick={() => setShowLoginModal(false)}
                 className="absolute top-6 right-6 p-2 rounded-lg hover:bg-slate-800 text-slate-400 transition-colors z-10"
               >
                 <X className="w-5 h-5" />
               </button>
-
               <div className="text-center mb-10 relative z-10">
                 <div className="w-16 h-16 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6 border border-blue-500/30 relative overflow-hidden">
                   <motion.div
@@ -445,21 +413,18 @@ export function Landing() {
                 <h2 className="text-3xl font-bold mb-3 tracking-tight text-white">Sign In</h2>
                 <p className="text-slate-400">Access your account to continue your career journey.</p>
               </div>
-
               {error && (
                 <div className="mb-8 p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm font-medium flex items-center gap-3">
                   <X className="w-4 h-4 shrink-0" />
                   {error}
                 </div>
               )}
-
               {success && (
                 <div className="mb-8 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm font-medium flex items-center gap-3">
                   <CheckCircle2 className="w-4 h-4 shrink-0" />
                   {success}
                 </div>
               )}
-
               <div className="space-y-6 relative z-10">
                 <div className="flex justify-center">
                   <GoogleLogin 
@@ -470,7 +435,6 @@ export function Landing() {
                     width="100%"
                   />
                 </div>
-
                 <button 
                   onClick={handleDemoLogin}
                   disabled={loading}
@@ -483,7 +447,6 @@ export function Landing() {
                     </>
                   )}
                 </button>
-
                 <div className="relative py-4">
                   <div className="absolute inset-0 flex items-center">
                     <div className="w-full border-t border-blue-500/20"></div>
@@ -492,7 +455,6 @@ export function Landing() {
                     <span className="bg-slate-900 px-4">OR SIGN IN WITH EMAIL</span>
                   </div>
                 </div>
-
                 <form className="space-y-4" onSubmit={async (e) => {
                   e.preventDefault();
                   if (step === 'email') {

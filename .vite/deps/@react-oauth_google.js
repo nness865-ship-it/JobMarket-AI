@@ -5,8 +5,6 @@ import {
 import {
   __toESM
 } from "./chunk-G3PMV62Z.js";
-
-// node_modules/@react-oauth/google/dist/index.esm.js
 var import_react = __toESM(require_react());
 function useLoadGsiScript(options = {}) {
   const { nonce, locale, onScriptLoadSuccess, onScriptLoadError } = options;
@@ -257,4 +255,3 @@ export {
   useGoogleOAuth,
   useGoogleOneTapLogin
 };
-//# sourceMappingURL=@react-oauth_google.js.map

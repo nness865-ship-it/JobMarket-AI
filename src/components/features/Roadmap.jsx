@@ -23,17 +23,14 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '../../lib/utils';
-
 const STORAGE_KEY = 'roadmap_progress';
 const SKILL_TRACKER_KEY = 'skill_tracker_data';
-
 function loadProgress(role) {
   try {
     const all = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
     return all[role] || [];
   } catch { return []; }
 }
-
 function saveProgress(role, completedIds) {
   try {
     const all = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
@@ -41,15 +38,11 @@ function saveProgress(role, completedIds) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
   } catch {}
 }
-
-// Save skill tracker data when steps are completed
 function saveSkillTrackerEntry(role, step, isCompleting) {
-  if (!isCompleting) return; // Only save when completing, not when unchecking
-  
+  if (!isCompleting) return; 
   try {
     const trackerData = JSON.parse(localStorage.getItem(SKILL_TRACKER_KEY) || '{}');
     const stepKey = `${role}-${step.id}`;
-    
     trackerData[stepKey] = {
       stepId: step.id,
       role: role,
@@ -58,20 +51,16 @@ function saveSkillTrackerEntry(role, step, isCompleting) {
       completedDate: new Date().toISOString(),
       duration: step.duration || 'N/A'
     };
-    
     localStorage.setItem(SKILL_TRACKER_KEY, JSON.stringify(trackerData));
     console.log('✅ Saved to Skill Tracker:', step.title, 'for role:', role);
   } catch (error) {
     console.error('Failed to save skill tracker data:', error);
   }
 }
-
-// Remove from skill tracker when step is unchecked
 function removeFromSkillTracker(role, stepId) {
   try {
     const trackerData = JSON.parse(localStorage.getItem(SKILL_TRACKER_KEY) || '{}');
     const stepKey = `${role}-${stepId}`;
-    
     if (trackerData[stepKey]) {
       delete trackerData[stepKey];
       localStorage.setItem(SKILL_TRACKER_KEY, JSON.stringify(trackerData));
@@ -81,14 +70,12 @@ function removeFromSkillTracker(role, stepId) {
     console.error('Failed to remove from skill tracker:', error);
   }
 }
-
 export function Roadmap({ role, email, skills }) {
   const [loading, setLoading] = useState(true);
   const [roadmap, setRoadmap] = useState(null);
   const [activePhase, setActivePhase] = useState(0);
   const [completedSteps, setCompletedSteps] = useState([]);
   const [celebrateIndex, setCelebrateIndex] = useState(null);
-
   useEffect(() => {
     if (role) {
       handleGenerate(role, email);
@@ -96,20 +83,16 @@ export function Roadmap({ role, email, skills }) {
       setLoading(false);
     }
   }, [role, email]);
-
   useEffect(() => {
     if (roadmap?.role) {
       setCompletedSteps(loadProgress(roadmap.role));
     }
   }, [roadmap?.role]);
-
   const handleGenerate = async (selectedRole, userEmail) => {
     setLoading(true);
     try {
       const response = await generateRoadmap(userEmail, selectedRole, skills);
       const data = response.data?.roadmap;
-      
-      // Group steps into 3 phases for the new structure
       if (data && data.steps) {
         const stepsPerPhase = Math.ceil(data.steps.length / 3);
         const phases = [
@@ -118,8 +101,6 @@ export function Roadmap({ role, email, skills }) {
           { name: "Phase 3: Mastery & Output", steps: data.steps.slice(stepsPerPhase * 2) }
         ];
         data.phases = phases;
-        
-        // Save roadmap data for skill tracker
         try {
           const existingRoadmaps = JSON.parse(localStorage.getItem('generated_roadmaps') || '{}');
           existingRoadmaps[selectedRole] = data;
@@ -129,22 +110,18 @@ export function Roadmap({ role, email, skills }) {
           console.error('Failed to save roadmap data:', error);
         }
       }
-      
       setRoadmap(data);
     } catch (err) {
       console.error(err);
     }
     setLoading(false);
   };
-
   const toggleStepDone = async (stepId, index, e) => {
     if (e) e.stopPropagation();
     const alreadyDone = completedSteps.includes(stepId);
     let updated;
-    
     if (alreadyDone) {
       updated = completedSteps.filter(id => id !== stepId);
-      // Backend sync: remove
       if (email) {
         try {
           await saveSkillProgress({
@@ -159,7 +136,6 @@ export function Roadmap({ role, email, skills }) {
       updated = [...completedSteps, stepId];
       setCelebrateIndex(index);
       setTimeout(() => setCelebrateIndex(null), 1500);
-      
       const step = roadmap.steps.find(s => s.id === stepId);
       if (step && email) {
         try {
@@ -181,12 +157,10 @@ export function Roadmap({ role, email, skills }) {
     }
     setCompletedSteps(updated);
   };
-
   const totalSteps = roadmap?.steps?.length || 1;
   const doneCount = completedSteps.length;
   const progressPercent = Math.round((doneCount / totalSteps) * 100);
   const allDone = doneCount === totalSteps && totalSteps > 0;
-
   if (loading) {
     return (
       <div className="w-full h-[600px] flex flex-col items-center justify-center">
@@ -199,7 +173,6 @@ export function Roadmap({ role, email, skills }) {
       </div>
     );
   }
-
   if (!roadmap) {
     return (
       <div className="w-full h-[500px] flex flex-col items-center justify-center p-10 text-center">
@@ -211,17 +184,14 @@ export function Roadmap({ role, email, skills }) {
       </div>
     );
   }
-
   const activePhaseData = roadmap.phases[activePhase];
-
   return (
     <div className="w-full max-w-7xl mx-auto space-y-8 pb-20">
-      {/* Journey Header Card */}
+      {}
       <section className="relative p-10 rounded-[3rem] bg-slate-900/40 border border-white/10 backdrop-blur-xl overflow-hidden">
         <div className="absolute top-0 right-0 p-8 opacity-10">
           <Lock className="w-48 h-48" />
         </div>
-        
         <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-10">
           <div>
             <div className="flex items-center gap-3 mb-4">
@@ -243,7 +213,6 @@ export function Roadmap({ role, email, skills }) {
               <span className="flex items-center gap-2"><Trophy className="w-4 h-4" /> {doneCount} Completed</span>
             </div>
           </div>
-
           <div className="flex flex-col items-end gap-4 min-w-[280px]">
             <div className="w-full">
               <div className="flex justify-between mb-2">
@@ -270,18 +239,15 @@ export function Roadmap({ role, email, skills }) {
           </div>
         </div>
       </section>
-
-      {/* Main Structural Layout */}
+      {}
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-        
-        {/* Side Phase Nav */}
+        {}
         <div className="lg:col-span-1 space-y-4">
           <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest px-4 mb-2">Milestone Phases</div>
           {roadmap.phases.map((phase, idx) => {
             const phaseDoneCount = phase.steps.filter(s => completedSteps.includes(s.id)).length;
             const isPhaseActive = activePhase === idx;
             const isPhaseComplete = phaseDoneCount === phase.steps.length;
-
             return (
               <button
                 key={idx}
@@ -296,14 +262,12 @@ export function Roadmap({ role, email, skills }) {
                 {isPhaseActive && (
                   <motion.div layoutId="activePhase" className="absolute left-0 top-0 bottom-0 w-1 bg-primary" />
                 )}
-                
                 <div className={cn(
                   "w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-colors",
                   isPhaseComplete ? "bg-emerald-500/10 text-emerald-400" : isPhaseActive ? "bg-primary/10 text-primary-light" : "bg-white/5 text-slate-500"
                 )}>
                   {isPhaseComplete ? <CheckCircle2 className="w-5 h-5" /> : <Layers className="w-5 h-5" />}
                 </div>
-                
                 <div>
                   <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Phase {idx + 1}</div>
                   <div className={cn(
@@ -320,8 +284,7 @@ export function Roadmap({ role, email, skills }) {
             );
           })}
         </div>
-
-        {/* Phase Details Content */}
+        {}
         <div className="lg:col-span-3 space-y-6">
           <AnimatePresence mode="wait">
             <motion.div
@@ -335,12 +298,10 @@ export function Roadmap({ role, email, skills }) {
                 <h3 className="text-2xl font-black text-white">{activePhaseData.name}</h3>
                 <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Active Phase Tasks</span>
               </div>
-
               <div className="grid gap-6">
                 {activePhaseData.steps.map((step, idx) => {
                   const isDone = completedSteps.includes(step.id);
                   const isCelebrating = celebrateIndex === idx && activePhaseData.steps.indexOf(step) === idx;
-
                   return (
                     <div 
                       key={step.id}
@@ -359,7 +320,6 @@ export function Roadmap({ role, email, skills }) {
                           className="absolute inset-0 bg-emerald-500/10 pointer-events-none"
                         />
                       )}
-
                       <div className="flex flex-col md:flex-row gap-8">
                         <div className="shrink-0 flex md:flex-col items-center gap-4">
                           <button 
@@ -373,7 +333,6 @@ export function Roadmap({ role, email, skills }) {
                           </button>
                           <div className="w-px h-full bg-white/5 hidden md:block" />
                         </div>
-
                         <div className="flex-1 space-y-4">
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-3">
@@ -382,18 +341,15 @@ export function Roadmap({ role, email, skills }) {
                             </div>
                             {isDone && <span className="text-[10px] font-black text-emerald-400 uppercase tracking-widest">Achieved</span>}
                           </div>
-
                           <h4 className={cn(
                             "text-xl font-black transition-all",
                             isDone ? "text-emerald-300 line-through decoration-emerald-500/20" : "text-white"
                           )}>
                             {step.title}
                           </h4>
-
                           <p className="text-slate-400 text-sm leading-relaxed max-w-2xl">
                             {step.description}
                           </p>
-
                           <div className="flex flex-wrap gap-2 pt-2">
                             {step.skills.map((skill, sIdx) => (
                               <span key={sIdx} className="px-3 py-1.5 rounded-xl bg-slate-950 border border-white/5 text-[10px] font-black text-slate-300 uppercase tracking-widest flex items-center gap-2">
@@ -401,7 +357,6 @@ export function Roadmap({ role, email, skills }) {
                               </span>
                             ))}
                           </div>
-                          
                           <div className="pt-4 flex items-center gap-6">
                             <button className="text-xs font-black text-primary-light hover:text-white transition-colors uppercase tracking-widest flex items-center gap-2">
                               Access Resources <ArrowUpRight className="w-4 h-4" />
@@ -417,7 +372,6 @@ export function Roadmap({ role, email, skills }) {
           </AnimatePresence>
         </div>
       </div>
-      
       {allDone && (
         <motion.div
           initial={{ opacity: 0, y: 50 }}

@@ -1,22 +1,18 @@
 import {
   __export
 } from "./chunk-G3PMV62Z.js";
-
-// node_modules/axios/lib/helpers/bind.js
 function bind(fn, thisArg) {
   return function wrap() {
     return fn.apply(thisArg, arguments);
   };
 }
-
-// node_modules/axios/lib/utils.js
 var { toString } = Object.prototype;
 var { getPrototypeOf } = Object;
 var { iterator, toStringTag } = Symbol;
-var kindOf = /* @__PURE__ */ ((cache) => (thing) => {
+var kindOf =  ((cache) => (thing) => {
   const str = toString.call(thing);
   return cache[str] || (cache[str] = str.slice(8, -1).toLowerCase());
-})(/* @__PURE__ */ Object.create(null));
+})( Object.create(null));
 var kindOfTest = (type) => {
   type = type.toLowerCase();
   return (thing) => kindOf(thing) === type;
@@ -66,7 +62,7 @@ var isFileList = kindOfTest("FileList");
 var isStream = (val) => isObject(val) && isFunction(val.pipe);
 var isFormData = (thing) => {
   let kind;
-  return thing && (typeof FormData === "function" && thing instanceof FormData || isFunction(thing.append) && ((kind = kindOf(thing)) === "formdata" || // detect form-data instance
+  return thing && (typeof FormData === "function" && thing instanceof FormData || isFunction(thing.append) && ((kind = kindOf(thing)) === "formdata" || 
   kind === "object" && isFunction(thing.toString) && thing.toString() === "[object FormData]"));
 };
 var isURLSearchParams = kindOfTest("URLSearchParams");
@@ -234,7 +230,7 @@ var toArray = (thing) => {
   }
   return arr;
 };
-var isTypedArray = /* @__PURE__ */ ((TypedArray) => {
+var isTypedArray =  ((TypedArray) => {
   return (thing) => {
     return TypedArray && thing instanceof TypedArray;
   };
@@ -403,7 +399,6 @@ var utils_default = {
   isHTMLForm,
   hasOwnProperty,
   hasOwnProp: hasOwnProperty,
-  // an alias to avoid ESLint no-prototype-builtins detection
   reduceDescriptors,
   freezeMethods,
   toObjectSet,
@@ -421,8 +416,6 @@ var utils_default = {
   asap,
   isIterable
 };
-
-// node_modules/axios/lib/core/AxiosError.js
 var AxiosError = class _AxiosError extends Error {
   static from(error, code, config, request, response, customProps) {
     const axiosError = new _AxiosError(error.message, code || error.code, config, request, response);
@@ -431,17 +424,6 @@ var AxiosError = class _AxiosError extends Error {
     customProps && Object.assign(axiosError, customProps);
     return axiosError;
   }
-  /**
-   * Create an Error with the specified message, config, error code, request and response.
-   *
-   * @param {string} message The error message.
-   * @param {string} [code] The error code (for example, 'ECONNABORTED').
-   * @param {Object} [config] The config.
-   * @param {Object} [request] The request.
-   * @param {Object} [response] The response.
-   *
-   * @returns {Error} The created error.
-   */
   constructor(message, code, config, request, response) {
     super(message);
     this.name = "AxiosError";
@@ -456,18 +438,14 @@ var AxiosError = class _AxiosError extends Error {
   }
   toJSON() {
     return {
-      // Standard
       message: this.message,
       name: this.name,
-      // Microsoft
       description: this.description,
       number: this.number,
-      // Mozilla
       fileName: this.fileName,
       lineNumber: this.lineNumber,
       columnNumber: this.columnNumber,
       stack: this.stack,
-      // Axios
       config: utils_default.toJSONObject(this.config),
       code: this.code,
       status: this.status
@@ -487,11 +465,7 @@ AxiosError.ERR_CANCELED = "ERR_CANCELED";
 AxiosError.ERR_NOT_SUPPORT = "ERR_NOT_SUPPORT";
 AxiosError.ERR_INVALID_URL = "ERR_INVALID_URL";
 var AxiosError_default = AxiosError;
-
-// node_modules/axios/lib/helpers/null.js
 var null_default = null;
-
-// node_modules/axios/lib/helpers/toFormData.js
 function isVisitable(thing) {
   return utils_default.isPlainObject(thing) || utils_default.isArray(thing);
 }
@@ -558,7 +532,6 @@ function toFormData(obj, formData, options) {
         key = removeBrackets(key);
         arr.forEach(function each(el, index) {
           !(utils_default.isUndefined(el) || el === null) && formData.append(
-            // eslint-disable-next-line no-nested-ternary
             indexes === true ? renderKey([key], index, dots) : indexes === null ? key : key + "[]",
             convertValue(el)
           );
@@ -605,8 +578,6 @@ function toFormData(obj, formData, options) {
   return formData;
 }
 var toFormData_default = toFormData;
-
-// node_modules/axios/lib/helpers/AxiosURLSearchParams.js
 function encode(str) {
   const charMap = {
     "!": "%21",
@@ -638,8 +609,6 @@ prototype.toString = function toString2(encoder) {
   }, "").join("&");
 };
 var AxiosURLSearchParams_default = AxiosURLSearchParams;
-
-// node_modules/axios/lib/helpers/buildURL.js
 function encode2(val) {
   return encodeURIComponent(val).replace(/%3A/gi, ":").replace(/%24/g, "$").replace(/%2C/gi, ",").replace(/%20/g, "+");
 }
@@ -667,21 +636,10 @@ function buildURL(url, params, options) {
   }
   return url;
 }
-
-// node_modules/axios/lib/core/InterceptorManager.js
 var InterceptorManager = class {
   constructor() {
     this.handlers = [];
   }
-  /**
-   * Add a new interceptor to the stack
-   *
-   * @param {Function} fulfilled The function to handle `then` for a `Promise`
-   * @param {Function} rejected The function to handle `reject` for a `Promise`
-   * @param {Object} options The options for the interceptor, synchronous and runWhen
-   *
-   * @return {Number} An ID used to remove interceptor later
-   */
   use(fulfilled, rejected, options) {
     this.handlers.push({
       fulfilled,
@@ -691,38 +649,16 @@ var InterceptorManager = class {
     });
     return this.handlers.length - 1;
   }
-  /**
-   * Remove an interceptor from the stack
-   *
-   * @param {Number} id The ID that was returned by `use`
-   *
-   * @returns {void}
-   */
   eject(id) {
     if (this.handlers[id]) {
       this.handlers[id] = null;
     }
   }
-  /**
-   * Clear all interceptors from the stack
-   *
-   * @returns {void}
-   */
   clear() {
     if (this.handlers) {
       this.handlers = [];
     }
   }
-  /**
-   * Iterate over all the registered interceptors
-   *
-   * This method is particularly useful for skipping over any
-   * interceptors that may have become `null` calling `eject`.
-   *
-   * @param {Function} fn The function to call for each interceptor
-   *
-   * @returns {void}
-   */
   forEach(fn) {
     utils_default.forEach(this.handlers, function forEachHandler(h) {
       if (h !== null) {
@@ -732,25 +668,15 @@ var InterceptorManager = class {
   }
 };
 var InterceptorManager_default = InterceptorManager;
-
-// node_modules/axios/lib/defaults/transitional.js
 var transitional_default = {
   silentJSONParsing: true,
   forcedJSONParsing: true,
   clarifyTimeoutError: false,
   legacyInterceptorReqResOrdering: true
 };
-
-// node_modules/axios/lib/platform/browser/classes/URLSearchParams.js
 var URLSearchParams_default = typeof URLSearchParams !== "undefined" ? URLSearchParams : AxiosURLSearchParams_default;
-
-// node_modules/axios/lib/platform/browser/classes/FormData.js
 var FormData_default = typeof FormData !== "undefined" ? FormData : null;
-
-// node_modules/axios/lib/platform/browser/classes/Blob.js
 var Blob_default = typeof Blob !== "undefined" ? Blob : null;
-
-// node_modules/axios/lib/platform/browser/index.js
 var browser_default = {
   isBrowser: true,
   classes: {
@@ -760,8 +686,6 @@ var browser_default = {
   },
   protocols: ["http", "https", "file", "blob", "url", "data"]
 };
-
-// node_modules/axios/lib/platform/common/utils.js
 var utils_exports = {};
 __export(utils_exports, {
   hasBrowserEnv: () => hasBrowserEnv,
@@ -774,18 +698,14 @@ var hasBrowserEnv = typeof window !== "undefined" && typeof document !== "undefi
 var _navigator = typeof navigator === "object" && navigator || void 0;
 var hasStandardBrowserEnv = hasBrowserEnv && (!_navigator || ["ReactNative", "NativeScript", "NS"].indexOf(_navigator.product) < 0);
 var hasStandardBrowserWebWorkerEnv = (() => {
-  return typeof WorkerGlobalScope !== "undefined" && // eslint-disable-next-line no-undef
+  return typeof WorkerGlobalScope !== "undefined" && 
   self instanceof WorkerGlobalScope && typeof self.importScripts === "function";
 })();
 var origin = hasBrowserEnv && window.location.href || "http://localhost";
-
-// node_modules/axios/lib/platform/index.js
 var platform_default = {
   ...utils_exports,
   ...browser_default
 };
-
-// node_modules/axios/lib/helpers/toURLEncodedForm.js
 function toURLEncodedForm(data, options) {
   return toFormData_default(data, new platform_default.classes.URLSearchParams(), {
     visitor: function(value, key, path, helpers) {
@@ -798,8 +718,6 @@ function toURLEncodedForm(data, options) {
     ...options
   });
 }
-
-// node_modules/axios/lib/helpers/formDataToJSON.js
 function parsePropPath(name) {
   return utils_default.matchAll(/\w+|\[(\w*)]/g, name).map((match) => {
     return match[0] === "[]" ? "" : match[1] || match[0];
@@ -851,8 +769,6 @@ function formDataToJSON(formData) {
   return null;
 }
 var formDataToJSON_default = formDataToJSON;
-
-// node_modules/axios/lib/defaults/index.js
 function stringifySafely(rawValue, parser, encoder) {
   if (utils_default.isString(rawValue)) {
     try {
@@ -933,10 +849,6 @@ var defaults = {
     }
     return data;
   }],
-  /**
-   * A timeout in milliseconds to abort a request. If set to 0 (default) a
-   * timeout is not created.
-   */
   timeout: 0,
   xsrfCookieName: "XSRF-TOKEN",
   xsrfHeaderName: "X-XSRF-TOKEN",
@@ -951,63 +863,7 @@ var defaults = {
   },
   headers: {
     common: {
-      "Accept": "application/json, text/plain, */*",
-      "Content-Type": void 0
-    }
-  }
-};
-utils_default.forEach(["delete", "get", "head", "post", "put", "patch"], (method) => {
-  defaults.headers[method] = {};
-});
-var defaults_default = defaults;
-
-// node_modules/axios/lib/helpers/parseHeaders.js
-var ignoreDuplicateOf = utils_default.toObjectSet([
-  "age",
-  "authorization",
-  "content-length",
-  "content-type",
-  "etag",
-  "expires",
-  "from",
-  "host",
-  "if-modified-since",
-  "if-unmodified-since",
-  "last-modified",
-  "location",
-  "max-forwards",
-  "proxy-authorization",
-  "referer",
-  "retry-after",
-  "user-agent"
-]);
-var parseHeaders_default = (rawHeaders) => {
-  const parsed = {};
-  let key;
-  let val;
-  let i;
-  rawHeaders && rawHeaders.split("\n").forEach(function parser(line) {
-    i = line.indexOf(":");
-    key = line.substring(0, i).trim().toLowerCase();
-    val = line.substring(i + 1).trim();
-    if (!key || parsed[key] && ignoreDuplicateOf[key]) {
-      return;
-    }
-    if (key === "set-cookie") {
-      if (parsed[key]) {
-        parsed[key].push(val);
-      } else {
-        parsed[key] = [val];
-      }
-    } else {
-      parsed[key] = parsed[key] ? parsed[key] + ", " + val : val;
-    }
-  });
-  return parsed;
-};
-
-// node_modules/axios/lib/core/AxiosHeaders.js
-var $internals = /* @__PURE__ */ Symbol("internals");
+      "Accept": "application/json, text/plain, * Symbol("internals");
 function normalizeHeader(header) {
   return header && String(header).trim().toLowerCase();
 }
@@ -1018,7 +874,7 @@ function normalizeValue(value) {
   return utils_default.isArray(value) ? value.map(normalizeValue) : String(value);
 }
 function parseTokens(str) {
-  const tokens = /* @__PURE__ */ Object.create(null);
+  const tokens =  Object.create(null);
   const tokensRE = /([^\s,;=]+)\s*(?:=\s*([^,;]+))?/g;
   let match;
   while (match = tokensRE.exec(str)) {
@@ -1179,7 +1035,7 @@ var AxiosHeaders = class {
     return this.constructor.concat(this, ...targets);
   }
   toJSON(asStrings) {
-    const obj = /* @__PURE__ */ Object.create(null);
+    const obj =  Object.create(null);
     utils_default.forEach(this, (value, header) => {
       value != null && value !== false && (obj[header] = asStrings && utils_default.isArray(value) ? value.join(", ") : value);
     });
@@ -1234,8 +1090,6 @@ utils_default.reduceDescriptors(AxiosHeaders.prototype, ({ value }, key) => {
 });
 utils_default.freezeMethods(AxiosHeaders);
 var AxiosHeaders_default = AxiosHeaders;
-
-// node_modules/axios/lib/core/transformData.js
 function transformData(fns, response) {
   const config = this || defaults_default;
   const context = response || config;
@@ -1247,23 +1101,10 @@ function transformData(fns, response) {
   headers.normalize();
   return data;
 }
-
-// node_modules/axios/lib/cancel/isCancel.js
 function isCancel(value) {
   return !!(value && value.__CANCEL__);
 }
-
-// node_modules/axios/lib/cancel/CanceledError.js
 var CanceledError = class extends AxiosError_default {
-  /**
-   * A `CanceledError` is an object that is thrown when an operation is canceled.
-   *
-   * @param {string=} message The message.
-   * @param {Object=} config The config.
-   * @param {Object=} request The request.
-   *
-   * @returns {CanceledError} The created error.
-   */
   constructor(message, config, request) {
     super(message == null ? "canceled" : message, AxiosError_default.ERR_CANCELED, config, request);
     this.name = "CanceledError";
@@ -1271,8 +1112,6 @@ var CanceledError = class extends AxiosError_default {
   }
 };
 var CanceledError_default = CanceledError;
-
-// node_modules/axios/lib/core/settle.js
 function settle(resolve, reject, response) {
   const validateStatus2 = response.config.validateStatus;
   if (!response.status || !validateStatus2 || validateStatus2(response.status)) {
@@ -1287,14 +1126,10 @@ function settle(resolve, reject, response) {
     ));
   }
 }
-
-// node_modules/axios/lib/helpers/parseProtocol.js
 function parseProtocol(url) {
   const match = /^([-+\w]{1,25})(:?\/\/|:)/.exec(url);
   return match && match[1] || "";
 }
-
-// node_modules/axios/lib/helpers/speedometer.js
 function speedometer(samplesCount, min) {
   samplesCount = samplesCount || 10;
   const bytes = new Array(samplesCount);
@@ -1329,8 +1164,6 @@ function speedometer(samplesCount, min) {
   };
 }
 var speedometer_default = speedometer;
-
-// node_modules/axios/lib/helpers/throttle.js
 function throttle(fn, freq) {
   let timestamp = 0;
   let threshold = 1e3 / freq;
@@ -1364,8 +1197,6 @@ function throttle(fn, freq) {
   return [throttled, flush];
 }
 var throttle_default = throttle;
-
-// node_modules/axios/lib/helpers/progressEventReducer.js
 var progressEventReducer = (listener, isDownloadStream, freq = 3) => {
   let bytesNotified = 0;
   const _speedometer = speedometer_default(50, 250);
@@ -1399,19 +1230,14 @@ var progressEventDecorator = (total, throttled) => {
   }), throttled[1]];
 };
 var asyncDecorator = (fn) => (...args) => utils_default.asap(() => fn(...args));
-
-// node_modules/axios/lib/helpers/isURLSameOrigin.js
-var isURLSameOrigin_default = platform_default.hasStandardBrowserEnv ? /* @__PURE__ */ ((origin2, isMSIE) => (url) => {
+var isURLSameOrigin_default = platform_default.hasStandardBrowserEnv ?  ((origin2, isMSIE) => (url) => {
   url = new URL(url, platform_default.origin);
   return origin2.protocol === url.protocol && origin2.host === url.host && (isMSIE || origin2.port === url.port);
 })(
   new URL(platform_default.origin),
   platform_default.navigator && /(msie|trident)/i.test(platform_default.navigator.userAgent)
 ) : () => true;
-
-// node_modules/axios/lib/helpers/cookies.js
 var cookies_default = platform_default.hasStandardBrowserEnv ? (
-  // Standard browser envs support document.cookie
   {
     write(name, value, expires, path, domain, secure, sameSite) {
       if (typeof document === "undefined") return;
@@ -1443,7 +1269,6 @@ var cookies_default = platform_default.hasStandardBrowserEnv ? (
     }
   }
 ) : (
-  // Non-standard browser env (web workers, react-native) lack needed support.
   {
     write() {
     },
@@ -1454,21 +1279,15 @@ var cookies_default = platform_default.hasStandardBrowserEnv ? (
     }
   }
 );
-
-// node_modules/axios/lib/helpers/isAbsoluteURL.js
 function isAbsoluteURL(url) {
   if (typeof url !== "string") {
     return false;
   }
-  return /^([a-z][a-z\d+\-.]*:)?\/\//i.test(url);
+  return /^([a-z][a-z\d+\-.]*:)?\/\
 }
-
-// node_modules/axios/lib/helpers/combineURLs.js
 function combineURLs(baseURL, relativeURL) {
   return relativeURL ? baseURL.replace(/\/?\/$/, "") + "/" + relativeURL.replace(/^\/+/, "") : baseURL;
 }
-
-// node_modules/axios/lib/core/buildFullPath.js
 function buildFullPath(baseURL, requestedURL, allowAbsoluteUrls) {
   let isRelativeUrl = !isAbsoluteURL(requestedURL);
   if (baseURL && (isRelativeUrl || allowAbsoluteUrls == false)) {
@@ -1476,8 +1295,6 @@ function buildFullPath(baseURL, requestedURL, allowAbsoluteUrls) {
   }
   return requestedURL;
 }
-
-// node_modules/axios/lib/core/mergeConfig.js
 var headersToObject = (thing) => thing instanceof AxiosHeaders_default ? { ...thing } : thing;
 function mergeConfig(config1, config2) {
   config2 = config2 || {};
@@ -1561,8 +1378,6 @@ function mergeConfig(config1, config2) {
   );
   return config;
 }
-
-// node_modules/axios/lib/helpers/resolveConfig.js
 var resolveConfig_default = (config) => {
   const newConfig = mergeConfig({}, config);
   let { data, withXSRFToken, xsrfHeaderName, xsrfCookieName, headers, auth } = newConfig;
@@ -1598,8 +1413,6 @@ var resolveConfig_default = (config) => {
   }
   return newConfig;
 };
-
-// node_modules/axios/lib/adapters/xhr.js
 var isXHRAdapterSupported = typeof XMLHttpRequest !== "undefined";
 var xhr_default = isXHRAdapterSupported && function(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -1728,8 +1541,6 @@ var xhr_default = isXHRAdapterSupported && function(config) {
     request.send(requestData || null);
   });
 };
-
-// node_modules/axios/lib/helpers/composeSignals.js
 var composeSignals = (signals, timeout) => {
   const { length } = signals = signals ? signals.filter(Boolean) : [];
   if (timeout || length) {
@@ -1764,8 +1575,6 @@ var composeSignals = (signals, timeout) => {
   }
 };
 var composeSignals_default = composeSignals;
-
-// node_modules/axios/lib/helpers/trackStream.js
 var streamChunk = function* (chunk, chunkSize) {
   let len = chunk.byteLength;
   if (!chunkSize || len < chunkSize) {
@@ -1841,8 +1650,6 @@ var trackStream = (stream, chunkSize, onProgress, onFinish) => {
     highWaterMark: 2
   });
 };
-
-// node_modules/axios/lib/adapters/fetch.js
 var DEFAULT_CHUNK_SIZE = 64 * 1024;
 var { isFunction: isFunction2 } = utils_default;
 var globalFetchAPI = (({ Request, Response }) => ({
@@ -1872,7 +1679,7 @@ var factory = (env) => {
     return false;
   }
   const isReadableStreamSupported = isFetchSupported && isFunction2(ReadableStream2);
-  const encodeText = isFetchSupported && (typeof TextEncoder === "function" ? /* @__PURE__ */ ((encoder) => (str) => encoder.encode(str))(new TextEncoder()) : async (str) => new Uint8Array(await new Request(str).arrayBuffer()));
+  const encodeText = isFetchSupported && (typeof TextEncoder === "function" ?  ((encoder) => (str) => encoder.encode(str))(new TextEncoder()) : async (str) => new Uint8Array(await new Request(str).arrayBuffer()));
   const supportsRequestStream = isRequestSupported && isReadableStreamSupported && test(() => {
     let duplexAccessed = false;
     const hasContentType = new Request(platform_default.origin, {
@@ -2031,7 +1838,7 @@ var factory = (env) => {
     }
   };
 };
-var seedCache = /* @__PURE__ */ new Map();
+var seedCache =  new Map();
 var getFetch = (config) => {
   let env = config && config.env || {};
   const { fetch: fetch2, Request, Response } = env;
@@ -2044,14 +1851,12 @@ var getFetch = (config) => {
   while (i--) {
     seed = seeds[i];
     target = map.get(seed);
-    target === void 0 && map.set(seed, target = i ? /* @__PURE__ */ new Map() : factory(env));
+    target === void 0 && map.set(seed, target = i ?  new Map() : factory(env));
     map = target;
   }
   return target;
 };
 var adapter = getFetch();
-
-// node_modules/axios/lib/adapters/adapters.js
 var knownAdapters = {
   http: null_default,
   xhr: xhr_default,
@@ -2104,19 +1909,9 @@ function getAdapter(adapters, config) {
   return adapter2;
 }
 var adapters_default = {
-  /**
-   * Resolve an adapter from a list of adapter names or functions.
-   * @type {Function}
-   */
   getAdapter,
-  /**
-   * Exposes all known adapters
-   * @type {Object<string, Function|Object>}
-   */
   adapters: knownAdapters
 };
-
-// node_modules/axios/lib/core/dispatchRequest.js
 function throwIfCancellationRequested(config) {
   if (config.cancelToken) {
     config.cancelToken.throwIfRequested();
@@ -2160,11 +1955,7 @@ function dispatchRequest(config) {
     return Promise.reject(reason);
   });
 }
-
-// node_modules/axios/lib/env/data.js
 var VERSION = "1.13.5";
-
-// node_modules/axios/lib/helpers/validator.js
 var validators = {};
 ["object", "boolean", "number", "function", "string", "symbol"].forEach((type, i) => {
   validators[type] = function validator(thing) {
@@ -2227,8 +2018,6 @@ var validator_default = {
   assertOptions,
   validators
 };
-
-// node_modules/axios/lib/core/Axios.js
 var validators2 = validator_default.validators;
 var Axios = class {
   constructor(instanceConfig) {
@@ -2238,14 +2027,6 @@ var Axios = class {
       response: new InterceptorManager_default()
     };
   }
-  /**
-   * Dispatch a request
-   *
-   * @param {String|Object} configOrUrl The config specific for this request (merged with this.defaults)
-   * @param {?Object} config
-   *
-   * @returns {Promise} The Promise to be fulfilled
-   */
   async request(configOrUrl, config) {
     try {
       return await this._request(configOrUrl, config);
@@ -2406,8 +2187,6 @@ utils_default.forEach(["post", "put", "patch"], function forEachMethodWithData(m
   Axios.prototype[method + "Form"] = generateHTTPMethod(true);
 });
 var Axios_default = Axios;
-
-// node_modules/axios/lib/cancel/CancelToken.js
 var CancelToken = class _CancelToken {
   constructor(executor) {
     if (typeof executor !== "function") {
@@ -2445,17 +2224,11 @@ var CancelToken = class _CancelToken {
       resolvePromise(token.reason);
     });
   }
-  /**
-   * Throws a `CanceledError` if cancellation has been requested.
-   */
   throwIfRequested() {
     if (this.reason) {
       throw this.reason;
     }
   }
-  /**
-   * Subscribe to the cancel signal
-   */
   subscribe(listener) {
     if (this.reason) {
       listener(this.reason);
@@ -2467,9 +2240,6 @@ var CancelToken = class _CancelToken {
       this._listeners = [listener];
     }
   }
-  /**
-   * Unsubscribe from the cancel signal
-   */
   unsubscribe(listener) {
     if (!this._listeners) {
       return;
@@ -2488,10 +2258,6 @@ var CancelToken = class _CancelToken {
     controller.signal.unsubscribe = () => this.unsubscribe(abort);
     return controller.signal;
   }
-  /**
-   * Returns an object that contains a new `CancelToken` and a function that, when called,
-   * cancels the `CancelToken`.
-   */
   static source() {
     let cancel;
     const token = new _CancelToken(function executor(c) {
@@ -2504,20 +2270,14 @@ var CancelToken = class _CancelToken {
   }
 };
 var CancelToken_default = CancelToken;
-
-// node_modules/axios/lib/helpers/spread.js
 function spread(callback) {
   return function wrap(arr) {
     return callback.apply(null, arr);
   };
 }
-
-// node_modules/axios/lib/helpers/isAxiosError.js
 function isAxiosError(payload) {
   return utils_default.isObject(payload) && payload.isAxiosError === true;
 }
-
-// node_modules/axios/lib/helpers/HttpStatusCode.js
 var HttpStatusCode = {
   Continue: 100,
   SwitchingProtocols: 101,
@@ -2593,8 +2353,6 @@ Object.entries(HttpStatusCode).forEach(([key, value]) => {
   HttpStatusCode[value] = key;
 });
 var HttpStatusCode_default = HttpStatusCode;
-
-// node_modules/axios/lib/axios.js
 function createInstance(defaultConfig) {
   const context = new Axios_default(defaultConfig);
   const instance = bind(Axios_default.prototype.request, context);
@@ -2626,8 +2384,6 @@ axios.getAdapter = adapters_default.getAdapter;
 axios.HttpStatusCode = HttpStatusCode_default;
 axios.default = axios;
 var axios_default = axios;
-
-// node_modules/axios/index.js
 var {
   Axios: Axios2,
   AxiosError: AxiosError2,
@@ -2665,4 +2421,3 @@ export {
   spread2 as spread,
   toFormData2 as toFormData
 };
-//# sourceMappingURL=axios.js.map

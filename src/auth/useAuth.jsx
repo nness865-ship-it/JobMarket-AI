@@ -2,13 +2,10 @@ import React, { createContext, useContext, useCallback, useEffect, useState } fr
 import { jwtDecode } from "jwt-decode";
 import * as authApi from "../services/api";
 import { clearAuthToken, getAuthToken, setAuthToken } from "./token";
-
 const AuthContext = createContext();
-
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
-  const [status, setStatus] = useState("loading"); // loading, authed, anon
-
+  const [status, setStatus] = useState("loading"); 
   const refreshMe = useCallback(async () => {
     const token = getAuthToken();
     if (!token) {
@@ -16,17 +13,14 @@ export function AuthProvider({ children }) {
       setStatus("anon");
       return;
     }
-
     try {
       const decoded = jwtDecode(token);
-      // Check expiry — if exp is missing, treat token as valid
       if (decoded.exp && decoded.exp * 1000 < Date.now()) {
         clearAuthToken();
         setUser(null);
         setStatus("anon");
         return;
       }
-
       const res = await authApi.me();
       if (res.data && res.data.user) {
         setUser(res.data.user);
@@ -41,11 +35,9 @@ export function AuthProvider({ children }) {
       setStatus("anon");
     }
   }, []);
-
   useEffect(() => {
     refreshMe();
   }, [refreshMe]);
-
   const loginWithGoogleCredential = useCallback(async (credential) => {
     try {
       const res = await authApi.authGoogle(credential);
@@ -61,7 +53,6 @@ export function AuthProvider({ children }) {
       return { ok: false, error: msg };
     }
   }, [refreshMe]);
-
   const loginWithDemo = useCallback(async () => {
     try {
       const res = await authApi.authDemo();
@@ -76,7 +67,6 @@ export function AuthProvider({ children }) {
       return { ok: false, error: e.response?.data?.error || "Demo login failed" };
     }
   }, [refreshMe]);
-
   const sendLoginOtp = useCallback(async (email) => {
     try {
       await authApi.sendOtp(email);
@@ -86,7 +76,6 @@ export function AuthProvider({ children }) {
       return { ok: false, error: e.response?.data?.error || "Failed to send OTP" };
     }
   }, []);
-
   const verifyLoginOtp = useCallback(async (email, code) => {
     try {
       const res = await authApi.verifyOtp(email, code);
@@ -101,13 +90,11 @@ export function AuthProvider({ children }) {
       return { ok: false, error: e.response?.data?.error || "Invalid OTP" };
     }
   }, [refreshMe]);
-
   const logout = useCallback(() => {
     clearAuthToken();
     setUser(null);
     setStatus("anon");
   }, []);
-
   const value = {
     user,
     status,
@@ -120,10 +107,8 @@ export function AuthProvider({ children }) {
     logout,
     refreshMe
   };
-
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
-
 export function useAuth() {
   const context = useContext(AuthContext);
   if (!context) {

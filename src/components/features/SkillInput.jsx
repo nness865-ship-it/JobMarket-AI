@@ -2,20 +2,17 @@ import React, { useState, useEffect } from "react";
 import { saveUserSkills } from "../../services/api";
 import { useAuth } from "../../auth/useAuth.jsx";
 import { Plus, X, Save, CheckCircle2 } from "lucide-react";
-
 export function SkillInput({ skills: externalSkills, onSkillsChange }) {
   const auth = useAuth();
   const [skillInput, setSkillInput] = useState("");
   const [skills, setSkills] = useState(externalSkills || []);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
-
   useEffect(() => {
     if (externalSkills) {
       setSkills(externalSkills);
     }
   }, [externalSkills]);
-
   const addSkill = () => {
     if (!skillInput.trim()) return;
     const newSkills = [...skills, skillInput.trim()];
@@ -24,17 +21,14 @@ export function SkillInput({ skills: externalSkills, onSkillsChange }) {
     setSkillInput("");
     setSaved(false);
   };
-
   const removeSkill = (indexToRemove) => {
     const newSkills = skills.filter((_, index) => index !== indexToRemove);
     setSkills(newSkills);
     if (onSkillsChange) onSkillsChange(newSkills);
     setSaved(false);
   };
-
   const saveSkills = async () => {
     if (!auth.user?.email) return;
-
     setSaving(true);
     try {
       await saveUserSkills(auth.user.email, skills);
@@ -46,7 +40,6 @@ export function SkillInput({ skills: externalSkills, onSkillsChange }) {
       setSaving(false);
     }
   };
-
   return (
     <div className="w-full max-w-2xl mx-auto">
       <div className="rounded-2xl border border-saas-800 bg-saas-900/60 shadow-xl shadow-saas-950/40 backdrop-blur p-8">
@@ -74,7 +67,6 @@ export function SkillInput({ skills: externalSkills, onSkillsChange }) {
               </button>
             </div>
           </div>
-
           {skills.length > 0 && (
             <div className="space-y-3">
               <p className="text-xs font-bold uppercase tracking-widest text-saas-500">
@@ -100,7 +92,6 @@ export function SkillInput({ skills: externalSkills, onSkillsChange }) {
             </div>
           )}
         </div>
-
         <div className="mt-8 pt-6 border-t border-saas-800 flex items-center justify-between">
           <div className="text-sm text-saas-400">
             {saved && (

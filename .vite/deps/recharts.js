@@ -12,8 +12,6 @@ import {
   __export,
   __toESM
 } from "./chunk-G3PMV62Z.js";
-
-// node_modules/es-toolkit/dist/_internal/isUnsafeProperty.js
 var require_isUnsafeProperty = __commonJS({
   "node_modules/es-toolkit/dist/_internal/isUnsafeProperty.js"(exports) {
     "use strict";
@@ -24,8 +22,6 @@ var require_isUnsafeProperty = __commonJS({
     exports.isUnsafeProperty = isUnsafeProperty;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/_internal/isDeepKey.js
 var require_isDeepKey = __commonJS({
   "node_modules/es-toolkit/dist/compat/_internal/isDeepKey.js"(exports) {
     "use strict";
@@ -44,8 +40,6 @@ var require_isDeepKey = __commonJS({
     exports.isDeepKey = isDeepKey;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/_internal/toKey.js
 var require_toKey = __commonJS({
   "node_modules/es-toolkit/dist/compat/_internal/toKey.js"(exports) {
     "use strict";
@@ -62,8 +56,6 @@ var require_toKey = __commonJS({
     exports.toKey = toKey;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/util/toString.js
 var require_toString = __commonJS({
   "node_modules/es-toolkit/dist/compat/util/toString.js"(exports) {
     "use strict";
@@ -87,8 +79,6 @@ var require_toString = __commonJS({
     exports.toString = toString2;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/util/toPath.js
 var require_toPath = __commonJS({
   "node_modules/es-toolkit/dist/compat/util/toPath.js"(exports) {
     "use strict";
@@ -163,8 +153,6 @@ var require_toPath = __commonJS({
     exports.toPath = toPath;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/object/get.js
 var require_get = __commonJS({
   "node_modules/es-toolkit/dist/compat/object/get.js"(exports) {
     "use strict";
@@ -245,21 +233,17 @@ var require_get = __commonJS({
     exports.get = get10;
   }
 });
-
-// node_modules/es-toolkit/compat/get.js
 var require_get2 = __commonJS({
   "node_modules/es-toolkit/compat/get.js"(exports, module) {
     module.exports = require_get().get;
   }
 });
-
-// node_modules/es-toolkit/dist/array/uniqBy.js
 var require_uniqBy = __commonJS({
   "node_modules/es-toolkit/dist/array/uniqBy.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     function uniqBy2(arr, mapper) {
-      const map4 = /* @__PURE__ */ new Map();
+      const map4 =  new Map();
       for (let i = 0; i < arr.length; i++) {
         const item = arr[i];
         const key = mapper(item, i, arr);
@@ -272,8 +256,6 @@ var require_uniqBy = __commonJS({
     exports.uniqBy = uniqBy2;
   }
 });
-
-// node_modules/es-toolkit/dist/function/ary.js
 var require_ary = __commonJS({
   "node_modules/es-toolkit/dist/function/ary.js"(exports) {
     "use strict";
@@ -286,8 +268,6 @@ var require_ary = __commonJS({
     exports.ary = ary;
   }
 });
-
-// node_modules/es-toolkit/dist/function/identity.js
 var require_identity = __commonJS({
   "node_modules/es-toolkit/dist/function/identity.js"(exports) {
     "use strict";
@@ -298,8 +278,6 @@ var require_identity = __commonJS({
     exports.identity = identity5;
   }
 });
-
-// node_modules/es-toolkit/dist/predicate/isLength.js
 var require_isLength = __commonJS({
   "node_modules/es-toolkit/dist/predicate/isLength.js"(exports) {
     "use strict";
@@ -310,8 +288,6 @@ var require_isLength = __commonJS({
     exports.isLength = isLength;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/predicate/isArrayLike.js
 var require_isArrayLike = __commonJS({
   "node_modules/es-toolkit/dist/compat/predicate/isArrayLike.js"(exports) {
     "use strict";
@@ -323,8 +299,6 @@ var require_isArrayLike = __commonJS({
     exports.isArrayLike = isArrayLike;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/predicate/isObjectLike.js
 var require_isObjectLike = __commonJS({
   "node_modules/es-toolkit/dist/compat/predicate/isObjectLike.js"(exports) {
     "use strict";
@@ -335,8 +309,6 @@ var require_isObjectLike = __commonJS({
     exports.isObjectLike = isObjectLike;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/predicate/isArrayLikeObject.js
 var require_isArrayLikeObject = __commonJS({
   "node_modules/es-toolkit/dist/compat/predicate/isArrayLikeObject.js"(exports) {
     "use strict";
@@ -349,8 +321,6 @@ var require_isArrayLikeObject = __commonJS({
     exports.isArrayLikeObject = isArrayLikeObject;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/object/property.js
 var require_property = __commonJS({
   "node_modules/es-toolkit/dist/compat/object/property.js"(exports) {
     "use strict";
@@ -364,8 +334,6 @@ var require_property = __commonJS({
     exports.property = property;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/predicate/isObject.js
 var require_isObject = __commonJS({
   "node_modules/es-toolkit/dist/compat/predicate/isObject.js"(exports) {
     "use strict";
@@ -376,8 +344,6 @@ var require_isObject = __commonJS({
     exports.isObject = isObject;
   }
 });
-
-// node_modules/es-toolkit/dist/predicate/isPrimitive.js
 var require_isPrimitive = __commonJS({
   "node_modules/es-toolkit/dist/predicate/isPrimitive.js"(exports) {
     "use strict";
@@ -388,8 +354,6 @@ var require_isPrimitive = __commonJS({
     exports.isPrimitive = isPrimitive;
   }
 });
-
-// node_modules/es-toolkit/dist/_internal/isEqualsSameValueZero.js
 var require_isEqualsSameValueZero = __commonJS({
   "node_modules/es-toolkit/dist/_internal/isEqualsSameValueZero.js"(exports) {
     "use strict";
@@ -400,8 +364,6 @@ var require_isEqualsSameValueZero = __commonJS({
     exports.isEqualsSameValueZero = isEqualsSameValueZero;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/predicate/isMatchWith.js
 var require_isMatchWith = __commonJS({
   "node_modules/es-toolkit/dist/compat/predicate/isMatchWith.js"(exports) {
     "use strict";
@@ -419,7 +381,7 @@ var require_isMatchWith = __commonJS({
           return Boolean(isEqual);
         }
         return isMatchWithInternal(objValue, srcValue, doesMatch, stack);
-      }, /* @__PURE__ */ new Map());
+      },  new Map());
     }
     function isMatchWithInternal(target, source, compare, stack) {
       if (source === target) {
@@ -516,7 +478,7 @@ var require_isMatchWith = __commonJS({
       if (!Array.isArray(target)) {
         return false;
       }
-      const countedIndex = /* @__PURE__ */ new Set();
+      const countedIndex =  new Set();
       for (let i = 0; i < source.length; i++) {
         const sourceItem = source[i];
         let found = false;
@@ -555,8 +517,6 @@ var require_isMatchWith = __commonJS({
     exports.isSetMatch = isSetMatch;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/predicate/isMatch.js
 var require_isMatch = __commonJS({
   "node_modules/es-toolkit/dist/compat/predicate/isMatch.js"(exports) {
     "use strict";
@@ -568,8 +528,6 @@ var require_isMatch = __commonJS({
     exports.isMatch = isMatch;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/_internal/getSymbols.js
 var require_getSymbols = __commonJS({
   "node_modules/es-toolkit/dist/compat/_internal/getSymbols.js"(exports) {
     "use strict";
@@ -580,8 +538,6 @@ var require_getSymbols = __commonJS({
     exports.getSymbols = getSymbols;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/_internal/getTag.js
 var require_getTag = __commonJS({
   "node_modules/es-toolkit/dist/compat/_internal/getTag.js"(exports) {
     "use strict";
@@ -595,8 +551,6 @@ var require_getTag = __commonJS({
     exports.getTag = getTag;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/_internal/tags.js
 var require_tags = __commonJS({
   "node_modules/es-toolkit/dist/compat/_internal/tags.js"(exports) {
     "use strict";
@@ -655,8 +609,6 @@ var require_tags = __commonJS({
     exports.uint8ClampedArrayTag = uint8ClampedArrayTag;
   }
 });
-
-// node_modules/es-toolkit/dist/predicate/isTypedArray.js
 var require_isTypedArray = __commonJS({
   "node_modules/es-toolkit/dist/predicate/isTypedArray.js"(exports) {
     "use strict";
@@ -667,8 +619,6 @@ var require_isTypedArray = __commonJS({
     exports.isTypedArray = isTypedArray;
   }
 });
-
-// node_modules/es-toolkit/dist/object/cloneDeepWith.js
 var require_cloneDeepWith = __commonJS({
   "node_modules/es-toolkit/dist/object/cloneDeepWith.js"(exports) {
     "use strict";
@@ -679,9 +629,9 @@ var require_cloneDeepWith = __commonJS({
     var isPrimitive = require_isPrimitive();
     var isTypedArray = require_isTypedArray();
     function cloneDeepWith(obj, cloneValue) {
-      return cloneDeepWithImpl(obj, void 0, obj, /* @__PURE__ */ new Map(), cloneValue);
+      return cloneDeepWithImpl(obj, void 0, obj,  new Map(), cloneValue);
     }
-    function cloneDeepWithImpl(valueToClone, keyToClone, objectToClone, stack = /* @__PURE__ */ new Map(), cloneValue = void 0) {
+    function cloneDeepWithImpl(valueToClone, keyToClone, objectToClone, stack =  new Map(), cloneValue = void 0) {
       const cloned = cloneValue?.(valueToClone, keyToClone, objectToClone, stack);
       if (cloned !== void 0) {
         return cloned;
@@ -715,7 +665,7 @@ var require_cloneDeepWith = __commonJS({
         return result;
       }
       if (valueToClone instanceof Map) {
-        const result = /* @__PURE__ */ new Map();
+        const result =  new Map();
         stack.set(valueToClone, result);
         for (const [key, value] of valueToClone) {
           result.set(key, cloneDeepWithImpl(value, key, objectToClone, stack, cloneValue));
@@ -723,7 +673,7 @@ var require_cloneDeepWith = __commonJS({
         return result;
       }
       if (valueToClone instanceof Set) {
-        const result = /* @__PURE__ */ new Set();
+        const result =  new Set();
         stack.set(valueToClone, result);
         for (const value of valueToClone) {
           result.add(cloneDeepWithImpl(value, void 0, objectToClone, stack, cloneValue));
@@ -846,21 +796,17 @@ var require_cloneDeepWith = __commonJS({
     exports.copyProperties = copyProperties;
   }
 });
-
-// node_modules/es-toolkit/dist/object/cloneDeep.js
 var require_cloneDeep = __commonJS({
   "node_modules/es-toolkit/dist/object/cloneDeep.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     var cloneDeepWith = require_cloneDeepWith();
     function cloneDeep(obj) {
-      return cloneDeepWith.cloneDeepWithImpl(obj, void 0, obj, /* @__PURE__ */ new Map(), void 0);
+      return cloneDeepWith.cloneDeepWithImpl(obj, void 0, obj,  new Map(), void 0);
     }
     exports.cloneDeep = cloneDeep;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/predicate/matches.js
 var require_matches = __commonJS({
   "node_modules/es-toolkit/dist/compat/predicate/matches.js"(exports) {
     "use strict";
@@ -876,8 +822,6 @@ var require_matches = __commonJS({
     exports.matches = matches2;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/object/cloneDeepWith.js
 var require_cloneDeepWith2 = __commonJS({
   "node_modules/es-toolkit/dist/compat/object/cloneDeepWith.js"(exports) {
     "use strict";
@@ -924,8 +868,6 @@ var require_cloneDeepWith2 = __commonJS({
     exports.cloneDeepWith = cloneDeepWith;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/object/cloneDeep.js
 var require_cloneDeep2 = __commonJS({
   "node_modules/es-toolkit/dist/compat/object/cloneDeep.js"(exports) {
     "use strict";
@@ -937,8 +879,6 @@ var require_cloneDeep2 = __commonJS({
     exports.cloneDeep = cloneDeep;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/_internal/isIndex.js
 var require_isIndex = __commonJS({
   "node_modules/es-toolkit/dist/compat/_internal/isIndex.js"(exports) {
     "use strict";
@@ -960,8 +900,6 @@ var require_isIndex = __commonJS({
     exports.isIndex = isIndex;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/predicate/isArguments.js
 var require_isArguments = __commonJS({
   "node_modules/es-toolkit/dist/compat/predicate/isArguments.js"(exports) {
     "use strict";
@@ -973,8 +911,6 @@ var require_isArguments = __commonJS({
     exports.isArguments = isArguments;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/object/has.js
 var require_has = __commonJS({
   "node_modules/es-toolkit/dist/compat/object/has.js"(exports) {
     "use strict";
@@ -1011,8 +947,6 @@ var require_has = __commonJS({
     exports.has = has3;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/predicate/matchesProperty.js
 var require_matchesProperty = __commonJS({
   "node_modules/es-toolkit/dist/compat/predicate/matchesProperty.js"(exports) {
     "use strict";
@@ -1050,8 +984,6 @@ var require_matchesProperty = __commonJS({
     exports.matchesProperty = matchesProperty;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/util/iteratee.js
 var require_iteratee = __commonJS({
   "node_modules/es-toolkit/dist/compat/util/iteratee.js"(exports) {
     "use strict";
@@ -1084,8 +1016,6 @@ var require_iteratee = __commonJS({
     exports.iteratee = iteratee;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/array/uniqBy.js
 var require_uniqBy2 = __commonJS({
   "node_modules/es-toolkit/dist/compat/array/uniqBy.js"(exports) {
     "use strict";
@@ -1104,15 +1034,11 @@ var require_uniqBy2 = __commonJS({
     exports.uniqBy = uniqBy2;
   }
 });
-
-// node_modules/es-toolkit/compat/uniqBy.js
 var require_uniqBy3 = __commonJS({
   "node_modules/es-toolkit/compat/uniqBy.js"(exports, module) {
     module.exports = require_uniqBy2().uniqBy;
   }
 });
-
-// node_modules/use-sync-external-store/cjs/use-sync-external-store-shim.development.js
 var require_use_sync_external_store_shim_development = __commonJS({
   "node_modules/use-sync-external-store/cjs/use-sync-external-store-shim.development.js"(exports) {
     "use strict";
@@ -1175,8 +1101,6 @@ var require_use_sync_external_store_shim_development = __commonJS({
     })();
   }
 });
-
-// node_modules/use-sync-external-store/shim/index.js
 var require_shim = __commonJS({
   "node_modules/use-sync-external-store/shim/index.js"(exports, module) {
     "use strict";
@@ -1187,8 +1111,6 @@ var require_shim = __commonJS({
     }
   }
 });
-
-// node_modules/use-sync-external-store/cjs/use-sync-external-store-shim/with-selector.development.js
 var require_with_selector_development = __commonJS({
   "node_modules/use-sync-external-store/cjs/use-sync-external-store-shim/with-selector.development.js"(exports) {
     "use strict";
@@ -1254,8 +1176,6 @@ var require_with_selector_development = __commonJS({
     })();
   }
 });
-
-// node_modules/use-sync-external-store/shim/with-selector.js
 var require_with_selector = __commonJS({
   "node_modules/use-sync-external-store/shim/with-selector.js"(exports, module) {
     "use strict";
@@ -1266,8 +1186,6 @@ var require_with_selector = __commonJS({
     }
   }
 });
-
-// node_modules/es-toolkit/dist/compat/_internal/compareValues.js
 var require_compareValues = __commonJS({
   "node_modules/es-toolkit/dist/compat/_internal/compareValues.js"(exports) {
     "use strict";
@@ -1306,8 +1224,6 @@ var require_compareValues = __commonJS({
     exports.compareValues = compareValues;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/predicate/isSymbol.js
 var require_isSymbol = __commonJS({
   "node_modules/es-toolkit/dist/compat/predicate/isSymbol.js"(exports) {
     "use strict";
@@ -1318,8 +1234,6 @@ var require_isSymbol = __commonJS({
     exports.isSymbol = isSymbol;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/_internal/isKey.js
 var require_isKey = __commonJS({
   "node_modules/es-toolkit/dist/compat/_internal/isKey.js"(exports) {
     "use strict";
@@ -1339,8 +1253,6 @@ var require_isKey = __commonJS({
     exports.isKey = isKey;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/array/orderBy.js
 var require_orderBy = __commonJS({
   "node_modules/es-toolkit/dist/compat/array/orderBy.js"(exports) {
     "use strict";
@@ -1420,8 +1332,6 @@ var require_orderBy = __commonJS({
     exports.orderBy = orderBy;
   }
 });
-
-// node_modules/es-toolkit/dist/array/flatten.js
 var require_flatten = __commonJS({
   "node_modules/es-toolkit/dist/array/flatten.js"(exports) {
     "use strict";
@@ -1445,8 +1355,6 @@ var require_flatten = __commonJS({
     exports.flatten = flatten;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/_internal/isIterateeCall.js
 var require_isIterateeCall = __commonJS({
   "node_modules/es-toolkit/dist/compat/_internal/isIterateeCall.js"(exports) {
     "use strict";
@@ -1467,8 +1375,6 @@ var require_isIterateeCall = __commonJS({
     exports.isIterateeCall = isIterateeCall;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/array/sortBy.js
 var require_sortBy = __commonJS({
   "node_modules/es-toolkit/dist/compat/array/sortBy.js"(exports) {
     "use strict";
@@ -1488,15 +1394,11 @@ var require_sortBy = __commonJS({
     exports.sortBy = sortBy5;
   }
 });
-
-// node_modules/es-toolkit/compat/sortBy.js
 var require_sortBy2 = __commonJS({
   "node_modules/es-toolkit/compat/sortBy.js"(exports, module) {
     module.exports = require_sortBy().sortBy;
   }
 });
-
-// node_modules/es-toolkit/dist/function/debounce.js
 var require_debounce = __commonJS({
   "node_modules/es-toolkit/dist/function/debounce.js"(exports) {
     "use strict";
@@ -1564,8 +1466,6 @@ var require_debounce = __commonJS({
     exports.debounce = debounce;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/function/debounce.js
 var require_debounce2 = __commonJS({
   "node_modules/es-toolkit/dist/compat/function/debounce.js"(exports) {
     "use strict";
@@ -1616,8 +1516,6 @@ var require_debounce2 = __commonJS({
     exports.debounce = debounce;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/function/throttle.js
 var require_throttle = __commonJS({
   "node_modules/es-toolkit/dist/compat/function/throttle.js"(exports) {
     "use strict";
@@ -1634,15 +1532,11 @@ var require_throttle = __commonJS({
     exports.throttle = throttle2;
   }
 });
-
-// node_modules/es-toolkit/compat/throttle.js
 var require_throttle2 = __commonJS({
   "node_modules/es-toolkit/compat/throttle.js"(exports, module) {
     module.exports = require_throttle().throttle;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/util/toNumber.js
 var require_toNumber = __commonJS({
   "node_modules/es-toolkit/dist/compat/util/toNumber.js"(exports) {
     "use strict";
@@ -1657,8 +1551,6 @@ var require_toNumber = __commonJS({
     exports.toNumber = toNumber;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/util/toFinite.js
 var require_toFinite = __commonJS({
   "node_modules/es-toolkit/dist/compat/util/toFinite.js"(exports) {
     "use strict";
@@ -1678,8 +1570,6 @@ var require_toFinite = __commonJS({
     exports.toFinite = toFinite;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/math/range.js
 var require_range = __commonJS({
   "node_modules/es-toolkit/dist/compat/math/range.js"(exports) {
     "use strict";
@@ -1709,15 +1599,11 @@ var require_range = __commonJS({
     exports.range = range4;
   }
 });
-
-// node_modules/es-toolkit/compat/range.js
 var require_range2 = __commonJS({
   "node_modules/es-toolkit/compat/range.js"(exports, module) {
     module.exports = require_range().range;
   }
 });
-
-// node_modules/eventemitter3/index.js
 var require_eventemitter3 = __commonJS({
   "node_modules/eventemitter3/index.js"(exports, module) {
     "use strict";
@@ -1726,7 +1612,7 @@ var require_eventemitter3 = __commonJS({
     function Events() {
     }
     if (Object.create) {
-      Events.prototype = /* @__PURE__ */ Object.create(null);
+      Events.prototype =  Object.create(null);
       if (!new Events().__proto__) prefix2 = false;
     }
     function EE(fn, context, once) {
@@ -1878,8 +1764,6 @@ var require_eventemitter3 = __commonJS({
     }
   }
 });
-
-// node_modules/es-toolkit/dist/array/last.js
 var require_last = __commonJS({
   "node_modules/es-toolkit/dist/array/last.js"(exports) {
     "use strict";
@@ -1890,8 +1774,6 @@ var require_last = __commonJS({
     exports.last = last3;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/_internal/toArray.js
 var require_toArray = __commonJS({
   "node_modules/es-toolkit/dist/compat/_internal/toArray.js"(exports) {
     "use strict";
@@ -1902,8 +1784,6 @@ var require_toArray = __commonJS({
     exports.toArray = toArray2;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/array/last.js
 var require_last2 = __commonJS({
   "node_modules/es-toolkit/dist/compat/array/last.js"(exports) {
     "use strict";
@@ -1920,15 +1800,11 @@ var require_last2 = __commonJS({
     exports.last = last3;
   }
 });
-
-// node_modules/es-toolkit/compat/last.js
 var require_last3 = __commonJS({
   "node_modules/es-toolkit/compat/last.js"(exports, module) {
     module.exports = require_last2().last;
   }
 });
-
-// node_modules/es-toolkit/dist/array/maxBy.js
 var require_maxBy = __commonJS({
   "node_modules/es-toolkit/dist/array/maxBy.js"(exports) {
     "use strict";
@@ -1952,8 +1828,6 @@ var require_maxBy = __commonJS({
     exports.maxBy = maxBy3;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/math/maxBy.js
 var require_maxBy2 = __commonJS({
   "node_modules/es-toolkit/dist/compat/math/maxBy.js"(exports) {
     "use strict";
@@ -1970,15 +1844,11 @@ var require_maxBy2 = __commonJS({
     exports.maxBy = maxBy3;
   }
 });
-
-// node_modules/es-toolkit/compat/maxBy.js
 var require_maxBy3 = __commonJS({
   "node_modules/es-toolkit/compat/maxBy.js"(exports, module) {
     module.exports = require_maxBy2().maxBy;
   }
 });
-
-// node_modules/es-toolkit/dist/array/minBy.js
 var require_minBy = __commonJS({
   "node_modules/es-toolkit/dist/array/minBy.js"(exports) {
     "use strict";
@@ -2002,8 +1872,6 @@ var require_minBy = __commonJS({
     exports.minBy = minBy2;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/math/minBy.js
 var require_minBy2 = __commonJS({
   "node_modules/es-toolkit/dist/compat/math/minBy.js"(exports) {
     "use strict";
@@ -2020,15 +1888,11 @@ var require_minBy2 = __commonJS({
     exports.minBy = minBy2;
   }
 });
-
-// node_modules/es-toolkit/compat/minBy.js
 var require_minBy3 = __commonJS({
   "node_modules/es-toolkit/compat/minBy.js"(exports, module) {
     module.exports = require_minBy2().minBy;
   }
 });
-
-// node_modules/react-is/cjs/react-is.development.js
 var require_react_is_development = __commonJS({
   "node_modules/react-is/cjs/react-is.development.js"(exports) {
     "use strict";
@@ -2064,7 +1928,7 @@ var require_react_is_development = __commonJS({
           }
         }
       }
-      var REACT_ELEMENT_TYPE = /* @__PURE__ */ Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = /* @__PURE__ */ Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = /* @__PURE__ */ Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = /* @__PURE__ */ Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = /* @__PURE__ */ Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = /* @__PURE__ */ Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = /* @__PURE__ */ Symbol.for("react.context"), REACT_FORWARD_REF_TYPE2 = /* @__PURE__ */ Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = /* @__PURE__ */ Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = /* @__PURE__ */ Symbol.for("react.suspense_list"), REACT_MEMO_TYPE2 = /* @__PURE__ */ Symbol.for("react.memo"), REACT_LAZY_TYPE = /* @__PURE__ */ Symbol.for("react.lazy"), REACT_VIEW_TRANSITION_TYPE = /* @__PURE__ */ Symbol.for("react.view_transition"), REACT_CLIENT_REFERENCE = /* @__PURE__ */ Symbol.for("react.client.reference");
+      var REACT_ELEMENT_TYPE =  Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE =  Symbol.for("react.portal"), REACT_FRAGMENT_TYPE =  Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE =  Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE =  Symbol.for("react.profiler"), REACT_CONSUMER_TYPE =  Symbol.for("react.consumer"), REACT_CONTEXT_TYPE =  Symbol.for("react.context"), REACT_FORWARD_REF_TYPE2 =  Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE =  Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE =  Symbol.for("react.suspense_list"), REACT_MEMO_TYPE2 =  Symbol.for("react.memo"), REACT_LAZY_TYPE =  Symbol.for("react.lazy"), REACT_VIEW_TRANSITION_TYPE =  Symbol.for("react.view_transition"), REACT_CLIENT_REFERENCE =  Symbol.for("react.client.reference");
       exports.ContextConsumer = REACT_CONSUMER_TYPE;
       exports.ContextProvider = REACT_CONTEXT_TYPE;
       exports.Element = REACT_ELEMENT_TYPE;
@@ -2120,8 +1984,6 @@ var require_react_is_development = __commonJS({
     })();
   }
 });
-
-// node_modules/react-is/index.js
 var require_react_is = __commonJS({
   "node_modules/react-is/index.js"(exports, module) {
     "use strict";
@@ -2132,8 +1994,6 @@ var require_react_is = __commonJS({
     }
   }
 });
-
-// node_modules/es-toolkit/dist/compat/predicate/isPlainObject.js
 var require_isPlainObject = __commonJS({
   "node_modules/es-toolkit/dist/compat/predicate/isPlainObject.js"(exports) {
     "use strict";
@@ -2168,15 +2028,11 @@ var require_isPlainObject = __commonJS({
     exports.isPlainObject = isPlainObject5;
   }
 });
-
-// node_modules/es-toolkit/compat/isPlainObject.js
 var require_isPlainObject2 = __commonJS({
   "node_modules/es-toolkit/compat/isPlainObject.js"(exports, module) {
     module.exports = require_isPlainObject().isPlainObject;
   }
 });
-
-// node_modules/use-sync-external-store/cjs/use-sync-external-store-with-selector.development.js
 var require_use_sync_external_store_with_selector_development = __commonJS({
   "node_modules/use-sync-external-store/cjs/use-sync-external-store-with-selector.development.js"(exports) {
     "use strict";
@@ -2242,8 +2098,6 @@ var require_use_sync_external_store_with_selector_development = __commonJS({
     })();
   }
 });
-
-// node_modules/use-sync-external-store/with-selector.js
 var require_with_selector2 = __commonJS({
   "node_modules/use-sync-external-store/with-selector.js"(exports, module) {
     "use strict";
@@ -2254,8 +2108,6 @@ var require_with_selector2 = __commonJS({
     }
   }
 });
-
-// node_modules/es-toolkit/dist/predicate/isBuffer.js
 var require_isBuffer = __commonJS({
   "node_modules/es-toolkit/dist/predicate/isBuffer.js"(exports) {
     "use strict";
@@ -2266,8 +2118,6 @@ var require_isBuffer = __commonJS({
     exports.isBuffer = isBuffer;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/_internal/isPrototype.js
 var require_isPrototype = __commonJS({
   "node_modules/es-toolkit/dist/compat/_internal/isPrototype.js"(exports) {
     "use strict";
@@ -2280,8 +2130,6 @@ var require_isPrototype = __commonJS({
     exports.isPrototype = isPrototype;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/predicate/isTypedArray.js
 var require_isTypedArray2 = __commonJS({
   "node_modules/es-toolkit/dist/compat/predicate/isTypedArray.js"(exports) {
     "use strict";
@@ -2293,8 +2141,6 @@ var require_isTypedArray2 = __commonJS({
     exports.isTypedArray = isTypedArray;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/util/toInteger.js
 var require_toInteger = __commonJS({
   "node_modules/es-toolkit/dist/compat/util/toInteger.js"(exports) {
     "use strict";
@@ -2308,8 +2154,6 @@ var require_toInteger = __commonJS({
     exports.toInteger = toInteger;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/util/times.js
 var require_times = __commonJS({
   "node_modules/es-toolkit/dist/compat/util/times.js"(exports) {
     "use strict";
@@ -2329,8 +2173,6 @@ var require_times = __commonJS({
     exports.times = times;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/object/keysIn.js
 var require_keysIn = __commonJS({
   "node_modules/es-toolkit/dist/compat/object/keysIn.js"(exports) {
     "use strict";
@@ -2392,8 +2234,6 @@ var require_keysIn = __commonJS({
     exports.keysIn = keysIn;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/object/unset.js
 var require_unset = __commonJS({
   "node_modules/es-toolkit/dist/compat/object/unset.js"(exports) {
     "use strict";
@@ -2471,8 +2311,6 @@ var require_unset = __commonJS({
     exports.unset = unset;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/_internal/getSymbolsIn.js
 var require_getSymbolsIn = __commonJS({
   "node_modules/es-toolkit/dist/compat/_internal/getSymbolsIn.js"(exports) {
     "use strict";
@@ -2489,8 +2327,6 @@ var require_getSymbolsIn = __commonJS({
     exports.getSymbolsIn = getSymbolsIn;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/array/flatten.js
 var require_flatten2 = __commonJS({
   "node_modules/es-toolkit/dist/compat/array/flatten.js"(exports) {
     "use strict";
@@ -2522,8 +2358,6 @@ var require_flatten2 = __commonJS({
     exports.flatten = flatten;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/object/omit.js
 var require_omit = __commonJS({
   "node_modules/es-toolkit/dist/compat/object/omit.js"(exports) {
     "use strict";
@@ -2597,15 +2431,11 @@ var require_omit = __commonJS({
     exports.omit = omit3;
   }
 });
-
-// node_modules/es-toolkit/compat/omit.js
 var require_omit2 = __commonJS({
   "node_modules/es-toolkit/compat/omit.js"(exports, module) {
     module.exports = require_omit().omit;
   }
 });
-
-// node_modules/es-toolkit/dist/compat/math/sumBy.js
 var require_sumBy = __commonJS({
   "node_modules/es-toolkit/dist/compat/math/sumBy.js"(exports) {
     "use strict";
@@ -2634,22 +2464,14 @@ var require_sumBy = __commonJS({
     exports.sumBy = sumBy2;
   }
 });
-
-// node_modules/es-toolkit/compat/sumBy.js
 var require_sumBy2 = __commonJS({
   "node_modules/es-toolkit/compat/sumBy.js"(exports, module) {
     module.exports = require_sumBy().sumBy;
   }
 });
-
-// node_modules/recharts/es6/container/Surface.js
 var React = __toESM(require_react());
 var import_react3 = __toESM(require_react());
-
-// node_modules/recharts/es6/util/svgPropertiesAndEvents.js
 var import_react2 = __toESM(require_react());
-
-// node_modules/recharts/es6/util/excludeEventProps.js
 var EventKeys = ["dangerouslySetInnerHTML", "onCopy", "onCopyCapture", "onCut", "onCutCapture", "onPaste", "onPasteCapture", "onCompositionEnd", "onCompositionEndCapture", "onCompositionStart", "onCompositionStartCapture", "onCompositionUpdate", "onCompositionUpdateCapture", "onFocus", "onFocusCapture", "onBlur", "onBlurCapture", "onChange", "onChangeCapture", "onBeforeInput", "onBeforeInputCapture", "onInput", "onInputCapture", "onReset", "onResetCapture", "onSubmit", "onSubmitCapture", "onInvalid", "onInvalidCapture", "onLoad", "onLoadCapture", "onError", "onErrorCapture", "onKeyDown", "onKeyDownCapture", "onKeyPress", "onKeyPressCapture", "onKeyUp", "onKeyUpCapture", "onAbort", "onAbortCapture", "onCanPlay", "onCanPlayCapture", "onCanPlayThrough", "onCanPlayThroughCapture", "onDurationChange", "onDurationChangeCapture", "onEmptied", "onEmptiedCapture", "onEncrypted", "onEncryptedCapture", "onEnded", "onEndedCapture", "onLoadedData", "onLoadedDataCapture", "onLoadedMetadata", "onLoadedMetadataCapture", "onLoadStart", "onLoadStartCapture", "onPause", "onPauseCapture", "onPlay", "onPlayCapture", "onPlaying", "onPlayingCapture", "onProgress", "onProgressCapture", "onRateChange", "onRateChangeCapture", "onSeeked", "onSeekedCapture", "onSeeking", "onSeekingCapture", "onStalled", "onStalledCapture", "onSuspend", "onSuspendCapture", "onTimeUpdate", "onTimeUpdateCapture", "onVolumeChange", "onVolumeChangeCapture", "onWaiting", "onWaitingCapture", "onAuxClick", "onAuxClickCapture", "onClick", "onClickCapture", "onContextMenu", "onContextMenuCapture", "onDoubleClick", "onDoubleClickCapture", "onDrag", "onDragCapture", "onDragEnd", "onDragEndCapture", "onDragEnter", "onDragEnterCapture", "onDragExit", "onDragExitCapture", "onDragLeave", "onDragLeaveCapture", "onDragOver", "onDragOverCapture", "onDragStart", "onDragStartCapture", "onDrop", "onDropCapture", "onMouseDown", "onMouseDownCapture", "onMouseEnter", "onMouseLeave", "onMouseMove", "onMouseMoveCapture", "onMouseOut", "onMouseOutCapture", "onMouseOver", "onMouseOverCapture", "onMouseUp", "onMouseUpCapture", "onSelect", "onSelectCapture", "onTouchCancel", "onTouchCancelCapture", "onTouchEnd", "onTouchEndCapture", "onTouchMove", "onTouchMoveCapture", "onTouchStart", "onTouchStartCapture", "onPointerDown", "onPointerDownCapture", "onPointerMove", "onPointerMoveCapture", "onPointerUp", "onPointerUpCapture", "onPointerCancel", "onPointerCancelCapture", "onPointerEnter", "onPointerEnterCapture", "onPointerLeave", "onPointerLeaveCapture", "onPointerOver", "onPointerOverCapture", "onPointerOut", "onPointerOutCapture", "onGotPointerCapture", "onGotPointerCaptureCapture", "onLostPointerCapture", "onLostPointerCaptureCapture", "onScroll", "onScrollCapture", "onWheel", "onWheelCapture", "onAnimationStart", "onAnimationStartCapture", "onAnimationEnd", "onAnimationEndCapture", "onAnimationIteration", "onAnimationIterationCapture", "onTransitionEnd", "onTransitionEndCapture"];
 function isEventKey(key) {
   if (typeof key !== "string") {
@@ -2658,8 +2480,6 @@ function isEventKey(key) {
   var allowedEventKeys = EventKeys;
   return allowedEventKeys.includes(key);
 }
-
-// node_modules/recharts/es6/util/svgPropertiesNoEvents.js
 var import_react = __toESM(require_react());
 var SVGElementPropKeys = [
   "aria-activedescendant",
@@ -2719,13 +2539,6 @@ var SVGElementPropKeys = [
   "min",
   "name",
   "style",
-  /*
-   * removed 'type' SVGElementPropKey because we do not currently use any SVG elements
-   * that can use it, and it conflicts with the recharts prop 'type'
-   * https://github.com/recharts/recharts/pull/3327
-   * https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/type
-   */
-  // 'type',
   "target",
   "width",
   "role",
@@ -3008,8 +2821,6 @@ function svgPropertiesNoEventsFromUnknown(input) {
   }
   return null;
 }
-
-// node_modules/recharts/es6/util/svgPropertiesAndEvents.js
 function svgPropertiesAndEvents(obj) {
   var result = {};
   for (var key in obj) {
@@ -3033,8 +2844,6 @@ function svgPropertiesAndEventsFromUnknown(input) {
   }
   return null;
 }
-
-// node_modules/recharts/es6/container/Surface.js
 var _excluded = ["children", "width", "height", "viewBox", "className", "style", "title", "desc"];
 function _extends() {
   return _extends = Object.assign ? Object.assign.bind() : function(n) {
@@ -3090,8 +2899,6 @@ var Surface = (0, import_react3.forwardRef)((props, ref) => {
     ref
   }), React.createElement("title", null, title), React.createElement("desc", null, desc), children);
 });
-
-// node_modules/recharts/es6/container/Layer.js
 var React2 = __toESM(require_react());
 var _excluded2 = ["children", "className"];
 function _extends2() {
@@ -3133,31 +2940,19 @@ var Layer = React2.forwardRef((props, ref) => {
     ref
   }), children);
 });
-
-// node_modules/recharts/es6/component/Legend.js
 var React7 = __toESM(require_react());
 var import_react12 = __toESM(require_react());
 var import_react_dom = __toESM(require_react_dom());
-
-// node_modules/recharts/es6/context/legendPortalContext.js
 var import_react4 = __toESM(require_react());
 var LegendPortalContext = (0, import_react4.createContext)(null);
 var useLegendPortal = () => (0, import_react4.useContext)(LegendPortalContext);
-
-// node_modules/recharts/es6/component/DefaultLegendContent.js
 var React4 = __toESM(require_react());
-
-// node_modules/recharts/es6/shape/Symbols.js
 var React3 = __toESM(require_react());
-
-// node_modules/d3-shape/src/constant.js
 function constant_default(x2) {
   return function constant2() {
     return x2;
   };
 }
-
-// node_modules/d3-shape/src/math.js
 var cos = Math.cos;
 var sin = Math.sin;
 var sqrt = Math.sqrt;
@@ -3165,8 +2960,6 @@ var epsilon = 1e-12;
 var pi = Math.PI;
 var halfPi = pi / 2;
 var tau = 2 * pi;
-
-// node_modules/d3-path/src/path.js
 var pi2 = Math.PI;
 var tau2 = 2 * pi2;
 var epsilon2 = 1e-6;
@@ -3191,7 +2984,7 @@ function appendRound(digits) {
 }
 var Path = class {
   constructor(digits) {
-    this._x0 = this._y0 = // start of current subpath
+    this._x0 = this._y0 = 
     this._x1 = this._y1 = null;
     this._ = "";
     this._append = digits == null ? append : appendRound(digits);
@@ -3259,8 +3052,6 @@ function path() {
   return new Path();
 }
 path.prototype = Path.prototype;
-
-// node_modules/d3-shape/src/path.js
 function withPath(shape) {
   let digits = 3;
   shape.digits = function(_) {
@@ -3276,14 +3067,10 @@ function withPath(shape) {
   };
   return () => new Path(digits);
 }
-
-// node_modules/d3-shape/src/array.js
 var slice = Array.prototype.slice;
 function array_default(x2) {
   return typeof x2 === "object" && "length" in x2 ? x2 : Array.from(x2);
 }
-
-// node_modules/d3-shape/src/curve/linear.js
 function Linear(context) {
   this._context = context;
 }
@@ -3310,7 +3097,6 @@ Linear.prototype = {
         break;
       case 1:
         this._point = 2;
-      // falls through
       default:
         this._context.lineTo(x2, y2);
         break;
@@ -3320,16 +3106,12 @@ Linear.prototype = {
 function linear_default(context) {
   return new Linear(context);
 }
-
-// node_modules/d3-shape/src/point.js
 function x(p) {
   return p[0];
 }
 function y(p) {
   return p[1];
 }
-
-// node_modules/d3-shape/src/line.js
 function line_default(x2, y2) {
   var defined2 = constant_default(true), context = null, curve = linear_default, output = null, path2 = withPath(line);
   x2 = typeof x2 === "function" ? x2 : x2 === void 0 ? x : constant_default(x2);
@@ -3363,8 +3145,6 @@ function line_default(x2, y2) {
   };
   return line;
 }
-
-// node_modules/d3-shape/src/area.js
 function area_default(x0, y0, y1) {
   var x1 = null, defined2 = constant_default(true), context = null, curve = linear_default, output = null, path2 = withPath(area);
   x0 = typeof x0 === "function" ? x0 : x0 === void 0 ? x : constant_default(+x0);
@@ -3437,8 +3217,6 @@ function area_default(x0, y0, y1) {
   };
   return area;
 }
-
-// node_modules/d3-shape/src/curve/radial.js
 var curveRadialLinear = curveRadial(linear_default);
 function Radial(curve) {
   this._curve = curve;
@@ -3467,8 +3245,6 @@ function curveRadial(curve) {
   radial2._curve = curve;
   return radial2;
 }
-
-// node_modules/d3-shape/src/curve/bump.js
 var Bump = class {
   constructor(context, x2) {
     this._context = context;
@@ -3498,7 +3274,6 @@ var Bump = class {
       }
       case 1:
         this._point = 2;
-      // falls through
       default: {
         if (this._x) this._context.bezierCurveTo(this._x0 = (this._x0 + x2) / 2, this._y0, this._x0, y2, x2, y2);
         else this._context.bezierCurveTo(this._x0, this._y0 = (this._y0 + y2) / 2, x2, this._y0, x2, y2);
@@ -3514,11 +3289,7 @@ function bumpX(context) {
 function bumpY(context) {
   return new Bump(context, false);
 }
-
-// node_modules/d3-shape/src/symbol/asterisk.js
 var sqrt3 = sqrt(3);
-
-// node_modules/d3-shape/src/symbol/circle.js
 var circle_default = {
   draw(context, size) {
     const r = sqrt(size / pi);
@@ -3526,8 +3297,6 @@ var circle_default = {
     context.arc(0, 0, r, 0, tau);
   }
 };
-
-// node_modules/d3-shape/src/symbol/cross.js
 var cross_default = {
   draw(context, size) {
     const r = sqrt(size / 5) / 2;
@@ -3546,8 +3315,6 @@ var cross_default = {
     context.closePath();
   }
 };
-
-// node_modules/d3-shape/src/symbol/diamond.js
 var tan30 = sqrt(1 / 3);
 var tan30_2 = tan30 * 2;
 var diamond_default = {
@@ -3561,8 +3328,6 @@ var diamond_default = {
     context.closePath();
   }
 };
-
-// node_modules/d3-shape/src/symbol/square.js
 var square_default = {
   draw(context, size) {
     const w = sqrt(size);
@@ -3570,8 +3335,6 @@ var square_default = {
     context.rect(x2, x2, w, w);
   }
 };
-
-// node_modules/d3-shape/src/symbol/star.js
 var ka = 0.8908130915292852;
 var kr = sin(pi / 10) / sin(7 * pi / 10);
 var kx = sin(tau / 10) * kr;
@@ -3593,8 +3356,6 @@ var star_default = {
     context.closePath();
   }
 };
-
-// node_modules/d3-shape/src/symbol/triangle.js
 var sqrt32 = sqrt(3);
 var triangle_default = {
   draw(context, size) {
@@ -3605,11 +3366,7 @@ var triangle_default = {
     context.closePath();
   }
 };
-
-// node_modules/d3-shape/src/symbol/triangle2.js
 var sqrt33 = sqrt(3);
-
-// node_modules/d3-shape/src/symbol/wye.js
 var c = -0.5;
 var s = sqrt(3) / 2;
 var k = 1 / sqrt(12);
@@ -3632,8 +3389,6 @@ var wye_default = {
     context.closePath();
   }
 };
-
-// node_modules/d3-shape/src/symbol.js
 function Symbol2(type, size) {
   let context = null, path2 = withPath(symbol);
   type = typeof type === "function" ? type : constant_default(type || circle_default);
@@ -3655,12 +3410,8 @@ function Symbol2(type, size) {
   };
   return symbol;
 }
-
-// node_modules/d3-shape/src/noop.js
 function noop_default() {
 }
-
-// node_modules/d3-shape/src/curve/basis.js
 function point(that, x2, y2) {
   that._context.bezierCurveTo(
     (2 * that._x0 + that._x1) / 3,
@@ -3689,7 +3440,6 @@ Basis.prototype = {
     switch (this._point) {
       case 3:
         point(this, this._x1, this._y1);
-      // falls through
       case 2:
         this._context.lineTo(this._x1, this._y1);
         break;
@@ -3710,7 +3460,6 @@ Basis.prototype = {
       case 2:
         this._point = 3;
         this._context.lineTo((5 * this._x0 + this._x1) / 6, (5 * this._y0 + this._y1) / 6);
-      // falls through
       default:
         point(this, x2, y2);
         break;
@@ -3722,8 +3471,6 @@ Basis.prototype = {
 function basis_default(context) {
   return new Basis(context);
 }
-
-// node_modules/d3-shape/src/curve/basisClosed.js
 function BasisClosed(context) {
   this._context = context;
 }
@@ -3782,8 +3529,6 @@ BasisClosed.prototype = {
 function basisClosed_default(context) {
   return new BasisClosed(context);
 }
-
-// node_modules/d3-shape/src/curve/basisOpen.js
 function BasisOpen(context) {
   this._context = context;
 }
@@ -3818,7 +3563,6 @@ BasisOpen.prototype = {
         break;
       case 3:
         this._point = 4;
-      // falls through
       default:
         point(this, x2, y2);
         break;
@@ -3830,8 +3574,6 @@ BasisOpen.prototype = {
 function basisOpen_default(context) {
   return new BasisOpen(context);
 }
-
-// node_modules/d3-shape/src/curve/bundle.js
 function Bundle(context, beta) {
   this._basis = new Basis(context);
   this._beta = beta;
@@ -3871,8 +3613,6 @@ var bundle_default = (function custom(beta) {
   };
   return bundle;
 })(0.85);
-
-// node_modules/d3-shape/src/curve/cardinal.js
 function point2(that, x2, y2) {
   that._context.bezierCurveTo(
     that._x1 + that._k * (that._x2 - that._x0),
@@ -3923,7 +3663,6 @@ Cardinal.prototype = {
         break;
       case 2:
         this._point = 3;
-      // falls through
       default:
         point2(this, x2, y2);
         break;
@@ -3941,8 +3680,6 @@ var cardinal_default = (function custom2(tension) {
   };
   return cardinal;
 })(0);
-
-// node_modules/d3-shape/src/curve/cardinalClosed.js
 function CardinalClosed(context, tension) {
   this._context = context;
   this._k = (1 - tension) / 6;
@@ -4006,8 +3743,6 @@ var cardinalClosed_default = (function custom3(tension) {
   };
   return cardinal;
 })(0);
-
-// node_modules/d3-shape/src/curve/cardinalOpen.js
 function CardinalOpen(context, tension) {
   this._context = context;
   this._k = (1 - tension) / 6;
@@ -4042,7 +3777,6 @@ CardinalOpen.prototype = {
         break;
       case 3:
         this._point = 4;
-      // falls through
       default:
         point2(this, x2, y2);
         break;
@@ -4060,8 +3794,6 @@ var cardinalOpen_default = (function custom4(tension) {
   };
   return cardinal;
 })(0);
-
-// node_modules/d3-shape/src/curve/catmullRom.js
 function point3(that, x2, y2) {
   var x1 = that._x1, y1 = that._y1, x22 = that._x2, y22 = that._y2;
   if (that._l01_a > epsilon) {
@@ -4119,7 +3851,6 @@ CatmullRom.prototype = {
         break;
       case 2:
         this._point = 3;
-      // falls through
       default:
         point3(this, x2, y2);
         break;
@@ -4139,8 +3870,6 @@ var catmullRom_default = (function custom5(alpha2) {
   };
   return catmullRom;
 })(0.5);
-
-// node_modules/d3-shape/src/curve/catmullRomClosed.js
 function CatmullRomClosed(context, alpha2) {
   this._context = context;
   this._alpha = alpha2;
@@ -4210,8 +3939,6 @@ var catmullRomClosed_default = (function custom6(alpha2) {
   };
   return catmullRom;
 })(0.5);
-
-// node_modules/d3-shape/src/curve/catmullRomOpen.js
 function CatmullRomOpen(context, alpha2) {
   this._context = context;
   this._alpha = alpha2;
@@ -4250,7 +3977,6 @@ CatmullRomOpen.prototype = {
         break;
       case 3:
         this._point = 4;
-      // falls through
       default:
         point3(this, x2, y2);
         break;
@@ -4270,8 +3996,6 @@ var catmullRomOpen_default = (function custom7(alpha2) {
   };
   return catmullRom;
 })(0.5);
-
-// node_modules/d3-shape/src/curve/linearClosed.js
 function LinearClosed(context) {
   this._context = context;
 }
@@ -4293,8 +4017,6 @@ LinearClosed.prototype = {
 function linearClosed_default(context) {
   return new LinearClosed(context);
 }
-
-// node_modules/d3-shape/src/curve/monotone.js
 function sign(x2) {
   return x2 < 0 ? -1 : 1;
 }
@@ -4390,8 +4112,6 @@ function monotoneX(context) {
 function monotoneY(context) {
   return new MonotoneY(context);
 }
-
-// node_modules/d3-shape/src/curve/natural.js
 function Natural(context) {
   this._context = context;
 }
@@ -4443,8 +4163,6 @@ function controlPoints(x2) {
 function natural_default(context) {
   return new Natural(context);
 }
-
-// node_modules/d3-shape/src/curve/step.js
 function Step(context, t) {
   this._context = context;
   this._t = t;
@@ -4474,7 +4192,6 @@ Step.prototype = {
         break;
       case 1:
         this._point = 2;
-      // falls through
       default: {
         if (this._t <= 0) {
           this._context.lineTo(this._x, y2);
@@ -4499,8 +4216,6 @@ function stepBefore(context) {
 function stepAfter(context) {
   return new Step(context, 1);
 }
-
-// node_modules/d3-shape/src/offset/none.js
 function none_default(series, order) {
   if (!((n = series.length) > 1)) return;
   for (var i = 1, j, s0, s1 = series[order[0]], n, m = s1.length; i < n; ++i) {
@@ -4510,15 +4225,11 @@ function none_default(series, order) {
     }
   }
 }
-
-// node_modules/d3-shape/src/order/none.js
 function none_default2(series) {
   var n = series.length, o = new Array(n);
   while (--n >= 0) o[n] = n;
   return o;
 }
-
-// node_modules/d3-shape/src/stack.js
 function stackValue(d, key) {
   return d[key];
 }
@@ -4556,8 +4267,6 @@ function stack_default() {
   };
   return stack;
 }
-
-// node_modules/d3-shape/src/offset/expand.js
 function expand_default(series, order) {
   if (!((n = series.length) > 0)) return;
   for (var i, n, j = 0, m = series[0].length, y2; j < m; ++j) {
@@ -4566,8 +4275,6 @@ function expand_default(series, order) {
   }
   none_default(series, order);
 }
-
-// node_modules/d3-shape/src/offset/silhouette.js
 function silhouette_default(series, order) {
   if (!((n = series.length) > 0)) return;
   for (var j = 0, s0 = series[order[0]], n, m = s0.length; j < m; ++j) {
@@ -4576,8 +4283,6 @@ function silhouette_default(series, order) {
   }
   none_default(series, order);
 }
-
-// node_modules/d3-shape/src/offset/wiggle.js
 function wiggle_default(series, order) {
   if (!((n = series.length) > 0) || !((m = (s0 = series[order[0]]).length) > 0)) return;
   for (var y2 = 0, j = 1, s0, m, n; j < m; ++j) {
@@ -4595,11 +4300,7 @@ function wiggle_default(series, order) {
   s0[j - 1][1] += s0[j - 1][0] = y2;
   none_default(series, order);
 }
-
-// node_modules/recharts/es6/util/DataUtils.js
 var import_get = __toESM(require_get2());
-
-// node_modules/recharts/es6/util/round.js
 var defaultRoundPrecision = 4;
 function round(num) {
   var roundPrecision = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : defaultRoundPrecision;
@@ -4625,8 +4326,6 @@ function roundTemplateLiteral(strings) {
     return result + string;
   }, "");
 }
-
-// node_modules/recharts/es6/util/DataUtils.js
 var mathSign = (value) => {
   if (value === 0) {
     return 0;
@@ -4741,8 +4440,6 @@ function isNotNil(value) {
 }
 function noop() {
 }
-
-// node_modules/recharts/es6/shape/Symbols.js
 var _excluded3 = ["type", "size", "sizeType"];
 function _extends3() {
   return _extends3 = Object.assign ? Object.assign.bind() : function(n) {
@@ -4889,8 +4586,6 @@ var Symbols = (_ref2) => {
   return null;
 };
 Symbols.registerSymbol = registerSymbol;
-
-// node_modules/recharts/es6/util/types.js
 var import_react5 = __toESM(require_react());
 var isPolarCoordinate = (c2) => {
   return "radius" in c2 && "startAngle" in c2 && "endAngle" in c2;
@@ -4935,8 +4630,6 @@ var adaptEventsOfChild = (props, data, index2) => {
 var isNonEmptyArray = (arr) => {
   return Array.isArray(arr) && arr.length > 0;
 };
-
-// node_modules/recharts/es6/util/resolveDefaultProps.js
 function ownKeys2(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -4987,8 +4680,6 @@ function resolveDefaultProps(realProps, defaultProps2) {
   }, resolvedProps);
   return withDefaults;
 }
-
-// node_modules/recharts/es6/component/DefaultLegendContent.js
 function _extends4() {
   return _extends4 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
@@ -5183,8 +4874,6 @@ var DefaultLegendContent = (outsideProps) => {
     payload
   })));
 };
-
-// node_modules/recharts/es6/util/payload/getUniqPayload.js
 var import_uniqBy = __toESM(require_uniqBy3());
 function getUniqPayload(payload, option, defaultUniqBy3) {
   if (option === true) {
@@ -5195,16 +4884,10 @@ function getUniqPayload(payload, option, defaultUniqBy3) {
   }
   return payload;
 }
-
-// node_modules/recharts/es6/state/hooks.js
 var import_with_selector = __toESM(require_with_selector());
 var import_react7 = __toESM(require_react());
-
-// node_modules/recharts/es6/state/RechartsReduxContext.js
 var import_react6 = __toESM(require_react());
 var RechartsReduxContext = (0, import_react6.createContext)(null);
-
-// node_modules/recharts/es6/state/hooks.js
 var noopDispatch = (a2) => a2;
 var useAppDispatch = () => {
   var context = (0, import_react7.useContext)(RechartsReduxContext);
@@ -5232,8 +4915,6 @@ function useAppSelector(selector) {
   }, [context, selector]);
   return (0, import_with_selector.useSyncExternalStoreWithSelector)(context ? context.subscription.addNestedSub : addNestedSubNoop, context ? context.store.getState : noop2, context ? context.store.getState : noop2, outOfContextSelector, refEquality);
 }
-
-// node_modules/reselect/dist/reselect.mjs
 var runIdentityFunctionCheck = (resultFunc, inputSelectorsResults, outputSelectorResult) => {
   if (inputSelectorsResults.length === 1 && inputSelectorsResults[0] === outputSelectorResult) {
     let isInputSameAsOutput = false;
@@ -5372,7 +5053,7 @@ function weakMapMemoize(func, options3 = {}) {
       if (typeof arg === "function" || typeof arg === "object" && arg !== null) {
         let objectCache = cacheNode.o;
         if (objectCache === null) {
-          cacheNode.o = objectCache = /* @__PURE__ */ new WeakMap();
+          cacheNode.o = objectCache =  new WeakMap();
         }
         const objectNode = objectCache.get(arg);
         if (objectNode === void 0) {
@@ -5384,7 +5065,7 @@ function weakMapMemoize(func, options3 = {}) {
       } else {
         let primitiveCache = cacheNode.p;
         if (primitiveCache === null) {
-          cacheNode.p = primitiveCache = /* @__PURE__ */ new Map();
+          cacheNode.p = primitiveCache =  new Map();
         }
         const primitiveNode = primitiveCache.get(arg);
         if (primitiveNode === void 0) {
@@ -5545,8 +5226,6 @@ var createStructuredSelector = Object.assign(
   },
   { withTypes: () => createStructuredSelector }
 );
-
-// node_modules/recharts/es6/state/selectors/legendSelectors.js
 var import_sortBy = __toESM(require_sortBy2());
 var selectLegendSettings = (state) => state.legend.settings;
 var selectLegendSize = (state) => state.legend.size;
@@ -5558,13 +5237,9 @@ var selectLegendPayload = createSelector([selectAllLegendPayload2DArray, selectL
   var flat = payloads.flat(1);
   return itemSorter ? (0, import_sortBy.default)(flat, itemSorter) : flat;
 });
-
-// node_modules/recharts/es6/context/legendPayloadContext.js
 function useLegendPayload() {
   return useAppSelector(selectLegendPayload);
 }
-
-// node_modules/recharts/es6/util/useElementOffset.js
 var import_react8 = __toESM(require_react());
 var EPS = 1;
 function useElementOffset() {
@@ -5595,16 +5270,11 @@ function useElementOffset() {
         }
       }
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [lastBoundingBox.width, lastBoundingBox.height, lastBoundingBox.top, lastBoundingBox.left, ...extraDependencies]
   );
   return [lastBoundingBox, updateBoundingBox];
 }
-
-// node_modules/recharts/es6/context/chartLayoutContext.js
 var import_react11 = __toESM(require_react());
-
-// node_modules/redux/dist/redux.mjs
 var $$observable = (() => typeof Symbol === "function" && Symbol.observable || "@@observable")();
 var symbol_observable_default = $$observable;
 var randomString = () => Math.random().toString(36).substring(7).split("").join(".");
@@ -5693,13 +5363,13 @@ function createStore(reducer, preloadedState2, enhancer) {
   }
   let currentReducer = reducer;
   let currentState = preloadedState2;
-  let currentListeners = /* @__PURE__ */ new Map();
+  let currentListeners =  new Map();
   let nextListeners = currentListeners;
   let listenerIdCounter = 0;
   let isDispatching = false;
   function ensureCanMutateNextListeners() {
     if (nextListeners === currentListeners) {
-      nextListeners = /* @__PURE__ */ new Map();
+      nextListeners =  new Map();
       currentListeners.forEach((listener2, key) => {
         nextListeners.set(key, listener2);
       });
@@ -5772,14 +5442,6 @@ function createStore(reducer, preloadedState2, enhancer) {
   function observable() {
     const outerSubscribe = subscribe;
     return {
-      /**
-       * The minimal observable subscription method.
-       * @param observer Any object that can be used as an observer.
-       * The observer object should have a `next` method.
-       * @returns An object with an `unsubscribe` method that can
-       * be used to unsubscribe the observable from the store, and prevent further
-       * emission of values from the observable.
-       */
       subscribe(observer) {
         if (typeof observer !== "object" || observer === null) {
           throw new Error(false ? formatProdErrorMessage(11) : `Expected the observer to be an object. Instead, received: '${kindOf(observer)}'`);
@@ -5853,100 +5515,10 @@ function assertReducerShape(reducers2) {
     if (typeof reducer(void 0, {
       type: actionTypes_default.PROBE_UNKNOWN_ACTION()
     }) === "undefined") {
-      throw new Error(false ? formatProdErrorMessage(13) : `The slice reducer for key "${key}" returned undefined when probed with a random type. Don't try to handle '${actionTypes_default.INIT}' or other actions in "redux/*" namespace. They are considered private. Instead, you must return the current state for any unknown actions, unless it is undefined, in which case you must return the initial state, regardless of the action type. The initial state may not be undefined, but can be null.`);
-    }
-  });
-}
-function combineReducers(reducers2) {
-  const reducerKeys = Object.keys(reducers2);
-  const finalReducers = {};
-  for (let i = 0; i < reducerKeys.length; i++) {
-    const key = reducerKeys[i];
-    if (true) {
-      if (typeof reducers2[key] === "undefined") {
-        warning(`No reducer provided for key "${key}"`);
-      }
-    }
-    if (typeof reducers2[key] === "function") {
-      finalReducers[key] = reducers2[key];
-    }
-  }
-  const finalReducerKeys = Object.keys(finalReducers);
-  let unexpectedKeyCache;
-  if (true) {
-    unexpectedKeyCache = {};
-  }
-  let shapeAssertionError;
-  try {
-    assertReducerShape(finalReducers);
-  } catch (e) {
-    shapeAssertionError = e;
-  }
-  return function combination(state = {}, action) {
-    if (shapeAssertionError) {
-      throw shapeAssertionError;
-    }
-    if (true) {
-      const warningMessage = getUnexpectedStateShapeWarningMessage(state, finalReducers, action, unexpectedKeyCache);
-      if (warningMessage) {
-        warning(warningMessage);
-      }
-    }
-    let hasChanged = false;
-    const nextState = {};
-    for (let i = 0; i < finalReducerKeys.length; i++) {
-      const key = finalReducerKeys[i];
-      const reducer = finalReducers[key];
-      const previousStateForKey = state[key];
-      const nextStateForKey = reducer(previousStateForKey, action);
-      if (typeof nextStateForKey === "undefined") {
-        const actionType = action && action.type;
-        throw new Error(false ? formatProdErrorMessage(14) : `When called with an action of type ${actionType ? `"${String(actionType)}"` : "(unknown type)"}, the slice reducer for key "${key}" returned undefined. To ignore an action, you must explicitly return the previous state. If you want this reducer to hold no value, you can return null instead of undefined.`);
-      }
-      nextState[key] = nextStateForKey;
-      hasChanged = hasChanged || nextStateForKey !== previousStateForKey;
-    }
-    hasChanged = hasChanged || finalReducerKeys.length !== Object.keys(state).length;
-    return hasChanged ? nextState : state;
-  };
-}
-function compose(...funcs) {
-  if (funcs.length === 0) {
-    return (arg) => arg;
-  }
-  if (funcs.length === 1) {
-    return funcs[0];
-  }
-  return funcs.reduce((a2, b) => (...args) => a2(b(...args)));
-}
-function applyMiddleware(...middlewares) {
-  return (createStore2) => (reducer, preloadedState2) => {
-    const store = createStore2(reducer, preloadedState2);
-    let dispatch = () => {
-      throw new Error(false ? formatProdErrorMessage(15) : "Dispatching while constructing your middleware is not allowed. Other middleware would not be applied to this dispatch.");
-    };
-    const middlewareAPI = {
-      getState: store.getState,
-      dispatch: (action, ...args) => dispatch(action, ...args)
-    };
-    const chain = middlewares.map((middleware) => middleware(middlewareAPI));
-    dispatch = compose(...chain)(store.dispatch);
-    return {
-      ...store,
-      dispatch
-    };
-  };
-}
-function isAction(action) {
-  return isPlainObject(action) && "type" in action && typeof action.type === "string";
-}
-
-// node_modules/@reduxjs/toolkit/node_modules/immer/dist/immer.mjs
-var NOTHING = /* @__PURE__ */ Symbol.for("immer-nothing");
-var DRAFTABLE = /* @__PURE__ */ Symbol.for("immer-draftable");
-var DRAFT_STATE = /* @__PURE__ */ Symbol.for("immer-state");
+      throw new Error(false ? formatProdErrorMessage(13) : `The slice reducer for key "${key}" returned undefined when probed with a random type. Don't try to handle '${actionTypes_default.INIT}' or other actions in "redux Symbol.for("immer-nothing");
+var DRAFTABLE =  Symbol.for("immer-draftable");
+var DRAFT_STATE =  Symbol.for("immer-state");
 var errors = true ? [
-  // All error codes, starting by 0:
   function(plugin) {
     return `The plugin for '${plugin}' has not been loaded into Immer. To enable the plugin, import and call \`enable${plugin}()\` when initializing your application.`;
   },
@@ -5973,8 +5545,6 @@ var errors = true ? [
   function(thing) {
     return `'original' expects a draft, got: ${thing}`;
   }
-  // Note: if more errors are added, the errorOffset in Patches.ts should be increased
-  // See Patches.ts for additional errors
 ] : [];
 function die(error, ...args) {
   if (true) {
@@ -6001,7 +5571,7 @@ function isDraftable(value) {
   return isPlainObject2(value) || isArray(value) || !!value[DRAFTABLE] || !!value[CONSTRUCTOR]?.[DRAFTABLE] || isMap(value) || isSet(value);
 }
 var objectCtorString = O[PROTOTYPE][CONSTRUCTOR].toString();
-var cachedCtorStrings = /* @__PURE__ */ new WeakMap();
+var cachedCtorStrings =  new WeakMap();
 function isPlainObject2(value) {
   if (!value || !isObjectish(value))
     return false;
@@ -6036,7 +5606,6 @@ function getArchtype(thing) {
 }
 var has = (thing, prop, type = getArchtype(thing)) => type === 2 ? thing.has(prop) : O[PROTOTYPE].hasOwnProperty.call(thing, prop);
 var get2 = (thing, prop, type = getArchtype(thing)) => (
-  // @ts-ignore
   type === 2 ? thing.get(prop) : thing[prop]
 );
 var set = (thing, propOrOldValue, value, type = getArchtype(thing)) => {
@@ -6091,7 +5660,6 @@ function shallowCopy(base, strict) {
         descriptors[key] = {
           [CONFIGURABLE]: true,
           [WRITABLE]: true,
-          // could live with !!desc.set as well here...
           [ENUMERABLE]: desc[ENUMERABLE],
           [VALUE]: base[key]
         };
@@ -6157,12 +5725,10 @@ var createScope = (parent_, immer_) => ({
   drafts_: [],
   parent_,
   immer_,
-  // Whenever the modified draft contains a draft from another scope, we
-  // need to prevent auto-freezing so the unowned draft can be finalized.
   canAutoFreeze_: true,
   unfinalizedDrafts_: 0,
-  handledSet_: /* @__PURE__ */ new Set(),
-  processedForPatches_: /* @__PURE__ */ new Set(),
+  handledSet_:  new Set(),
+  processedForPatches_:  new Set(),
   mapSetPlugin_: isPluginLoaded(PluginMapSet) ? getPlugin(PluginMapSet) : void 0,
   arrayMethodsPlugin_: isPluginLoaded(PluginArrayMethods) ? getPlugin(PluginArrayMethods) : void 0
 });
@@ -6270,7 +5836,7 @@ function updateDraftInParent(parent, draftValue, finalizedValue, originalKey) {
     }
   }
   if (!parent.draftLocations_) {
-    const draftLocations = parent.draftLocations_ = /* @__PURE__ */ new Map();
+    const draftLocations = parent.draftLocations_ =  new Map();
     each(parentCopy, (key, value) => {
       if (isDraft(value)) {
         const keys = draftLocations.get(value) || [];
@@ -6367,28 +5933,16 @@ function createProxyProxy(base, parent) {
   const baseIsArray = isArray(base);
   const state = {
     type_: baseIsArray ? 1 : 0,
-    // Track which produce call this is associated with.
     scope_: parent ? parent.scope_ : getCurrentScope(),
-    // True for both shallow and deep changes.
     modified_: false,
-    // Used during finalization.
     finalized_: false,
-    // Track which properties have been assigned (true) or deleted (false).
-    // actually instantiated in `prepareCopy()`
     assigned_: void 0,
-    // The parent draft state.
     parent_: parent,
-    // The base state.
     base_: base,
-    // The base proxy.
     draft_: null,
-    // set below
-    // The base copy with any updated values.
     copy_: null,
-    // Called by the `produce` function.
     revoke_: null,
     isManual_: false,
-    // `callbacks` actually gets assigned in `createProxy`
     callbacks_: void 0
   };
   let target = state;
@@ -6459,8 +6013,8 @@ var objectTraps = {
       prepareCopy(state);
       markChanged(state);
     }
-    if (state.copy_[prop] === value && // special case: handle new props with value 'undefined'
-    (value !== void 0 || prop in state.copy_) || // special case: NaN
+    if (state.copy_[prop] === value && 
+    (value !== void 0 || prop in state.copy_) || 
     Number.isNaN(value) && Number.isNaN(state.copy_[prop]))
       return true;
     state.copy_[prop] = value;
@@ -6481,8 +6035,6 @@ var objectTraps = {
     }
     return true;
   },
-  // Note: We never coerce `desc.value` into an Immer draft, because we can't make
-  // the same guarantee in ES5 mode.
   getOwnPropertyDescriptor(state, prop) {
     const owner = latest(state);
     const desc = Reflect.getOwnPropertyDescriptor(owner, prop);
@@ -6532,8 +6084,6 @@ function peek(draft, prop) {
 function readPropFromProto(state, source, prop) {
   const desc = getDescriptorFromProto(source, prop);
   return desc ? VALUE in desc ? desc[VALUE] : (
-    // This is a very special case, if the prop is a getter defined by the
-    // prototype, we should invoke it with the draft as context!
     desc.get?.call(state.draft_)
   ) : void 0;
 }
@@ -6559,7 +6109,7 @@ function markChanged(state) {
 }
 function prepareCopy(state) {
   if (!state.copy_) {
-    state.assigned_ = /* @__PURE__ */ new Map();
+    state.assigned_ =  new Map();
     state.copy_ = shallowCopy(
       state.base_,
       state.scope_.immer_.useStrictShallowCopy_
@@ -6658,28 +6208,12 @@ var Immer2 = class {
     usePatchesInScope(scope, patchListener);
     return processResult(void 0, scope);
   }
-  /**
-   * Pass true to automatically freeze all copies created by Immer.
-   *
-   * By default, auto-freezing is enabled.
-   */
   setAutoFreeze(value) {
     this.autoFreeze_ = value;
   }
-  /**
-   * Pass true to enable strict shallow copy.
-   *
-   * By default, immer does not copy the object descriptors such as getter, setter and non-enumrable properties.
-   */
   setUseStrictShallowCopy(value) {
     this.useStrictShallowCopy_ = value;
   }
-  /**
-   * Pass false to use faster iteration that skips non-enumerable properties
-   * but still handles symbols for compatibility.
-   *
-   * By default, strict iteration is enabled (includes all own properties).
-   */
   setUseStrictIteration(value) {
     this.useStrictIteration_ = value;
   }
@@ -6774,8 +6308,6 @@ var setUseStrictIteration = immer.setUseStrictIteration.bind(
 var applyPatches = immer.applyPatches.bind(immer);
 var createDraft = immer.createDraft.bind(immer);
 var finishDraft = immer.finishDraft.bind(immer);
-
-// node_modules/redux-thunk/dist/redux-thunk.mjs
 function createThunkMiddleware(extraArgument) {
   const middleware = ({ dispatch, getState }) => (next) => (action) => {
     if (typeof action === "function") {
@@ -6787,8 +6319,6 @@ function createThunkMiddleware(extraArgument) {
 }
 var thunk = createThunkMiddleware();
 var withExtraArgument = createThunkMiddleware;
-
-// node_modules/@reduxjs/toolkit/dist/redux-toolkit.modern.mjs
 var createDraftSafeSelectorCreator = (...args) => {
   const createSelector2 = createSelectorCreator(...args);
   const createDraftSafeSelector2 = Object.assign((...args2) => {
@@ -6844,7 +6374,7 @@ function createAction(type, prepareAction) {
   return actionCreator;
 }
 function isActionCreator(action) {
-  return typeof action === "function" && "type" in action && // hasMatchFunction only wants Matchers but I don't see the point in rewriting it
+  return typeof action === "function" && "type" in action && 
   hasMatchFunction(action);
 }
 function getMessage(type) {
@@ -6925,7 +6455,7 @@ function trackForMutations(isImmutable, ignoredPaths, obj) {
     }
   };
 }
-function trackProperties(isImmutable, ignoredPaths = [], obj, path2 = "", checkedObjects = /* @__PURE__ */ new Set()) {
+function trackProperties(isImmutable, ignoredPaths = [], obj, path2 = "", checkedObjects =  new Set()) {
   const tracked = {
     value: obj
   };
@@ -7125,7 +6655,7 @@ function createSerializableStateInvariantMiddleware(options3 = {}) {
       ignoreActions = false,
       disableCache = false
     } = options3;
-    const cache = !disableCache && WeakSet ? /* @__PURE__ */ new WeakSet() : void 0;
+    const cache = !disableCache && WeakSet ?  new WeakSet() : void 0;
     return (storeAPI) => (next) => (action) => {
       if (!isAction(action)) {
         return next(action);
@@ -7226,9 +6756,8 @@ var autoBatchEnhancer = (options3 = {
   let notifying = true;
   let shouldNotifyAtEndOfTick = false;
   let notificationQueued = false;
-  const listeners = /* @__PURE__ */ new Set();
+  const listeners =  new Set();
   const queueCallback = options3.type === "tick" ? queueMicrotask : options3.type === "raf" ? (
-    // requestAnimationFrame won't exist in SSR environments. Fall back to a vague approximation just to keep from erroring.
     typeof window !== "undefined" && window.requestAnimationFrame ? window.requestAnimationFrame : createQueueWithTimer(10)
   ) : options3.type === "callback" ? options3.queueNotification : createQueueWithTimer(options3.timeout);
   const notifyListeners = () => {
@@ -7239,8 +6768,6 @@ var autoBatchEnhancer = (options3 = {
     }
   };
   return Object.assign({}, store, {
-    // Override the base `store.subscribe` method to keep original listeners
-    // from running if we're delaying notifications
     subscribe(listener2) {
       const wrappedListener = () => notifying && listener2();
       const unsubscribe = store.subscribe(wrappedListener);
@@ -7250,8 +6777,6 @@ var autoBatchEnhancer = (options3 = {
         listeners.delete(listener2);
       };
     },
-    // Override the base `store.dispatch` method so that we can check actions
-    // for the `shouldAutoBatch` flag and determine if batching is active
     dispatch(action) {
       try {
         notifying = !action?.meta?.[SHOULD_AUTOBATCH];
@@ -7313,7 +6838,7 @@ function configureStore(options3) {
     throw new Error(false ? formatProdErrorMessage(4) : "each middleware provided to configureStore must be a function");
   }
   if (duplicateMiddlewareCheck) {
-    let middlewareReferences = /* @__PURE__ */ new Set();
+    let middlewareReferences =  new Set();
     finalMiddleware.forEach((middleware2) => {
       if (middlewareReferences.has(middleware2)) {
         throw new Error(false ? formatProdErrorMessage(42) : "Duplicate middleware references found when creating the store. Ensure that each middleware is only included once.");
@@ -7324,7 +6849,6 @@ function configureStore(options3) {
   let finalCompose = compose;
   if (devTools) {
     finalCompose = composeWithDevTools({
-      // Enable capture of stack traces for dispatched Redux actions
       trace: true,
       ...typeof devTools === "object" && devTools
     });
@@ -7494,10 +7018,6 @@ var RejectWithValue = class {
     this.payload = payload;
     this.meta = meta;
   }
-  /*
-  type-only property to distinguish between RejectWithValue and FulfillWithMeta
-  does not exist at runtime
-  */
   _type;
 };
 var FulfillWithMeta = class {
@@ -7505,10 +7025,6 @@ var FulfillWithMeta = class {
     this.payload = payload;
     this.meta = meta;
   }
-  /*
-  type-only property to distinguish between RejectWithValue and FulfillWithMeta
-  does not exist at runtime
-  */
   _type;
 };
 var miniSerializeError = (value) => {
@@ -7682,7 +7198,7 @@ function unwrapResult(action) {
 function isThenable(value) {
   return value !== null && typeof value === "object" && typeof value.then === "function";
 }
-var asyncThunkSymbol = /* @__PURE__ */ Symbol.for("rtk-slice-createasyncthunk");
+var asyncThunkSymbol =  Symbol.for("rtk-slice-createasyncthunk");
 var asyncThunkCreator = {
   [asyncThunkSymbol]: createAsyncThunk
 };
@@ -7788,8 +7304,8 @@ function buildCreateSlice({
       });
     }
     const selectSelf = (state) => state;
-    const injectedSelectorCache = /* @__PURE__ */ new Map();
-    const injectedStateCache = /* @__PURE__ */ new WeakMap();
+    const injectedSelectorCache =  new Map();
+    const injectedStateCache =  new WeakMap();
     let _reducer;
     function reducer(state, action) {
       if (!_reducer) _reducer = buildReducer();
@@ -7812,7 +7328,7 @@ function buildCreateSlice({
         return sliceState;
       }
       function getSelectors(selectState = selectSelf) {
-        const selectorCache = getOrInsertComputed(injectedSelectorCache, injected, () => /* @__PURE__ */ new WeakMap());
+        const selectorCache = getOrInsertComputed(injectedSelectorCache, injected, () =>  new WeakMap());
         return getOrInsertComputed(selectorCache, selectState, () => {
           const map4 = {};
           for (const [name2, selector] of Object.entries(options3.selectors ?? {})) {
@@ -7883,14 +7399,11 @@ function buildReducerCreators() {
   return {
     reducer(caseReducer) {
       return Object.assign({
-        // hack so the wrapping function has the same name as the original
-        // we need to create a wrapper so the `reducerDefinitionType` is not assigned to the original
         [caseReducer.name](...args) {
           return caseReducer(...args);
         }
       }[caseReducer.name], {
         _reducerDefinitionType: "reducer"
-        /* reducer */
       });
     },
     preparedReducer(prepare, reducer) {
@@ -8150,7 +7663,7 @@ var createListenerEntry = assign((options3) => {
     effect,
     type,
     predicate,
-    pending: /* @__PURE__ */ new Set(),
+    pending:  new Set(),
     unsubscribe: () => {
       throw new Error(false ? formatProdErrorMessage(22) : "Unsubscribe not initialized");
     }
@@ -8203,8 +7716,8 @@ var defaultErrorHandler = (...args) => {
   console.error(`${alm}/error`, ...args);
 };
 var createListenerMiddleware = (middlewareOptions = {}) => {
-  const listenerMap = /* @__PURE__ */ new Map();
-  const executingListeners = /* @__PURE__ */ new Map();
+  const listenerMap =  new Map();
+  const executingListeners =  new Map();
   const trackExecutingListener = (entry) => {
     const count2 = executingListeners.get(entry) ?? 0;
     executingListeners.set(entry, count2 + 1);
@@ -8261,7 +7774,6 @@ var createListenerMiddleware = (middlewareOptions = {}) => {
       trackExecutingListener(entry);
       await Promise.resolve(entry.effect(
         action,
-        // Use assign() rather than ... to avoid extra helper functions added to bundle
         assign({}, api, {
           getOriginalState,
           condition: (predicate, timeout) => take(predicate, timeout).then(Boolean),
@@ -8361,8 +7873,6 @@ var createListenerMiddleware = (middlewareOptions = {}) => {
     clearListeners: clearListenerMiddleware
   };
 };
-
-// node_modules/recharts/es6/state/layoutSlice.js
 var initialState = {
   layoutType: "horizontal",
   width: 0,
@@ -8405,12 +7915,8 @@ var {
   setScale
 } = chartLayoutSlice.actions;
 var chartLayoutReducer = chartLayoutSlice.reducer;
-
-// node_modules/recharts/es6/util/ChartUtils.js
 var import_sortBy2 = __toESM(require_sortBy2());
 var import_get2 = __toESM(require_get2());
-
-// node_modules/recharts/es6/util/getSliced.js
 function getSliced(arr, startIndex, endIndex) {
   if (!Array.isArray(arr)) {
     return arr;
@@ -8420,16 +7926,12 @@ function getSliced(arr, startIndex, endIndex) {
   }
   return arr;
 }
-
-// node_modules/recharts/es6/util/isWellBehavedNumber.js
 function isWellBehavedNumber(n) {
   return Number.isFinite(n);
 }
 function isPositiveNumber(n) {
   return typeof n === "number" && n > 0 && Number.isFinite(n);
 }
-
-// node_modules/recharts/es6/util/ChartUtils.js
 function ownKeys4(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -8558,8 +8060,6 @@ var getTicksOfAxis = (axis, isGrid, isAll) => {
         return null;
       }
       return {
-        // If the scaleContent is not a number, the coordinate will be NaN.
-        // That could be the case for example with a PointScale and a string as domain.
         coordinate: scaled + offset,
         value: entry,
         offset,
@@ -8603,7 +8103,6 @@ var getTicksOfAxis = (axis, isGrid, isAll) => {
     }
     return {
       coordinate: scaled + offset,
-      // @ts-expect-error can't use Date as an index
       value: duplicateDomain ? duplicateDomain[entry] : entry,
       index: index2,
       offset
@@ -8697,13 +8196,9 @@ var offsetPositive = (series) => {
 };
 var STACK_OFFSET_MAP = {
   sign: offsetSign,
-  // @ts-expect-error definitelytyped types are incorrect
   expand: expand_default,
-  // @ts-expect-error definitelytyped types are incorrect
   none: none_default,
-  // @ts-expect-error definitelytyped types are incorrect
   silhouette: silhouette_default,
-  // @ts-expect-error definitelytyped types are incorrect
   wiggle: wiggle_default,
   positive: offsetPositive
 };
@@ -8881,28 +8376,20 @@ var calculatePolarTooltipPos = (rangeObj, layout) => {
   }
   return rangeObj.radius;
 };
-
-// node_modules/recharts/es6/state/selectors/containerSelectors.js
 var selectChartWidth = (state) => state.layout.width;
 var selectChartHeight = (state) => state.layout.height;
 var selectContainerScale = (state) => state.layout.scale;
 var selectMargin = (state) => state.layout.margin;
-
-// node_modules/recharts/es6/state/selectors/selectAllAxes.js
 var selectAllXAxes = createSelector((state) => state.cartesianAxis.xAxis, (xAxisMap) => {
   return Object.values(xAxisMap);
 });
 var selectAllYAxes = createSelector((state) => state.cartesianAxis.yAxis, (yAxisMap) => {
   return Object.values(yAxisMap);
 });
-
-// node_modules/recharts/es6/util/Constants.js
 var COLOR_PANEL = ["#1890FF", "#66B5FF", "#41D9C7", "#2FC25B", "#6EDB8F", "#9AE65C", "#FACC14", "#E6965C", "#57AD71", "#223273", "#738AE6", "#7564CC", "#8543E0", "#A877ED", "#5C8EE6", "#13C2C2", "#70E0E0", "#5CA3E6", "#3436C7", "#8082FF", "#DD81E6", "#F04864", "#FA7D92", "#D598D9"];
 var DATA_ITEM_INDEX_ATTRIBUTE_NAME = "data-recharts-item-index";
 var DATA_ITEM_GRAPHICAL_ITEM_ID_ATTRIBUTE_NAME = "data-recharts-item-id";
 var DEFAULT_Y_AXIS_WIDTH = 60;
-
-// node_modules/recharts/es6/state/selectors/selectChartOffsetInternal.js
 function ownKeys5(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -8998,7 +8485,6 @@ var selectChartOffsetInternal = createSelector([selectChartWidth, selectChartHei
   return _objectSpread5(_objectSpread5({
     brushBottom
   }, offset), {}, {
-    // never return negative values for height and width
     width: Math.max(offsetWidth, 0),
     height: Math.max(offsetHeight, 0)
   });
@@ -9015,8 +8501,6 @@ var selectAxisViewBox = createSelector(selectChartWidth, selectChartHeight, (wid
   width,
   height
 }));
-
-// node_modules/recharts/es6/context/PanoramaContext.js
 var React5 = __toESM(require_react());
 var import_react9 = __toESM(require_react());
 var PanoramaContext = (0, import_react9.createContext)(null);
@@ -9029,8 +8513,6 @@ var PanoramaContextProvider = (_ref2) => {
     value: true
   }, children);
 };
-
-// node_modules/recharts/es6/state/selectors/brushSelectors.js
 var selectBrushSettings = (state) => state.brush;
 var selectBrushDimensions = createSelector([selectBrushSettings, selectChartOffsetInternal, selectMargin], (brushSettings, offset, margin) => ({
   height: brushSettings.height,
@@ -9038,13 +8520,9 @@ var selectBrushDimensions = createSelector([selectBrushSettings, selectChartOffs
   y: isNumber(brushSettings.y) ? brushSettings.y : offset.top + offset.height + offset.brushBottom - ((margin === null || margin === void 0 ? void 0 : margin.bottom) || 0),
   width: isNumber(brushSettings.width) ? brushSettings.width : offset.width
 }));
-
-// node_modules/recharts/es6/component/ResponsiveContainer.js
 var React6 = __toESM(require_react());
 var import_react10 = __toESM(require_react());
 var import_throttle = __toESM(require_throttle2());
-
-// node_modules/recharts/es6/util/LogUtils.js
 var isDev = true;
 var warn = function warn2(condition, format2) {
   for (var _len = arguments.length, args = new Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
@@ -9064,8 +8542,6 @@ var warn = function warn2(condition, format2) {
     }
   }
 };
-
-// node_modules/recharts/es6/component/responsiveContainerUtils.js
 var defaultResponsiveContainerProps = {
   width: "100%",
   height: "100%",
@@ -9153,8 +8629,6 @@ function getDefaultWidthAndHeight(_ref2) {
     height: calculatedHeight
   };
 }
-
-// node_modules/recharts/es6/component/ResponsiveContainer.js
 function _extends5() {
   return _extends5 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
@@ -9230,10 +8704,6 @@ var SizeDetectorContainer = (0, import_react10.forwardRef)((_ref2, ref) => {
     initialDimension = defaultResponsiveContainerProps.initialDimension,
     width,
     height,
-    /*
-     * default min-width to 0 if not specified - 'auto' causes issues with flexbox
-     * https://github.com/recharts/recharts/issues/172
-     */
     minWidth = defaultResponsiveContainerProps.minWidth,
     minHeight,
     maxHeight,
@@ -9369,8 +8839,6 @@ var ResponsiveContainer = (0, import_react10.forwardRef)((props, ref) => {
     ref
   }));
 });
-
-// node_modules/recharts/es6/context/chartLayoutContext.js
 function cartesianViewBoxToTrapezoid(box) {
   if (!box) {
     return void 0;
@@ -9479,13 +8947,10 @@ var ReportChartMargin = (_ref2) => {
   }, [dispatch, margin]);
   return null;
 };
-
-// node_modules/immer/dist/immer.mjs
-var NOTHING2 = /* @__PURE__ */ Symbol.for("immer-nothing");
-var DRAFTABLE2 = /* @__PURE__ */ Symbol.for("immer-draftable");
-var DRAFT_STATE2 = /* @__PURE__ */ Symbol.for("immer-state");
+var NOTHING2 =  Symbol.for("immer-nothing");
+var DRAFTABLE2 =  Symbol.for("immer-draftable");
+var DRAFT_STATE2 =  Symbol.for("immer-state");
 var errors2 = true ? [
-  // All error codes, starting by 0:
   function(plugin) {
     return `The plugin for '${plugin}' has not been loaded into Immer. To enable the plugin, import and call \`enable${plugin}()\` when initializing your application.`;
   },
@@ -9512,8 +8977,6 @@ var errors2 = true ? [
   function(thing) {
     return `'original' expects a draft, got: ${thing}`;
   }
-  // Note: if more errors are added, the errorOffset in Patches.ts should be increased
-  // See Patches.ts for additional errors
 ] : [];
 function die2(error, ...args) {
   if (true) {
@@ -9535,7 +8998,7 @@ function isDraftable2(value) {
   return isPlainObject3(value) || Array.isArray(value) || !!value[DRAFTABLE2] || !!value.constructor?.[DRAFTABLE2] || isMap2(value) || isSet2(value);
 }
 var objectCtorString2 = Object.prototype.constructor.toString();
-var cachedCtorStrings2 = /* @__PURE__ */ new WeakMap();
+var cachedCtorStrings2 =  new WeakMap();
 function isPlainObject3(value) {
   if (!value || typeof value !== "object")
     return false;
@@ -9621,7 +9084,6 @@ function shallowCopy2(base, strict) {
         descriptors[key] = {
           configurable: true,
           writable: true,
-          // could live with !!desc.set as well here...
           enumerable: desc.enumerable,
           value: base[key]
         };
@@ -9680,8 +9142,6 @@ function createScope2(parent_, immer_) {
     drafts_: [],
     parent_,
     immer_,
-    // Whenever the modified draft contains a draft from another scope, we
-    // need to prevent auto-freezing so the unowned draft can be finalized.
     canAutoFreeze_: true,
     unfinalizedDrafts_: 0
   };
@@ -9814,7 +9274,7 @@ function finalizeProperty(rootScope, parentState, targetObject, prop, childValue
   if (childValue === targetObject)
     die2(5);
   if (isDraft2(childValue)) {
-    const path2 = rootPath && parentState && parentState.type_ !== 3 && // Set objects are atomic since they have no keys.
+    const path2 = rootPath && parentState && parentState.type_ !== 3 && 
     !has2(parentState.assigned_, prop) ? rootPath.concat(prop) : void 0;
     const res = finalize2(rootScope, childValue, path2);
     set2(targetObject, prop, res);
@@ -9846,24 +9306,14 @@ function createProxyProxy2(base, parent) {
   const isArray2 = Array.isArray(base);
   const state = {
     type_: isArray2 ? 1 : 0,
-    // Track which produce call this is associated with.
     scope_: parent ? parent.scope_ : getCurrentScope2(),
-    // True for both shallow and deep changes.
     modified_: false,
-    // Used during finalization.
     finalized_: false,
-    // Track which properties have been assigned (true) or deleted (false).
     assigned_: {},
-    // The parent draft state.
     parent_: parent,
-    // The base state.
     base_: base,
-    // The base proxy.
     draft_: null,
-    // set below
-    // The base copy with any updated values.
     copy_: null,
-    // Called by the `produce` function.
     revoke_: null,
     isManual_: false
   };
@@ -9921,8 +9371,8 @@ var objectTraps2 = {
       prepareCopy2(state);
       markChanged2(state);
     }
-    if (state.copy_[prop] === value && // special case: handle new props with value 'undefined'
-    (value !== void 0 || prop in state.copy_) || // special case: NaN
+    if (state.copy_[prop] === value && 
+    (value !== void 0 || prop in state.copy_) || 
     Number.isNaN(value) && Number.isNaN(state.copy_[prop]))
       return true;
     state.copy_[prop] = value;
@@ -9942,8 +9392,6 @@ var objectTraps2 = {
     }
     return true;
   },
-  // Note: We never coerce `desc.value` into an Immer draft, because we can't make
-  // the same guarantee in ES5 mode.
   getOwnPropertyDescriptor(state, prop) {
     const owner = latest2(state);
     const desc = Reflect.getOwnPropertyDescriptor(owner, prop);
@@ -9991,8 +9439,6 @@ function peek2(draft, prop) {
 function readPropFromProto2(state, source, prop) {
   const desc = getDescriptorFromProto2(source, prop);
   return desc ? `value` in desc ? desc.value : (
-    // This is a very special case, if the prop is a getter defined by the
-    // prototype, we should invoke it with the draft as context!
     desc.get?.call(state.draft_)
   ) : void 0;
 }
@@ -10113,28 +9559,12 @@ var Immer22 = class {
     usePatchesInScope2(scope, patchListener);
     return processResult2(void 0, scope);
   }
-  /**
-   * Pass true to automatically freeze all copies created by Immer.
-   *
-   * By default, auto-freezing is enabled.
-   */
   setAutoFreeze(value) {
     this.autoFreeze_ = value;
   }
-  /**
-   * Pass true to enable strict shallow copy.
-   *
-   * By default, immer does not copy the object descriptors such as getter, setter and non-enumrable properties.
-   */
   setUseStrictShallowCopy(value) {
     this.useStrictShallowCopy_ = value;
   }
-  /**
-   * Pass false to use faster iteration that skips non-enumerable properties
-   * but still handles symbols for compatibility.
-   *
-   * By default, strict iteration is enabled (includes all own properties).
-   */
   setUseStrictIteration(value) {
     this.useStrictIteration_ = value;
   }
@@ -10219,8 +9649,6 @@ var finishDraft2 = immer2.finishDraft.bind(immer2);
 function castDraft(value) {
   return value;
 }
-
-// node_modules/recharts/es6/state/legendSlice.js
 var initialState2 = {
   settings: {
     layout: "horizontal",
@@ -10286,8 +9714,6 @@ var {
   removeLegendPayload
 } = legendSlice.actions;
 var legendReducer = legendSlice.reducer;
-
-// node_modules/recharts/es6/component/Legend.js
 var _excluded4 = ["contextPayload"];
 function _extends6() {
   return _extends6 = Object.assign ? Object.assign.bind() : function(n) {
@@ -10498,13 +9924,9 @@ function Legend(outsideProps) {
   return (0, import_react_dom.createPortal)(legendElement, legendPortal);
 }
 Legend.displayName = "Legend";
-
-// node_modules/recharts/es6/component/Tooltip.js
 var React15 = __toESM(require_react());
 var import_react22 = __toESM(require_react());
 var import_react_dom3 = __toESM(require_react_dom());
-
-// node_modules/recharts/es6/component/DefaultTooltipContent.js
 var React8 = __toESM(require_react());
 var import_sortBy3 = __toESM(require_sortBy2());
 function _extends7() {
@@ -10664,12 +10086,8 @@ var DefaultTooltipContent = (props) => {
     style: finalLabelStyle
   }, React8.isValidElement(finalLabel) ? finalLabel : "".concat(finalLabel)), renderContent2());
 };
-
-// node_modules/recharts/es6/component/TooltipBoundingBox.js
 var React9 = __toESM(require_react());
 var import_react13 = __toESM(require_react());
-
-// node_modules/recharts/es6/util/tooltip/translate.js
 var CSS_CLASS_PREFIX = "recharts-tooltip-wrapper";
 var TOOLTIP_HIDDEN = {
   visibility: "hidden"
@@ -10792,8 +10210,6 @@ function getTooltipTranslate(_ref4) {
     })
   };
 }
-
-// node_modules/recharts/es6/component/TooltipBoundingBox.js
 function ownKeys9(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -10922,9 +10338,7 @@ var TooltipBoundingBox = class extends import_react13.PureComponent {
       visibility: !this.state.dismissed && active && hasPayload ? "visible" : "hidden"
     }, wrapperStyle);
     return (
-      // This element allow listening to the `Escape` key. See https://github.com/recharts/recharts/pull/2925
       React9.createElement("div", {
-        // @ts-expect-error typescript library does not recognize xmlns attribute, but it's required for an HTML chunk inside SVG.
         xmlns: "http://www.w3.org/1999/xhtml",
         tabIndex: -1,
         className: cssClasses,
@@ -10934,18 +10348,12 @@ var TooltipBoundingBox = class extends import_react13.PureComponent {
     );
   }
 };
-
-// node_modules/recharts/es6/context/accessibilityContext.js
 var useAccessibilityLayer = () => {
   var _useAppSelector;
   return (_useAppSelector = useAppSelector((state) => state.rootProps.accessibilityLayer)) !== null && _useAppSelector !== void 0 ? _useAppSelector : true;
 };
-
-// node_modules/recharts/es6/component/Cursor.js
 var React14 = __toESM(require_react());
 var import_react19 = __toESM(require_react());
-
-// node_modules/recharts/es6/shape/Curve.js
 var React10 = __toESM(require_react());
 function _extends8() {
   return _extends8 = Object.assign ? Object.assign.bind() : function(n) {
@@ -11090,8 +10498,6 @@ var Curve = (props) => {
     ref: pathRef
   }));
 };
-
-// node_modules/recharts/es6/shape/Cross.js
 var React11 = __toESM(require_react());
 var _excluded5 = ["x", "y", "top", "left", "width", "height", "className"];
 function _extends9() {
@@ -11188,8 +10594,6 @@ var Cross = (_ref2) => {
     d: getPath2(x2, y2, width, height, top, left)
   }));
 };
-
-// node_modules/recharts/es6/util/cursor/getCursorRectangle.js
 function getCursorRectangle(layout, activeCoordinate, offset, tooltipAxisBandSize) {
   var halfSize = tooltipAxisBandSize / 2;
   return {
@@ -11201,15 +10605,9 @@ function getCursorRectangle(layout, activeCoordinate, offset, tooltipAxisBandSiz
     height: layout === "horizontal" ? offset.height - 1 : tooltipAxisBandSize
   };
 }
-
-// node_modules/recharts/es6/shape/Rectangle.js
 var React12 = __toESM(require_react());
 var import_react17 = __toESM(require_react());
-
-// node_modules/recharts/es6/animation/JavascriptAnimate.js
 var import_react15 = __toESM(require_react());
-
-// node_modules/recharts/es6/animation/util.js
 function ownKeys12(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -11254,8 +10652,6 @@ var getIntersectionKeys = (preObj, nextObj) => [Object.keys(preObj), Object.keys
 var mapObject = (fn, obj) => Object.keys(obj).reduce((res, key) => _objectSpread12(_objectSpread12({}, res), {}, {
   [key]: fn(key, obj[key])
 }), {});
-
-// node_modules/recharts/es6/animation/configUpdate.js
 function ownKeys13(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -11405,8 +10801,6 @@ var configUpdate_default = (from2, to2, easing, duration, render, timeoutControl
   }
   return easing.isStepper === true ? createStepperUpdate(from2, to2, easing, interKeys, render, timeoutController) : createTimingUpdate(from2, to2, easing, duration, interKeys, render, timeoutController);
 };
-
-// node_modules/recharts/es6/animation/easing.js
 var ACCURACY = 1e-4;
 var cubicBezierFactor = (c1, c2) => [0, 3 * c1, 3 * c2 - 6 * c1, 3 * c1 - 3 * c2 + 1];
 var evaluatePolynomial = (params, t) => params.map((param, i) => param * t ** i).reduce((pre, curr) => pre + curr);
@@ -11536,11 +10930,7 @@ var configEasing = (easing) => {
   }
   return null;
 };
-
-// node_modules/recharts/es6/animation/useAnimationManager.js
 var import_react14 = __toESM(require_react());
-
-// node_modules/recharts/es6/animation/AnimationManager.js
 function createAnimateManager(timeoutController) {
   var currStyle;
   var handleChange = () => null;
@@ -11597,8 +10987,6 @@ function createAnimateManager(timeoutController) {
     getTimeoutController: () => timeoutController
   };
 }
-
-// node_modules/recharts/es6/animation/timeoutController.js
 var RequestAnimationFrameTimeoutController = class {
   setTimeout(callback) {
     var delay = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : 0;
@@ -11619,27 +11007,19 @@ var RequestAnimationFrameTimeoutController = class {
     };
   }
 };
-
-// node_modules/recharts/es6/animation/createDefaultAnimationManager.js
 function createDefaultAnimationManager() {
   return createAnimateManager(new RequestAnimationFrameTimeoutController());
 }
-
-// node_modules/recharts/es6/animation/useAnimationManager.js
 var AnimationManagerContext = (0, import_react14.createContext)(createDefaultAnimationManager);
 function useAnimationManager(animationId, animationManagerFromProps) {
   var contextAnimationManager = (0, import_react14.useContext)(AnimationManagerContext);
   return (0, import_react14.useMemo)(() => animationManagerFromProps !== null && animationManagerFromProps !== void 0 ? animationManagerFromProps : contextAnimationManager(animationId), [animationId, animationManagerFromProps, contextAnimationManager]);
 }
-
-// node_modules/recharts/es6/util/Global.js
 var parseIsSsrByDefault = () => !(typeof window !== "undefined" && window.document && Boolean(window.document.createElement) && window.setTimeout);
 var Global = {
   devToolsEnabled: true,
   isSsr: parseIsSsrByDefault()
 };
-
-// node_modules/recharts/es6/animation/JavascriptAnimate.js
 var defaultJavascriptAnimateProps = {
   begin: 0,
   duration: 1e3,
@@ -11697,8 +11077,6 @@ function JavascriptAnimate(outsideProps) {
   }, [isActive, canBegin, duration, easing, begin, onAnimationStart, onAnimationEnd, animationManager]);
   return children(style.t);
 }
-
-// node_modules/recharts/es6/util/useAnimationId.js
 var import_react16 = __toESM(require_react());
 function useAnimationId(input) {
   var prefix2 = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "animation-";
@@ -11710,8 +11088,6 @@ function useAnimationId(input) {
   }
   return animationId.current;
 }
-
-// node_modules/recharts/es6/shape/Rectangle.js
 var _excluded6 = ["radius"];
 var _excluded22 = ["radius"];
 var _templateObject;
@@ -11957,8 +11333,6 @@ var Rectangle = (rectangleProps) => {
     }));
   });
 };
-
-// node_modules/recharts/es6/util/PolarUtils.js
 function ownKeys15(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -12136,8 +11510,6 @@ var inRangeOfSector = (_ref5, viewBox) => {
   }
   return null;
 };
-
-// node_modules/recharts/es6/util/cursor/getRadialCursorPoints.js
 function getRadialCursorPoints(activeCoordinate) {
   var {
     cx,
@@ -12157,8 +11529,6 @@ function getRadialCursorPoints(activeCoordinate) {
     endAngle
   };
 }
-
-// node_modules/recharts/es6/shape/Sector.js
 var React13 = __toESM(require_react());
 var _templateObject10;
 var _templateObject22;
@@ -12384,8 +11754,6 @@ var Sector = (sectorProps) => {
     d: path2
   }));
 };
-
-// node_modules/recharts/es6/util/cursor/getCursorPoints.js
 function getCursorPoints(layout, activeCoordinate, offset) {
   if (layout === "horizontal") {
     return [{
@@ -12428,11 +11796,7 @@ function getCursorPoints(layout, activeCoordinate, offset) {
   }
   return void 0;
 }
-
-// node_modules/recharts/es6/state/selectors/axisSelectors.js
 var import_range2 = __toESM(require_range2());
-
-// node_modules/victory-vendor/es/d3-scale.js
 var d3_scale_exports = {};
 __export(d3_scale_exports, {
   scaleBand: () => band,
@@ -12464,18 +11828,12 @@ __export(d3_scale_exports, {
   scaleUtc: () => utcTime,
   tickFormat: () => tickFormat
 });
-
-// node_modules/d3-array/src/ascending.js
 function ascending(a2, b) {
   return a2 == null || b == null ? NaN : a2 < b ? -1 : a2 > b ? 1 : a2 >= b ? 0 : NaN;
 }
-
-// node_modules/d3-array/src/descending.js
 function descending(a2, b) {
   return a2 == null || b == null ? NaN : b < a2 ? -1 : b > a2 ? 1 : b >= a2 ? 0 : NaN;
 }
-
-// node_modules/d3-array/src/bisector.js
 function bisector(f) {
   let compare1, compare2, delta;
   if (f.length !== 2) {
@@ -12518,8 +11876,6 @@ function bisector(f) {
 function zero() {
   return 0;
 }
-
-// node_modules/d3-array/src/number.js
 function number(x2) {
   return x2 === null ? NaN : +x2;
 }
@@ -12539,15 +11895,11 @@ function* numbers(values, valueof) {
     }
   }
 }
-
-// node_modules/d3-array/src/bisect.js
 var ascendingBisect = bisector(ascending);
 var bisectRight = ascendingBisect.right;
 var bisectLeft = ascendingBisect.left;
 var bisectCenter = bisector(number).center;
 var bisect_default = bisectRight;
-
-// node_modules/d3-array/src/blur.js
 var blur2 = Blur2(blurf);
 var blurImage = Blur2(blurfImage);
 function Blur2(blur3) {
@@ -12636,12 +11988,10 @@ function bluri(radius) {
     }
   };
 }
-
-// node_modules/internmap/src/index.js
 var InternMap = class extends Map {
   constructor(entries, key = keyof) {
     super();
-    Object.defineProperties(this, { _intern: { value: /* @__PURE__ */ new Map() }, _key: { value: key } });
+    Object.defineProperties(this, { _intern: { value:  new Map() }, _key: { value: key } });
     if (entries != null) for (const [key2, value] of entries) this.set(key2, value);
   }
   get(key) {
@@ -12678,8 +12028,6 @@ function intern_delete({ _intern, _key }, value) {
 function keyof(value) {
   return value !== null && typeof value === "object" ? value.valueOf() : value;
 }
-
-// node_modules/d3-array/src/sort.js
 function compareDefined(compare = ascending) {
   if (compare === ascending) return ascendingDefined;
   if (typeof compare !== "function") throw new TypeError("compare is not a function");
@@ -12692,13 +12040,9 @@ function compareDefined(compare = ascending) {
 function ascendingDefined(a2, b) {
   return (a2 == null || !(a2 >= a2)) - (b == null || !(b >= b)) || (a2 < b ? -1 : a2 > b ? 1 : 0);
 }
-
-// node_modules/d3-array/src/array.js
 var array = Array.prototype;
 var slice2 = array.slice;
 var map = array.map;
-
-// node_modules/d3-array/src/ticks.js
 var e10 = Math.sqrt(50);
 var e5 = Math.sqrt(10);
 var e2 = Math.sqrt(2);
@@ -12747,8 +12091,6 @@ function tickStep(start, stop, count2) {
   const reverse2 = stop < start, inc = reverse2 ? tickIncrement(stop, start, count2) : tickIncrement(start, stop, count2);
   return (reverse2 ? -1 : 1) * (inc < 0 ? 1 / -inc : inc);
 }
-
-// node_modules/d3-array/src/max.js
 function max2(values, valueof) {
   let max3;
   if (valueof === void 0) {
@@ -12767,8 +12109,6 @@ function max2(values, valueof) {
   }
   return max3;
 }
-
-// node_modules/d3-array/src/min.js
 function min2(values, valueof) {
   let min3;
   if (valueof === void 0) {
@@ -12787,8 +12127,6 @@ function min2(values, valueof) {
   }
   return min3;
 }
-
-// node_modules/d3-array/src/quickselect.js
 function quickselect(array2, k2, left = 0, right = Infinity, compare) {
   k2 = Math.floor(k2);
   left = Math.floor(Math.max(0, left));
@@ -12828,8 +12166,6 @@ function swap(array2, i, j) {
   array2[i] = array2[j];
   array2[j] = t;
 }
-
-// node_modules/d3-array/src/quantile.js
 function quantile(values, p, valueof) {
   values = Float64Array.from(numbers(values, valueof));
   if (!(n = values.length) || isNaN(p = +p)) return;
@@ -12845,8 +12181,6 @@ function quantileSorted(values, p, valueof = number) {
   var n, i = (n - 1) * p, i0 = Math.floor(i), value0 = +valueof(values[i0], i0, values), value1 = +valueof(values[i0 + 1], i0 + 1, values);
   return value0 + (value1 - value0) * (i - i0);
 }
-
-// node_modules/d3-array/src/range.js
 function range(start, stop, step) {
   start = +start, stop = +stop, step = (n = arguments.length) < 2 ? (stop = start, start = 0, 1) : n < 3 ? 1 : +step;
   var i = -1, n = Math.max(0, Math.ceil((stop - start) / step)) | 0, range4 = new Array(n);
@@ -12855,8 +12189,6 @@ function range(start, stop, step) {
   }
   return range4;
 }
-
-// node_modules/d3-array/src/shuffle.js
 var shuffle_default = shuffler(Math.random);
 function shuffler(random) {
   return function shuffle(array2, i0 = 0, i1 = array2.length) {
@@ -12869,8 +12201,6 @@ function shuffler(random) {
     return array2;
   };
 }
-
-// node_modules/d3-scale/src/init.js
 function initRange(domain, range4) {
   switch (arguments.length) {
     case 0:
@@ -12902,9 +12232,7 @@ function initInterpolator(domain, interpolator) {
   }
   return this;
 }
-
-// node_modules/d3-scale/src/ordinal.js
-var implicit = /* @__PURE__ */ Symbol("implicit");
+var implicit =  Symbol("implicit");
 function ordinal() {
   var index2 = new InternMap(), domain = [], range4 = [], unknown = implicit;
   function scale(d) {
@@ -12936,8 +12264,6 @@ function ordinal() {
   initRange.apply(scale, arguments);
   return scale;
 }
-
-// node_modules/d3-scale/src/band.js
 function band() {
   var scale = ordinal().unknown(void 0), domain = scale.domain, ordinalRange = scale.range, r0 = 0, r1 = 1, step, bandwidth, round3 = false, paddingInner = 0, paddingOuter = 0, align = 0.5;
   delete scale.unknown;
@@ -13001,8 +12327,6 @@ function pointish(scale) {
 function point5() {
   return pointish(band.apply(null, arguments).paddingInner(1));
 }
-
-// node_modules/d3-color/src/define.js
 function define_default(constructor, factory, prototype) {
   constructor.prototype = factory.prototype = prototype;
   prototype.constructor = constructor;
@@ -13012,8 +12336,6 @@ function extend(parent, definition) {
   for (var key in definition) prototype[key] = definition[key];
   return prototype;
 }
-
-// node_modules/d3-color/src/color.js
 function Color() {
 }
 var darker = 0.7;
@@ -13186,7 +12508,6 @@ define_default(Color, color, {
     return this.rgb().displayable();
   },
   hex: color_formatHex,
-  // Deprecated! Use color.formatHex.
   formatHex: color_formatHex,
   formatHex8: color_formatHex8,
   formatHsl: color_formatHsl,
@@ -13251,7 +12572,6 @@ define_default(Rgb, rgb, extend(Color, {
     return -0.5 <= this.r && this.r < 255.5 && (-0.5 <= this.g && this.g < 255.5) && (-0.5 <= this.b && this.b < 255.5) && (0 <= this.opacity && this.opacity <= 1);
   },
   hex: rgb_formatHex,
-  // Deprecated! Use color.formatHex.
   formatHex: rgb_formatHex,
   formatHex8: rgb_formatHex8,
   formatRgb: rgb_formatRgb,
@@ -13349,12 +12669,8 @@ function clampt(value) {
 function hsl2rgb(h, m1, m2) {
   return (h < 60 ? m1 + (m2 - m1) * h / 60 : h < 180 ? m2 : h < 240 ? m1 + (m2 - m1) * (240 - h) / 60 : m1) * 255;
 }
-
-// node_modules/d3-color/src/math.js
 var radians = Math.PI / 180;
 var degrees = 180 / Math.PI;
-
-// node_modules/d3-color/src/lab.js
 var K = 18;
 var Xn = 0.96422;
 var Yn = 1;
@@ -13448,8 +12764,6 @@ define_default(Hcl, hcl, extend(Color, {
     return hcl2lab(this).rgb();
   }
 }));
-
-// node_modules/d3-color/src/cubehelix.js
 var A = -0.14861;
 var B = 1.78277;
 var C = -0.29227;
@@ -13492,8 +12806,6 @@ define_default(Cubehelix, cubehelix, extend(Color, {
     );
   }
 }));
-
-// node_modules/d3-interpolate/src/basis.js
 function basis(t13, v0, v1, v2, v3) {
   var t22 = t13 * t13, t32 = t22 * t13;
   return ((1 - 3 * t13 + 3 * t22 - t32) * v0 + (4 - 6 * t22 + 3 * t32) * v1 + (1 + 3 * t13 + 3 * t22 - 3 * t32) * v2 + t32 * v3) / 6;
@@ -13505,8 +12817,6 @@ function basis_default2(values) {
     return basis((t - i / n) * n, v0, v1, v2, v3);
   };
 }
-
-// node_modules/d3-interpolate/src/basisClosed.js
 function basisClosed_default2(values) {
   var n = values.length;
   return function(t) {
@@ -13514,11 +12824,7 @@ function basisClosed_default2(values) {
     return basis((t - i / n) * n, v0, v1, v2, v3);
   };
 }
-
-// node_modules/d3-interpolate/src/constant.js
 var constant_default2 = (x2) => () => x2;
-
-// node_modules/d3-interpolate/src/color.js
 function linear(a2, d) {
   return function(t) {
     return a2 + t * d;
@@ -13542,8 +12848,6 @@ function nogamma(a2, b) {
   var d = b - a2;
   return d ? linear(a2, d) : constant_default2(isNaN(a2) ? b : a2);
 }
-
-// node_modules/d3-interpolate/src/rgb.js
 var rgb_default = (function rgbGamma(y2) {
   var color2 = gamma(y2);
   function rgb2(start, end) {
@@ -13582,8 +12886,6 @@ function rgbSpline(spline) {
 }
 var rgbBasis = rgbSpline(basis_default2);
 var rgbBasisClosed = rgbSpline(basisClosed_default2);
-
-// node_modules/d3-interpolate/src/numberArray.js
 function numberArray_default(a2, b) {
   if (!b) b = [];
   var n = a2 ? Math.min(b.length, a2.length) : 0, c2 = b.slice(), i;
@@ -13595,8 +12897,6 @@ function numberArray_default(a2, b) {
 function isNumberArray(x2) {
   return ArrayBuffer.isView(x2) && !(x2 instanceof DataView);
 }
-
-// node_modules/d3-interpolate/src/array.js
 function genericArray(a2, b) {
   var nb = b ? b.length : 0, na = a2 ? Math.min(nb, a2.length) : 0, x2 = new Array(na), c2 = new Array(nb), i;
   for (i = 0; i < na; ++i) x2[i] = value_default(a2[i], b[i]);
@@ -13606,23 +12906,17 @@ function genericArray(a2, b) {
     return c2;
   };
 }
-
-// node_modules/d3-interpolate/src/date.js
 function date_default(a2, b) {
-  var d = /* @__PURE__ */ new Date();
+  var d =  new Date();
   return a2 = +a2, b = +b, function(t) {
     return d.setTime(a2 * (1 - t) + b * t), d;
   };
 }
-
-// node_modules/d3-interpolate/src/number.js
 function number_default(a2, b) {
   return a2 = +a2, b = +b, function(t) {
     return a2 * (1 - t) + b * t;
   };
 }
-
-// node_modules/d3-interpolate/src/object.js
 function object_default(a2, b) {
   var i = {}, c2 = {}, k2;
   if (a2 === null || typeof a2 !== "object") a2 = {};
@@ -13639,8 +12933,6 @@ function object_default(a2, b) {
     return c2;
   };
 }
-
-// node_modules/d3-interpolate/src/string.js
 var reA = /[-+]?(?:\d+\.?\d*|\.?\d+)(?:[eE][-+]?\d+)?/g;
 var reB = new RegExp(reA.source, "g");
 function zero2(b) {
@@ -13681,21 +12973,15 @@ function string_default(a2, b) {
     return s2.join("");
   });
 }
-
-// node_modules/d3-interpolate/src/value.js
 function value_default(a2, b) {
   var t = typeof b, c2;
   return b == null || t === "boolean" ? constant_default2(b) : (t === "number" ? number_default : t === "string" ? (c2 = color(b)) ? (b = c2, rgb_default) : string_default : b instanceof color ? rgb_default : b instanceof Date ? date_default : isNumberArray(b) ? numberArray_default : Array.isArray(b) ? genericArray : typeof b.valueOf !== "function" && typeof b.toString !== "function" || isNaN(b) ? object_default : number_default)(a2, b);
 }
-
-// node_modules/d3-interpolate/src/round.js
 function round_default(a2, b) {
   return a2 = +a2, b = +b, function(t) {
     return Math.round(a2 * (1 - t) + b * t);
   };
 }
-
-// node_modules/d3-interpolate/src/transform/decompose.js
 var degrees2 = 180 / Math.PI;
 var identity2 = {
   translateX: 0,
@@ -13720,8 +13006,6 @@ function decompose_default(a2, b, c2, d, e, f) {
     scaleY
   };
 }
-
-// node_modules/d3-interpolate/src/transform/parse.js
 var svgNode;
 function parseCss(value) {
   const m = new (typeof DOMMatrix === "function" ? DOMMatrix : WebKitCSSMatrix)(value + "");
@@ -13735,8 +13019,6 @@ function parseSvg(value) {
   value = value.matrix;
   return decompose_default(value.a, value.b, value.c, value.d, value.e, value.f);
 }
-
-// node_modules/d3-interpolate/src/transform/index.js
 function interpolateTransform(parse, pxComma, pxParen, degParen) {
   function pop(s2) {
     return s2.length ? s2.pop() + " " : "";
@@ -13790,8 +13072,6 @@ function interpolateTransform(parse, pxComma, pxParen, degParen) {
 }
 var interpolateTransformCss = interpolateTransform(parseCss, "px, ", "px)", "deg)");
 var interpolateTransformSvg = interpolateTransform(parseSvg, ", ", ")", ")");
-
-// node_modules/d3-interpolate/src/zoom.js
 var epsilon22 = 1e-12;
 function cosh(x2) {
   return ((x2 = Math.exp(x2)) + 1 / x2) / 2;
@@ -13835,8 +13115,6 @@ var zoom_default = (function zoomRho(rho, rho2, rho4) {
   };
   return zoom;
 })(Math.SQRT2, 2, 4);
-
-// node_modules/d3-interpolate/src/hsl.js
 function hsl2(hue2) {
   return function(start, end) {
     var h = hue2((start = hsl(start)).h, (end = hsl(end)).h), s2 = nogamma(start.s, end.s), l = nogamma(start.l, end.l), opacity = nogamma(start.opacity, end.opacity);
@@ -13851,8 +13129,6 @@ function hsl2(hue2) {
 }
 var hsl_default = hsl2(hue);
 var hslLong = hsl2(nogamma);
-
-// node_modules/d3-interpolate/src/hcl.js
 function hcl2(hue2) {
   return function(start, end) {
     var h = hue2((start = hcl(start)).h, (end = hcl(end)).h), c2 = nogamma(start.c, end.c), l = nogamma(start.l, end.l), opacity = nogamma(start.opacity, end.opacity);
@@ -13867,8 +13143,6 @@ function hcl2(hue2) {
 }
 var hcl_default = hcl2(hue);
 var hclLong = hcl2(nogamma);
-
-// node_modules/d3-interpolate/src/cubehelix.js
 function cubehelix2(hue2) {
   return (function cubehelixGamma(y2) {
     y2 = +y2;
@@ -13888,8 +13162,6 @@ function cubehelix2(hue2) {
 }
 var cubehelix_default = cubehelix2(hue);
 var cubehelixLong = cubehelix2(nogamma);
-
-// node_modules/d3-interpolate/src/piecewise.js
 function piecewise(interpolate2, values) {
   if (values === void 0) values = interpolate2, interpolate2 = value_default;
   var i = 0, n = values.length - 1, v = values[0], I = new Array(n < 0 ? 0 : n);
@@ -13899,20 +13171,14 @@ function piecewise(interpolate2, values) {
     return I[i2](t - i2);
   };
 }
-
-// node_modules/d3-scale/src/constant.js
 function constants(x2) {
   return function() {
     return x2;
   };
 }
-
-// node_modules/d3-scale/src/number.js
 function number2(x2) {
   return +x2;
 }
-
-// node_modules/d3-scale/src/continuous.js
 var unit = [0, 1];
 function identity3(x2) {
   return x2;
@@ -13996,8 +13262,6 @@ function transformer() {
 function continuous() {
   return transformer()(identity3, identity3);
 }
-
-// node_modules/d3-format/src/formatDecimal.js
 function formatDecimal_default(x2) {
   return Math.abs(x2 = Math.round(x2)) >= 1e21 ? x2.toLocaleString("en").replace(/,/g, "") : x2.toString(10);
 }
@@ -14009,13 +13273,9 @@ function formatDecimalParts(x2, p) {
     +x2.slice(i + 1)
   ];
 }
-
-// node_modules/d3-format/src/exponent.js
 function exponent_default(x2) {
   return x2 = formatDecimalParts(Math.abs(x2)), x2 ? x2[1] : NaN;
 }
-
-// node_modules/d3-format/src/formatGroup.js
 function formatGroup_default(grouping, thousands) {
   return function(value, width) {
     var i = value.length, t = [], j = 0, g = grouping[0], length = 0;
@@ -14028,8 +13288,6 @@ function formatGroup_default(grouping, thousands) {
     return t.reverse().join(thousands);
   };
 }
-
-// node_modules/d3-format/src/formatNumerals.js
 function formatNumerals_default(numerals) {
   return function(value) {
     return value.replace(/[0-9]/g, function(i) {
@@ -14037,8 +13295,6 @@ function formatNumerals_default(numerals) {
     });
   };
 }
-
-// node_modules/d3-format/src/formatSpecifier.js
 var re = /^(?:(.)?([<>=^]))?([+\-( ])?([$#])?(0)?(\d+)?(,)?(\.\d+)?(~)?([a-z%])?$/i;
 function formatSpecifier(specifier) {
   if (!(match = re.exec(specifier))) throw new Error("invalid format: " + specifier);
@@ -14072,8 +13328,6 @@ function FormatSpecifier(specifier) {
 FormatSpecifier.prototype.toString = function() {
   return this.fill + this.align + this.sign + this.symbol + (this.zero ? "0" : "") + (this.width === void 0 ? "" : Math.max(1, this.width | 0)) + (this.comma ? "," : "") + (this.precision === void 0 ? "" : "." + Math.max(0, this.precision | 0)) + (this.trim ? "~" : "") + this.type;
 };
-
-// node_modules/d3-format/src/formatTrim.js
 function formatTrim_default(s2) {
   out: for (var n = s2.length, i = 1, i0 = -1, i1; i < n; ++i) {
     switch (s2[i]) {
@@ -14092,8 +13346,6 @@ function formatTrim_default(s2) {
   }
   return i0 > 0 ? s2.slice(0, i0) + s2.slice(i1 + 1) : s2;
 }
-
-// node_modules/d3-format/src/formatPrefixAuto.js
 var prefixExponent;
 function formatPrefixAuto_default(x2, p) {
   var d = formatDecimalParts(x2, p);
@@ -14101,16 +13353,12 @@ function formatPrefixAuto_default(x2, p) {
   var coefficient = d[0], exponent = d[1], i = exponent - (prefixExponent = Math.max(-8, Math.min(8, Math.floor(exponent / 3))) * 3) + 1, n = coefficient.length;
   return i === n ? coefficient : i > n ? coefficient + new Array(i - n + 1).join("0") : i > 0 ? coefficient.slice(0, i) + "." + coefficient.slice(i) : "0." + new Array(1 - i).join("0") + formatDecimalParts(x2, Math.max(0, p + i - 1))[0];
 }
-
-// node_modules/d3-format/src/formatRounded.js
 function formatRounded_default(x2, p) {
   var d = formatDecimalParts(x2, p);
   if (!d) return x2 + "";
   var coefficient = d[0], exponent = d[1];
   return exponent < 0 ? "0." + new Array(-exponent).join("0") + coefficient : coefficient.length > exponent + 1 ? coefficient.slice(0, exponent + 1) + "." + coefficient.slice(exponent + 1) : coefficient + new Array(exponent - coefficient.length + 2).join("0");
 }
-
-// node_modules/d3-format/src/formatTypes.js
 var formatTypes_default = {
   "%": (x2, p) => (x2 * 100).toFixed(p),
   "b": (x2) => Math.round(x2).toString(2),
@@ -14126,13 +13374,9 @@ var formatTypes_default = {
   "X": (x2) => Math.round(x2).toString(16).toUpperCase(),
   "x": (x2) => Math.round(x2).toString(16)
 };
-
-// node_modules/d3-format/src/identity.js
 function identity_default2(x2) {
   return x2;
 }
-
-// node_modules/d3-format/src/locale.js
 var map3 = Array.prototype.map;
 var prefixes = ["y", "z", "a", "f", "p", "n", "µ", "m", "", "k", "M", "G", "T", "P", "E", "Z", "Y"];
 function locale_default(locale3) {
@@ -14205,8 +13449,6 @@ function locale_default(locale3) {
     formatPrefix: formatPrefix2
   };
 }
-
-// node_modules/d3-format/src/defaultLocale.js
 var locale;
 var format;
 var formatPrefix;
@@ -14221,24 +13463,16 @@ function defaultLocale(definition) {
   formatPrefix = locale.formatPrefix;
   return locale;
 }
-
-// node_modules/d3-format/src/precisionFixed.js
 function precisionFixed_default(step) {
   return Math.max(0, -exponent_default(Math.abs(step)));
 }
-
-// node_modules/d3-format/src/precisionPrefix.js
 function precisionPrefix_default(step, value) {
   return Math.max(0, Math.max(-8, Math.min(8, Math.floor(exponent_default(value) / 3))) * 3 - exponent_default(Math.abs(step)));
 }
-
-// node_modules/d3-format/src/precisionRound.js
 function precisionRound_default(step, max3) {
   step = Math.abs(step), max3 = Math.abs(max3) - step;
   return Math.max(0, exponent_default(max3) - exponent_default(step)) + 1;
 }
-
-// node_modules/d3-scale/src/tickFormat.js
 function tickFormat(start, stop, count2, specifier) {
   var step = tickStep(start, stop, count2), precision;
   specifier = formatSpecifier(specifier == null ? ",f" : specifier);
@@ -14264,8 +13498,6 @@ function tickFormat(start, stop, count2, specifier) {
   }
   return format(specifier);
 }
-
-// node_modules/d3-scale/src/linear.js
 function linearish(scale) {
   var domain = scale.domain;
   scale.ticks = function(count2) {
@@ -14319,8 +13551,6 @@ function linear2() {
   initRange.apply(scale, arguments);
   return linearish(scale);
 }
-
-// node_modules/d3-scale/src/identity.js
 function identity4(domain) {
   var unknown;
   function scale(x2) {
@@ -14339,8 +13569,6 @@ function identity4(domain) {
   domain = arguments.length ? Array.from(domain, number2) : [0, 1];
   return linearish(scale);
 }
-
-// node_modules/d3-scale/src/nice.js
 function nice2(domain, interval) {
   domain = domain.slice();
   var i0 = 0, i1 = domain.length - 1, x0 = domain[i0], x1 = domain[i1], t;
@@ -14352,8 +13580,6 @@ function nice2(domain, interval) {
   domain[i1] = interval.ceil(x1);
   return domain;
 }
-
-// node_modules/d3-scale/src/log.js
 function transformLog(x2) {
   return Math.log(x2);
 }
@@ -14465,8 +13691,6 @@ function log() {
   initRange.apply(scale, arguments);
   return scale;
 }
-
-// node_modules/d3-scale/src/symlog.js
 function transformSymlog(c2) {
   return function(x2) {
     return Math.sign(x2) * Math.log1p(Math.abs(x2 / c2));
@@ -14491,8 +13715,6 @@ function symlog() {
   };
   return initRange.apply(scale, arguments);
 }
-
-// node_modules/d3-scale/src/pow.js
 function transformPow(exponent) {
   return function(x2) {
     return x2 < 0 ? -Math.pow(-x2, exponent) : Math.pow(x2, exponent);
@@ -14525,8 +13747,6 @@ function pow() {
 function sqrt2() {
   return pow.apply(null, arguments).exponent(0.5);
 }
-
-// node_modules/d3-scale/src/radial.js
 function square(x2) {
   return Math.sign(x2) * x2 * x2;
 }
@@ -14566,8 +13786,6 @@ function radial() {
   initRange.apply(scale, arguments);
   return linearish(scale);
 }
-
-// node_modules/d3-scale/src/quantile.js
 function quantile2() {
   var domain = [], range4 = [], thresholds = [], unknown;
   function rescale() {
@@ -14607,8 +13825,6 @@ function quantile2() {
   };
   return initRange.apply(scale, arguments);
 }
-
-// node_modules/d3-scale/src/quantize.js
 function quantize() {
   var x0 = 0, x1 = 1, n = 1, domain = [0.5], range4 = [0, 1], unknown;
   function scale(x2) {
@@ -14641,8 +13857,6 @@ function quantize() {
   };
   return initRange.apply(linearish(scale), arguments);
 }
-
-// node_modules/d3-scale/src/threshold.js
 function threshold() {
   var domain = [0.5], range4 = [0, 1], unknown, n = 1;
   function scale(x2) {
@@ -14666,16 +13880,14 @@ function threshold() {
   };
   return initRange.apply(scale, arguments);
 }
-
-// node_modules/d3-time/src/interval.js
-var t02 = /* @__PURE__ */ new Date();
-var t12 = /* @__PURE__ */ new Date();
+var t02 =  new Date();
+var t12 =  new Date();
 function timeInterval(floori, offseti, count2, field) {
   function interval(date2) {
-    return floori(date2 = arguments.length === 0 ? /* @__PURE__ */ new Date() : /* @__PURE__ */ new Date(+date2)), date2;
+    return floori(date2 = arguments.length === 0 ?  new Date() :  new Date(+date2)), date2;
   }
   interval.floor = (date2) => {
-    return floori(date2 = /* @__PURE__ */ new Date(+date2)), date2;
+    return floori(date2 =  new Date(+date2)), date2;
   };
   interval.ceil = (date2) => {
     return floori(date2 = new Date(date2 - 1)), offseti(date2, 1), floori(date2), date2;
@@ -14685,7 +13897,7 @@ function timeInterval(floori, offseti, count2, field) {
     return date2 - d0 < d1 - date2 ? d0 : d1;
   };
   interval.offset = (date2, step) => {
-    return offseti(date2 = /* @__PURE__ */ new Date(+date2), step == null ? 1 : Math.floor(step)), date2;
+    return offseti(date2 =  new Date(+date2), step == null ? 1 : Math.floor(step)), date2;
   };
   interval.range = (start, stop, step) => {
     const range4 = [];
@@ -14694,7 +13906,7 @@ function timeInterval(floori, offseti, count2, field) {
     if (!(start < stop) || !(step > 0)) return range4;
     let previous;
     do
-      range4.push(previous = /* @__PURE__ */ new Date(+start)), offseti(start, step), floori(start);
+      range4.push(previous =  new Date(+start)), offseti(start, step), floori(start);
     while (previous < start && start < stop);
     return range4;
   };
@@ -14727,8 +13939,6 @@ function timeInterval(floori, offseti, count2, field) {
   }
   return interval;
 }
-
-// node_modules/d3-time/src/millisecond.js
 var millisecond = timeInterval(() => {
 }, (date2, step) => {
   date2.setTime(+date2 + step);
@@ -14748,8 +13958,6 @@ millisecond.every = (k2) => {
   });
 };
 var milliseconds = millisecond.range;
-
-// node_modules/d3-time/src/duration.js
 var durationSecond = 1e3;
 var durationMinute = durationSecond * 60;
 var durationHour = durationMinute * 60;
@@ -14757,8 +13965,6 @@ var durationDay = durationHour * 24;
 var durationWeek = durationDay * 7;
 var durationMonth = durationDay * 30;
 var durationYear = durationDay * 365;
-
-// node_modules/d3-time/src/second.js
 var second = timeInterval((date2) => {
   date2.setTime(date2 - date2.getMilliseconds());
 }, (date2, step) => {
@@ -14769,8 +13975,6 @@ var second = timeInterval((date2) => {
   return date2.getUTCSeconds();
 });
 var seconds = second.range;
-
-// node_modules/d3-time/src/minute.js
 var timeMinute = timeInterval((date2) => {
   date2.setTime(date2 - date2.getMilliseconds() - date2.getSeconds() * durationSecond);
 }, (date2, step) => {
@@ -14791,8 +13995,6 @@ var utcMinute = timeInterval((date2) => {
   return date2.getUTCMinutes();
 });
 var utcMinutes = utcMinute.range;
-
-// node_modules/d3-time/src/hour.js
 var timeHour = timeInterval((date2) => {
   date2.setTime(date2 - date2.getMilliseconds() - date2.getSeconds() * durationSecond - date2.getMinutes() * durationMinute);
 }, (date2, step) => {
@@ -14813,8 +14015,6 @@ var utcHour = timeInterval((date2) => {
   return date2.getUTCHours();
 });
 var utcHours = utcHour.range;
-
-// node_modules/d3-time/src/day.js
 var timeDay = timeInterval(
   (date2) => date2.setHours(0, 0, 0, 0),
   (date2, step) => date2.setDate(date2.getDate() + step),
@@ -14842,8 +14042,6 @@ var unixDay = timeInterval((date2) => {
   return Math.floor(date2 / durationDay);
 });
 var unixDays = unixDay.range;
-
-// node_modules/d3-time/src/week.js
 function timeWeekday(i) {
   return timeInterval((date2) => {
     date2.setDate(date2.getDate() - (date2.getDay() + 7 - i) % 7);
@@ -14892,8 +14090,6 @@ var utcWednesdays = utcWednesday.range;
 var utcThursdays = utcThursday.range;
 var utcFridays = utcFriday.range;
 var utcSaturdays = utcSaturday.range;
-
-// node_modules/d3-time/src/month.js
 var timeMonth = timeInterval((date2) => {
   date2.setDate(1);
   date2.setHours(0, 0, 0, 0);
@@ -14916,8 +14112,6 @@ var utcMonth = timeInterval((date2) => {
   return date2.getUTCMonth();
 });
 var utcMonths = utcMonth.range;
-
-// node_modules/d3-time/src/year.js
 var timeYear = timeInterval((date2) => {
   date2.setMonth(0, 1);
   date2.setHours(0, 0, 0, 0);
@@ -14958,8 +14152,6 @@ utcYear.every = (k2) => {
   });
 };
 var utcYears = utcYear.range;
-
-// node_modules/d3-time/src/ticks.js
 function ticker(year, month, week, day, hour, minute) {
   const tickIntervals = [
     [second, 1, durationSecond],
@@ -15000,8 +14192,6 @@ function ticker(year, month, week, day, hour, minute) {
 }
 var [utcTicks, utcTickInterval] = ticker(utcYear, utcMonth, utcSunday, unixDay, utcHour, utcMinute);
 var [timeTicks, timeTickInterval] = ticker(timeYear, timeMonth, timeSunday, timeDay, timeHour, timeMinute);
-
-// node_modules/d3-time-format/src/locale.js
 function localDate(d) {
   if (0 <= d.y && d.y < 100) {
     var date2 = new Date(-1, d.m, d.d, d.H, d.M, d.S, d.L);
@@ -15135,7 +14325,7 @@ function formatLocale(locale3) {
   function newFormat(specifier, formats2) {
     return function(date2) {
       var string = [], i = -1, j = 0, n = specifier.length, c2, pad2, format2;
-      if (!(date2 instanceof Date)) date2 = /* @__PURE__ */ new Date(+date2);
+      if (!(date2 instanceof Date)) date2 =  new Date(+date2);
       while (++i < n) {
         if (specifier.charCodeAt(i) === 37) {
           string.push(specifier.slice(j, i));
@@ -15541,8 +14731,6 @@ function formatUnixTimestamp(d) {
 function formatUnixTimestampSeconds(d) {
   return Math.floor(+d / 1e3);
 }
-
-// node_modules/d3-time-format/src/defaultLocale.js
 var locale2;
 var timeFormat;
 var timeParse;
@@ -15566,27 +14754,21 @@ function defaultLocale2(definition) {
   utcParse = locale2.utcParse;
   return locale2;
 }
-
-// node_modules/d3-time-format/src/isoFormat.js
 var isoSpecifier = "%Y-%m-%dT%H:%M:%S.%LZ";
 function formatIsoNative(date2) {
   return date2.toISOString();
 }
 var formatIso = Date.prototype.toISOString ? formatIsoNative : utcFormat(isoSpecifier);
-
-// node_modules/d3-time-format/src/isoParse.js
 function parseIsoNative(string) {
   var date2 = new Date(string);
   return isNaN(date2) ? null : date2;
 }
-var parseIso = +/* @__PURE__ */ new Date("2000-01-01T00:00:00.000Z") ? parseIsoNative : utcParse(isoSpecifier);
-
-// node_modules/d3-scale/src/time.js
+var parseIso = + new Date("2000-01-01T00:00:00.000Z") ? parseIsoNative : utcParse(isoSpecifier);
 function date(t) {
   return new Date(t);
 }
 function number3(t) {
-  return t instanceof Date ? +t : +/* @__PURE__ */ new Date(+t);
+  return t instanceof Date ? +t : + new Date(+t);
 }
 function calendar(ticks2, tickInterval, year, month, week, day, hour, minute, second2, format2) {
   var scale = continuous(), invert = scale.invert, domain = scale.domain;
@@ -15620,13 +14802,9 @@ function calendar(ticks2, tickInterval, year, month, week, day, hour, minute, se
 function time() {
   return initRange.apply(calendar(timeTicks, timeTickInterval, timeYear, timeMonth, timeSunday, timeDay, timeHour, timeMinute, second, timeFormat).domain([new Date(2e3, 0, 1), new Date(2e3, 0, 2)]), arguments);
 }
-
-// node_modules/d3-scale/src/utcTime.js
 function utcTime() {
   return initRange.apply(calendar(utcTicks, utcTickInterval, utcYear, utcMonth, utcSunday, utcDay, utcHour, utcMinute, second, utcFormat).domain([Date.UTC(2e3, 0, 1), Date.UTC(2e3, 0, 2)]), arguments);
 }
-
-// node_modules/d3-scale/src/sequential.js
 function transformer2() {
   var x0 = 0, x1 = 1, t03, t13, k10, transform, interpolator = identity3, clamp = false, unknown;
   function scale(x2) {
@@ -15691,8 +14869,6 @@ function sequentialPow() {
 function sequentialSqrt() {
   return sequentialPow.apply(null, arguments).exponent(0.5);
 }
-
-// node_modules/d3-scale/src/sequentialQuantile.js
 function sequentialQuantile() {
   var domain = [], interpolator = identity3;
   function scale(x2) {
@@ -15719,8 +14895,6 @@ function sequentialQuantile() {
   };
   return initInterpolator.apply(scale, arguments);
 }
-
-// node_modules/d3-scale/src/diverging.js
 function transformer3() {
   var x0 = 0, x1 = 0.5, x2 = 1, s2 = 1, t03, t13, t22, k10, k21, interpolator = identity3, transform, clamp = false, unknown;
   function scale(x3) {
@@ -15782,8 +14956,6 @@ function divergingPow() {
 function divergingSqrt() {
   return divergingPow.apply(null, arguments).exponent(0.5);
 }
-
-// node_modules/recharts/es6/state/selectors/dataSelectors.js
 var selectChartDataWithIndexes = (state) => state.chartData;
 var selectChartDataAndAlwaysIgnoreIndexes = createSelector([selectChartDataWithIndexes], (dataState) => {
   var dataEndIndex = dataState.chartData != null ? dataState.chartData.length - 1 : 0;
@@ -15806,8 +14978,6 @@ var selectChartDataWithIndexesIfNotInPanoramaPosition3 = (state, _unused1, isPan
   }
   return selectChartDataWithIndexes(state);
 };
-
-// node_modules/recharts/es6/util/isDomainSpecifiedByUser.js
 function isWellFormedNumberDomain(v) {
   if (Array.isArray(v) && v.length === 2) {
     var [min3, max3] = v;
@@ -15924,44 +15094,12 @@ function parseNumericalUserDomain(userDomain, dataDomain, allowDataOverflow) {
   }
   return void 0;
 }
-
-// node_modules/decimal.js-light/decimal.mjs
 var MAX_DIGITS = 1e9;
 var defaults = {
-  // These values must be integers within the stated ranges (inclusive).
-  // Most of these values can be changed during run-time using `Decimal.config`.
-  // The maximum number of significant digits of the result of a calculation or base conversion.
-  // E.g. `Decimal.config({ precision: 20 });`
   precision: 20,
-  // 1 to MAX_DIGITS
-  // The rounding mode used by default by `toInteger`, `toDecimalPlaces`, `toExponential`,
-  // `toFixed`, `toPrecision` and `toSignificantDigits`.
-  //
-  // ROUND_UP         0 Away from zero.
-  // ROUND_DOWN       1 Towards zero.
-  // ROUND_CEIL       2 Towards +Infinity.
-  // ROUND_FLOOR      3 Towards -Infinity.
-  // ROUND_HALF_UP    4 Towards nearest neighbour. If equidistant, up.
-  // ROUND_HALF_DOWN  5 Towards nearest neighbour. If equidistant, down.
-  // ROUND_HALF_EVEN  6 Towards nearest neighbour. If equidistant, towards even neighbour.
-  // ROUND_HALF_CEIL  7 Towards nearest neighbour. If equidistant, towards +Infinity.
-  // ROUND_HALF_FLOOR 8 Towards nearest neighbour. If equidistant, towards -Infinity.
-  //
-  // E.g.
-  // `Decimal.rounding = 4;`
-  // `Decimal.rounding = Decimal.ROUND_HALF_UP;`
   rounding: 4,
-  // 0 to 8
-  // The exponent value at and beneath which `toString` returns exponential notation.
-  // JavaScript numbers: -7
   toExpNeg: -7,
-  // 0 to -MAX_E
-  // The exponent value at and above which `toString` returns exponential notation.
-  // JavaScript numbers: 21
   toExpPos: 21,
-  // 0 to MAX_E
-  // The natural logarithm of 10.
-  // 115 digits
   LN10: "2.302585092994045684017991454684364207601101488628772976033327900967572609677352480235997205089598298341967784042286"
 };
 var Decimal;
@@ -16286,7 +15424,7 @@ P.toSignificantDigits = P.tosd = function(sd, rm) {
   }
   return round2(new Ctor(x2), sd, rm);
 };
-P.toString = P.valueOf = P.val = P.toJSON = P[/* @__PURE__ */ Symbol.for("nodejs.util.inspect.custom")] = function() {
+P.toString = P.valueOf = P.val = P.toJSON = P[ Symbol.for("nodejs.util.inspect.custom")] = function() {
   var x2 = this, e = getBase10Exponent(x2), Ctor = x2.constructor;
   return toString(x2, e <= Ctor.toExpNeg || e >= Ctor.toExpPos);
 };
@@ -16368,7 +15506,7 @@ function digitsToString(d) {
   for (; w % 10 === 0; ) w /= 10;
   return str + w;
 }
-var divide = /* @__PURE__ */ (function() {
+var divide =  (function() {
   function multiplyInteger(x2, k2) {
     var temp, carry = 0, i = x2.length;
     for (x2 = x2.slice(); i--; ) {
@@ -16663,7 +15801,7 @@ function round2(x2, sd, rm) {
     k2 = mathpow(10, n - j - 1);
     rd = w / k2 % 10 | 0;
     doRound = sd < 0 || xd[xdi + 1] !== void 0 || w % k2;
-    doRound = rm < 4 ? (rd || doRound) && (rm == 0 || rm == (x2.s < 0 ? 3 : 2)) : rd > 5 || rd == 5 && (rm == 4 || doRound || rm == 6 && // Check whether the digit to the left of the rounding digit is odd.
+    doRound = rm < 4 ? (rd || doRound) && (rm == 0 || rm == (x2.s < 0 ? 3 : 2)) : rd > 5 || rd == 5 && (rm == 4 || doRound || rm == 6 && 
     (i > 0 ? j > 0 ? w / mathpow(10, n - j) : 0 : xd[xdi - 1]) % 10 & 1 || rm == (x2.s < 0 ? 8 : 7));
   }
   if (sd < 1 || !xd[0]) {
@@ -16906,8 +16044,6 @@ function config(obj) {
 var Decimal = clone(defaults);
 ONE = new Decimal(1);
 var decimal_default = Decimal;
-
-// node_modules/recharts/es6/util/scale/util/arithmetic.js
 function getDigitCount(value) {
   var result;
   if (value === 0) {
@@ -16928,8 +16064,6 @@ function rangeStep(start, end, step) {
   }
   return result;
 }
-
-// node_modules/recharts/es6/util/scale/getNiceTickValues.js
 var getValidInterval = (_ref2) => {
   var [min3, max3] = _ref2;
   var [validMin, validMax] = [min3, max3];
@@ -17045,8 +16179,6 @@ var getTickValuesFixedDomain = function getTickValuesFixedDomain2(_ref3, tickCou
   }
   return min3 > max3 ? values.reverse() : values;
 };
-
-// node_modules/recharts/es6/state/selectors/rootPropsSelectors.js
 var selectRootMaxBarSize = (state) => state.rootProps.maxBarSize;
 var selectBarGap = (state) => state.rootProps.barGap;
 var selectBarCategoryGap = (state) => state.rootProps.barCategoryGap;
@@ -17058,81 +16190,23 @@ var selectSyncId = (state) => state.rootProps.syncId;
 var selectSyncMethod = (state) => state.rootProps.syncMethod;
 var selectEventEmitter = (state) => state.options.eventEmitter;
 var selectChartBaseValue = (state) => state.rootProps.baseValue;
-
-// node_modules/recharts/es6/zIndex/DefaultZIndexes.js
 var DefaultZIndexes = {
-  /**
-   * CartesianGrid and PolarGrid
-   */
   grid: -100,
-  /**
-   * Background of Bar and RadialBar.
-   * This is not visible by default but can be enabled by setting background={true} on Bar or RadialBar.
-   */
   barBackground: -50,
-  /*
-   * other chart elements or custom elements without specific zIndex
-   * render in here, at zIndex 0
-   */
-  /**
-   * Area, Pie, Radar, and ReferenceArea
-   */
   area: 100,
-  /**
-   * Cursor is embedded inside Tooltip and controlled by it.
-   * The Tooltip itself has a separate portal and is not included in the zIndex system;
-   * Cursor is the decoration inside the chart area. CursorRectangle is a rectangle box.
-   * It renders below bar so that in a stacked bar chart the cursor rectangle does not hide the other bars.
-   */
   cursorRectangle: 200,
-  /**
-   * Bar and RadialBar
-   */
   bar: 300,
-  /**
-   * Line and ReferenceLine, and ErrorBor
-   */
   line: 400,
-  /**
-   * XAxis and YAxis and PolarAngleAxis and PolarRadiusAxis ticks and lines and children
-   */
   axis: 500,
-  /**
-   * Scatter and ReferenceDot,
-   * and Dots of Line and Area and Radar if they have dot=true
-   */
   scatter: 600,
-  /**
-   * Hovering over a Bar or RadialBar renders a highlight rectangle
-   */
   activeBar: 1e3,
-  /**
-   * Cursor is embedded inside Tooltip and controlled by it.
-   * The Tooltip itself has a separate portal and is not included in the zIndex system;
-   * Cursor is the decoration inside the chart area, usually a cross or a box.
-   * CursorLine is a line cursor rendered in Line, Area, Scatter, Radar charts.
-   * It renders above the Line and Scatter so that it is always visible.
-   * It renders below active dot so that the dot is always visible and shows the current point.
-   * We're also assuming that the active dot is small enough that it does not fully cover the cursor line.
-   *
-   * This also applies to the radial cursor in RadialBarChart.
-   */
   cursorLine: 1100,
-  /**
-   * Hovering over a Point in Line, Area, Scatter, Radar renders a highlight dot
-   */
   activeDot: 1200,
-  /**
-   * LabelList and Label, including Axis labels
-   */
   label: 2e3
 };
-
-// node_modules/recharts/es6/polar/defaultPolarAngleAxisProps.js
 var defaultPolarAngleAxisProps = {
   allowDecimals: false,
   allowDuplicatedCategory: true,
-  // if I set this to false then Tooltip synchronisation stops working in Radar, wtf
   allowDataOverflow: false,
   angle: 0,
   angleAxisId: 0,
@@ -17152,8 +16226,6 @@ var defaultPolarAngleAxisProps = {
   type: "auto",
   zIndex: DefaultZIndexes.axis
 };
-
-// node_modules/recharts/es6/polar/defaultPolarRadiusAxisProps.js
 var defaultPolarRadiusAxisProps = {
   allowDataOverflow: false,
   allowDecimals: false,
@@ -17174,8 +16246,6 @@ var defaultPolarRadiusAxisProps = {
   type: "auto",
   zIndex: DefaultZIndexes.axis
 };
-
-// node_modules/recharts/es6/state/selectors/combiners/combineAxisRangeWithReverse.js
 var combineAxisRangeWithReverse = (axisSettings, axisRange) => {
   if (!axisSettings || !axisRange) {
     return void 0;
@@ -17185,8 +16255,6 @@ var combineAxisRangeWithReverse = (axisSettings, axisRange) => {
   }
   return axisRange;
 };
-
-// node_modules/recharts/es6/util/getAxisTypeBasedOnLayout.js
 function getAxisTypeBasedOnLayout(layout, axisType, axisDomainType) {
   if (axisDomainType !== "auto") {
     return axisDomainType;
@@ -17196,8 +16264,6 @@ function getAxisTypeBasedOnLayout(layout, axisType, axisDomainType) {
   }
   return isCategoricalAxis(layout, axisType) ? "category" : "number";
 }
-
-// node_modules/recharts/es6/state/selectors/polarAxisSelectors.js
 function ownKeys16(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -17240,7 +16306,6 @@ var implicitAngleAxis = {
   allowDataOverflow: defaultPolarAngleAxisProps.allowDataOverflow,
   allowDecimals: defaultPolarAngleAxisProps.allowDecimals,
   allowDuplicatedCategory: false,
-  // defaultPolarAngleAxisProps.allowDuplicatedCategory has it set to true but the actual axis rendering ignores the prop because reasons,
   dataKey: void 0,
   domain: void 0,
   id: defaultPolarAngleAxisProps.angleAxisId,
@@ -17351,22 +16416,13 @@ var selectPolarViewBox = createSelector([selectChartLayout, selectPolarOptions, 
     startAngle,
     endAngle,
     clockWise: false
-    // this property look useful, why not use it?
   };
 });
-
-// node_modules/recharts/es6/state/selectors/pickAxisType.js
 var pickAxisType = (_state, axisType) => axisType;
-
-// node_modules/recharts/es6/state/selectors/pickAxisId.js
 var pickAxisId = (_state, _axisType, axisId) => axisId;
-
-// node_modules/recharts/es6/util/stacks/getStackSeriesIdentifier.js
 function getStackSeriesIdentifier(graphicalItem) {
   return graphicalItem === null || graphicalItem === void 0 ? void 0 : graphicalItem.id;
 }
-
-// node_modules/recharts/es6/state/selectors/combiners/combineDisplayedStackedData.js
 function combineDisplayedStackedData(stackedGraphicalItems, _ref2, tooltipAxisSettings) {
   var {
     chartData = []
@@ -17375,7 +16431,7 @@ function combineDisplayedStackedData(stackedGraphicalItems, _ref2, tooltipAxisSe
     allowDuplicatedCategory,
     dataKey: tooltipDataKey
   } = tooltipAxisSettings;
-  var knownItemsByDataKey = /* @__PURE__ */ new Map();
+  var knownItemsByDataKey =  new Map();
   stackedGraphicalItems.forEach((item) => {
     var _item$data;
     var resolvedData = (_item$data = item.data) !== null && _item$data !== void 0 ? _item$data : chartData;
@@ -17400,13 +16456,9 @@ function combineDisplayedStackedData(stackedGraphicalItems, _ref2, tooltipAxisSe
   });
   return Array.from(knownItemsByDataKey.values());
 }
-
-// node_modules/recharts/es6/state/types/StackedGraphicalItem.js
 function isStacked(graphicalItem) {
   return "stackId" in graphicalItem && graphicalItem.stackId != null && graphicalItem.dataKey != null;
 }
-
-// node_modules/recharts/es6/state/selectors/numberDomainEqualityCheck.js
 var numberDomainEqualityCheck = (a2, b) => {
   if (a2 === b) {
     return true;
@@ -17416,8 +16468,6 @@ var numberDomainEqualityCheck = (a2, b) => {
   }
   return a2[0] === b[0] && a2[1] === b[1];
 };
-
-// node_modules/recharts/es6/state/selectors/arrayEqualityCheck.js
 function emptyArraysAreEqualCheck(a2, b) {
   if (Array.isArray(a2) && Array.isArray(b) && a2.length === 0 && b.length === 0) {
     return true;
@@ -17435,8 +16485,6 @@ function arrayContentsAreEqualCheck(a2, b) {
   }
   return false;
 }
-
-// node_modules/recharts/es6/state/selectors/selectTooltipAxisType.js
 var selectTooltipAxisType = (state) => {
   var layout = selectChartLayout(state);
   if (layout === "horizontal") {
@@ -17450,11 +16498,7 @@ var selectTooltipAxisType = (state) => {
   }
   return "radiusAxis";
 };
-
-// node_modules/recharts/es6/state/selectors/selectTooltipAxisId.js
 var selectTooltipAxisId = (state) => state.tooltip.settings.axisId;
-
-// node_modules/recharts/es6/util/scale/RechartsScale.js
 function getD3ScaleFromType(realScaleType) {
   if (realScaleType in d3_scale_exports) {
     return d3_scale_exports[realScaleType]();
@@ -17526,8 +16570,6 @@ function rechartsScaleFactory(scale, axisDomain, axisRange) {
   d3ScaleFunction.domain(axisDomain).range(axisRange);
   return d3ScaleToRechartsScale(d3ScaleFunction);
 }
-
-// node_modules/recharts/es6/state/selectors/combiners/combineCheckedDomain.js
 var combineCheckedDomain = (realScaleType, axisDomain) => {
   if (axisDomain == null) {
     return void 0;
@@ -17559,8 +16601,6 @@ var combineCheckedDomain = (realScaleType, axisDomain) => {
       return axisDomain;
   }
 };
-
-// node_modules/recharts/es6/state/selectors/axisSelectors.js
 function ownKeys17(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -17904,7 +16944,6 @@ var combineStackGroups = (displayedData, items, stackOffsetType, reverseStackOrd
     var orderedGraphicalItems = reverseStackOrder ? [...graphicalItems].reverse() : graphicalItems;
     var dataKeys = orderedGraphicalItems.map(getStackSeriesIdentifier);
     return [stackId, {
-      // @ts-expect-error getStackedData requires that the input is array of objects, Recharts does not test for that
       stackedData: getStackedData(displayedData, dataKeys, stackOffsetType),
       graphicalItems: orderedGraphicalItems
     }];
@@ -18201,12 +17240,6 @@ var combineNiceTicks = (axisDomain, axisSettings, realScaleType) => {
 var selectNiceTicks = createSelector([selectAxisDomain, selectRenderableAxisSettings, selectRealScaleType], combineNiceTicks);
 var combineAxisDomainWithNiceTicks = (axisSettings, domain, niceTicks, axisType) => {
   if (
-    /*
-     * Angle axis for some reason uses nice ticks when rendering axis tick labels,
-     * but doesn't use nice ticks for extending domain like all the other axes do.
-     * Not really sure why? Is there a good reason,
-     * or is it just because someone added support for nice ticks to the other axes and forgot this one?
-     */
     axisType !== "angleAxis" && (axisSettings === null || axisSettings === void 0 ? void 0 : axisSettings.type) === "number" && isWellFormedNumberDomain(domain) && Array.isArray(niceTicks) && niceTicks.length > 0
   ) {
     var _niceTicks$, _niceTicks;
@@ -18570,7 +17603,6 @@ var combineAxisTicks = (layout, axis, realScaleType, scale, niceTicks, axisRange
     tickCount
   } = axis;
   var offsetForBand = (
-    // @ts-expect-error This is testing for `scaleBand` but for band axis the type is reported as `band` so this looks like a dead code with a workaround elsewhere?
     realScaleType === "scaleBand" && typeof scale.bandwidth === "function" ? scale.bandwidth() / 2 : 2
   );
   var offset = type === "category" && scale.bandwidth ? scale.bandwidth() / offsetForBand : 0;
@@ -18626,7 +17658,6 @@ var combineAxisTicks = (layout, axis, realScaleType, scale, niceTicks, axisRange
     }
     return {
       coordinate: scaled + offset,
-      // @ts-expect-error can't use Date as index
       value: duplicateDomain ? duplicateDomain[entry] : entry,
       index: index2,
       offset
@@ -18679,7 +17710,6 @@ var combineGraphicalItemTicks = (layout, axis, scale, axisRange, duplicateDomain
     }
     return {
       coordinate: scaled + offset,
-      // @ts-expect-error can't use unknown as index
       value: duplicateDomain ? duplicateDomain[entry] : entry,
       index: index2,
       offset
@@ -18712,8 +17742,6 @@ var selectChartDirection = createSelector([selectChartLayout, selectAllXAxes, se
     case "vertical": {
       return allYAxes.some((axis) => axis.reversed) ? "bottom-to-top" : "top-to-bottom";
     }
-    // TODO: make this better. For now, right arrow triggers "forward", left arrow "back"
-    // however, the tooltip moves an unintuitive direction because of how the indices are rendered
     case "centric":
     case "radial": {
       return "left-to-right";
@@ -18723,8 +17751,6 @@ var selectChartDirection = createSelector([selectChartLayout, selectAllXAxes, se
     }
   }
 });
-
-// node_modules/recharts/es6/state/selectors/selectTooltipEventType.js
 var selectDefaultTooltipEventType = (state) => state.options.defaultTooltipEventType;
 var selectValidateTooltipEventTypes = (state) => state.options.validateTooltipEventTypes;
 function combineTooltipEventType(shared, defaultTooltipEventType, validateTooltipEventTypes) {
@@ -18745,8 +17771,6 @@ function selectTooltipEventType(state, shared) {
 function useTooltipEventType(shared) {
   return useAppSelector((state) => selectTooltipEventType(state, shared));
 }
-
-// node_modules/recharts/es6/state/selectors/combiners/combineActiveLabel.js
 var combineActiveLabel = (tooltipTicks, activeIndex) => {
   var _tooltipTicks$n;
   var n = Number(activeIndex);
@@ -18755,11 +17779,7 @@ var combineActiveLabel = (tooltipTicks, activeIndex) => {
   }
   return n >= 0 ? tooltipTicks === null || tooltipTicks === void 0 || (_tooltipTicks$n = tooltipTicks[n]) === null || _tooltipTicks$n === void 0 ? void 0 : _tooltipTicks$n.value : void 0;
 };
-
-// node_modules/recharts/es6/state/selectors/selectTooltipSettings.js
 var selectTooltipSettings = (state) => state.tooltip.settings;
-
-// node_modules/recharts/es6/state/tooltipSlice.js
 var noInteraction = {
   active: false,
   index: null,
@@ -18896,8 +17916,6 @@ var {
   setKeyboardInteraction
 } = tooltipSlice.actions;
 var tooltipReducer = tooltipSlice.reducer;
-
-// node_modules/recharts/es6/state/selectors/combiners/combineTooltipInteractionState.js
 function ownKeys18(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -18988,8 +18006,6 @@ var combineTooltipInteractionState = (tooltipState, tooltipEventType, trigger, d
     coordinate: appropriateMouseInteraction.coordinate
   });
 };
-
-// node_modules/recharts/es6/state/selectors/combiners/combineActiveTooltipIndex.js
 function toFiniteNumber(value) {
   if (typeof value === "number") {
     return Number.isFinite(value) ? value : void 0;
@@ -19049,8 +18065,6 @@ var combineActiveTooltipIndex = (tooltipInteraction, chartData, axisDataKey, dom
   }
   return String(clampedIndex);
 };
-
-// node_modules/recharts/es6/state/selectors/combiners/combineCoordinateForDefaultIndex.js
 var combineCoordinateForDefaultIndex = (width, height, layout, offset, tooltipTicks, defaultIndex, tooltipConfigurations) => {
   if (defaultIndex == null) {
     return void 0;
@@ -19079,8 +18093,6 @@ var combineCoordinateForDefaultIndex = (width, height, layout, offset, tooltipTi
     }
   }
 };
-
-// node_modules/recharts/es6/state/selectors/combiners/combineTooltipPayloadConfigurations.js
 var combineTooltipPayloadConfigurations = (tooltipState, tooltipEventType, trigger, defaultIndex) => {
   if (tooltipEventType === "axis") {
     return tooltipState.tooltipItemPayloads;
@@ -19106,14 +18118,8 @@ var combineTooltipPayloadConfigurations = (tooltipState, tooltipEventType, trigg
     return ((_tpc$settings = tpc.settings) === null || _tpc$settings === void 0 ? void 0 : _tpc$settings.graphicalItemId) === filterByGraphicalItemId;
   });
 };
-
-// node_modules/recharts/es6/state/selectors/selectTooltipPayloadSearcher.js
 var selectTooltipPayloadSearcher = (state) => state.options.tooltipPayloadSearcher;
-
-// node_modules/recharts/es6/state/selectors/selectTooltipState.js
 var selectTooltipState = (state) => state.tooltip;
-
-// node_modules/recharts/es6/state/selectors/combiners/combineTooltipPayload.js
 function ownKeys19(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -19180,27 +18186,8 @@ var combineTooltipPayload = (tooltipPayloadConfigurations, activeIndex, chartDat
     var finalDataKey = (_settings$dataKey = settings === null || settings === void 0 ? void 0 : settings.dataKey) !== null && _settings$dataKey !== void 0 ? _settings$dataKey : tooltipAxisDataKey;
     var finalNameKey = settings === null || settings === void 0 ? void 0 : settings.nameKey;
     var tooltipPayload;
-    if (tooltipAxisDataKey && Array.isArray(sliced) && /*
-     * findEntryInArray won't work for Scatter because Scatter provides an array of arrays
-     * as tooltip payloads and findEntryInArray is not prepared to handle that.
-     * Sad but also ScatterChart only allows 'item' tooltipEventType
-     * and also this is only a problem if there are multiple Scatters and each has its own data array
-     * so let's fix that some other time.
-     */
-    !Array.isArray(sliced[0]) && /*
-     * If the tooltipEventType is 'axis', we should search for the dataKey in the sliced data
-     * because thanks to allowDuplicatedCategory=false, the order of elements in the array
-     * no longer matches the order of elements in the original data
-     * and so we need to search by the active dataKey + label rather than by index.
-     *
-     * The same happens if multiple graphical items are present in the chart
-     * and each of them has its own data array. Those arrays get concatenated
-     * and again the tooltip index no longer matches the original data.
-     *
-     * On the other hand the tooltipEventType 'item' should always search by index
-     * because we get the index from interacting over the individual elements
-     * which is always accurate, irrespective of the allowDuplicatedCategory setting.
-     */
+    if (tooltipAxisDataKey && Array.isArray(sliced) && 
+    !Array.isArray(sliced[0]) && 
     tooltipEventType === "axis") {
       tooltipPayload = findEntryInArray(sliced, tooltipAxisDataKey, activeLabel);
     } else {
@@ -19209,24 +18196,16 @@ var combineTooltipPayload = (tooltipPayloadConfigurations, activeIndex, chartDat
     if (Array.isArray(tooltipPayload)) {
       tooltipPayload.forEach((item) => {
         var newSettings = _objectSpread19(_objectSpread19({}, settings), {}, {
-          // @ts-expect-error we're assuming that item has name and unit properties
           name: item.name,
-          // @ts-expect-error we're assuming that item has name and unit properties
           unit: item.unit,
-          // color and fill are erased to keep 100% the identical behaviour to recharts 2.x - but there's nothing stopping us from returning them here. It's technically a breaking change.
           color: void 0,
-          // color and fill are erased to keep 100% the identical behaviour to recharts 2.x - but there's nothing stopping us from returning them here. It's technically a breaking change.
           fill: void 0
         });
         agg.push(getTooltipEntry({
           tooltipEntrySettings: newSettings,
-          // @ts-expect-error we're assuming that item has name and unit properties
           dataKey: item.dataKey,
-          // @ts-expect-error we're assuming that item has name and unit properties
           payload: item.payload,
-          // @ts-expect-error getValueByDataKey does not validate the output type
           value: getValueByDataKey(item.payload, item.dataKey),
-          // @ts-expect-error we're assuming that item has name and unit properties
           name: item.name
         }));
       });
@@ -19236,17 +18215,13 @@ var combineTooltipPayload = (tooltipPayloadConfigurations, activeIndex, chartDat
         tooltipEntrySettings: settings,
         dataKey: finalDataKey,
         payload: tooltipPayload,
-        // @ts-expect-error getValueByDataKey does not validate the output type
         value: getValueByDataKey(tooltipPayload, finalDataKey),
-        // @ts-expect-error getValueByDataKey does not validate the output type
         name: (_getValueByDataKey = getValueByDataKey(tooltipPayload, finalNameKey)) !== null && _getValueByDataKey !== void 0 ? _getValueByDataKey : settings === null || settings === void 0 ? void 0 : settings.name
       }));
     }
     return agg;
   }, init);
 };
-
-// node_modules/recharts/es6/state/selectors/tooltipSelectors.js
 var selectTooltipAxisRealScaleType = createSelector([selectTooltipAxis, selectHasBar, selectChartName], combineRealScaleType);
 var selectAllUnfilteredGraphicalItems = createSelector([(state) => state.graphicalItems.cartesianItems, (state) => state.graphicalItems.polarItems], (cartesianItems, polarItems) => [...cartesianItems, ...polarItems]);
 var selectTooltipAxisPredicate = createSelector([selectTooltipAxisType, selectTooltipAxisId], itemAxisPredicate);
@@ -19332,7 +18307,6 @@ var combineTicksOfTooltipAxis = (layout, axis, realScaleType, scale, range4, dup
     }
     return {
       coordinate: scaled + offset,
-      // @ts-expect-error can't use Date as an index
       value: duplicateDomain ? duplicateDomain[entry] : entry,
       index: index2,
       offset
@@ -19378,8 +18352,6 @@ var selectActiveTooltipDataPoints = createSelector([selectActiveTooltipPayload],
   var dataPoints = payload.map((p) => p.payload).filter((p) => p != null);
   return Array.from(new Set(dataPoints));
 });
-
-// node_modules/recharts/es6/context/useTooltipAxis.js
 function ownKeys20(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -19430,11 +18402,7 @@ var useTooltipAxisBandSize = () => {
     scale: tooltipAxisScale
   }), tooltipTicks);
 };
-
-// node_modules/recharts/es6/state/selectors/selectors.js
 var import_sortBy4 = __toESM(require_sortBy2());
-
-// node_modules/recharts/es6/util/getActiveCoordinate.js
 function ownKeys21(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -19601,8 +18569,6 @@ var calculateActiveTickIndex = (coordinate, ticks2, unsortedTicks, axisType, ran
   }
   return -1;
 };
-
-// node_modules/recharts/es6/state/selectors/selectors.js
 var useChartName = () => {
   return useAppSelector(selectChartName);
 };
@@ -19682,12 +18648,8 @@ var combineActiveProps = (chartEvent, layout, polarViewBox, tooltipAxisType, too
   }
   return combineActivePolarProps(chartEvent, layout, polarViewBox, tooltipAxisType, tooltipAxisRange, tooltipTicks, orderedTooltipTicks);
 };
-
-// node_modules/recharts/es6/zIndex/ZIndexLayer.js
 var import_react18 = __toESM(require_react());
 var import_react_dom2 = __toESM(require_react_dom());
-
-// node_modules/recharts/es6/zIndex/zIndexSelectors.js
 var selectZIndexPortalElement = createSelector((state) => state.zIndex.zIndexMap, (_, zIndex) => zIndex, (_, _zIndex, isPanorama) => isPanorama, (zIndexMap, zIndex, isPanorama) => {
   if (zIndex == null) {
     return void 0;
@@ -19710,8 +18672,6 @@ var selectAllRegisteredZIndexes = createSelector((state) => state.zIndex.zIndexM
     resultEqualityCheck: arrayContentsAreEqualCheck
   }
 });
-
-// node_modules/recharts/es6/state/zIndexSlice.js
 function ownKeys22(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -19846,8 +18806,6 @@ var {
   unregisterZIndexPortalElement
 } = zIndexSlice.actions;
 var zIndexReducer = zIndexSlice.reducer;
-
-// node_modules/recharts/es6/zIndex/ZIndexLayer.js
 function ZIndexLayer(_ref2) {
   var {
     zIndex,
@@ -19879,8 +18837,6 @@ function ZIndexLayer(_ref2) {
   }
   return (0, import_react_dom2.createPortal)(children, portalElement);
 }
-
-// node_modules/recharts/es6/component/Cursor.js
 function _extends12() {
   return _extends12 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
@@ -20024,25 +18980,15 @@ function Cursor(props) {
     chartName
   }));
 }
-
-// node_modules/recharts/es6/context/tooltipPortalContext.js
 var import_react20 = __toESM(require_react());
 var TooltipPortalContext = (0, import_react20.createContext)(null);
 var useTooltipPortal = () => (0, import_react20.useContext)(TooltipPortalContext);
-
-// node_modules/recharts/es6/synchronisation/useChartSynchronisation.js
 var import_react21 = __toESM(require_react());
-
-// node_modules/eventemitter3/index.mjs
 var import_index = __toESM(require_eventemitter3(), 1);
 var eventemitter3_default = import_index.default;
-
-// node_modules/recharts/es6/util/Events.js
 var eventCenter = new eventemitter3_default();
 var TOOLTIP_SYNC_EVENT = "recharts.syncEvent.tooltip";
 var BRUSH_SYNC_EVENT = "recharts.syncEvent.brush";
-
-// node_modules/recharts/es6/state/optionsSlice.js
 var arrayTooltipSearcher = (data, strIndex) => {
   if (!strIndex) return void 0;
   if (!Array.isArray(data)) return void 0;
@@ -20064,7 +19010,7 @@ var optionsSlice = createSlice({
   reducers: {
     createEventEmitter: (state) => {
       if (state.eventEmitter == null) {
-        state.eventEmitter = /* @__PURE__ */ Symbol("rechartsEventEmitter");
+        state.eventEmitter =  Symbol("rechartsEventEmitter");
       }
     }
   }
@@ -20073,13 +19019,9 @@ var optionsReducer = optionsSlice.reducer;
 var {
   createEventEmitter
 } = optionsSlice.actions;
-
-// node_modules/recharts/es6/synchronisation/syncSelectors.js
 function selectSynchronisedTooltipState(state) {
   return state.tooltip.syncInteraction;
 }
-
-// node_modules/recharts/es6/state/chartDataSlice.js
 var initialChartDataState = {
   chartData: void 0,
   computedData: void 0,
@@ -20124,8 +19066,6 @@ var {
   setComputedData
 } = chartDataSlice.actions;
 var chartDataReducer = chartDataSlice.reducer;
-
-// node_modules/recharts/es6/synchronisation/useChartSynchronisation.js
 var _excluded7 = ["x", "y"];
 function ownKeys24(e, r) {
   var t = Object.keys(e);
@@ -20366,8 +19306,6 @@ function useBrushChartSynchronisation() {
     eventCenter.emit(BRUSH_SYNC_EVENT, syncId, syncAction, eventEmitterSymbol);
   }, [brushEndIndex, brushStartIndex, eventEmitterSymbol, syncId]);
 }
-
-// node_modules/recharts/es6/component/Tooltip.js
 function ownKeys25(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -20541,16 +19479,10 @@ function Tooltip(outsideProps) {
     index: activeIndex
   }));
 }
-
-// node_modules/recharts/es6/component/Cell.js
 var Cell = (_props) => null;
 Cell.displayName = "Cell";
-
-// node_modules/recharts/es6/component/Text.js
 var React16 = __toESM(require_react());
 var import_react23 = __toESM(require_react());
-
-// node_modules/recharts/es6/util/LRUCache.js
 function _defineProperty26(e, r, t) {
   return (r = _toPropertyKey26(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: true, configurable: true, writable: true }) : e[r] = t, e;
 }
@@ -20570,7 +19502,7 @@ function _toPrimitive26(t, r) {
 }
 var LRUCache = class {
   constructor(maxSize) {
-    _defineProperty26(this, "cache", /* @__PURE__ */ new Map());
+    _defineProperty26(this, "cache",  new Map());
     this.maxSize = maxSize;
   }
   get(key) {
@@ -20599,8 +19531,6 @@ var LRUCache = class {
     return this.cache.size;
   }
 };
-
-// node_modules/recharts/es6/util/DOMUtils.js
 function ownKeys26(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -20707,8 +19637,6 @@ var getStringSize = function getStringSize2(text) {
   stringCache.set(cacheKey, result);
   return result;
 };
-
-// node_modules/recharts/es6/util/ReduceCSSCalc.js
 var _DecimalCSS;
 function _defineProperty28(e, r, t) {
   return (r = _toPropertyKey28(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: true, configurable: true, writable: true }) : e[r] = t, e;
@@ -20866,8 +19794,6 @@ function reduceCSSCalc(expression) {
   }
   return result;
 }
-
-// node_modules/recharts/es6/component/Text.js
 var _excluded8 = ["x", "y", "lineHeight", "capHeight", "fill", "scaleToFit", "textAnchor", "verticalAnchor"];
 var _excluded23 = ["dx", "dy", "angle", "className", "breakAll"];
 function _extends13() {
@@ -21049,13 +19975,11 @@ var DEFAULT_FILL = "#808080";
 var textDefaultProps = {
   angle: 0,
   breakAll: false,
-  // Magic number from d3
   capHeight: "0.71em",
   fill: DEFAULT_FILL,
   lineHeight: "1em",
   scaleToFit: false,
   textAnchor: "start",
-  // Maintain compat with existing charts / default SVG behavior
   verticalAnchor: "end",
   x: 0,
   y: 0
@@ -21133,7 +20057,6 @@ var Text = (0, import_react23.forwardRef)((outsideProps, ref) => {
   }), wordsByLines.map((line, index2) => {
     var words = line.words.join(breakAll ? "" : " ");
     return (
-      // duplicate words will cause duplicate keys which is why we add the array index here
       React16.createElement("tspan", {
         x: x2,
         dy: index2 === 0 ? startDy : lineHeight,
@@ -21143,12 +20066,8 @@ var Text = (0, import_react23.forwardRef)((outsideProps, ref) => {
   }));
 });
 Text.displayName = "Text";
-
-// node_modules/recharts/es6/component/Label.js
 var React17 = __toESM(require_react());
 var import_react24 = __toESM(require_react());
-
-// node_modules/recharts/es6/cartesian/getCartesianPosition.js
 function ownKeys27(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -21351,8 +20270,6 @@ var getCartesianPosition = (options3) => {
     verticalAnchor: "middle"
   }, sizeAttrs);
 };
-
-// node_modules/recharts/es6/component/Label.js
 var _excluded9 = ["labelRef"];
 var _excluded24 = ["content"];
 function _objectWithoutProperties9(e, t) {
@@ -21713,10 +20630,6 @@ function Label(outerProps) {
     ref: labelRef,
     className: clsx("recharts-label", className)
   }, attrs, positionAttrs, {
-    /*
-     * textAnchor is decided by default based on the `position`
-     * but we allow overriding via props for precise control.
-     */
     textAnchor: isValidTextAnchor(attrs.textAnchor) ? attrs.textAnchor : positionAttrs.textAnchor,
     breakAll: textBreakAll
   }), label));
@@ -21780,8 +20693,6 @@ function PolarLabelFromLabelProp(_ref4) {
   var viewBox = usePolarLabelContext();
   return parseLabel(label, viewBox) || null;
 }
-
-// node_modules/recharts/es6/component/LabelList.js
 var React18 = __toESM(require_react());
 var import_react25 = __toESM(require_react());
 var import_last = __toESM(require_last3());
@@ -21855,12 +20766,6 @@ function LabelList(_ref2) {
     return React18.createElement(Label, _extends15({
       key: "label-".concat(index2)
     }, svgPropertiesAndEvents(entry), others, idProps, {
-      /*
-       * Prefer to use the explicit fill from LabelList props.
-       * Only in an absence of that, fall back to the fill of the entry.
-       * The entry fill can be quite difficult to see especially in Bar, Pie, RadialBar in inside positions.
-       * On the other hand it's quite convenient in Scatter, Line, or when the position is outside the Bar, Pie filled shapes.
-       */
       fill: (_restProps$fill = restProps.fill) !== null && _restProps$fill !== void 0 ? _restProps$fill : entry.fill,
       parentViewBox: entry.parentViewBox,
       value,
@@ -21899,8 +20804,6 @@ function LabelListFromLabelProp(_ref2) {
   }
   return null;
 }
-
-// node_modules/recharts/es6/component/Customized.js
 var React19 = __toESM(require_react());
 var import_react26 = __toESM(require_react());
 var _excluded11 = ["component"];
@@ -21939,8 +20842,6 @@ function Customized(_ref2) {
   }, child);
 }
 Customized.displayName = "Customized";
-
-// node_modules/recharts/es6/shape/Polygon.js
 var React20 = __toESM(require_react());
 var _excluded12 = ["points", "className", "baseLinePoints", "connectNulls"];
 var _templateObject11;
@@ -22054,8 +20955,6 @@ var Polygon = (props) => {
     d: singlePath
   }));
 };
-
-// node_modules/recharts/es6/shape/Dot.js
 var React21 = __toESM(require_react());
 function _extends17() {
   return _extends17 = Object.assign ? Object.assign.bind() : function(n) {
@@ -22084,11 +20983,7 @@ var Dot = (props) => {
   }
   return null;
 };
-
-// node_modules/recharts/es6/polar/PolarGrid.js
 var React22 = __toESM(require_react());
-
-// node_modules/recharts/es6/state/selectors/polarSelectors.js
 var selectUnfilteredPolarItems = (state) => state.graphicalItems.polarItems;
 var selectAxisPredicate2 = createSelector([pickAxisType, pickAxisId], itemAxisPredicate);
 var selectPolarItemsSettings = createSelector([selectUnfilteredPolarItems, selectBaseAxis, selectAxisPredicate2], combineGraphicalItemsSettings);
@@ -22104,7 +20999,6 @@ var selectAllPolarAppliedNumericalValues = createSelector([selectPolarDisplayedD
         return {
           value: valueByDataKey,
           errorDomain: []
-          // polar charts do not have error bars
         };
       });
     }).filter(Boolean);
@@ -22127,8 +21021,6 @@ var selectPolarAxisDomain = createSelector([selectBaseAxis, selectChartLayout, s
 var selectPolarNiceTicks = createSelector([selectPolarAxisDomain, selectRenderableAxisSettings, selectRealScaleType], combineNiceTicks);
 var selectPolarAxisDomainIncludingNiceTicks = createSelector([selectBaseAxis, selectPolarAxisDomain, selectPolarNiceTicks, pickAxisType], combineAxisDomainWithNiceTicks);
 var selectPolarAxisCheckedDomain = createSelector([selectRealScaleType, selectPolarAxisDomainIncludingNiceTicks], combineCheckedDomain);
-
-// node_modules/recharts/es6/state/selectors/polarScaleSelectors.js
 var selectPolarAxis = (state, axisType, axisId) => {
   switch (axisType) {
     case "angleAxis": {
@@ -22162,7 +21054,7 @@ var selectPolarAngleAxisTicks = createSelector([selectPolarAxisTicks], (ticks2) 
   if (!ticks2) {
     return void 0;
   }
-  var uniqueTicksMap = /* @__PURE__ */ new Map();
+  var uniqueTicksMap =  new Map();
   ticks2.forEach((tick) => {
     var normalizedCoordinate = (tick.coordinate + 360) % 360;
     if (!uniqueTicksMap.has(normalizedCoordinate)) {
@@ -22172,8 +21064,6 @@ var selectPolarAngleAxisTicks = createSelector([selectPolarAxisTicks], (ticks2) 
   return Array.from(uniqueTicksMap.values());
 });
 var selectPolarGraphicalItemAxisTicks = createSelector([selectChartLayout, selectPolarAxis, selectPolarAxisScale, selectPolarAxisRangeWithReversed, selectDuplicateDomain, selectPolarCategoricalDomain, pickAxisType], combineGraphicalItemTicks);
-
-// node_modules/recharts/es6/state/selectors/polarGridSelectors.js
 var selectAngleAxisTicks = (state, anglexisId) => selectPolarAxisTicks(state, "angleAxis", anglexisId, false);
 var selectPolarGridAngles = createSelector([selectAngleAxisTicks], (ticks2) => {
   if (!ticks2) {
@@ -22188,8 +21078,6 @@ var selectPolarGridRadii = createSelector([selectRadiusAxisTicks], (ticks2) => {
   }
   return ticks2.map((tick) => tick.coordinate);
 });
-
-// node_modules/recharts/es6/polar/PolarGrid.js
 var _excluded13 = ["gridType", "radialLines", "angleAxisId", "radiusAxisId", "cx", "cy", "innerRadius", "outerRadius", "polarAngles", "polarRadius", "zIndex"];
 function _objectWithoutProperties13(e, t) {
   if (null == e) return {};
@@ -22310,7 +21198,6 @@ var ConcentricCircle = (props) => {
     fill: "none"
   }, svgPropertiesNoEvents(props));
   return (
-    // @ts-expect-error wrong SVG element type
     React22.createElement("circle", _extends18({}, concentricCircleProps, {
       className: clsx("recharts-polar-grid-concentric-circle", props.className),
       cx,
@@ -22430,14 +21317,10 @@ var PolarGrid = (outsideProps) => {
   }))));
 };
 PolarGrid.displayName = "PolarGrid";
-
-// node_modules/recharts/es6/polar/PolarRadiusAxis.js
 var React23 = __toESM(require_react());
 var import_react27 = __toESM(require_react());
 var import_maxBy = __toESM(require_maxBy3());
 var import_minBy = __toESM(require_minBy3());
-
-// node_modules/recharts/es6/state/polarAxisSlice.js
 var initialState6 = {
   radiusAxis: {},
   angleAxis: {}
@@ -22467,16 +21350,12 @@ var {
   removeAngleAxis
 } = polarAxisSlice.actions;
 var polarAxisReducer = polarAxisSlice.reducer;
-
-// node_modules/recharts/es6/util/getClassNameFromUnknown.js
 function getClassNameFromUnknown(u) {
   if (u && typeof u === "object" && "className" in u && typeof u.className === "string") {
     return u.className;
   }
   return "";
 }
-
-// node_modules/recharts/es6/polar/PolarRadiusAxis.js
 var _excluded14 = ["type"];
 var _excluded26 = ["cx", "cy", "angle", "axisLine"];
 var _excluded32 = ["angle", "tickFormatter", "stroke", "tick"];
@@ -22719,8 +21598,6 @@ function PolarRadiusAxis(outsideProps) {
   }), React23.createElement(PolarRadiusAxisWrapper, props));
 }
 PolarRadiusAxis.displayName = "PolarRadiusAxis";
-
-// node_modules/recharts/es6/polar/PolarAngleAxis.js
 var React24 = __toESM(require_react());
 var import_react28 = __toESM(require_react());
 var _excluded15 = ["children", "type"];
@@ -22928,12 +21805,9 @@ var Ticks = (props) => {
     var textAnchor = getTickTextAnchor2(entry, props.orientation);
     var verticalAnchor = getTickTextVerticalAnchor(entry);
     var tickProps = _objectSpread31(_objectSpread31(_objectSpread31({}, axisProps), {}, {
-      // @ts-expect-error customTickProps is contributing unknown props
       textAnchor,
       verticalAnchor,
-      // @ts-expect-error customTickProps is contributing unknown props
       stroke: "none",
-      // @ts-expect-error customTickProps is contributing unknown props
       fill: stroke
     }, customTickProps), {}, {
       index: i,
@@ -23000,13 +21874,9 @@ function PolarAngleAxis(outsideProps) {
   }, React24.createElement(PolarAngleAxisWrapper, props));
 }
 PolarAngleAxis.displayName = "PolarAngleAxis";
-
-// node_modules/recharts/es6/polar/Pie.js
 var React29 = __toESM(require_react());
 var import_react36 = __toESM(require_react());
 var import_get4 = __toESM(require_get2());
-
-// node_modules/recharts/es6/state/selectors/pieSelectors.js
 function ownKeys32(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -23093,7 +21963,6 @@ var selectPieLegend = createSelector([selectDisplayedData2, selectSynchronisedPi
     return {
       value: getTooltipNameProp(name, pieSettings.dataKey),
       color: color2,
-      // @ts-expect-error we need a better typing for our data inputs
       payload: entry,
       type: pieSettings.legendType
     };
@@ -23110,8 +21979,6 @@ var selectPieSectors = createSelector([selectDisplayedData2, selectSynchronisedP
     cells
   });
 });
-
-// node_modules/recharts/es6/util/ReactUtils.js
 var import_get3 = __toESM(require_get2());
 var import_react29 = __toESM(require_react());
 var import_react_is = __toESM(require_react_is());
@@ -23165,13 +22032,9 @@ var isClipDot = (dot) => {
   }
   return true;
 };
-
-// node_modules/recharts/es6/util/ActiveShapeUtils.js
 var React26 = __toESM(require_react());
 var import_react31 = __toESM(require_react());
 var import_isPlainObject = __toESM(require_isPlainObject2());
-
-// node_modules/recharts/es6/shape/Trapezoid.js
 var React25 = __toESM(require_react());
 var import_react30 = __toESM(require_react());
 var _templateObject12;
@@ -23338,8 +22201,6 @@ var Trapezoid = (outsideProps) => {
     }));
   });
 };
-
-// node_modules/recharts/es6/util/ActiveShapeUtils.js
 var _excluded16 = ["option", "shapeType", "activeClassName"];
 function _objectWithoutProperties16(e, t) {
   if (null == e) return {};
@@ -23463,8 +22324,6 @@ function Shape(_ref2) {
   }
   return shape;
 }
-
-// node_modules/recharts/es6/context/tooltipContext.js
 var useMouseEnterItemDispatch = (onMouseEnterFromProps, dataKey, graphicalItemId) => {
   var dispatch = useAppDispatch();
   return (data, index2) => (event) => {
@@ -23496,8 +22355,6 @@ var useMouseClickItemDispatch = (onMouseClickFromProps, dataKey, graphicalItemId
     }));
   };
 };
-
-// node_modules/recharts/es6/state/SetTooltipEntrySettings.js
 var import_react32 = __toESM(require_react());
 function SetTooltipEntrySettings(_ref2) {
   var {
@@ -23530,8 +22387,6 @@ function SetTooltipEntrySettings(_ref2) {
   }, [dispatch]);
   return null;
 }
-
-// node_modules/recharts/es6/state/SetLegendPayload.js
 var import_react33 = __toESM(require_react());
 function SetLegendPayload(_ref2) {
   var {
@@ -23595,12 +22450,8 @@ function SetPolarLegendPayload(_ref2) {
   }, [dispatch]);
   return null;
 }
-
-// node_modules/recharts/es6/context/RegisterGraphicalItemId.js
 var React28 = __toESM(require_react());
 var import_react34 = __toESM(require_react());
-
-// node_modules/recharts/es6/util/useId.js
 var React27 = __toESM(require_react());
 var _ref;
 var useIdFallback = () => {
@@ -23608,8 +22459,6 @@ var useIdFallback = () => {
   return id;
 };
 var useId = (_ref = React27["useId".toString()]) !== null && _ref !== void 0 ? _ref : useIdFallback;
-
-// node_modules/recharts/es6/util/useUniqueId.js
 function useUniqueId(prefix2, customId) {
   var generatedId = useId();
   if (customId) {
@@ -23617,8 +22466,6 @@ function useUniqueId(prefix2, customId) {
   }
   return prefix2 ? "".concat(prefix2, "-").concat(generatedId) : generatedId;
 }
-
-// node_modules/recharts/es6/context/RegisterGraphicalItemId.js
 var GraphicalItemIdContext = (0, import_react34.createContext)(void 0);
 var RegisterGraphicalItemId = (_ref2) => {
   var {
@@ -23634,11 +22481,7 @@ var RegisterGraphicalItemId = (_ref2) => {
 function useGraphicalItemId() {
   return (0, import_react34.useContext)(GraphicalItemIdContext);
 }
-
-// node_modules/recharts/es6/state/SetGraphicalItem.js
 var import_react35 = __toESM(require_react());
-
-// node_modules/recharts/es6/state/graphicalItemsSlice.js
 var initialState7 = {
   cartesianItems: [],
   polarItems: []
@@ -23700,8 +22543,6 @@ var {
   removePolarGraphicalItem
 } = graphicalItemsSlice.actions;
 var graphicalItemsReducer = graphicalItemsSlice.reducer;
-
-// node_modules/recharts/es6/state/SetGraphicalItem.js
 var SetCartesianGraphicalItemImpl = (props) => {
   var dispatch = useAppDispatch();
   var prevPropsRef = (0, import_react35.useRef)(null);
@@ -23737,8 +22578,6 @@ function SetPolarGraphicalItem(props) {
   }, [dispatch, props]);
   return null;
 }
-
-// node_modules/recharts/es6/polar/Pie.js
 var _excluded17 = ["key"];
 var _excluded27 = ["onMouseEnter", "onClick", "onMouseLeave"];
 var _excluded33 = ["id"];
@@ -23848,7 +22687,6 @@ var SetPieTooltipEntrySettings = React29.memo((_ref2) => {
       type: tooltipType,
       color: fill,
       unit: "",
-      // why doesn't Pie support unit?
       graphicalItemId: id
     }
   };
@@ -23952,16 +22790,13 @@ function PieLabels(_ref2) {
     var midAngle = (entry.startAngle + entry.endAngle) / 2;
     var endPoint = polarToCartesian(entry.cx, entry.cy, entry.outerRadius + offsetRadius, midAngle);
     var labelProps = _objectSpread35(_objectSpread35(_objectSpread35(_objectSpread35({}, pieProps), entry), {}, {
-      // @ts-expect-error customLabelProps is contributing unknown props
       stroke: "none"
     }, customLabelProps), {}, {
       index: i,
       textAnchor: getTextAnchor(endPoint.x, entry.cx)
     }, endPoint);
     var lineProps = _objectSpread35(_objectSpread35(_objectSpread35(_objectSpread35({}, pieProps), entry), {}, {
-      // @ts-expect-error customLabelLineProps is contributing unknown props
       fill: "none",
-      // @ts-expect-error customLabelLineProps is contributing unknown props
       stroke: entry.fill
     }, customLabelLineProps), {}, {
       index: i,
@@ -24037,7 +22872,6 @@ function PieSectors(props) {
       tabIndex: -1,
       className: "recharts-pie-sector"
     }, adaptEventsOfChild(restOfAllOtherProps, entry, i), {
-      // @ts-expect-error the types need a bit of attention
       onMouseEnter: onMouseEnterFromContext(entry, i),
       onMouseLeave: onMouseLeaveFromContext(entry, i),
       onClick: onClickFromContext(entry, i)
@@ -24352,13 +23186,9 @@ function Pie(outsideProps) {
   }))));
 }
 Pie.displayName = "Pie";
-
-// node_modules/recharts/es6/polar/Radar.js
 var React32 = __toESM(require_react());
 var import_react39 = __toESM(require_react());
 var import_last2 = __toESM(require_last3());
-
-// node_modules/recharts/es6/component/Dots.js
 var React30 = __toESM(require_react());
 var import_react37 = __toESM(require_react());
 var _excluded18 = ["points"];
@@ -24503,12 +23333,8 @@ function Dots(_ref3) {
     className
   }, layerProps), dots));
 }
-
-// node_modules/recharts/es6/component/ActivePoints.js
 var React31 = __toESM(require_react());
 var import_react38 = __toESM(require_react());
-
-// node_modules/recharts/es6/state/cartesianAxisSlice.js
 function ownKeys37(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -24672,8 +23498,6 @@ var {
   updateYAxisWidth
 } = cartesianAxisSlice.actions;
 var cartesianAxisReducer = cartesianAxisSlice.reducer;
-
-// node_modules/recharts/es6/state/selectors/selectChartOffset.js
 var selectChartOffset = createSelector([selectChartOffsetInternal], (offsetInternal) => {
   return {
     top: offsetInternal.top,
@@ -24682,8 +23506,6 @@ var selectChartOffset = createSelector([selectChartOffsetInternal], (offsetInter
     right: offsetInternal.right
   };
 });
-
-// node_modules/recharts/es6/state/selectors/selectPlotArea.js
 var selectPlotArea = createSelector([selectChartOffset, selectChartWidth, selectChartHeight], (offset, chartWidth, chartHeight) => {
   if (!offset || chartWidth == null || chartHeight == null) {
     return void 0;
@@ -24695,8 +23517,6 @@ var selectPlotArea = createSelector([selectChartOffset, selectChartWidth, select
     height: Math.max(0, chartHeight - offset.top - offset.bottom)
   };
 });
-
-// node_modules/recharts/es6/hooks.js
 var useXAxis = (xAxisId) => {
   var isPanorama = useIsPanorama();
   return useAppSelector((state) => selectAxisWithScale(state, "xAxis", xAxisId, isPanorama));
@@ -24741,8 +23561,6 @@ var useActiveTooltipCoordinate = () => {
     y: coordinate.y
   };
 };
-
-// node_modules/recharts/es6/component/ActivePoints.js
 function ownKeys38(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -24848,8 +23666,6 @@ function ActivePoints(_ref2) {
     clipPath
   }));
 }
-
-// node_modules/recharts/es6/state/selectors/radarSelectors.js
 function ownKeys39(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -24965,8 +23781,6 @@ var selectRadarPoints = createSelector([selectRadiusAxisForRadar, selectAngleAxi
     bandSize
   });
 });
-
-// node_modules/recharts/es6/polar/Radar.js
 var _excluded19 = ["id"];
 function _extends24() {
   return _extends24 = Object.assign ? Object.assign.bind() : function(n) {
@@ -25066,12 +23880,6 @@ var SetRadarTooltipEntrySettings = React32.memo((_ref2) => {
     id
   } = _ref2;
   var tooltipEntrySettings = {
-    /*
-     * I suppose this here _could_ return props.points
-     * because while Radar does not support item tooltip mode, it _could_ support it.
-     * But when I actually do return the points here, a defaultIndex test starts failing.
-     * So, undefined it is.
-     */
     dataDefinedOnItem: void 0,
     getPosition: noop,
     settings: {
@@ -25079,14 +23887,12 @@ var SetRadarTooltipEntrySettings = React32.memo((_ref2) => {
       strokeWidth,
       fill,
       nameKey: void 0,
-      // RadarChart does not have nameKey unfortunately
       dataKey,
       name: getTooltipNameProp(name, dataKey),
       hide,
       type: tooltipType,
       color: getLegendItemColor(stroke, fill),
       unit: "",
-      // why doesn't Radar support unit?
       graphicalItemId: id
     }
   };
@@ -25142,9 +23948,7 @@ function computeRadarPoints(_ref3) {
       isRange = true;
     }
     points.push(_objectSpread40(_objectSpread40({}, polarToCartesian(cx, cy, radius, angle)), {}, {
-      // @ts-expect-error getValueByDataKey does not validate the output type
       name,
-      // @ts-expect-error getValueByDataKey does not validate the output type
       value,
       cx,
       cy,
@@ -25418,12 +24222,8 @@ function Radar(outsideProps) {
   }))));
 }
 Radar.displayName = "Radar";
-
-// node_modules/recharts/es6/polar/RadialBar.js
 var React34 = __toESM(require_react());
 var import_react40 = __toESM(require_react());
-
-// node_modules/recharts/es6/util/RadialBarUtils.js
 var React33 = __toESM(require_react());
 function _extends25() {
   return _extends25 = Object.assign ? Object.assign.bind() : function(n) {
@@ -25445,8 +24245,6 @@ function RadialBarSector(props) {
     shapeType: "sector"
   }, props));
 }
-
-// node_modules/recharts/es6/state/selectors/combiners/combineBarSizeList.js
 var getBarSize = (globalSize, totalSize, selfSize) => {
   var barSize = selfSize !== null && selfSize !== void 0 ? selfSize : globalSize;
   if (isNullish(barSize)) {
@@ -25489,8 +24287,6 @@ var combineBarSizeList = (allBars, globalSize, totalSize) => {
   });
   return [...stackedSizeList, ...unstackedSizeList];
 };
-
-// node_modules/recharts/es6/state/selectors/combiners/combineAllBarPositions.js
 function ownKeys41(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -25604,8 +24400,6 @@ var combineAllBarPositions = (sizeList, globalMaxBarSize, barGap, barCategoryGap
   }
   return allBarPositions;
 };
-
-// node_modules/recharts/es6/state/selectors/combiners/combineStackedData.js
 var combineStackedData = (stackGroups, barSettings) => {
   var stackSeriesIdentifier = getStackSeriesIdentifier(barSettings);
   if (!stackGroups || stackSeriesIdentifier == null || barSettings == null) {
@@ -25629,8 +24423,6 @@ var combineStackedData = (stackGroups, barSettings) => {
   }
   return stackedData.find((sd) => sd.key === stackSeriesIdentifier);
 };
-
-// node_modules/recharts/es6/state/selectors/combiners/combineBarPosition.js
 var combineBarPosition = (allBarPositions, barSettings) => {
   if (allBarPositions == null || barSettings == null) {
     return void 0;
@@ -25641,8 +24433,6 @@ var combineBarPosition = (allBarPositions, barSettings) => {
   }
   return position2.position;
 };
-
-// node_modules/recharts/es6/state/selectors/radialBarSelectors.js
 function ownKeys42(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -25826,25 +24616,18 @@ var selectRadialBarLegendPayload = createSelector([selectChartDataAndAlwaysIgnor
   return displayedData.map((entry) => {
     return {
       type: legendType,
-      // @ts-expect-error we need a better typing for our data inputs
       value: entry.name,
-      // @ts-expect-error we need a better typing for our data inputs
       color: entry.fill,
-      // @ts-expect-error we need a better typing for our data inputs
       payload: entry
     };
   });
 });
-
-// node_modules/recharts/es6/zIndex/getZIndexFromUnknown.js
 function getZIndexFromUnknown(input, defaultZIndex) {
   if (input && typeof input === "object" && "zIndex" in input && typeof input.zIndex === "number" && isWellBehavedNumber(input.zIndex)) {
     return input.zIndex;
   }
   return defaultZIndex;
 }
-
-// node_modules/recharts/es6/polar/RadialBar.js
 var _excluded20 = ["shape", "activeShape", "cornerRadius", "id"];
 var _excluded28 = ["onMouseEnter", "onClick", "onMouseLeave"];
 var _excluded34 = ["value", "background"];
@@ -26097,14 +24880,12 @@ var SetRadialBarTooltipEntrySettings = React34.memo((_ref4) => {
       strokeWidth,
       fill,
       nameKey: void 0,
-      // RadialBar does not have nameKey, why?
       dataKey,
       name: getTooltipNameProp(name, dataKey),
       hide,
       type: tooltipType,
       color: fill,
       unit: ""
-      // Why does RadialBar not support unit?
     }
   };
   return React34.createElement(SetTooltipEntrySettings, {
@@ -26133,7 +24914,6 @@ var RadialBarWithState = class extends import_react40.PureComponent {
       var props = _objectSpread43(_objectSpread43(_objectSpread43(_objectSpread43(_objectSpread43({
         cornerRadius: parseCornerRadius(cornerRadius)
       }, rest), {}, {
-        // @ts-expect-error backgroundProps is contributing unknown props
         fill: "#eee"
       }, background), backgroundProps), adaptEventsOfChild(this.props, entry, i)), {}, {
         index: i,
@@ -26309,7 +25089,6 @@ function computeRadialBarDataItems(_ref5) {
       innerRadius,
       outerRadius,
       startAngle,
-      // @ts-expect-error endAngle is used before assigned (?)
       endAngle
     }, cells && cells[index2] && cells[index2].props);
   });
@@ -26339,13 +25118,9 @@ function RadialBar(outsideProps) {
   });
 }
 RadialBar.displayName = "RadialBar";
-
-// node_modules/recharts/es6/cartesian/Brush.js
 var React35 = __toESM(require_react());
 var import_react43 = __toESM(require_react());
 var import_range3 = __toESM(require_range2());
-
-// node_modules/recharts/es6/util/CssPrefixUtils.js
 function ownKeys44(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -26396,8 +25171,6 @@ var generatePrefixStyle = (name, value) => {
   result[name] = value;
   return result;
 };
-
-// node_modules/recharts/es6/context/chartDataContext.js
 var import_react41 = __toESM(require_react());
 var ChartDataContextProvider = (props) => {
   var {
@@ -26445,13 +25218,9 @@ var selectDataIndex = (state) => {
 var useDataIndex = () => {
   return useAppSelector(selectDataIndex);
 };
-
-// node_modules/recharts/es6/context/brushUpdateContext.js
 var import_react42 = __toESM(require_react());
 var BrushUpdateDispatchContext = (0, import_react42.createContext)(() => {
 });
-
-// node_modules/recharts/es6/state/brushSlice.js
 var initialState9 = {
   x: 0,
   y: 0,
@@ -26480,8 +25249,6 @@ var {
   setBrushSettings
 } = brushSlice.actions;
 var brushReducer = brushSlice.reducer;
-
-// node_modules/recharts/es6/cartesian/Brush.js
 function _extends27() {
   return _extends27 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
@@ -26939,7 +25706,6 @@ var BrushWithState = class extends import_react43.PureComponent {
         return;
       }
       this.setState(
-        // @ts-expect-error not sure why typescript is not happy with this, partial update is fine in React
         {
           [id]: newScaleValue
         },
@@ -27144,7 +25910,6 @@ var BrushWithState = class extends import_react43.PureComponent {
       return false;
     };
     this.setState(
-      // @ts-expect-error not sure why typescript is not happy with this, partial update is fine in React
       {
         [movingTravellerId]: prevValue + delta,
         brushMoveStartX: e.pageX
@@ -27373,12 +26138,8 @@ function Brush(outsideProps) {
   }), React35.createElement(BrushInternal, props));
 }
 Brush.displayName = "Brush";
-
-// node_modules/recharts/es6/cartesian/ReferenceLine.js
 var React37 = __toESM(require_react());
 var import_react45 = __toESM(require_react());
-
-// node_modules/recharts/es6/util/CartesianUtils.js
 var rectWithPoints = (_ref2, _ref22) => {
   var {
     x: x1,
@@ -27425,8 +26186,6 @@ var getAngledRectangleWidth = function getAngledRectangleWidth2(_ref4) {
   var angledWidth = angleRadians > angleThreshold && angleRadians < Math.PI - angleThreshold ? height / Math.sin(angleRadians) : width / Math.cos(angleRadians);
   return Math.abs(angledWidth);
 };
-
-// node_modules/recharts/es6/state/referenceElementsSlice.js
 var initialState10 = {
   dots: [],
   areas: [],
@@ -27474,8 +26233,6 @@ var {
   removeLine
 } = referenceElementsSlice.actions;
 var referenceElementsReducer = referenceElementsSlice.reducer;
-
-// node_modules/recharts/es6/container/ClipPathProvider.js
 var React36 = __toESM(require_react());
 var import_react44 = __toESM(require_react());
 var ClipPathIdContext = (0, import_react44.createContext)(void 0);
@@ -27508,8 +26265,6 @@ var ClipPathProvider = (_ref2) => {
 var useClipPathId = () => {
   return (0, import_react44.useContext)(ClipPathIdContext);
 };
-
-// node_modules/recharts/es6/util/scale/CartesianScaleHelper.js
 var CartesianScaleHelperImpl = class {
   constructor(_ref2) {
     var {
@@ -27573,8 +26328,6 @@ var CartesianScaleHelperImpl = class {
     return xInRange && yInRange;
   }
 };
-
-// node_modules/recharts/es6/cartesian/ReferenceLine.js
 function ownKeys46(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -27815,8 +26568,6 @@ function ReferenceLine(outsideProps) {
   }), React37.createElement(ReferenceLineImpl, props));
 }
 ReferenceLine.displayName = "ReferenceLine";
-
-// node_modules/recharts/es6/cartesian/ReferenceDot.js
 var React38 = __toESM(require_react());
 var import_react46 = __toESM(require_react());
 function ownKeys47(e, r) {
@@ -27989,8 +26740,6 @@ function ReferenceDot(outsideProps) {
   }), React38.createElement(ReferenceDotImpl, props));
 }
 ReferenceDot.displayName = "ReferenceDot";
-
-// node_modules/recharts/es6/cartesian/ReferenceArea.js
 var React39 = __toESM(require_react());
 var import_react47 = __toESM(require_react());
 function ownKeys48(e, r) {
@@ -28168,13 +26917,9 @@ function ReferenceArea(outsideProps) {
   }), React39.createElement(ReferenceAreaImpl, props));
 }
 ReferenceArea.displayName = "ReferenceArea";
-
-// node_modules/recharts/es6/cartesian/CartesianAxis.js
 var React40 = __toESM(require_react());
 var import_react48 = __toESM(require_react());
 var import_get5 = __toESM(require_get2());
-
-// node_modules/recharts/es6/util/getEveryNth.js
 function getEveryNth(array2, n) {
   if (n < 1) {
     return [];
@@ -28191,8 +26936,6 @@ function getEveryNth(array2, n) {
   }
   return result;
 }
-
-// node_modules/recharts/es6/util/TickUtils.js
 function getAngledTickWidth(contentSize, unitSize, angle) {
   var size = {
     width: contentSize.width + unitSize.width,
@@ -28229,8 +26972,6 @@ function isVisible(sign2, tickPosition, getSize, start, end) {
 function getNumberIntervalTicks(ticks2, interval) {
   return getEveryNth(ticks2, interval + 1);
 }
-
-// node_modules/recharts/es6/cartesian/getEquidistantTicks.js
 function getEquidistantTicks(sign2, boundaries, getTickSize, ticks2, minTickGap) {
   var result = (ticks2 || []).slice();
   var {
@@ -28328,8 +27069,6 @@ function getEquidistantPreserveEndTicks(sign2, boundaries, getTickSize, ticks2, 
   }
   return [];
 }
-
-// node_modules/recharts/es6/cartesian/getTicks.js
 function ownKeys49(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -28535,14 +27274,11 @@ function getTicks(props, fontSize, letterSpacing) {
   }
   return candidates.filter((entry) => entry.isShow);
 }
-
-// node_modules/recharts/es6/util/YAxisUtils.js
 var getCalculatedYAxisWidth = (_ref2) => {
   var {
     ticks: ticks2,
     label,
     labelGapWithTick = 5,
-    // Default gap between label and tick
     tickSize = 0,
     tickMargin = 0
   } = _ref2;
@@ -28563,8 +27299,6 @@ var getCalculatedYAxisWidth = (_ref2) => {
   }
   return 0;
 };
-
-// node_modules/recharts/es6/cartesian/CartesianAxis.js
 var _excluded21 = ["axisLine", "width", "height", "className", "hide", "ticks", "axisType"];
 function _objectWithoutProperties21(e, t) {
   if (null == e) return {};
@@ -28642,9 +27376,7 @@ var defaultCartesianAxisProps = {
     width: 0,
     height: 0
   },
-  // The orientation of axis
   orientation: "bottom",
-  // The ticks
   ticks: [],
   stroke: "#666",
   tickLine: true,
@@ -28652,7 +27384,6 @@ var defaultCartesianAxisProps = {
   tick: true,
   mirror: false,
   minTickGap: 5,
-  // The width or height of tick
   tickSize: 6,
   tickMargin: 2,
   interval: "preserveEnd",
@@ -28989,8 +27720,6 @@ var CartesianAxis = React40.forwardRef((outsideProps, ref) => {
   }));
 });
 CartesianAxis.displayName = "CartesianAxis";
-
-// node_modules/recharts/es6/cartesian/CartesianGrid.js
 var React41 = __toESM(require_react());
 var _excluded29 = ["x1", "y1", "x2", "y2", "key"];
 var _excluded210 = ["offset"];
@@ -29308,13 +28037,10 @@ var defaultHorizontalCoordinatesGenerator = (_ref4, syncWithTicks) => {
 var defaultCartesianGridProps = {
   horizontal: true,
   vertical: true,
-  // The ordinates of horizontal grid lines
   horizontalPoints: [],
-  // The abscissas of vertical grid lines
   verticalPoints: [],
   stroke: "#ccc",
   fill: "none",
-  // The fill of colors of grid lines
   verticalFill: [],
   horizontalFill: [],
   xAxisId: 0,
@@ -29414,16 +28140,10 @@ function CartesianGrid(props) {
   }))));
 }
 CartesianGrid.displayName = "CartesianGrid";
-
-// node_modules/recharts/es6/cartesian/Line.js
 var React45 = __toESM(require_react());
 var import_react50 = __toESM(require_react());
-
-// node_modules/recharts/es6/context/ErrorBarContext.js
 var React42 = __toESM(require_react());
 var import_react49 = __toESM(require_react());
-
-// node_modules/recharts/es6/state/errorBarSlice.js
 var initialState11 = {};
 var errorBarSlice = createSlice({
   name: "errorBars",
@@ -29466,8 +28186,6 @@ var {
   removeErrorBar
 } = errorBarSlice.actions;
 var errorBarReducer = errorBarSlice.reducer;
-
-// node_modules/recharts/es6/context/ErrorBarContext.js
 var _excluded30 = ["children"];
 function _objectWithoutProperties23(e, t) {
   if (null == e) return {};
@@ -29543,8 +28261,6 @@ function ReportErrorBarSettings(props) {
   }, [dispatch, graphicalItemId]);
   return null;
 }
-
-// node_modules/recharts/es6/cartesian/GraphicalItemClipPath.js
 var React43 = __toESM(require_react());
 function useNeedsClip(xAxisId, yAxisId) {
   var _xAxis$allowDataOverf, _yAxis$allowDataOverf;
@@ -29589,8 +28305,6 @@ function GraphicalItemClipPath(_ref2) {
     height: needClipY ? height : height * 2
   }));
 }
-
-// node_modules/recharts/es6/state/selectors/lineSelectors.js
 var selectXAxisWithScale = (state, xAxisId, _yAxisId, isPanorama) => selectAxisWithScale(state, "xAxis", xAxisId, isPanorama);
 var selectXAxisTicks = (state, xAxisId, _yAxisId, isPanorama) => selectTicksOfGraphicalItem(state, "xAxis", xAxisId, isPanorama);
 var selectYAxisWithScale = (state, _xAxisId, yAxisId, isPanorama) => selectAxisWithScale(state, "yAxis", yAxisId, isPanorama);
@@ -29639,8 +28353,6 @@ var selectLinePoints = createSelector([selectChartLayout, selectXAxisWithScale, 
     displayedData
   });
 });
-
-// node_modules/recharts/es6/util/getRadiusAndStrokeWidthFromDot.js
 function getRadiusAndStrokeWidthFromDot(dot) {
   var props = svgPropertiesNoEventsFromUnknown(dot);
   var defaultR = 3;
@@ -29668,13 +28380,11 @@ function getRadiusAndStrokeWidthFromDot(dot) {
     strokeWidth: defaultStrokeWidth
   };
 }
-
-// node_modules/react-redux/dist/react-redux.mjs
 var React44 = __toESM(require_react(), 1);
 var import_with_selector2 = __toESM(require_with_selector2(), 1);
 var IS_REACT_19 = React44.version.startsWith("19");
-var REACT_FORWARD_REF_TYPE = /* @__PURE__ */ Symbol.for("react.forward_ref");
-var REACT_MEMO_TYPE = /* @__PURE__ */ Symbol.for("react.memo");
+var REACT_FORWARD_REF_TYPE =  Symbol.for("react.forward_ref");
+var REACT_MEMO_TYPE =  Symbol.for("react.memo");
 var ForwardRef = REACT_FORWARD_REF_TYPE;
 var Memo = REACT_MEMO_TYPE;
 function defaultNoopBatch(callback) {
@@ -29855,14 +28565,13 @@ var TYPE_STATICS = {
   [Memo]: MEMO_STATICS
 };
 var objectPrototype = Object.prototype;
-var ContextKey = /* @__PURE__ */ Symbol.for(`react-redux-context`);
+var ContextKey =  Symbol.for(`react-redux-context`);
 var gT = typeof globalThis !== "undefined" ? globalThis : (
-  /* fall back to a per-module scope (pre-8.1 behaviour) if `globalThis` is not available */
   {}
 );
 function getContext() {
   if (!React44.createContext) return {};
-  const contextMap = gT[ContextKey] ??= /* @__PURE__ */ new Map();
+  const contextMap = gT[ContextKey] ??=  new Map();
   let realContext = contextMap.get(React44.createContext);
   if (!realContext) {
     realContext = React44.createContext(
@@ -29926,7 +28635,6 @@ function createReduxContextHook(context = ReactReduxContext) {
 var useReduxContext = createReduxContextHook();
 function createStoreHook(context = ReactReduxContext) {
   const useReduxContext2 = context === ReactReduxContext ? useReduxContext : (
-    // @ts-ignore
     createReduxContextHook(context)
   );
   const useStore2 = () => {
@@ -30046,9 +28754,7 @@ function createSelectorHook(context = ReactReduxContext) {
   return useSelector2;
 }
 var useSelector = createSelectorHook();
-
-// node_modules/recharts/es6/util/propsAreEqual.js
-var propsToShallowCompare = /* @__PURE__ */ new Set([
+var propsToShallowCompare =  new Set([
   "axisLine",
   "tickLine",
   "activeBar",
@@ -30068,7 +28774,6 @@ var propsToShallowCompare = /* @__PURE__ */ new Set([
   "style",
   "tick",
   "wrapperStyle",
-  // radius can be an array of 4 numbers, easy to compare shallowly
   "radius"
 ]);
 function sameValueZero(x2, y2) {
@@ -30081,7 +28786,7 @@ function sameValueZero(x2, y2) {
   return x2 === y2;
 }
 function propsAreEqual(prevProps, nextProps) {
-  var allKeys = /* @__PURE__ */ new Set([...Object.keys(prevProps), ...Object.keys(nextProps)]);
+  var allKeys =  new Set([...Object.keys(prevProps), ...Object.keys(nextProps)]);
   for (var key of allKeys) {
     if (propsToShallowCompare.has(key)) {
       if (prevProps[key] == null && nextProps[key] == null) {
@@ -30096,8 +28801,6 @@ function propsAreEqual(prevProps, nextProps) {
   }
   return true;
 }
-
-// node_modules/recharts/es6/cartesian/Line.js
 var _excluded31 = ["id"];
 var _excluded211 = ["type", "layout", "connectNulls", "needClip", "shape"];
 var _excluded36 = ["activeDot", "animateNewValues", "animationBegin", "animationDuration", "animationEasing", "connectNulls", "dot", "hide", "isAnimationActive", "label", "legendType", "xAxisId", "yAxisId", "id"];
@@ -30295,10 +28998,6 @@ function LineLabelListProvider(_ref3) {
         value: point6.value,
         payload: point6.payload,
         viewBox,
-        /*
-         * Line is not passing parentViewBox to the LabelList so the labels can escape - looks like a bug, should we pass parentViewBox?
-         * Or should this just be the root chart viewBox?
-         */
         parentViewBox: void 0,
         fill: void 0
       });
@@ -30490,7 +29189,6 @@ var errorBarDataPointFormatter = (dataPoint, dataKey) => {
     x: (_dataPoint$x = dataPoint.x) !== null && _dataPoint$x !== void 0 ? _dataPoint$x : void 0,
     y: (_dataPoint$y = dataPoint.y) !== null && _dataPoint$y !== void 0 ? _dataPoint$y : void 0,
     value: dataPoint.value,
-    // @ts-expect-error getValueByDataKey does not validate the output type
     errorVal: getValueByDataKey(dataPoint.payload, dataKey)
   };
 };
@@ -30716,12 +29414,8 @@ function LineFn(outsideProps) {
 }
 var Line = React45.memo(LineFn, propsAreEqual);
 Line.displayName = "Line";
-
-// node_modules/recharts/es6/cartesian/Area.js
 var React46 = __toESM(require_react());
 var import_react51 = __toESM(require_react());
-
-// node_modules/recharts/es6/state/selectors/graphicalItemSelectors.js
 function selectXAxisIdFromGraphicalItemId(state, id) {
   var _state$graphicalItems, _state$graphicalItems2;
   return (_state$graphicalItems = (_state$graphicalItems2 = state.graphicalItems.cartesianItems.find((item) => item.id === id)) === null || _state$graphicalItems2 === void 0 ? void 0 : _state$graphicalItems2.xAxisId) !== null && _state$graphicalItems !== void 0 ? _state$graphicalItems : defaultAxisId;
@@ -30730,8 +29424,6 @@ function selectYAxisIdFromGraphicalItemId(state, id) {
   var _state$graphicalItems3, _state$graphicalItems4;
   return (_state$graphicalItems3 = (_state$graphicalItems4 = state.graphicalItems.cartesianItems.find((item) => item.id === id)) === null || _state$graphicalItems4 === void 0 ? void 0 : _state$graphicalItems4.yAxisId) !== null && _state$graphicalItems3 !== void 0 ? _state$graphicalItems3 : defaultAxisId;
 }
-
-// node_modules/recharts/es6/state/selectors/areaSelectors.js
 var selectXAxisWithScale2 = (state, graphicalItemId, isPanorama) => selectAxisWithScale(state, "xAxis", selectXAxisIdFromGraphicalItemId(state, graphicalItemId), isPanorama);
 var selectXAxisTicks2 = (state, graphicalItemId, isPanorama) => selectTicksOfGraphicalItem(state, "xAxis", selectXAxisIdFromGraphicalItemId(state, graphicalItemId), isPanorama);
 var selectYAxisWithScale2 = (state, graphicalItemId, isPanorama) => selectAxisWithScale(state, "yAxis", selectYAxisIdFromGraphicalItemId(state, graphicalItemId), isPanorama);
@@ -30811,8 +29503,6 @@ var selectArea = createSelector([selectChartLayout, selectXAxisWithScale2, selec
     bandSize
   });
 });
-
-// node_modules/recharts/es6/cartesian/Area.js
 var _excluded37 = ["id"];
 var _excluded212 = ["activeDot", "animationBegin", "animationDuration", "animationEasing", "connectNulls", "dot", "fill", "fillOpacity", "hide", "isAnimationActive", "legendType", "stroke", "xAxisId", "yAxisId"];
 function _extends34() {
@@ -31179,13 +29869,6 @@ function AreaWithAnimation(_ref8) {
     if (prevPoints) {
       var prevPointsDiffFactor = prevPoints.length / points.length;
       var stepPoints = (
-        /*
-         * Here it is important that at the very end of the animation, on the last frame,
-         * we render the original points without any interpolation.
-         * This is needed because the code above is checking for reference equality to decide if the animation should run
-         * and if we create a new array instance (even if the numbers were the same)
-         * then we would break animations.
-         */
         t === 1 ? points : points.map((entry, index2) => {
           var prevPointIndex = Math.floor(index2 * prevPointsDiffFactor);
           if (prevPoints[prevPointIndex]) {
@@ -31583,15 +30266,9 @@ function AreaFn(outsideProps) {
 }
 var Area = React46.memo(AreaFn, propsAreEqual);
 Area.displayName = "Area";
-
-// node_modules/recharts/es6/cartesian/Bar.js
 var React49 = __toESM(require_react());
 var import_react53 = __toESM(require_react());
-
-// node_modules/recharts/es6/util/BarUtils.js
 var React47 = __toESM(require_react());
-
-// node_modules/tiny-invariant/dist/esm/tiny-invariant.js
 var isProduction = false;
 var prefix = "Invariant failed";
 function invariant(condition, message) {
@@ -31605,8 +30282,6 @@ function invariant(condition, message) {
   var value = provided ? "".concat(prefix, ": ").concat(provided) : prefix;
   throw new Error(value);
 }
-
-// node_modules/recharts/es6/util/BarUtils.js
 function _extends35() {
   return _extends35 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
@@ -31634,8 +30309,6 @@ var minPointSizeCallback = function minPointSizeCallback2(minPointSize) {
     return defaultValue;
   };
 };
-
-// node_modules/recharts/es6/state/selectors/barSelectors.js
 var pickIsPanorama = (_state, _id, isPanorama) => isPanorama;
 var pickBarId = (_state, id) => id;
 var selectSynchronisedBarSettings = createSelector([selectUnfilteredCartesianItems, pickBarId], (graphicalItems, id) => graphicalItems.filter((item) => item.type === "bar").find((item) => item.id === id));
@@ -31785,12 +30458,8 @@ var selectBarRectangles = createSelector([selectChartOffsetInternal, selectAxisV
     dataStartIndex
   });
 });
-
-// node_modules/recharts/es6/cartesian/BarStack.js
 var React48 = __toESM(require_react());
 var import_react52 = __toESM(require_react());
-
-// node_modules/recharts/es6/state/selectors/barStackSelectors.js
 var pickStackId = (state, stackId) => stackId;
 var pickIsPanorama2 = (state, stackId, isPanorama) => isPanorama;
 var selectAllBarsInStack = createSelector([pickStackId, selectUnfilteredCartesianItems, pickIsPanorama2], (stackId, allItems, isPanorama) => {
@@ -31831,8 +30500,6 @@ var combineStackRects = (state, stackId, isPanorama) => {
   return stackRects;
 };
 var selectStackRects = createSelector([(state) => state, pickStackId, pickIsPanorama2], combineStackRects);
-
-// node_modules/recharts/es6/cartesian/BarStack.js
 var _excluded38 = ["index"];
 function _extends36() {
   return _extends36 = Object.assign ? Object.assign.bind() : function(n) {
@@ -31945,8 +30612,6 @@ var BarStackImpl = (props) => {
   }), children);
 };
 var BarStack = React48.memo(BarStackImpl, propsAreEqual);
-
-// node_modules/recharts/es6/cartesian/Bar.js
 var _excluded39 = ["onMouseEnter", "onMouseLeave", "onClick"];
 var _excluded213 = ["value", "background", "tooltipPosition"];
 var _excluded310 = ["id"];
@@ -32104,7 +30769,6 @@ function BarBackground(props) {
       option: backgroundFromProps,
       isActive: String(i) === activeIndex
     }, rest), {}, {
-      // @ts-expect-error backgroundProps is contributing unknown props
       fill: "#eee"
     }, backgroundFromDataEntry), backgroundProps), adaptEventsOfChild(restOfAllOtherProps, entry, i)), {}, {
       onMouseEnter,
@@ -32230,7 +30894,6 @@ function BarRectangles(_ref3) {
       key: "rectangle-".concat(entry === null || entry === void 0 ? void 0 : entry.x, "-").concat(entry === null || entry === void 0 ? void 0 : entry.y, "-").concat(entry === null || entry === void 0 ? void 0 : entry.value, "-").concat(i),
       className: "recharts-bar-rectangle"
     }, adaptEventsOfChild(restOfAllOtherProps, entry, i), {
-      // @ts-expect-error BarRectangleItem type definition says it's missing properties, but I can see them present in debugger!
       onMouseEnter: onMouseEnterFromContext(entry, i),
       onMouseLeave: onMouseLeaveFromContext(entry, i),
       onClick: onClickFromContext(entry, i)
@@ -32242,15 +30905,6 @@ function BarRectangles(_ref3) {
       index: i,
       dataKey
     }) : (
-      /*
-       * If the `activeBar` prop is falsy, then let's call the variant without hooks.
-       * Using the `selectActiveTooltipIndex` selector is usually fast
-       * but in charts with large-ish amount of data even the few nanoseconds add up to a noticeable jank.
-       * If the activeBar is false then we don't need to know which index is active - because we won't use it anyway.
-       * So let's just skip the hooks altogether. That way, React can skip rendering the component,
-       * and can skip the tree reconciliation for its children too.
-       * Because we can't call hooks conditionally, we need to have a separate component for that.
-       */
       React49.createElement(BarRectangleNeverActive, {
         shape,
         baseProps,
@@ -32358,7 +31012,6 @@ var errorBarDataPointFormatter2 = (dataPoint, dataKey) => {
     x: dataPoint.x,
     y: dataPoint.y,
     value,
-    // @ts-expect-error getValueByDataKey does not validate the output type
     errorVal: getValueByDataKey(dataPoint, dataKey)
   };
 };
@@ -32626,12 +31279,8 @@ function BarFn(outsideProps) {
 }
 var Bar = React49.memo(BarFn, propsAreEqual);
 Bar.displayName = "Bar";
-
-// node_modules/recharts/es6/cartesian/Scatter.js
 var React51 = __toESM(require_react());
 var import_react54 = __toESM(require_react());
-
-// node_modules/recharts/es6/util/ScatterUtils.js
 var React50 = __toESM(require_react());
 var _excluded40 = ["option", "isActive"];
 function _extends38() {
@@ -32681,8 +31330,6 @@ function ScatterSymbol(_ref2) {
     shapeType: "symbols"
   }, props));
 }
-
-// node_modules/recharts/es6/state/selectors/scatterSelectors.js
 var selectXAxisWithScale4 = (state, xAxisId, _yAxisId, _zAxisId, _id, _cells, isPanorama) => selectAxisWithScale(state, "xAxis", xAxisId, isPanorama);
 var selectXAxisTicks4 = (state, xAxisId, _yAxisId, _zAxisId, _id, _cells, isPanorama) => selectTicksOfGraphicalItem(state, "xAxis", xAxisId, isPanorama);
 var selectYAxisWithScale4 = (state, _xAxisId, yAxisId, _zAxisId, _id, _cells, isPanorama) => selectAxisWithScale(state, "yAxis", yAxisId, isPanorama);
@@ -32723,8 +31370,6 @@ var selectScatterPoints = createSelector([scatterChartDataSelector, selectXAxisW
     cells
   });
 });
-
-// node_modules/recharts/es6/cartesian/Scatter.js
 var _excluded41 = ["id"];
 var _excluded214 = ["onMouseEnter", "onClick", "onMouseLeave"];
 var _excluded311 = ["animationBegin", "animationDuration", "animationEasing", "hide", "isAnimationActive", "legendType", "lineJointType", "lineType", "shape", "xAxisId", "yAxisId", "zAxisId"];
@@ -32839,7 +31484,6 @@ var SetScatterTooltipEntrySettings = React51.memo((_ref2) => {
       type: tooltipType,
       color: fill,
       unit: "",
-      // why doesn't Scatter support unit?
       graphicalItemId: id
     }
   };
@@ -32888,12 +31532,9 @@ function ScatterLine(_ref2) {
     }];
   }
   var lineProps = _objectSpread55(_objectSpread55(_objectSpread55({}, scatterProps), {}, {
-    // @ts-expect-error customLineProps is contributing unknown props
     fill: "none",
-    // @ts-expect-error customLineProps is contributing unknown props
     stroke: scatterProps && scatterProps.fill
   }, customLineProps), {}, {
-    // @ts-expect-error linePoints is used before it is assigned (???)
     points: linePoints
   });
   if (React51.isValidElement(line)) {
@@ -32921,15 +31562,7 @@ function ScatterLabelListProvider(_ref3) {
     return points === null || points === void 0 ? void 0 : points.map((point6) => {
       var _point$x, _point$y;
       var viewBox = {
-        /*
-         * Scatter label uses x and y as the reference point for the label,
-         * not cx and cy.
-         */
         x: (_point$x = point6.x) !== null && _point$x !== void 0 ? _point$x : 0,
-        /*
-         * Scatter label uses x and y as the reference point for the label,
-         * not cx and cy.
-         */
         y: (_point$y = point6.y) !== null && _point$y !== void 0 ? _point$y : 0,
         width: point6.width,
         height: point6.height,
@@ -32937,11 +31570,6 @@ function ScatterLabelListProvider(_ref3) {
         upperWidth: point6.width
       };
       return _objectSpread55(_objectSpread55({}, viewBox), {}, {
-        /*
-         * Here we put undefined because Scatter shows two values usually, one for X and one for Y.
-         * LabelList will see this undefined and will use its own `dataKey` prop to determine which value to show,
-         * using the payload below.
-         */
         value: void 0,
         payload: point6.payload,
         viewBox,
@@ -32997,7 +31625,6 @@ function ScatterSymbols(props) {
     }, React51.createElement(Layer, _extends39({
       className: "recharts-scatter-symbol"
     }, adaptEventsOfChild(restOfAllOtherProps, entry, i), {
-      // @ts-expect-error the types need a bit of attention
       onMouseEnter: onMouseEnterFromContext(entry, i),
       onMouseLeave: onMouseLeaveFromContext(entry, i),
       onClick: onClickFromContext(entry, i)
@@ -33092,7 +31719,6 @@ function computeScatterPoints(_ref5) {
     var tooltipPayload = [{
       name: isNullish(xAxis.dataKey) ? scatterSettings.name : xAxis.name || String(xAxis.dataKey),
       unit: xAxis.unit || "",
-      // @ts-expect-error getValueByDataKey does not validate the output type
       value: x2,
       payload: entry,
       dataKey: xAxisDataKey,
@@ -33100,7 +31726,6 @@ function computeScatterPoints(_ref5) {
     }, {
       name: isNullish(yAxis.dataKey) ? scatterSettings.name : yAxis.name || String(yAxis.dataKey),
       unit: yAxis.unit || "",
-      // @ts-expect-error getValueByDataKey does not validate the output type
       value: y2,
       payload: entry,
       dataKey: yAxisDataKey,
@@ -33108,10 +31733,8 @@ function computeScatterPoints(_ref5) {
     }];
     if (z !== "-" && zAxis != null) {
       tooltipPayload.push({
-        // @ts-expect-error name prop should not have dataKey in it
         name: zAxis.name || zAxis.dataKey,
         unit: zAxis.unit || "",
-        // @ts-expect-error getValueByDataKey does not validate the output type
         value: z,
         payload: entry,
         dataKey: zAxisDataKey,
@@ -33163,7 +31786,6 @@ var errorBarDataPointFormatter3 = (dataPoint, dataKey, direction) => {
     x: dataPoint.cx,
     y: dataPoint.cy,
     value: direction === "x" ? Number(dataPoint.node.x) : Number(dataPoint.node.y),
-    // @ts-expect-error getValueByDataKey does not validate the output type
     errorVal: getValueByDataKey(dataPoint, dataKey)
   };
 };
@@ -33305,12 +31927,8 @@ function ScatterFn(outsideProps) {
 }
 var Scatter = React51.memo(ScatterFn, propsAreEqual);
 Scatter.displayName = "Scatter";
-
-// node_modules/recharts/es6/cartesian/XAxis.js
 var React52 = __toESM(require_react());
 var import_react55 = __toESM(require_react());
-
-// node_modules/recharts/es6/util/axisPropsAreEqual.js
 var _excluded45 = ["domain", "range"];
 var _excluded215 = ["domain", "range"];
 function _objectWithoutProperties30(e, t) {
@@ -33360,8 +31978,6 @@ function axisPropsAreEqual(prevProps, nextProps) {
   }
   return propsAreEqual(prevRest, nextRest);
 }
-
-// node_modules/recharts/es6/cartesian/XAxis.js
 var _excluded46 = ["type"];
 var _excluded216 = ["dangerouslySetInnerHTML", "ticks", "scale"];
 var _excluded312 = ["id", "scale"];
@@ -33560,8 +32176,6 @@ var XAxisSettingsDispatcher = (outsideProps) => {
 };
 var XAxis = React52.memo(XAxisSettingsDispatcher, axisPropsAreEqual);
 XAxis.displayName = "XAxis";
-
-// node_modules/recharts/es6/cartesian/YAxis.js
 var React53 = __toESM(require_react());
 var import_react56 = __toESM(require_react());
 var _excluded47 = ["type"];
@@ -33705,9 +32319,6 @@ function YAxisImpl(props) {
       }));
     }
   }, [
-    // The dependency on cartesianAxisRef.current is not needed because useLayoutEffect will run after every render.
-    // The ref will be populated by then.
-    // To re-run this effect when ticks change, we can depend on the ticks array from the store.
     cartesianTickItems,
     axisSize,
     dispatch,
@@ -33801,8 +32412,6 @@ var YAxisSettingsDispatcher = (outsideProps) => {
 };
 var YAxis = React53.memo(YAxisSettingsDispatcher, axisPropsAreEqual);
 YAxis.displayName = "YAxis";
-
-// node_modules/recharts/es6/cartesian/ZAxis.js
 var React54 = __toESM(require_react());
 var import_react57 = __toESM(require_react());
 function SetZAxisSettings(settings) {
@@ -33853,11 +32462,7 @@ function ZAxis(outsideProps) {
   });
 }
 ZAxis.displayName = "ZAxis";
-
-// node_modules/recharts/es6/cartesian/ErrorBar.js
 var React55 = __toESM(require_react());
-
-// node_modules/recharts/es6/animation/CSSTransitionAnimate.js
 var import_react58 = __toESM(require_react());
 var defaultProps = {
   begin: 0,
@@ -33935,8 +32540,6 @@ function CSSTransitionAnimate(outsideProps) {
     [attributeName]: from2
   });
 }
-
-// node_modules/recharts/es6/cartesian/ErrorBar.js
 var _excluded48 = ["direction", "width", "dataKey", "isAnimationActive", "animationBegin", "animationDuration", "animationEasing"];
 function _extends42() {
   return _extends42 = Object.assign ? Object.assign.bind() : function(n) {
@@ -34185,45 +32788,23 @@ function ErrorBar(outsideProps) {
   }))));
 }
 ErrorBar.displayName = "ErrorBar";
-
-// node_modules/recharts/es6/chart/LineChart.js
 var React62 = __toESM(require_react());
 var import_react68 = __toESM(require_react());
-
-// node_modules/recharts/es6/chart/CartesianChart.js
 var React61 = __toESM(require_react());
 var import_react67 = __toESM(require_react());
-
-// node_modules/recharts/es6/state/RechartsStoreProvider.js
 var React56 = __toESM(require_react());
 var import_react59 = __toESM(require_react());
-
-// node_modules/recharts/es6/state/selectors/selectActivePropsFromChartPointer.js
 var pickChartPointer = (_state, chartPointer) => chartPointer;
 var selectActivePropsFromChartPointer = createSelector([pickChartPointer, selectChartLayout, selectPolarViewBox, selectTooltipAxisType, selectTooltipAxisRangeWithReverse, selectTooltipAxisTicks, selectOrderedTooltipTicks, selectChartOffsetInternal], combineActiveProps);
-
-// node_modules/recharts/es6/util/getChartPointer.js
 var getChartPointer = (event) => {
   var rect = event.currentTarget.getBoundingClientRect();
   var scaleX = rect.width / event.currentTarget.offsetWidth;
   var scaleY = rect.height / event.currentTarget.offsetHeight;
   return {
-    /*
-     * Here it's important to use:
-     * - event.clientX and event.clientY to get the mouse position relative to the viewport, including scroll.
-     * - pageX and pageY are not used because they are relative to the whole document, and ignore scroll.
-     * - rect.left and rect.top are used to get the position of the chart relative to the viewport.
-     * - offsetX and offsetY are not used because they are relative to the offset parent
-     *  which may or may not be the same as the clientX and clientY, depending on the position of the chart in the DOM
-     *  and surrounding element styles. CSS position: relative, absolute, fixed, will change the offset parent.
-     * - scaleX and scaleY are necessary for when the chart element is scaled using CSS `transform: scale(N)`.
-     */
     chartX: Math.round((event.clientX - rect.left) / scaleX),
     chartY: Math.round((event.clientY - rect.top) / scaleY)
   };
 };
-
-// node_modules/recharts/es6/state/mouseEventsMiddleware.js
 var mouseClickAction = createAction("mouseClick");
 var mouseClickMiddleware = createListenerMiddleware();
 mouseClickMiddleware.startListening({
@@ -34270,8 +32851,6 @@ mouseMoveMiddleware.startListening({
     });
   }
 });
-
-// node_modules/recharts/es6/state/reduxDevtoolsJsonStringifyReplacer.js
 function reduxDevtoolsJsonStringifyReplacer(key, value) {
   if (value instanceof HTMLElement) {
     return "HTMLElement <".concat(value.tagName, ' class="').concat(value.className, '">');
@@ -34284,8 +32863,6 @@ function reduxDevtoolsJsonStringifyReplacer(key, value) {
   }
   return value;
 }
-
-// node_modules/recharts/es6/state/rootPropsSlice.js
 var initialState12 = {
   accessibilityLayer: true,
   barCategoryGap: "10%",
@@ -34323,8 +32900,6 @@ var rootPropsReducer = rootPropsSlice.reducer;
 var {
   updateOptions
 } = rootPropsSlice.actions;
-
-// node_modules/recharts/es6/state/polarOptionsSlice.js
 var initialState13 = null;
 var reducers = {
   updatePolarOptions: (_state, action) => {
@@ -34340,8 +32915,6 @@ var {
   updatePolarOptions
 } = polarOptionsSlice.actions;
 var polarOptionsReducer = polarOptionsSlice.reducer;
-
-// node_modules/recharts/es6/state/keyboardEventsMiddleware.js
 var keyDownAction = createAction("keyDown");
 var focusAction = createAction("focus");
 var keyboardEventsMiddleware = createListenerMiddleware();
@@ -34415,11 +32988,9 @@ keyboardEventsMiddleware.startListening({
     }
   }
 });
-
-// node_modules/recharts/es6/state/externalEventsMiddleware.js
 var externalEventAction = createAction("externalEvent");
 var externalEventsMiddleware = createListenerMiddleware();
-var rafIdMap = /* @__PURE__ */ new Map();
+var rafIdMap =  new Map();
 externalEventsMiddleware.startListening({
   actionCreator: externalEventAction,
   effect: (action, listenerApi) => {
@@ -34455,8 +33026,6 @@ externalEventsMiddleware.startListening({
     rafIdMap.set(eventType, rafId2);
   }
 });
-
-// node_modules/recharts/es6/state/selectors/touchSelectors.js
 var selectAllTooltipPayloadConfiguration = createSelector([selectTooltipState], (tooltipState) => tooltipState.tooltipItemPayloads);
 var selectTooltipCoordinate = createSelector([selectAllTooltipPayloadConfiguration, (_state, tooltipIndex) => tooltipIndex, (_state, _tooltipIndex, graphicalItemId) => graphicalItemId], (allTooltipConfigurations, tooltipIndex, graphicalItemId) => {
   if (tooltipIndex == null) {
@@ -34476,8 +33045,6 @@ var selectTooltipCoordinate = createSelector([selectAllTooltipPayloadConfigurati
   }
   return getPosition(tooltipIndex);
 });
-
-// node_modules/recharts/es6/state/touchEventsMiddleware.js
 var touchEventAction = createAction("touchMove");
 var touchEventMiddleware = createListenerMiddleware();
 touchEventMiddleware.startListening({
@@ -34535,8 +33102,6 @@ touchEventMiddleware.startListening({
     }
   }
 });
-
-// node_modules/recharts/es6/state/store.js
 var rootReducer = combineReducers({
   brush: brushReducer,
   cartesianAxis: cartesianAxisReducer,
@@ -34557,9 +33122,7 @@ var createRechartsStore = function createRechartsStore2(preloadedState2) {
   var chartName = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "Chart";
   return configureStore({
     reducer: rootReducer,
-    // redux-toolkit v1 types are unhappy with the preloadedState type. Remove the `as any` when bumping to v2
     preloadedState: preloadedState2,
-    // @ts-expect-error redux-toolkit v1 types are unhappy with the middleware array. Remove this comment when bumping to v2
     middleware: (getDefaultMiddleware) => {
       var _process$env$NODE_ENV;
       return getDefaultMiddleware({
@@ -34567,14 +33130,6 @@ var createRechartsStore = function createRechartsStore2(preloadedState2) {
         immutableCheck: !["commonjs", "es6", "production"].includes((_process$env$NODE_ENV = "es6") !== null && _process$env$NODE_ENV !== void 0 ? _process$env$NODE_ENV : "")
       }).concat([mouseClickMiddleware.middleware, mouseMoveMiddleware.middleware, keyboardEventsMiddleware.middleware, externalEventsMiddleware.middleware, touchEventMiddleware.middleware]);
     },
-    /*
-     * I can't find out how to satisfy typescript here.
-     * We return `EnhancerArray<[StoreEnhancer<{}, {}>, StoreEnhancer]>` from this function,
-     * but the types say we should return `EnhancerArray<StoreEnhancer<{}, {}>`.
-     * Looks like it's badly inferred generics, but it won't allow me to provide the correct type manually either.
-     * So let's just ignore the error for now.
-     */
-    // @ts-expect-error mismatched generics
     enhancers: (getDefaultEnhancers) => {
       var enhancers = getDefaultEnhancers;
       if (typeof getDefaultEnhancers === "function") {
@@ -34592,8 +33147,6 @@ var createRechartsStore = function createRechartsStore2(preloadedState2) {
     }
   });
 };
-
-// node_modules/recharts/es6/state/RechartsStoreProvider.js
 function RechartsStoreProvider(_ref2) {
   var {
     preloadedState: preloadedState2,
@@ -34614,8 +33167,6 @@ function RechartsStoreProvider(_ref2) {
     store: storeRef.current
   }, children);
 }
-
-// node_modules/recharts/es6/state/ReportMainChartProps.js
 var import_react60 = __toESM(require_react());
 function ReportMainChartPropsImpl(_ref2) {
   var {
@@ -34633,8 +33184,6 @@ function ReportMainChartPropsImpl(_ref2) {
   return null;
 }
 var ReportMainChartProps = (0, import_react60.memo)(ReportMainChartPropsImpl, propsAreEqual);
-
-// node_modules/recharts/es6/state/ReportChartProps.js
 var import_react61 = __toESM(require_react());
 function ReportChartProps(props) {
   var dispatch = useAppDispatch();
@@ -34643,16 +33192,10 @@ function ReportChartProps(props) {
   }, [dispatch, props]);
   return null;
 }
-
-// node_modules/recharts/es6/chart/CategoricalChart.js
 var React60 = __toESM(require_react());
 var import_react66 = __toESM(require_react());
-
-// node_modules/recharts/es6/container/RootSurface.js
 var React58 = __toESM(require_react());
 var import_react63 = __toESM(require_react());
-
-// node_modules/recharts/es6/zIndex/ZIndexPortal.js
 var React57 = __toESM(require_react());
 var import_react62 = __toESM(require_react());
 function ZIndexSvgPortal(_ref2) {
@@ -34703,8 +33246,6 @@ function AllZIndexPortals(_ref2) {
     isPanorama
   })));
 }
-
-// node_modules/recharts/es6/container/RootSurface.js
 var _excluded49 = ["children"];
 function _objectWithoutProperties34(e, t) {
   if (null == e) return {};
@@ -34736,15 +33277,6 @@ function _extends43() {
 var FULL_WIDTH_AND_HEIGHT = {
   width: "100%",
   height: "100%",
-  /*
-   * display: block is necessary here because the default for an SVG is display: inline,
-   * which in some browsers (Chrome) adds a little bit of extra space above and below the SVG
-   * to make space for the descender of letters like "g" and "y". This throws off the height calculation
-   * and causes the container to grow indefinitely on each render with responsive=true.
-   * Display: block removes that extra space.
-   *
-   * Interestingly, Firefox does not have this problem, but it doesn't hurt to add the style anyway.
-   */
   display: "block"
 };
 var MainChartSurface = (0, import_react63.forwardRef)((props, ref) => {
@@ -34821,12 +33353,8 @@ var RootSurface = (0, import_react63.forwardRef)((_ref2, ref) => {
     isPanorama: false
   }, children));
 });
-
-// node_modules/recharts/es6/chart/RechartsWrapper.js
 var React59 = __toESM(require_react());
 var import_react65 = __toESM(require_react());
-
-// node_modules/recharts/es6/util/useReportScale.js
 var import_react64 = __toESM(require_react());
 function useReportScale() {
   var dispatch = useAppDispatch();
@@ -34844,8 +33372,6 @@ function useReportScale() {
   }, [ref, dispatch, scale]);
   return setRef;
 }
-
-// node_modules/recharts/es6/chart/RechartsWrapper.js
 function ownKeys59(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -35200,8 +33726,6 @@ var RechartsWrapper = (0, import_react65.forwardRef)((props, ref) => {
     ref: innerRef
   }, React59.createElement(EventSynchronizer, null), children)));
 });
-
-// node_modules/recharts/es6/chart/CategoricalChart.js
 var _excluded50 = ["width", "height", "responsive", "children", "className", "style", "compact", "title", "desc"];
 function _objectWithoutProperties35(e, t) {
   if (null == e) return {};
@@ -35268,8 +33792,6 @@ var CategoricalChart = (0, import_react66.forwardRef)((props, ref) => {
     ref
   }, React60.createElement(ClipPathProvider, null, children)));
 });
-
-// node_modules/recharts/es6/chart/CartesianChart.js
 function _extends45() {
   return _extends45 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
@@ -35339,8 +33861,6 @@ var CartesianChart = (0, import_react67.forwardRef)(function CartesianChart2(pro
     ref
   })));
 });
-
-// node_modules/recharts/es6/chart/LineChart.js
 var allowedTooltipTypes = ["axis"];
 var LineChart = (0, import_react68.forwardRef)((props, ref) => {
   return React62.createElement(CartesianChart, {
@@ -35352,8 +33872,6 @@ var LineChart = (0, import_react68.forwardRef)((props, ref) => {
     ref
   });
 });
-
-// node_modules/recharts/es6/chart/BarChart.js
 var React63 = __toESM(require_react());
 var import_react69 = __toESM(require_react());
 var allowedTooltipTypes2 = ["axis", "item"];
@@ -35367,16 +33885,10 @@ var BarChart = (0, import_react69.forwardRef)((props, ref) => {
     ref
   });
 });
-
-// node_modules/recharts/es6/chart/PieChart.js
 var React65 = __toESM(require_react());
 var import_react72 = __toESM(require_react());
-
-// node_modules/recharts/es6/chart/PolarChart.js
 var import_react71 = __toESM(require_react());
 var React64 = __toESM(require_react());
-
-// node_modules/recharts/es6/state/ReportPolarOptions.js
 var import_react70 = __toESM(require_react());
 function ReportPolarOptions(props) {
   var dispatch = useAppDispatch();
@@ -35385,8 +33897,6 @@ function ReportPolarOptions(props) {
   }, [dispatch, props]);
   return null;
 }
-
-// node_modules/recharts/es6/chart/PolarChart.js
 var _excluded51 = ["layout"];
 function _extends46() {
   return _extends46 = Object.assign ? Object.assign.bind() : function(n) {
@@ -35488,8 +33998,6 @@ var PolarChart = (0, import_react71.forwardRef)(function PolarChart2(props, ref)
     ref
   })));
 });
-
-// node_modules/recharts/es6/chart/PieChart.js
 function ownKeys60(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -35545,8 +34053,6 @@ var PieChart = (0, import_react72.forwardRef)((props, ref) => {
     ref
   });
 });
-
-// node_modules/recharts/es6/chart/Treemap.js
 var React66 = __toESM(require_react());
 var import_react73 = __toESM(require_react());
 var import_omit = __toESM(require_omit2());
@@ -35670,7 +34176,6 @@ var computeNode = (_ref2) => {
   }
   return _objectSpread61(_objectSpread61({}, node), {}, {
     children: computedChildren,
-    // @ts-expect-error getValueByDataKey does not validate the output type
     name: getValueByDataKey(node, nameKey, ""),
     [NODE_VALUE_KEY]: nodeValue,
     depth,
@@ -35936,7 +34441,6 @@ var SetTreemapTooltipEntrySettings = React66.memo((_ref3) => {
   var tooltipEntrySettings = {
     dataDefinedOnItem: currentRoot,
     getPosition: noop,
-    // TODO I think Treemap has the capability of computing positions and supporting defaultIndex? Except it doesn't yet
     settings: {
       stroke,
       strokeWidth: void 0,
@@ -35944,7 +34448,6 @@ var SetTreemapTooltipEntrySettings = React66.memo((_ref3) => {
       dataKey,
       nameKey,
       name: void 0,
-      // Each TreemapNode has its own name
       hide: false,
       type: void 0,
       color: fill,
@@ -36084,7 +34587,6 @@ var TreemapWithState = class extends import_react73.PureComponent {
           index: 0,
           dataKey,
           nameKey,
-          // with Treemap nesting, should this continue nesting the index or start from empty string?
           nestedActiveTooltipIndex: node.tooltipIndex
         });
         var formatRoot = squarify(root, aspectRatio);
@@ -36136,7 +34638,6 @@ var TreemapWithState = class extends import_react73.PureComponent {
     if (nextProps.data !== prevState.prevData || nextProps.type !== prevState.prevType || nextProps.width !== prevState.prevWidth || nextProps.height !== prevState.prevHeight || nextProps.dataKey !== prevState.prevDataKey || nextProps.aspectRatio !== prevState.prevAspectRatio) {
       var root = computeNode({
         depth: 0,
-        // @ts-expect-error missing properties
         node: {
           children: nextProps.data,
           x: 0,
@@ -36185,7 +34686,6 @@ var TreemapWithState = class extends import_react73.PureComponent {
       index: 0,
       dataKey,
       nameKey,
-      // with Treemap nesting, should this continue nesting the index or start from empty string?
       nestedActiveTooltipIndex: node.tooltipIndex
     });
     var formatRoot = squarify(root, aspectRatio);
@@ -36232,7 +34732,6 @@ var TreemapWithState = class extends import_react73.PureComponent {
     }
     return this.renderNode(formatRoot, formatRoot);
   }
-  // render nest treemap
   renderNestIndex() {
     var {
       nameKey,
@@ -36260,7 +34759,6 @@ var TreemapWithState = class extends import_react73.PureComponent {
         content = name;
       }
       return (
-        // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
         React66.createElement("div", {
           onClick: this.handleNestIndex.bind(this, item, i),
           key: "nest-index-".concat(uniqueId()),
@@ -36366,8 +34864,6 @@ function Treemap(outsideProps) {
     value: tooltipPortal
   }, React66.createElement(TreemapDispatchInject, props))));
 }
-
-// node_modules/recharts/es6/chart/Sankey.js
 var React67 = __toESM(require_react());
 var import_react74 = __toESM(require_react());
 var import_maxBy2 = __toESM(require_maxBy3());
@@ -36918,10 +35414,8 @@ var buildLinkProps = (_ref4) => {
   var targetY = targetNode.y + targetRelativeY + linkWidth / 2 + top;
   var linkProps = _objectSpread62({
     sourceX,
-    // @ts-expect-error the linkContent from below is contributing unknown props
     targetX,
     sourceY,
-    // @ts-expect-error the linkContent from below is contributing unknown props
     targetY,
     sourceControlX,
     targetControlX,
@@ -37016,7 +35510,6 @@ function renderNodeItem(option, props) {
     return option(props);
   }
   return (
-    // @ts-expect-error recharts radius is not compatible with SVG radius
     React67.createElement(Rectangle, _extends48({
       className: "recharts-sankey-node",
       fill: "#0088fe",
@@ -37321,8 +35814,6 @@ function Sankey(outsideProps) {
   })))))));
 }
 Sankey.displayName = "Sankey";
-
-// node_modules/recharts/es6/chart/RadarChart.js
 var React68 = __toESM(require_react());
 var import_react75 = __toESM(require_react());
 function ownKeys63(e, r) {
@@ -37380,8 +35871,6 @@ var RadarChart = (0, import_react75.forwardRef)((props, ref) => {
     ref
   });
 });
-
-// node_modules/recharts/es6/chart/ScatterChart.js
 var React69 = __toESM(require_react());
 var import_react76 = __toESM(require_react());
 var allowedTooltipTypes5 = ["item"];
@@ -37395,8 +35884,6 @@ var ScatterChart = (0, import_react76.forwardRef)((props, ref) => {
     ref
   });
 });
-
-// node_modules/recharts/es6/chart/AreaChart.js
 var React70 = __toESM(require_react());
 var import_react77 = __toESM(require_react());
 var allowedTooltipTypes6 = ["axis"];
@@ -37410,8 +35897,6 @@ var AreaChart = (0, import_react77.forwardRef)((props, ref) => {
     ref
   });
 });
-
-// node_modules/recharts/es6/chart/RadialBarChart.js
 var React71 = __toESM(require_react());
 var import_react78 = __toESM(require_react());
 function ownKeys64(e, r) {
@@ -37469,8 +35954,6 @@ var RadialBarChart = (0, import_react78.forwardRef)((props, ref) => {
     ref
   });
 });
-
-// node_modules/recharts/es6/chart/ComposedChart.js
 var React72 = __toESM(require_react());
 var import_react79 = __toESM(require_react());
 var allowedTooltipTypes8 = ["axis"];
@@ -37484,8 +35967,6 @@ var ComposedChart = (0, import_react79.forwardRef)((props, ref) => {
     ref
   });
 });
-
-// node_modules/recharts/es6/chart/SunburstChart.js
 var React73 = __toESM(require_react());
 var import_react80 = __toESM(require_react());
 var import_get8 = __toESM(require_get2());
@@ -37562,14 +36043,12 @@ var SetSunburstTooltipEntrySettings = React73.memo((_ref2) => {
   var tooltipEntrySettings = {
     dataDefinedOnItem: data.children,
     getPosition: (index2) => positions.get(index2),
-    // Sunburst does not support many of the properties as other charts do so there's plenty of defaults here
     settings: {
       stroke,
       strokeWidth: void 0,
       fill,
       nameKey,
       dataKey,
-      // if there is a nameKey use it, otherwise make the name of the tooltip the dataKey itself
       name: nameKey ? void 0 : dataKey,
       hide: false,
       type: void 0,
@@ -37656,7 +36135,7 @@ var SunburstChartImpl = (_ref2) => {
   var treeDepth = getMaxDepthOf(data);
   var thickness = (outerRadius - innerRadius) / treeDepth;
   var sectors = [];
-  var positions = /* @__PURE__ */ new Map([]);
+  var positions =  new Map([]);
   function handleMouseEnter(node, e) {
     if (onMouseEnter) onMouseEnter(node, e);
     dispatch(setActiveMouseOverItemIndex({
@@ -37813,13 +36292,9 @@ var SunburstChart = (outsideProps) => {
     id
   }))))));
 };
-
-// node_modules/recharts/es6/cartesian/Funnel.js
 var React75 = __toESM(require_react());
 var import_react81 = __toESM(require_react());
 var import_omit2 = __toESM(require_omit2());
-
-// node_modules/recharts/es6/util/FunnelUtils.js
 var React74 = __toESM(require_react());
 function _extends50() {
   return _extends50 = Object.assign ? Object.assign.bind() : function(n) {
@@ -37835,8 +36310,6 @@ function FunnelTrapezoid(props) {
     shapeType: "trapezoid"
   }, props));
 }
-
-// node_modules/recharts/es6/state/selectors/funnelSelectors.js
 function ownKeys66(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -37919,8 +36392,6 @@ var selectFunnelTrapezoids = createSelector([selectChartOffsetInternal, pickFunn
     graphicalItemId
   });
 });
-
-// node_modules/recharts/es6/cartesian/Funnel.js
 var _excluded54 = ["onMouseEnter", "onClick", "onMouseLeave", "shape", "activeShape"];
 var _excluded219 = ["id"];
 var _excluded314 = ["stroke", "fill", "legendType", "hide", "isAnimationActive", "animationBegin", "animationDuration", "animationEasing", "nameKey", "lastShapeType", "id"];
@@ -38021,7 +36492,6 @@ var SetFunnelTooltipEntrySettings = React75.memo((_ref2) => {
       type: tooltipType,
       color: fill,
       unit: "",
-      // Funnel does not have unit, why?
       graphicalItemId: id
     }
   };
@@ -38084,7 +36554,6 @@ function FunnelTrapezoids(props) {
       key: "trapezoid-".concat(entry === null || entry === void 0 ? void 0 : entry.x, "-").concat(entry === null || entry === void 0 ? void 0 : entry.y, "-").concat(entry === null || entry === void 0 ? void 0 : entry.name, "-").concat(entry === null || entry === void 0 ? void 0 : entry.value),
       className: "recharts-funnel-trapezoid"
     }, adaptEventsOfChild(restOfAllOtherProps, entry, i), {
-      // @ts-expect-error the types need a bit of attention
       onMouseEnter: onMouseEnterFromContext(entry, i),
       onMouseLeave: onMouseLeaveFromContext(entry, i),
       onClick: onClickFromContext(entry, i)
@@ -38397,8 +36866,6 @@ function Funnel(outsideProps) {
   })));
 }
 Funnel.displayName = "Funnel";
-
-// node_modules/recharts/es6/chart/FunnelChart.js
 var React76 = __toESM(require_react());
 var import_react82 = __toESM(require_react());
 var allowedTooltipTypes9 = ["item"];
@@ -38483,4 +36950,3 @@ export {
   useXAxisDomain,
   useYAxisDomain
 };
-//# sourceMappingURL=recharts.js.map

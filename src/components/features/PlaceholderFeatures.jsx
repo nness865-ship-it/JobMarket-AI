@@ -1,6 +1,5 @@
 import React from 'react';
 import { Rocket, Activity, FolderGit2, Settings } from 'lucide-react';
-
 export function CareerBoost() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[50vh] text-center px-4">
@@ -14,7 +13,6 @@ export function CareerBoost() {
     </div>
   );
 }
-
 export function SkillTracker() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[50vh] text-center px-4">
@@ -28,7 +26,6 @@ export function SkillTracker() {
     </div>
   );
 }
-
 export function Projects() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[50vh] text-center px-4">
@@ -42,7 +39,6 @@ export function Projects() {
     </div>
   );
 }
-
 export function UserSettings() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[50vh] text-center px-4">

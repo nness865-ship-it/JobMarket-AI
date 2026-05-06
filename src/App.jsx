@@ -29,7 +29,6 @@ import {
   LayoutDashboard,
   Briefcase
 } from 'lucide-react';
-
 function App() {
   const auth = useAuth();
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -37,11 +36,9 @@ function App() {
   const [skills, setSkills] = useState([]);
   const [profile, setProfile] = useState(null);
   const [isInitialLoad, setIsInitialLoad] = useState(true);
-
   useEffect(() => {
     if (auth.isAuthed && auth.user) {
       setProfile(auth.user);
-      // On login, fetch the REAL skills from the server
       me().then(res => {
         if (res.data?.user?.skills) {
           setSkills(res.data.user.skills);
@@ -69,19 +66,14 @@ function App() {
         setSkills([]);
       }
     }
-    // Load persisted targetRole
     const savedRole = localStorage.getItem('active_roadmap_role');
     if (savedRole) setTargetRole(savedRole);
   }, [auth.isAuthed, auth.user]);
-
-  // Persist targetRole
   useEffect(() => {
     if (targetRole) {
       localStorage.setItem('active_roadmap_role', targetRole);
     }
   }, [targetRole]);
-
-  // Auto-save skills (only if NOT initial load and user is authed)
   useEffect(() => {
     if (!isInitialLoad && auth.isAuthed && auth.user?.email && skills.length > 0) {
       saveUserSkills(auth.user.email, skills).catch(console.error);
@@ -89,7 +81,6 @@ function App() {
       localStorage.setItem('guest_skills', JSON.stringify(skills));
     }
   }, [skills, auth.isAuthed, auth.user?.email, isInitialLoad]);
-
   if (auth.isLoading) {
     return (
       <div className="min-h-screen bg-[#020617] flex flex-col items-center justify-center">
@@ -101,16 +92,13 @@ function App() {
       </div>
     );
   }
-
   if (!auth.isAuthed) {
     return <Landing key="landing" />;
   }
-
   const handleGenerateRoadmap = (role) => {
     setTargetRole(role);
     setActiveTab('roadmap');
   };
-
   const handleSkillsExtracted = async (extracted) => {
     const merged = Array.from(
       new Set((extracted || []).map((s) => (s || '').trim().toLowerCase()).filter(Boolean))
@@ -118,13 +106,11 @@ function App() {
     setSkills(merged);
     setActiveTab('recommendations');
   };
-
   const tabVariants = {
     hidden: { opacity: 0, y: 15 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
     exit: { opacity: 0, y: -15, transition: { duration: 0.2 } }
   };
-
   return (
     <div key={auth.user?.email || 'dashboard'} className="min-h-screen bg-[#020617] text-white selection:bg-primary/30">
       <Layout activeTab={activeTab} setActiveTab={setActiveTab} user={auth.user} onLogout={auth.logout}>
@@ -139,7 +125,7 @@ function App() {
           >
             {activeTab === 'dashboard' && (
               <div className="space-y-12">
-                {/* Dashboard Header */}
+                {}
                 <header className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                   <div>
                     <div className="flex items-center gap-2 mb-3">
@@ -153,7 +139,6 @@ function App() {
                       Welcome back, <span className="text-white font-bold">{auth.user?.name || 'Explorer'}</span>. Your profile is synchronized with {skills.length} core competencies.
                     </p>
                   </div>
-                  
                   <div className="flex gap-3">
                     <button 
                       onClick={() => setActiveTab('resume-analysis')}
@@ -164,8 +149,7 @@ function App() {
                     </button>
                   </div>
                 </header>
-
-                {/* Professional Profile Section */}
+                {}
                 {auth.user?.email && (
                   <div className="w-full">
                     <ProfileEditor 
@@ -178,8 +162,7 @@ function App() {
                     />
                   </div>
                 )}
-
-                {/* Performance Stats */}
+                {}
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                   {[
                     { label: 'Core Skills', val: skills.length, icon: BrainCircuit, color: 'text-primary-light' },
@@ -196,8 +179,7 @@ function App() {
                     </div>
                   ))}
                 </div>
-
-                {/* Action Bento */}
+                {}
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                   <div className="lg:col-span-2 group relative p-10 rounded-[2.5rem] bg-gradient-to-br from-slate-900 to-slate-950 border border-white/5 overflow-hidden">
                     <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -216,7 +198,6 @@ function App() {
                       </button>
                     </div>
                   </div>
-
                   <div className="group relative p-10 rounded-[2.5rem] bg-slate-900/40 border border-white/5 overflow-hidden">
                     <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div className="relative z-10">
@@ -237,15 +218,13 @@ function App() {
                 </div>
               </div>
             )}
-
             {activeTab === 'resume-analysis' && (
               <div className="space-y-12 flex flex-col items-center justify-center min-h-[70vh]">
                 <div className="w-full text-center max-w-2xl">
                   <h1 className="text-4xl font-black tracking-tight text-white mb-4">Profile Synthesis</h1>
                   <p className="text-slate-400 text-lg leading-relaxed">Complete your professional profile and upload your resume to get personalized career recommendations.</p>
                 </div>
-                
-                {/* Professional Profile Section */}
+                {}
                 {auth.user?.email && (
                   <div className="w-full max-w-4xl mb-8">
                     <ProfileEditor 
@@ -258,7 +237,6 @@ function App() {
                     />
                   </div>
                 )}
-                
                 <div className="w-full max-w-4xl bg-slate-900/50 border border-white/5 rounded-[3rem] p-4 backdrop-blur-xl">
                   <div className="bg-slate-950/50 rounded-[2.5rem] p-12 border border-white/5">
                     <ResumeUpload
@@ -275,13 +253,11 @@ function App() {
                 </div>
               </div>
             )}
-
             {activeTab === 'recommendations' && (
               <div className="min-h-[70vh] py-8">
                 <Recommendations email={auth.user?.email} skills={skills} onGenerateRoadmap={handleGenerateRoadmap} />
               </div>
             )}
-            
             {activeTab === 'pathways' && (
               <div className="min-h-[70vh] py-8">
                 <CareerPathways 
@@ -292,37 +268,31 @@ function App() {
                 />
               </div>
             )}
-
             {activeTab === 'roadmap' && (
               <div className="min-h-[70vh] py-8">
                 <Roadmap role={targetRole} email={auth.user?.email} skills={skills} />
               </div>
             )}
-
             {activeTab === 'trends' && (
               <div className="min-h-[70vh] py-8">
                 <Trends />
               </div>
             )}
-
             {activeTab === 'boost' && (
               <div className="min-h-[70vh] py-8">
                 <CareerBoost />
               </div>
             )}
-
             {activeTab === 'skill-tracker' && (
               <div className="min-h-[70vh] py-8">
                 <SkillTracker />
               </div>
             )}
-
             {activeTab === 'projects' && (
               <div className="min-h-[70vh] py-8">
                 <Projects />
               </div>
             )}
-
             {activeTab === 'settings' && (
               <div className="min-h-[70vh] py-8">
                 <UserSettings />
@@ -334,5 +304,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

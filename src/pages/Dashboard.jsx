@@ -3,15 +3,11 @@ import { ResumeUpload } from "../components/features/ResumeUpload";
 import { SkillInput } from "../components/features/SkillInput";
 import { ProfileEditor } from "../components/features/ProfileEditor";
 import { useAuth } from "../auth/useAuth";
-
 export default function Dashboard() {
   const { user, isAuthed, isLoading } = useAuth();
   const [email, setEmail] = useState("");
   const [profileUpdated, setProfileUpdated] = useState(false);
-
-  // Use authenticated user's email or fallback to manual input
   const userEmail = user?.email || email;
-
   if (isLoading) {
     return (
       <div className="min-h-screen bg-slate-950 text-slate-50 flex items-center justify-center">
@@ -22,7 +18,6 @@ export default function Dashboard() {
       </div>
     );
   }
-
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50">
       <main className="mx-auto flex max-w-5xl flex-col gap-10 px-6 py-10">
@@ -45,9 +40,8 @@ export default function Dashboard() {
             </div>
           )}
         </section>
-
         <section className="space-y-8">
-          {/* PROFESSIONAL PROFILE - Show for authenticated users OR when email is provided */}
+          {}
           {(isAuthed && userEmail) || (!isAuthed && userEmail) ? (
             <ProfileEditor 
               email={userEmail} 
@@ -64,11 +58,9 @@ export default function Dashboard() {
               </p>
             </div>
           )}
-
-          {/* RESUME UPLOAD */}
+          {}
           <ResumeUpload email={userEmail} />
-
-          {/* SKILL INPUT */}
+          {}
           <SkillInput email={userEmail} onEmailChange={setEmail} />
         </section>
       </main>

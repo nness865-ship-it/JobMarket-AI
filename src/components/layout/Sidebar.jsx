@@ -2,7 +2,6 @@ import React from 'react';
 import { Home, User, Briefcase, Map, TrendingUp, X, Target, LayoutDashboard, BrainCircuit, FileText, Rocket, FolderGit2, Settings, Activity } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
-
 const MOCK_NAV = [
   { name: 'Dashboard', icon: LayoutDashboard, id: 'dashboard' },
   { name: 'Resume Analysis', icon: FileText, id: 'resume-analysis' },
@@ -12,7 +11,6 @@ const MOCK_NAV = [
   { name: 'Market Trends', icon: TrendingUp, id: 'trends' },
   { name: 'Skill Tracker', icon: Activity, id: 'skill-tracker' },
 ];
-
 export function Sidebar({ open, setOpen, activeTab, setActiveTab, user }) {
   const NavLinks = ({ onClick }) => (
     <nav className="flex-1 space-y-1 px-4 py-6">
@@ -43,10 +41,9 @@ export function Sidebar({ open, setOpen, activeTab, setActiveTab, user }) {
       })}
     </nav>
   );
-
   return (
     <>
-      {/* Mobile Sidebar overlay */}
+      {}
       <AnimatePresence>
         {open && (
           <>
@@ -86,8 +83,7 @@ export function Sidebar({ open, setOpen, activeTab, setActiveTab, user }) {
           </>
         )}
       </AnimatePresence>
-
-      {/* Desktop Sidebar */}
+      {}
       <div className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0 pt-20 border-r border-white/5 bg-[#020617] z-20">
         <div className="flex flex-1 flex-col overflow-y-auto">
           <NavLinks />

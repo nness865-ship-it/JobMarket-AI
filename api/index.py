@@ -37,7 +37,8 @@ SMTP_SERVER = os.getenv("SMTP_SERVER", "smtp.gmail.com")
 SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))
 JWT_SECRET = os.getenv("JWT_SECRET", "dev-secret-change-me")
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
-
+app = Flask(__name__)
+CORS(app)
 # Initialize Gemini Helper
 def _call_gemini(prompt):
     if not GOOGLE_API_KEY:

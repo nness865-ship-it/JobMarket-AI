@@ -402,9 +402,12 @@ def _current_email():
     return payload.get("email") if payload else None
 def _require_auth_email():
     email = _current_email()
-    if not email:
-        return None, (jsonify({"error": "Unauthorized"}), 401)
-    return email, None
+    if not email: return jsonify({"error": "Unauthorized"}), 401
+    db = get_db()
+    user = db["users"].find_one({"email": email}) if db is not None else None
+    if not user: return jsonify({"user": {"email": email, "skills": []}})
+    user["_id"] = str(user["_id"])
+    return jsonify({"user": user})
 @app.route("/")
 def home():
     return jsonify({"message": "Job Market AI backend running 🚀"})
@@ -444,44 +447,43 @@ def upload_resume():
         except Exception as e:
             print(f"DB Update Error: {e}")
     return jsonify({"message": "Success", "skills": extracted, "category": category_display})
+@app.route("/auth/google", methods=["POST"])
+def auth_google():
+    token = request.get_json().get("token")
+    if not token: return jsonify({"error": "Token required"}), 400
+    try:
+        idinfo = id_token.verify_oauth2_token(token, google_requests.Request(), GOOGLE_CLIENT_ID)
+        email = idinfo["email"]
+        name = idinfo.get("name", "")
+        picture = idinfo.get("picture", "")
+        db = get_db()
+        if db is not None:
+            db["users"].update_one(
+                {"email": email},
+                {"$set": {"email": email, "name": name, "picture": picture, "last_login": datetime.utcnow()}},
+                upsert=True
+            )
+        jwt_token = jwt.encode({"email": email, "exp": datetime.utcnow() + timedelta(days=7)}, JWT_SECRET, algorithm="HS256")
+        return jsonify({"token": jwt_token, "user": {"email": email, "name": name, "picture": picture}})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 400
 @app.route("/save-user-skills", methods=["POST"])
 def save_user_skills():
-    data = request.json
+    data = request.get_json()
     email = _current_email() or data.get("email")
     skills = data.get("skills", [])
-    if not email:
-        return jsonify({"error": "Email is required"}), 400
+    if not email: return jsonify({"error": "Email required"}), 400
     normalized = _normalize_skills(skills)
     category = _detect_skill_category(normalized)
     category_display = _get_category_display_name(category)
-    users_collection.update_one(
-        {"email": email},
-        {
-            "$set": {
-                "skills": normalized,
-                "category": category,
-                "category_display": category_display,
-                "updated_at": datetime.utcnow()
-            }
-        },
-        upsert=True,
-    )
-    try:
-        activity_logs.insert_one({
-            "type": "manual_skill_update",
-            "email": email,
-            "skills": normalized,
-            "detected_category": category,
-            "created_at": datetime.utcnow(),
-        })
-    except Exception:
-        pass
-    return jsonify({
-        "message": "User skills saved successfully",
-        "skills": normalized,
-        "category": category_display,
-        "field_detected": f"Based on your skills, we've identified you're in {category_display}"
-    })
+    db = get_db()
+    if db is not None:
+        db["users"].update_one(
+            {"email": email},
+            {"$set": {"skills": normalized, "category": category, "category_display": category_display, "updated_at": datetime.utcnow()}},
+            upsert=True
+        )
+    return jsonify({"message": "Skills saved", "skills": normalized, "category": category_display})
 @app.route("/get-user", methods=["GET"])
 def get_user():
     email = _current_email() or request.args.get("email", "").strip()

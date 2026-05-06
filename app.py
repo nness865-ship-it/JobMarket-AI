@@ -345,7 +345,7 @@ def _extract_skills_from_text(text: str):
     text_lower = text.lower()
     tech_patterns = [
         r'\b\w+\.js\b', r'\b\w+js\b', r'\b\w+stack\b',
-        r'\b.net\b', r'\bc
+        r'\b.net\b', r'\bc#\b', r'\bc\+\+\b',
         r'\bvaadin\b', r'\bspring boot\b', r'\bjetpack compose\b',
         r'\bmvvm\b', r'\bmvc\b', r'\bmvi\b', r'\bkotlin\b', r'\bswift\b',
         r'\brxjava\b', r'\brxkotlin\b', r'\bdagger2?\b', r'\bhilt\b',
@@ -366,7 +366,7 @@ def _extract_skills_from_text(text: str):
             in_skill_section = True
             continue
         if in_skill_section:
-            found = re.findall(r'\b[A-Z][a-zA-Z0-9+
+            found = re.findall(r'\b[A-Z][a-zA-Z0-9+#]*\b', line)
             for f in found:
                 if len(f) > 2 and f.lower() not in {"the", "and", "with", "from"}:
                     hits.add(f.lower())

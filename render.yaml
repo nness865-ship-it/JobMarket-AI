@@ -17,9 +17,9 @@ services:
       - key: JWT_SECRET
         generateValue: true
 
-  # Frontend Static Site
-  - type: web
-    name: jobmarket-ai-web
+# Separate key for Static Sites in Render Blueprints
+static_sites:
+  - name: jobmarket-ai-web
     env: static
     buildCommand: npm install && npm run build
     staticPublishDir: dist

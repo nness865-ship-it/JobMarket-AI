@@ -1768,7 +1768,7 @@ def auth_google():
         print(f"DEBUG: Google Auth Success for {info.get('email')}")
     except Exception as e:
         print(f"DEBUG: Google Auth Failed: {str(e)}")
-        return jsonify({"error": "Invalid Google token"}), 401
+        return jsonify({"error": f"Google verification failed: {str(e)}"}), 401
 
     email = info.get("email")
     name = info.get("name")

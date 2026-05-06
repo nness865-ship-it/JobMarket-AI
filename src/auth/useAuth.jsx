@@ -56,8 +56,9 @@ export function AuthProvider({ children }) {
       }
       return { ok: false, error: "No token received" };
     } catch (e) {
-      console.error(e);
-      return { ok: false, error: e.response?.data?.error || "Google login failed" };
+      console.error("Login Error:", e);
+      const msg = e.response?.data?.error || e.message || "Google login failed";
+      return { ok: false, error: msg };
     }
   }, [refreshMe]);
 

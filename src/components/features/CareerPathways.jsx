@@ -33,30 +33,33 @@ export function CareerPathways({ email, userSkills, onGenerateRoadmap, onNavigat
   const fetchPromotionData = async () => {
     setLoading(true);
     setError('');
-    if (!profileData.current_job_role || !profileData.job_domain || !profileData.position_level) {
-      setError('Please complete your professional profile first to get personalized career pathways.');
-      setLoading(false);
-      return;
-    }
+    
+    // Fallback logic: Use currentRole if profile is missing
+    const effectiveRole = profileData.current_job_role || currentRole || 'Professional';
+    const effectiveDomain = profileData.job_domain || 'Technology';
+    const effectiveLevel = profileData.position_level || 'Mid-Level';
+
     try {
-      const res = await getPromotionPathway(email, userSkills, currentRole, profileData);
+      const res = await getPromotionPathway(email, userSkills, effectiveRole, {
+        ...profileData,
+        current_job_role: effectiveRole,
+        job_domain: effectiveDomain,
+        position_level: effectiveLevel
+      });
       setPromotionData(res.data);
     } catch (err) {
       console.error('Promotion pathway error:', err);
-      if (err.response?.status === 400) {
-        setError('Please complete your professional profile first to get personalized career pathways.');
-      } else {
-        setError('Failed to load promotion pathway. Please try again.');
-      }
+      setError('Failed to load promotion pathway. Please ensure your profile is complete.');
     } finally {
       setLoading(false);
     }
   };
+
   useEffect(() => {
-    if (Object.keys(profileData).length > 0 && !promotionData) {
+    if (email && !promotionData) {
       fetchPromotionData();
     }
-  }, [profileData]);
+  }, [email, profileData]);
   const handleRoleSubmit = (e) => {
     e.preventDefault();
     if (currentRole) {

@@ -1370,13 +1370,16 @@ def get_promotion_pathway():
         if email:
             user = get_db()["users"].find_one({"email": email}, {"_id": 0})
             if user:
-                current_job_role = current_job_role or user.get("current_job_role", "")
-                job_domain = job_domain or user.get("job_domain", "")
-                position_level = position_level or user.get("position_level", "")
-                current_salary = current_salary or user.get("current_salary", 0)
+                current_job_role = current_job_role or user.get("current_job_role", "Professional")
+                job_domain = job_domain or user.get("job_domain", "Technology")
+                position_level = position_level or user.get("position_level", "Mid-Level")
+                current_salary = current_salary or user.get("current_salary", 75000)
                 skills = skills or user.get("skills", [])
-    if not current_job_role or not job_domain or not position_level:
-        return jsonify({"error": "current_job_role, job_domain, and position_level are required for promotion pathway."}), 400
+    
+    # Final fallbacks to ensure the AI always has data to work with
+    current_job_role = current_job_role or "Professional"
+    job_domain = job_domain or "Technology"
+    position_level = position_level or "Mid-Level"
     normalized_skills = _normalize_skills(skills)
     if not GOOGLE_API_KEY:
         return jsonify({

@@ -400,14 +400,28 @@ def _current_email():
         return None
     payload = _decode_jwt(token)
     return payload.get("email") if payload else None
-def _require_auth_email():
+@app.route("/me", methods=["GET"])
+def me():
     email = _current_email()
     if not email: return jsonify({"error": "Unauthorized"}), 401
-    db = get_db()
-    user = db["users"].find_one({"email": email}) if db is not None else None
-    if not user: return jsonify({"user": {"email": email, "skills": []}})
-    user["_id"] = str(user["_id"])
-    return jsonify({"user": user})
+    token = _get_bearer_token()
+    payload = _decode_jwt(token) or {}
+    user_data = {
+        "email": email,
+        "name": payload.get("name", "User"),
+        "picture": payload.get("picture", ""),
+        "skills": [],
+        "is_demo": payload.get("is_demo", False)
+    }
+    try:
+        db = get_db()
+        if db is not None:
+            db_user = db["users"].find_one({"email": email})
+            if db_user:
+                db_user["_id"] = str(db_user["_id"])
+                return jsonify({"user": db_user})
+    except Exception: pass
+    return jsonify({"user": user_data})
 @app.route("/")
 def home():
     return jsonify({"message": "Job Market AI backend running 🚀"})
@@ -451,20 +465,25 @@ def upload_resume():
 def auth_google():
     data = request.get_json() or {}
     token = data.get("credential") or data.get("token")
-    if not token: return jsonify({"error": "Token/Credential required"}), 400
+    if not token: return jsonify({"error": "Token required"}), 400
     try:
         idinfo = id_token.verify_oauth2_token(token, google_requests.Request(), GOOGLE_CLIENT_ID)
         email = idinfo["email"]
         name = idinfo.get("name", "")
         picture = idinfo.get("picture", "")
-        db = get_db()
-        if db is not None:
-            db["users"].update_one(
-                {"email": email},
-                {"$set": {"email": email, "name": name, "picture": picture, "last_login": datetime.utcnow()}},
-                upsert=True
-            )
-        jwt_token = jwt.encode({"email": email, "exp": datetime.utcnow() + timedelta(days=7)}, JWT_SECRET, algorithm="HS256")
+        jwt_token = jwt.encode({
+            "email": email, "name": name, "picture": picture, 
+            "exp": datetime.utcnow() + timedelta(days=7)
+        }, JWT_SECRET, algorithm="HS256")
+        try:
+            db = get_db()
+            if db is not None:
+                db["users"].update_one(
+                    {"email": email},
+                    {"$set": {"email": email, "name": name, "picture": picture, "last_login": datetime.utcnow()}},
+                    upsert=True
+                )
+        except Exception: pass
         return jsonify({"token": jwt_token, "user": {"email": email, "name": name, "picture": picture}})
     except Exception as e:
         return jsonify({"error": str(e)}), 400

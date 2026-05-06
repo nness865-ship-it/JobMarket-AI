@@ -48,9 +48,9 @@ def get_db():
 @app.errorhandler(Exception)
 def handle_exception(e):
     import traceback
-    print(f"!!! PRODUCTION ERROR: {str(e)}")
-    print(traceback.format_exc())
-    return jsonify({"error": "Internal Server Error", "details": str(e)}), 500
+    error_msg = f"{str(e)}\n{traceback.format_exc()}"
+    print(f"!!! PRODUCTION ERROR:\n{error_msg}")
+    return jsonify({"error": str(e), "traceback": traceback.format_exc()}), 500
 try:
     import spacy
     nlp = spacy.load("en_core_web_sm")

@@ -1362,27 +1362,6 @@ def auth_demo():
     )
     print("DEBUG: Demo Auth Token generated")
     return jsonify({"token": token})
-@app.route("/me", methods=["GET"])
-def me():
-    email, err = _require_auth_email()
-    if err:
-        return err
-    user = get_db()["users"].find_one({"email": email}, {"_id": 0})
-    if not user:
-        return jsonify({"error": "User not found"}), 404
-    return jsonify({
-        "user": {
-            "email": user.get("email"),
-            "name": user.get("name"),
-            "picture": user.get("picture"),
-            "skills": user.get("skills", []),
-            "is_demo": user.get("is_demo", False),
-            "current_job_role": user.get("current_job_role", ""),
-            "job_domain": user.get("job_domain", ""),
-            "position_level": user.get("position_level", ""),
-            "current_salary": user.get("current_salary", 0)
-        }
-    })
 @app.route("/career-pathways/promotion", methods=["POST"])
 def get_promotion_pathway():
     data = request.json

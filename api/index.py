@@ -21,7 +21,7 @@ import random
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-import google.generativeai as genai
+import requests
 import json
 import re
 
@@ -38,12 +38,24 @@ SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))
 JWT_SECRET = os.getenv("JWT_SECRET", "dev-secret-change-me")
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
-# Initialize Gemini
-if GOOGLE_API_KEY:
-    genai.configure(api_key=GOOGLE_API_KEY)
-    model = genai.GenerativeModel('gemini-1.5-flash')
-else:
-    print("WARNING: GOOGLE_API_KEY not found in environment. Career Pathways will not work.")
+# Initialize Gemini Helper
+def _call_gemini(prompt):
+    if not GOOGLE_API_KEY:
+        print("WARNING: GOOGLE_API_KEY not found. Skipping AI call.")
+        return None
+    try:
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={GOOGLE_API_KEY}"
+        payload = {"contents": [{"parts": [{"text": prompt}]}]}
+        res = requests.post(url, json=payload, timeout=10)
+        if res.status_code == 200:
+            data = res.json()
+            return data['candidates'][0]['content']['parts'][0]['text']
+        else:
+            print(f"Gemini API Error: {res.status_code} - {res.text}")
+            return None
+    except Exception as e:
+        print(f"Gemini Request Failed: {e}")
+        return None
 
 client = MongoClient(MONGO_URI)
 db = client["jobpulse_db"]
@@ -479,11 +491,12 @@ def _extract_skills_from_text(text: str):
             # Only use Gemini if the text is long enough to warrant it
             if len(text) > 100:
                 prompt = f"Extract all technical skills, programming languages, and professional competencies from the following resume text. Return ONLY a comma-separated list of skills, no other text:\n\n{text[:4000]}"
-                response = model.generate_content(prompt)
-                ai_skills = [s.strip().lower() for s in response.text.split(',') if s.strip()]
-                for s in ai_skills:
-                    if len(s) < 30: # Avoid long sentence 'skills'
-                        hits.add(s)
+                response_text = _call_gemini(prompt)
+                if response_text:
+                    ai_skills = [s.strip().lower() for s in response_text.split(',') if s.strip()]
+                    for s in ai_skills:
+                        if len(s) < 30: # Avoid long sentence 'skills'
+                            hits.add(s)
         except Exception as e:
             print(f"Gemini extraction failed: {e}")
 

@@ -26,6 +26,7 @@ import json
 import re
 
 
+# Vercel Deployment Version: 1.0.4-CLEAN-BUILD
 load_dotenv()
 
 MONGO_URI = os.getenv("MONGO_URI")

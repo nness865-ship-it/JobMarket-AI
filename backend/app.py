@@ -2,8 +2,12 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import requests
 import math
-import spacy
-from spacy.matcher import PhraseMatcher
+try:
+    import spacy
+    from spacy.matcher import PhraseMatcher
+except Exception as e:
+    print(f"CRITICAL WARNING: spacy module could not be imported: {e}")
+    spacy = None
 import os
 from dotenv import load_dotenv
 from pymongo import MongoClient
@@ -19,6 +23,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import google.generativeai as genai
 import json
+import re
 
 
 load_dotenv()
@@ -54,7 +59,13 @@ app = Flask(__name__)
 CORS(app, supports_credentials=True)
 
 # Load NLP model once
-nlp = spacy.load("en_core_web_sm")
+try:
+    nlp = spacy.load("en_core_web_sm")
+    SPACY_AVAILABLE = True
+except Exception as e:
+    print(f"WARNING: spacy load failed: {e}. Using Regex fallback for skill extraction.")
+    SPACY_AVAILABLE = False
+    nlp = None
 
 
 # ─────────────────────────────────────────────────────────────
@@ -397,18 +408,23 @@ def _extract_skills_from_text(text: str):
         return []
 
     vocab = _skill_vocabulary()
-    doc = nlp(text)
-
-    # Use EntityRuler for more robust extraction if available, otherwise fallback
     hits = set()
-    
-    # 1. Check existing entities (from our custom rules or default model)
-    for ent in doc.ents:
-        if ent.label_.lower() in {"skill", "tech", "tool", "org", "product"}:
-            # Filter ORG/PRODUCT to avoid noise, but often tech is tagged as ORG
-            val = ent.text.lower().strip()
-            if val in vocab or len(val) < 20: # Heuristic
-                hits.add(val)
+
+    if SPACY_AVAILABLE and nlp:
+        doc = nlp(text)
+        # 1. Check existing entities (from our custom rules or default model)
+        for ent in doc.ents:
+            if ent.label_.lower() in {"skill", "tech", "tool", "org", "product"}:
+                # Filter ORG/PRODUCT to avoid noise, but often tech is tagged as ORG
+                val = ent.text.lower().strip()
+                if val in vocab or len(val) < 20: # Heuristic
+                    hits.add(val)
+    else:
+        # Simple word-based extraction if spacy is missing
+        words = set(re.findall(r'\b\w+\b', text.lower()))
+        for word in words:
+            if word in vocab:
+                hits.add(word)
 
     # 2. Advanced Regex matching for multi-word tech stack
     import re
